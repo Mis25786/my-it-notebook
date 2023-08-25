@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script
+      src="https://kit.fontawesome.com/7f832f4aea.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Kaushan+Script&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Tilt+Prism&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <title>Конспект-ІТ</title>
+  </head>
+  <body>
+    <header class="header">
+      <a class="logo" href="/index.html">Конспект-ІТ</a>
+      <div class="header-nav">
+        <a class="header-page" href="./html.html">html/css</a>
+        <a class="header-page" href="./image.html">Зображення</a>
+        <a class="header-page" href="./animations.html">Анімації/Ефекти</a>
+        <a class="header-page" href="./js.html">JavaScript</a>
+        <a class="header-page" href="./react.html">React</a>
+        <a class="header-page" href="./node.html">Node</a>
+        <a class="header-page" href="./commponents.html">Компоненти</a>
+        <a class="header-page" href="./resources.html">Ресурси/Бібліотеки</a>
+      </div>
+      <div class="header-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          class="header-search__input"
+          type="text"
+          name="text"
+          placeholder="site search"
+        />
+      </div>
+    </header>
+    <main class="main">
+      <!-- Створити проект -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Створити проект</h3>
+          <div>
+            <ol>
+              <li>Створити на коп'ютері папку з назвою проекта</li>
+              <li>Відкрити цю папку за допомогою VSC</li>
+              <li>Створити в VSC в цій папці файл index.html</li>
+              <li>
+                Відкрити файл index.html зажати клавішу Shift і натиснути 1
+                потім Enter
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <!-- /section -->
+        <!-- Як додати CSS до проекту -->
+      <div class="section">
+      <div class="container">
+          <h3 class="section-title">Як додати CSS до проекту</h3>
+          <div>
+            <ul>
+              <li>
+                <p>1) Створити на коп'ютері папку з назвою проекта</p>
+                <p>2) Відкрити цю папку за допомогою VSC</p>
+                <p>3) Створити в VSC в цій папці файл index.html</p>
+                <p>4) Створити в VSC в цій папці файл style.css</p>
+                <p>
+                  5) Відкрити файл index.html зажати клавішу Shift і натиснути 1
+                  потім Enter
+                </p>
+                <p>
+                  6) В файлі index.html в частині "head" прописуємо "< link
+                  rel="stylesheet" href="./тут вибираємо наш файл (style.css)"
+                  />"
+                </p>
+                <div>
+                 <p> Приклад: </p>
+                  < head> <br>
+    < meta charset="UTF-8" /> <br>
+    < meta http-equiv="X-UA-Compatible" content="IE=edge" /> <br>
+    < meta name="viewport" content="width=device-width, initial-scale=1.0" /> <br>
+       < link rel="stylesheet" href="./style.css" /> <br>
+    < title>Конспект-ІТ</> <br>
+  < /head> <br>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div> <!-- section -->
+      <!-- Велечина шрифту -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Велечина шрифту</h3>
+          <ul>
+            <li>Thin - 100</li>
+            <li>ExtraLight - 200</li>
+            <li>Light - 300</li>
+            <li>Regular - 400</li>
+            <li>Medium - 500</li>
+            <li>SemiBold - 600</li>
+            <li>Bold - 700</li>
+            <li>ExtraBold - 800</li>
+            <li>Black - 900</li>
+          </ul>
+        </div>
+      </div>
+      <!-- % який займає елемент на сторінці (ширина) -->
+      <div class="section">
+        <div class="container">
+         <div>
+           <h3 class="section-title">%-(ширина) який займає елемент на сторінці</h3>
+          <p>Ширину елемента ділимо на ширину сторінки і отримуємо %</p>
+          <p>ширена сторінки 1200пк <br>
+            ширена елемента 750пк <br>
+            750 / 1200 = 63%
+          </p>
+         </div>
+         <div>
+           <h3 class="section-title">Визначити висоту в % яку займає елемент на сторінці</h3>
+          <p>Висоту елемента ділимо на ширину контейнера в якому знаходиться елемент і отримуємо %</p>
+          <p>ширена контейнера 1200пк <br>
+            висота елемента 440пк <br>
+            440 / 1200 = 36.66%
+          </p>
+         </div>
+        
+        </div>
+      </div>
+      <!-- /section -->
+      <!-- Оформлення тексту -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Оформлення тексту</h3>
+          <ul>
+            <li>
+              <h4 class="section-title__name">Відстань між буквами</h4>
+              <div>
+                <h5 class="section-title__value">letter-spacing</h5>
+                <p>letter-spacing: normal/length/initial/inherit;</p>
+              </div>
+              <a
+                href="https://developer.mozilla.org/ru/docs/Web/CSS/letter-spacing"
+                >приклад</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div> <!-- section-->
+          <!-- Корисні штуки -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Корисні штуки</h3>
+          <div>
+            <h4>Вибираємо всі елементи першої вкладеності</h4>
+            <p>
+              .main-block__body > *:not(:last-child) {
+  margin: 0 0 35px 0;
+}
+            </p>
+          </div>
+        </div>
+      </div> <!-- /section -->
+    </main>
+    <footer class="footer"></footer>
+  </body>
+</html>

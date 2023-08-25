@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script
+      src="https://kit.fontawesome.com/7f832f4aea.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Kaushan+Script&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Tilt+Prism&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <title>Конспект-ІТ</title>
+  </head>
+  <body>
+    <header class="header">
+      <a class="logo" href="/index.html">Конспект-ІТ</a>
+      <div class="header-nav">
+        <a class="header-page" href="./html.html">html/css</a>
+        <a class="header-page" href="./image.html">Зображення</a>
+        <a class="header-page" href="./animations.html">Анімації</a>
+        <a class="header-page" href="./js.html">JavaScript</a>
+        <a class="header-page" href="./react.html">React</a>
+        <a class="header-page" href="./node.html">Node</a>
+        <a class="header-page" href="./commponents.html">Компоненти</a>
+        <a class="header-page" href="./resources.html">Ресурси/Бібліотеки</a>
+      </div>
+      <div class="header-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          class="header-search__input"
+          type="text"
+          name="text"
+          placeholder="site search"
+        />
+      </div>
+    </header>
+    <main class="main">
+      <section class="section">
+        <div class="container">
+          <div>
+            <!-- Підключення JS до проекту -->
+            <h3 class="section-title">Підключення JS до проекту</h3>
+            <ol>
+              <h4>Щоб підключити JavaScript із зовнішнього файлу:</h4>
+              <li>Створіть в папці проекту файл з розширенням .js</li>
+              <li>
+                Потім вкажіть шлях до файлу скрипту в атрибуті src тегу script.
+              </li>
+              <img src="./img/js/підключення-джс.jpg" alt="" />
+            </ol>
+          </div>
+          <div>
+            <!-- Підключення декілька скриптів -->
+            <h3 class="section-title">Підключення декілька скриптів</h3>
+            <p>
+              Підключаючи декілька JavaScript-файлів до сторінки, інтерпретатор
+              обробляє їх у тому порядку, в якому вони зазначені в HTML-файлі.
+            </p>
+            <img src="./img/js/підключення-джс-2.jpg" alt="" />
+          </div>
+          <div>
+            <!-- Отримання типу значення змінної -->
+            <h3 class="section-title">Отримання типу значення змінної</h3>
+            <h4 class="section-title__name">Оператор typeof</h4>
+            <p>
+              const quantity = 17; <br />
+              console.log(typeof quantity); // "number"
+            </p>
+          </div>
+          <div>
+            <!-- Суворий режим -->
+            <h3 class="section-title">Суворий режим</h3>
+            <p>
+              Для того, щоб перевести скрипт в суворий режим, достатньо
+              зазначити директиву на початку js-файлу. Завжди пишіть код в
+              суворому режимі.
+            </p>
+            <p>
+              В файлі script.js прописуємо <br />
+              "use strict";
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Методи -->
+      <section class="section">
+        <div class="container">
+          <div>
+            <!-- Методи часто використовувані -->
+            <h3 class="section-title">Методи часто використовувані</h3>
+            <div>
+              <h4 class="section-title__name">Знайти кіл-ть символів рядка</h4>
+              <h5 class="section-title__value">.length</h5>
+              <p>"JavaScript is awesome".length;</p>
+            </div>
+            <div>
+              <!-- Зробить усі літери великими -->
+              <h4 class="section-title__name">Зробить усі літери великими</h4>
+              <h5 class="section-title__value">.toUpperCase()</h5>
+              <p>"JavaScript is awesome".toUpperCase();</p>
+            </div>
+            <div>
+              <!-- Зробить усі літери малими -->
+              <h4 class="section-title__name">Зробить усі літери малими</h4>
+              <h5 class="section-title__value">.toLowerCase()</h5>
+              <p>"JavaScript is awesome".toLowerCase();</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"></footer>
+  </body>
+</html>

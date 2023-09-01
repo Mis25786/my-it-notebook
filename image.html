@@ -20,60 +20,583 @@
     <title>Конспект-ІТ</title>
   </head>
   <body>
-    <header class="header">
-      <a class="logo" href="/index.html">Конспект-ІТ</a>
-      <div class="header-nav">
-        <a class="header-page" href="./html.html">html/css</a>
-        <a class="header-page" href="./image.html">Зображення</a>
-        <a class="header-page" href="./animations.html">Анімації</a>
-        <a class="header-page" href="./js.html">JavaScript</a>
-        <a class="header-page" href="./react.html">React</a>
-        <a class="header-page" href="./node.html">Node</a>
-        <a class="header-page" href="./commponents.html">Компоненти</a>
-        <a class="header-page" href="./resources.html">Ресурси/Бібліотеки</a>
-      </div>
-      <div class="header-search">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input
-          class="header-search__input"
-          type="text"
-          name="text"
-          placeholder="site search"
-        />
-      </div>
-    </header>
+    <div class="wrapper">
+      <header class="header">
+        <a class="logo" href="/index.html">Конспект-ІТ</a>
+        <div class="header-nav">
+          <a class="header-page" href="./html.html">html/css</a>
+          <a class="header-page" href="./image.html">Зображення</a>
+          <a class="header-page" href="./animations.html">Анімації/Ефекти</a>
+          <a class="header-page" href="./js.html">JavaScript</a>
+          <a class="header-page" href="./react.html">React</a>
+          <a class="header-page" href="./node.html">Node</a>
+          <a class="header-page" href="./commponents.html">Компоненти</a>
+          <a class="header-page" href="./resources.html">Ресурси/Бібліотеки</a>
+        </div>
+        <div class="header-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            class="header-search__input"
+            type="text"
+            name="text"
+            placeholder="site search"
+          />
+        </div>
+      </header>
+    </div>
     <main class="main">
-      <!-- Ефект на фото додати зверху колір (прозрачність) -->
-      <section class="section">
+      <!-- Оптимізація зображень -->
+      <div class="section">
         <div class="container">
+          <h3 class="section-title">Оптимізація зображень</h3>
           <div>
-            <h3 class="section-title">
-              Ефект на фото додати зверху колір (прозрачність)
-            </h3>
-            <p>opacity: 0.5;</p>
+            <a href="https://colorscheme.ru/html-colors.html" target="_blank"
+              >Кольори</a
+            >
+          </div>
+
+          <div>
+            <a href="https://squoosh.app/" target="_blank"
+              >Оптимізація зображень Squoosh</a
+            >
+          </div>
+          <div>
+            <a href="https://jakearchibald.github.io/svgomg/" target="_blank"
+              >Оптимізація зображень SVG SVGOMG
+            </a>
+          </div>
+          <div>
+            <a href="https://icomoon.io/" target="_blank"
+              >Іконки та створення спрайту SVG Icomoon
+            </a>
           </div>
         </div>
-      </section>
-      <!-- Зображення різної висоти / вирівняти їх за верхнім або нижнім
-              краєм -->
-      <section class="section">
+      </div>
+      <!-- Типи зображень -->
+      <div class="section">
         <div class="container">
-          <div>
-            <h3 class="section-title">
-              Зображення різної висоти / вирівняти їх за верхнім або нижнім
-              краєм
-            </h3>
-            <p>
-              .icon {<br />
-              display: flex; <br />
-              height: 48px; <br />
-              align-items: flex-start; <br />
-              justify-content: center; <br />
-              } <br />
-            </p>
-          </div>
+          <h3 class="section-title">Типи зображень</h3>
+          <ul>
+            <li>
+              <h4 class="section-title__name">Контентні зображення</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    несуть смислове навантаження, належать до змісту сторінки і
+                    допомагають донести до користувача корисну для нього
+                    інформацію. Вони додаються в HTML-розмітці за допомогою тегу
+                  </p>
+
+                  <p img>
+                    з обов'язково заповненим атрибутом alt, що описує
+                    зображення.
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Декоративні зображення</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    використовуються виключно для додаткового оформлення. Вони
+                    не несуть жодної корисної інформації і слугують виключно для
+                    «краси». Додаються через CSS як фон, використовуючи
+                    властивість background-image, або розмічаються в HTML тегом
+                  </p>
+
+                  <p svg>(у разі векторної графіки).</p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
-      </section>
+      </div>
+      <!-- Фон елемента -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Фон елемента</h3>
+          <ul>
+            <li>
+              <h4 class="section-title__name">Задає колір фону елемента.</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">background-color: колір</h5>
+                  <p></p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Задає фонове зображення елемента, адреса якого вказується
+                аргументом функції url().
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    background-image: url('адреса зображення');
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Управляє повторенням фонового зображення.
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    background-repeat: repeat | repeat-x | repeat-y | no-repeat
+                  </h5>
+                  <p>
+                    За замовчуванням воно повторюється за горизонталлю і
+                    вертикаллю. Це помітно, якщо зображення менше за розмір
+                    елемента.
+                  </p>
+                  <img
+                    src="./img/html-css/background-repeat.jpg"
+                    width="500"
+                    alt=""
+                  />
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Управляє положенням фонового зображення щодо меж елемента,
+                використовуючи дві координати - x за горизонталлю та y за
+                вертикаллю.
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">background-position: x y</h5>
+                  <p>
+                    /* Поставить фонове зображення по центру */ <br />
+                    background-position: 50% 50%; <br />
+
+                    /* Поставить фонове зображення 100px від лівого краю і 200px
+                    від верху */ <br />
+                    background-position: 100px 200px; <br />
+
+                    /* Поставить фонове зображення у нижній правий кут */ <br />
+                    background-position: right bottom; <br />
+
+                    /* Поставить фонове зображення у верхній лівий кут */ <br />
+                    background-position: left top; <br />
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Позиція зі зміщенням</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    backrgound-position: x зміщення-x y зміщення-y
+                  </h5>
+                  <p>backrgound-position: right 30px bottom 20px;</p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                дозволяє підкоригувати розміри зображення, вказавши необхідну
+                ширину і висоту.
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    background-size: auto | значення | cover | contain
+                  </h5>
+                  <p>
+                    /* Вихідні розміри зображення, значення за замовчуванням */
+                    <br />
+                    background-size: auto auto; <br />
+
+                    /* Ширина 200px, висота буде пропорційна */ <br />
+                    background-size: 200px; <br />
+
+                    /* Ширина 200px, висота 300px */ <br />
+                    background-size: 200px 300px; <br />
+                  </p>
+                  <img
+                    src="./img/html-css/background-size.jpg"
+                    width="400"
+                    alt=""
+                  />
+                </div>
+                <div class="section-icon"></div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                зафіксувати фон на місці і заборонити прокручуватися зі скролом.
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    background-attachment: scroll| fixed | inherit
+                  </h5>
+                  <p>
+                    scroll - фон прокручується разом із вмістом. Це значення за
+                    замовчуванням. <br />
+                    fixed - фон не прокручується, зафіксований на місці.
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Елементу можна задати кілька фонових зображень одночасно.
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    background-image: url('зображення-1'), url('зображення-2');
+                  </h5>
+                  <p>
+                    Достатньо перелічити їх у властивості background-image через
+                    кому. Для кожного зображення також можна задати значення
+                    інших властивостей фону, теж через кому в кожній
+                    властивості.
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Збірна властивість для одночасного встановлення значень всіх
+                розглянутих властивостей.
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    background: background-color background-image
+                    background-repeat background-position background-attachment
+                  </h5>
+                  <p>
+                    Якщо якийсь компонент не вказаний, буде взято його значення
+                    за замовчуванням.
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Визначає, яким чином вміст < img> (або < video>) буде
+                вміщуватися в контейнер, якщо їх розміри або пропорції не
+                збігаються.
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    object-fit: fill | contain | cover | scale-down | none
+                  </h5>
+                  <p>
+                    Властивість object-fit обрізає, розтягує або масштабує
+                    контентне зображення. Це схоже на background-size, але для
+                    контентних зображень.
+                  </p>
+                  <p>
+                    fill - зображення масштабується без збереження пропорцій,
+                    щоб повністю заповнити контейнер. Значення за замовчуванням.
+                    <br />
+                    contain - зображення масштабується зі збереженням пропорцій,
+                    щоб максимально заповнити контейнер. <br />
+                    cover - зображення масштабується зі збереженням пропорцій,
+                    щоб повністю заповнити контейнер. <br />
+                    scale-down - буде вибрано значення none або contain, щоб
+                    зображення було найменшого розміру. <br />
+                    none - зберігаються вихідні розміри зображення, задана
+                    висота і ширина не мають ефекту. <br />
+                  </p>
+                  <h5 class="section-title__value">
+                    Для того щоб ця техніка працювала, необхідні два
+                    обов'язкових кроки.
+                  </h5>
+                  <p>
+                    Перший - у контейнера (тумби) повинна бути явно вказана
+                    фіксована висота. Ширина може бути по ширині батька як у
+                    прикладі. <br />
+
+                    .thumb { height: 400px; width: 300px;} <br />
+
+                    Другий - зображення необхідно «вмістити» в контейнер,
+                    задавши висоту і ширину 100%. <br />
+
+                    .thumb > img { display: block; height: 100%; width: 100%;
+                    }<br />
+
+                    Після цього до зображення можна застосовувати властивість
+                    object-fit. <br />
+
+                    .thumb > img { display: block; height: 100%; width: 100%;
+                    object-fit: cover;}
+                  </p>
+                  <br />
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                дозволяє задати положення зображення в контейнері по осях X і Y.
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    object-position: position | initial | inherit
+                  </h5>
+                  <p>
+                    Це схоже на background-position, але для контентних
+                    зображень. <br />
+                    Значенням властивості можуть бути зарезервовані слова,
+                    абсолютні або відносні одиниці вимірювання. За замовчуванням
+                    значення 50% 50%, тобто вертикально і горизонтально по
+                    центру.
+                  </p>
+                  <p>
+                    object-position: 20% 30px <br />
+                    object-position: right top <br />
+                    object-position: 50px 50px <br />
+                    object-position: left bottom
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Робота з зображеннями -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Робота з зображеннями</h3>
+          <ul>
+            <li>
+              <h4 class="section-title__name">
+                За замовчуванням ставити для зображення, для видалення нижнього
+                відступу
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    img { <br />
+                    display: block; <br />
+                    max-width: 100%; <br />
+                    height: auto; <br />
+                    }
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Картка із зображенням</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    Стандартна проблема - картка з горизонтально розташованим
+                    контентом і зображенням.
+                  </h5>
+                  <p>
+                    Проблема вирішується просто - достатньо перевизначити
+                    значення align-items у flex-контейнера. У цьому випадку
+                    підійде значення flex-start, щоб елементи притискалися до
+                    початку поперечної осі.
+                  </p>
+                  <p>
+                    .card { display: flex; <br />
+                    align-items: flex-start;}
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Ефект на фото додати зверху колір (прозрачність)
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>opacity: 0.5;</p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Зображення різної висоти / вирівняти їх за верхнім або нижнім
+                краєм
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    .icon {<br />
+                    display: flex; <br />
+                    height: 48px; <br />
+                    align-items: flex-start; <br />
+                    justify-content: center; <br />
+                    } <br />
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Атрибути -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Атрибути</h3>
+          <ul>
+            <li class="padding-buttom__10">
+              <h4 class="section-title__name">img</h4>
+              <div>
+                <h5 class="section-title__value">
+                  src="https://images.pexels.com/photos/67112/pexels-photo-67112.jpeg"
+                </h5>
+                <p>
+                  обов'язковий атрибут, вказує адресу зображення. Шлях до
+                  зображення може бути абсолютним, або відносним.
+                </p>
+                <h5 class="section-title__value">
+                  alt="Macbook Air на сірому дерев'яному столі"
+                </h5>
+                <p>обов'язковий атрибут, альтернативний опис.</p>
+                <h5 class="section-title__value">width="400"</h5>
+                <h5 class="section-title__value">height="400"</h5>
+                <p>
+                  задають розміри зображення в пікселях. Без зазначення розмірів
+                  зображення відображається на сторінці в оригінальному розмірі.
+                  Якщо задати тільки одну величину, браузер автоматично вирахує
+                  іншу для збереження пропорцій.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Зображення з підписом -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Зображення з підписом</h3>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div>
+                <h5 class="section-title__value"></h5>
+                <p>
+                  < figure> <br />
+                  < img src="адреса зображення" alt="альтернативний текст" />
+                  <br />
+                  < figcaption>Текст пояснення, який буде під зображенням<
+                  /figcaption> <br />
+                  < /figure>
+                </p>
+                <p>
+                  Таке завдання часто зустрічається в статтях, де багато
+                  зображень з поясненням під або над зображенням, наприклад
+                  ілюстрації, графіки або діаграми. Якщо необхідно розмітити
+                  зображення з підписом, можна використовувати теги < img> та
+                  абзац < p>. Але, саме для таких завдань існують семантичні
+                  теги < figure> і < figcaption>.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </main>
     <footer class="footer"></footer>
   </body>

@@ -521,6 +521,29 @@
             </li>
 
             <li>
+              <h4 class="section-title__name">Зображення з підписом</h4>
+              <div>
+                <h5 class="section-title__value"></h5>
+                <p>
+                  < figure> <br />
+                  < img src="адреса зображення" alt="альтернативний текст" />
+                  <br />
+                  < figcaption>Текст пояснення, який буде під зображенням<
+                  /figcaption> <br />
+                  < /figure>
+                </p>
+                <p>
+                  Таке завдання часто зустрічається в статтях, де багато
+                  зображень з поясненням під або над зображенням, наприклад
+                  ілюстрації, графіки або діаграми. Якщо необхідно розмітити
+                  зображення з підписом, можна використовувати теги < img> та
+                  абзац < p>. Але, саме для таких завдань існують семантичні
+                  теги < figure> і < figcaption>.
+                </p>
+              </div>
+            </li>
+
+            <li>
               <h4 class="section-title__name"></h4>
               <div class="section-box">
                 <div>
@@ -570,28 +593,232 @@
       <!-- Зображення з підписом -->
       <div class="section">
         <div class="container">
-          <h3 class="section-title">Зображення з підписом</h3>
+          <h3 class="section-title">Векторна графіка</h3>        
           <ul>
             <li>
               <h4 class="section-title__name"></h4>
-              <div>
-                <h5 class="section-title__value"></h5>
-                <p>
-                  < figure> <br />
-                  < img src="адреса зображення" alt="альтернативний текст" />
-                  <br />
-                  < figcaption>Текст пояснення, який буде під зображенням<
-                  /figcaption> <br />
-                  < /figure>
-                </p>
-                <p>
-                  Таке завдання часто зустрічається в статтях, де багато
-                  зображень з поясненням під або над зображенням, наприклад
-                  ілюстрації, графіки або діаграми. Якщо необхідно розмітити
-                  зображення з підписом, можна використовувати теги < img> та
-                  абзац < p>. Але, саме для таких завдань існують семантичні
-                  теги < figure> і < figcaption>.
-                </p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    Векторна графіка має ряд переваг.
+                  </h5>
+                  <p>
+                    Масштабування - на відміну від растрової графіки, SVG не
+                    втрачає якість при масштабуванні. <br />
+                    Розмір файлу - векторні зображення важать набагато менше
+                    растрових, якщо використовуються для іконок або іншої
+                    абстрактної графіки. Використання вектора для
+                    фотореалістичних зображень навпаки призводить до величезного
+                    розміру файлу. <br />
+                    Динамічність - за допомогою CSS і JavaScript можна змінювати
+                    параметри векторного зображення, наприклад колір або рамки.
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Використання</h4>
+              <p>
+                Існує кілька способів використання векторної графіки, кожен має
+                свої плюси і мінуси.
+              </p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">В елементі < img></h5>
+                  <p>
+                    Такий підхід нічим не відрізняється від використання
+                    растрових зображень, достатньо вказати шлях до зображення.
+                  </p>
+                  <p>
+                    < img
+                    src="https://image/upload/v1614773221/codepen/cat_segyum.svg"
+                    alt="A cat" width="60" />
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Як фон елемента</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Векторне зображення може використовуватися як фон елемента у
+                    властивості background-image. Можна робити будь-які
+                    маніпуляції з векторним фоном, так само як і з растровою
+                    графікою.
+                  </p>
+                  <p>
+                    .box { background-image: <br />
+                    url("https://image/upload/v1614773221/codepen/cat_segyum.svg");
+                    <br />
+                    background-repeat: no-repeat; <br />
+                    background-size: contain;}
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Вбудований SVG</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Попередні два методи підходять для статичної графіки,
+                    наприклад абстрактного фону або іконок, для яких не потрібно
+                    додавати ефект ховеру або фокусу. Але у них є один суттєвий
+                    недолік - відсутня можливість динамічно змінити колір або
+                    інші характеристики векторного зображення з CSS.
+                  </p>
+                  <p>
+                    SVG-зображення можна додати повністю в HTML - це називається
+                    вбудований SVG (inline svg).
+                  </p>
+                  <h5 class="section-title__value">
+                    У такого підходу є ряд суттєвих мінусів.
+                  </h5>
+                  <p>
+                    Вбудований SVG-код збільшує розмір HTML-файлу. <br />
+                    Неможливо повторно використовувати однакове зображення без
+                    дублювання коду. <br />
+                    Підтримка і редагування вбудованого SVG - трудомісткі.
+                    <br />
+                    Браузер не може кешувати вбудовані фігури, на відміну від
+                    зовнішніх SVG-файлів.
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">SVG-спрайт</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    SVG-спрайт - це сучасна техніка, яку застосовують у
+                    більшості випадків.
+                  </h5>
+                  <p>
+                    Один файл для всіх SVG-іконок веб-сайту. <br />
+                    Файл спрайту кешується браузером і не буде завантажений під
+                    час повторних візитів. <br />
+                    Іконкам в спрайті можна змінювати колір та інші
+                    характеристики через CSS.
+                  </p>
+                  <p>
+                    < svg> <br />
+                    < use
+                    href="./путь-к-свг-спрайту/имя-спрайта.svg#ідентифікатор-символа"><
+                    /use> <br />
+                    < /svg>
+                  </p>
+                  <p>Отже, всередині SVG-спрайту є набір елементів < svg> і < symbol>, що описують повністю увесь SVG-спрайт і кожну фігуру окремо. Кожному <symbol> заданий унікальний ідентифікатор. В HTML використовуємо атрибут href і звертаємося до SVG-символа через хеш (#) і його ідентифікатор.</p>
+
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+          </ul>
+
+          <h3 class="section-title">Оформлення фігур</h3>
+          <ul>
+            
+            <li>
+              <h4 class="section-title__name">Управляє кольором заливання.</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Властивість fill</h5>
+                  <p></p>/* Встановлюємо колір заливання у спокійному стані. */ <br>
+                  .icon {  fill: #2a2a2a;}
+                  <p>/* Змінюємо колір заливання при ховері. */ <br>
+                    .icon:hover {  fill: #ff6347;}</p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Управляє тільки прозорістю кольору заливання (загальної площі)</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Властивість fill-opacity</h5>
+                  <p>.icon {  fill: #2a2a2a;  fill-opacity: 0.7;}</p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Встановлює колір обведення. (контура)</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Властивість stroke</h5>
+                  <p>.icon {  stroke: #f44336;}</p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Контролює товщину обведення. (контура)</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Властивість stroke-width</h5>
+                  <p>.icon {  stroke: #f44336;  stroke-width: 3px;}</p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Управляє тільки прозорістю кольору обведення, (контура)</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Властивість stroke-opacity</h5>
+                  <p>.icon {  stroke: #f44336;  stroke-width: 3px;  stroke-opacity: 0.7;}</p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
               </div>
             </li>
           </ul>

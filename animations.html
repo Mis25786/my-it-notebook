@@ -92,6 +92,302 @@
                 </div>
               </div>
             </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Градієнт -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Градієнт</h3>
+          <p>Градієнт - перехід від одного кольору до іншого.</p>
+          <p>
+            Градієнт в CSS - це фонове зображення, тому задається у властивості
+            background-image.
+          </p>
+          <div>
+            Додаткові матеріали
+            <a href="https://cssgradient.io">Генератор градієнтів</a>
+            <a href="https://uigradients.com/#Jupiter"
+              >Підбірка цікавих градієнтів</a
+            >
+            <a href="https://lea.verou.me/blog/2015/06/conical-gradients-today/"
+              >Конічні градієнти</a
+            >
+          </div>
+          <ul>
+            <li>
+              <h4 class="section-title__name">Лінійний градієнт</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    linear-gradient(< напрямок>, < колір-1>, < колір-2>, <
+                    колір-3>, ...)
+                  </h5>
+                  <p>
+                    Створюється за допомогою двох і більше кольорів, для яких
+                    заданий напрямок поширення.
+                  </p>
+                  <p>
+                    Напрямок градієнта може задаватися ключовими словами to top,
+                    to right, to bottom, to left та їх комбінаціями. Якщо
+                    напрямок не вказаний, використовується значення за
+                    замовчуванням - зверху вниз (to bottom).
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img
+                    src="./img/html-css/лінійний-градіент.jpg"
+                    width="200"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Суцільний градієнт</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Градієнт - це плавний перехід між кольорами, але якщо двом
+                    сусіднім з них задати однакові колорстопи, отримаємо
+                    суцільні кольори і різкий перехід між ними. Це можна
+                    використовувати для створення «смугастого» фону.
+                  </p>
+                  <p>
+                    background-image: linear-gradient( <br />
+                    to right, <br />
+                    #c64f4f 15%, <br />
+                    #09792b 15%, <br />
+                    #09792b 40%, <br />
+                    #00b9ff 40%, <br />
+                    #00b9ff 65%, <br />
+                    #ffb800 65% <br />
+                    );
+                  </p>
+                  <p>
+                    для вертикального або кутового поширення в елемента повинна
+                    бути висота від його контенту або явно вказана.
+                  </p>
+                  <p>
+                    /* Задаємо body мінімальну висоту, що дорівнює 100% висоти
+                    в'юпорту */ <br />
+                    div.tile {height: 100vh; <br />
+                    /* І додаємо вертикальний градієнт з to bottom або кутовий,
+                    наприклад з to bottom right */ }
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img
+                    src="./img/html-css/Суцільний-градієнт-2.jpg"
+                    width="400"
+                    alt=""
+                  />
+                  <img
+                    src="./img/html-css/Суцільний-градієнт.jpg"
+                    width="400"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Радіальний градієнт</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    radial-gradient(< тип> < центр>, < колір-1>, < колір-2>, <
+                    колір-3>, ...);
+                  </h5>
+                  <p>
+                    Радіальний градієнт відрізняється від лінійного тим, що
+                    кольори виходять з центру градієнта і рівномірно поширюються
+                    назовні, приймаючи форму еліпса.
+                  </p>
+                  <p>
+                    Форма градієнта визначається ключовими словами circle або
+                    ellipse
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img
+                    src="./img/html-css/Радіальний-градієнт.jpg"
+                    width="400"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Повторюваний градієнт</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Повторюваний градієнт може бути лінійним або радіальним, і
+                    дозволяє зробити цікаві декоративні ефекти. Найчастіше
+                    повторюваний градієнт роблять суцільним.
+                  </p>
+                  <p>
+                    background-image: repeating-linear-gradient( <br />
+                    to left, <br />
+                    blue, <br />
+                    blue 20px, <br />
+                    red 20px, <br />
+                    red 40px /* Визначає розмір градієнта */ );
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img
+                    src="./img/html-css/Повторюваний-градієнт.jpg"
+                    width="400"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Смугасті заголовки</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Повторюваний градієнт можна використовувати для створення
+                    цікавих ефектів, наприклад «смугастих» заголовків або
+                    будь-яких інших елементів.
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img
+                    src="./img/html-css/Смугасті-заголовки.jpg"
+                    width="400"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Колорстоп (color-stop)</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    За замовчуванням кольори градієнта розподіляються
+                    рівномірно, але цим можна управляти, використовуючи
+                    колорстопи - точки переходу, до яких буде поширюватися
+                    певний колір. Значенням можуть бути пікселі або відсотки.
+                  </p>
+                  <p>
+                    background-image: linear-gradient( <br />
+                    to right, <br />
+                    #f44336 15%, - червоний колір (#f44336) буде поширюватися
+                    від 0% до 15%<br />
+                    #09792b 40%, - зелений колір (#09792b) буде поширюватися від
+                    15% до 40%<br />
+                    #00b9ff 65%, - синій колір (#00b9ff) буде поширюватися від
+                    40% до 65%<br />
+                    #ffb800 - жовтий колір (#ffb800) буде поширюватися від 65%
+                    до 100%); <br />
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="./img/html-css/Колорстоп.jpg" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Тінь елемента -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Тінь елемента</h3>
+          <a href="https://cssgenerator.org/box-shadow-css-generator.html">Генератор тіні</a>
+          <ul>
+            <li>
+              <h4 class="section-title__name">
+                задає елементу одну або більше тіней.
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">box-shadow: < x-offset> < y-offset> < blur> < spread> < color></></h5>
+                  <p>x-offset - горизонтальне зміщення. Додатне значення зміщує тінь вправо від блоку, від'ємне - вліво. Обов'язкове значення. <br>
+                    y-offset - вертикальне зміщення. Додатне значення зміщує тінь вниз, від'ємне - вгору. Обов'язкове значення. <br>
+                    blur - радіус розмитості. Що більше значення, то розмитіша тінь. Необов'язкове значення. <br>
+                    spread - радіус поширення. Додатне значення збільшує тінь, від'ємне - зменшує. Необов'язкове значення. <br>
+                    color - колір тіні. Можна використовувати будь-який формат запису кольору. Необов'язкове значення. <br></p>
+                    <p>.post {box-shadow: 10px 10px 8px 2px rgba(0, 0, 0, 0.3);}</p>
+                    <h5 class="section-title__value">Тінь з однієї сторони</h5>
+                    <p>Використовуючи від'ємний радіус поширення (значення spread), можна стиснути тінь блоку, зробивши її меншою за розмір елемента, і задати зміщення тільки з однієї сторони</p>
+                    <p>.post:nth-child(1) {  box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.3);}</p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Внутрішня тінь</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">box-shadow: inset < x-offset> < y-offset> < blur> < spread> < color>< /color></h5>
+                  <p>Зміщення, розмитість і поширення тіні відбувається всередині елемента і візуально обмежено його рамкою.</p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Багатошарова тінь</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">На один елемент можна додати кілька тіней, вказавши їх через кому.</h5>
+                  <p>box-shadow: < x-offset> < y-offset> < blur> < spread> < color>, <br>
+                    < x-offset> < y-offset> < blur> < spread> < color>, <br>
+                    < x-offset> < y-offset> < blur> < spread> < color>,
+                    ...</p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Декоративні ефекти</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>Використовуючи тіні, псевдоелементи, а також трансформації і позиціонування, яке ми розглянемо далі у курсі, можна робити дуже цікаві ефекти. Наприклад, візуально загнуті кути картки.</p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
 
             <li>
               <h4 class="section-title__name"></h4>

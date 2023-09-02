@@ -389,18 +389,631 @@
               </div>
             </li>
 
-            <li>
-              <h4 class="section-title__name"></h4>
+        <li>
+          <h4 class="section-title__name"></h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value"></h5>
+              <p></p>
               <div class="section-box">
-                <div>
-                  <h5 class="section-title__value"></h5>
-                  <p></p>
-                </div>
-                <div class="section-icon">
-                  <img src="" width="400" alt="" />
-                </div>
+                <img src="" width="400" alt="" />
               </div>
-            </li>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- CSS-переходи -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">CSS-переходи</h3>
+          <p>
+            CSS-переходи дозволяють анімувати зміну значення властивості з плином часу, керуючи швидкістю цього переходу. Зміна властивостей відбувається під час настання певної події, яка описується відповідним псевдокласом, наприклад :hover. <br>
+
+Перехід завжди має тільки два стани - початкове та кінцеве значення властивості, і вміє змінювати це значення A > B і B > A за вказаний час. Для анімацій з великою кількістю станів необхідно використовувати CSS-анімацію.
+          </p>
+          <img src="./img/html-css/CSS-переходи.jpg" width="400" alt="">
+          <ul>
+            
+        <li>
+          <h4 class="section-title__name">Наступні чотири властивості управляють різними параметрами переходу.</h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value"></h5>
+              <p>
+                transition-property: < властивість> <br>
+                transition-duration: < час> <br>
+                transition-timing-function: < функція розподілу часу> <br>
+                transition-delay: < затримка> 
+              </p>
+              <p>Все, що необхідно зробити - це вказати початкові значення анімованих властивостей і значення властивостей переходу, після чого під час події, наприклад :hover, задати нові значення властивостей, до яких ми хочемо анімувати елемент.</p>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h4 class="section-title__name"></h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value">Властивість transition-property</h5>
+              <p>Задає властивості, до яких буде застосований ефект переходу. Значенням може бути одна властивість або список властивостей через кому. За замовчуванням значення all - анімуються всі можливі властивості.</p>
+              <p>.box {  background-color: teal;  transition-property: background-color;} <br>
+                .box:hover {  background-color: orange;}</p>
+                <p>Список властивостей, які можуть бути анімовані в майбутньому може змінитися. Тому обов'язково необхідно вказувати властивість, яку потрібно анімувати, інакше будуть анімовані всі можливі властивості елемента, що призведе до несподіваних результатів.</p>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+        
+        <li>
+          <h4 class="section-title__name"></h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value">Властивість transition-duration</h5>
+              <p>Якщо тривалість переходу не вказана, то зміна значень відбудеться миттєво без анімації. Властивість transition-duration задає проміжок часу, протягом якого повинен відбутися перехід. Вказується в секундах, наприклад 2s або 0.5s, або в мілісекундах - 2000ms і 500ms відповідно. Якщо різні властивості мають різні значення часу переходу, то вони перелічуються через кому.</p>
+              <p>.box { <br>
+                background-color: teal; <br>
+                transition-property: background-color; <br>
+                transition-duration: 1000ms; <br>
+              } </p>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h4 class="section-title__name"></h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value">Властивість transition-timing-function</h5>
+              <p>Задає функцію розподілу часу, яка описує швидкість переходу властивості від одного значення до іншого за час, вказаний в transition-duration, тобто поведінка анімації.</p>
+              <a href="https://cubic-bezier.com/#.17,.67,.83,.67" target="_blank">ПРИКЛАД</a>
+              <p>
+                .box { <br>
+                  background-color: teal; <br>
+                  transition-property: background-color; <br>
+                  transition-duration: 1000ms; <br>
+                  transition-timing-function: linear; <br>
+                }
+              </p>
+              <p>В CSS існує кілька ключових слів для опису базових функцій Безьє. За замовчуванням використовується значення ease - перехід починається повільно, швидко прискорюється, а потім знову сповільнюється в кінці. Решта ключових слів: linear, ease-in, ease-out, і ease-in-out.</p>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h4 class="section-title__name"></h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value">Властивість transition-delay</h5>
+              <p>Затримка, після якої почнеться анімація переходу. Використовується для побудови сценаріїв - послідовності переходів різних елементів. За замовчуванням задано значення 0s.</p>
+              <p>
+                 .box { <br>
+                  background-color: teal; <br>
+                  transition-property: background-color; <br>
+                  transition-duration: 1000ms; <br>
+                  transition-timing-function: linear; <br>
+                  transition-delay: 500ms; <br>
+                }
+              </p>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+        </li>
+
+        <li>
+          <h4 class="section-title__name">Короткий запис переходу</h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value">transition: [property] [duration] [timing-function] [delay]</h5>
+              <p>Якщо анімується кілька властивостей, то набір значень для кожного з них розділяється комою. Необхідно обов'язково вказати властивість і час переходу, функцію часу і затримку можна не вказувати, тоді для них будуть використані значення за замовчуванням.</p>
+              <p>transition: background-color 500ms linear, transform 500ms ease-in-out;</p>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h4 class="section-title__name"></h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value"></h5>
+              <p></p>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Анімовані властивості -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Анімовані властивості</h3>
+          <p>З усіх властивостей, які можуть бути анімовані, рекомендується, якщо можливо, використовувати всього дві: opacity (прозорість) і transform (трансформація). Здебільшого анімація інших властивостей не суттєво вплине на продуктивність сторінки, але краще дотримуватися цього правила, щоб створювати максимально продуктивну анімацію.</p>
+          <p></p>
+          <ul>
+            
+        <li>
+          <h4 class="section-title__name">CSS-анімація</h4>
+          <p>Як і переходи, анімація надає веб-сторінкам динамічність, але, на відміну від переходів, анімації не потрібен обов'язковий ініціатор (подія), її можна повторити нескінченну кількість разів, і між початковим і кінцевим станами може бути будь-яка кількість проміжних станів.</p>
+          <img src="./img/html-css/CSS-анімація.jpg" width="400" alt="">
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value">Оголошення анімації</h5>
+              <p>Анімація оголошується директивою @keyframes, яка дозволяє описати набір кадрів (frames, станів) анімації, яких повинно бути як мінімум два (початковий і кінцевий).</p>
+              <p>/* Ім'я повинно бути описовим, тобто, що це за анімація. */ <br>
+                @keyframes ім'яАнімації {  /* Тут будуть описуватися кадри */}</p>
+              <p>Кадри визначають, у який момент часу змінюються анімовані властивості, і описуються ключовими словами from (псевдонім 0%) і to (псевдонім 100%) або, найчастіше, у вигляді відсотків в діапазоні 0%-100%, оскільки відсотки дозволяють вказати довільне значення.</p>
+              <p>@keyframes changeBgColor { <br>
+                0% {              background-color: teal;                } <br>
+                50% {                 background-color: orange;                } <br>
+                100% {                background-color: deepskyblue;                 } <br>
+                }</p>
+              <p>В анімації не вказується час або елемент, до якого вона буде застосовуватися, це означає, що одну і ту саму анімацію можна використовувати повторно для різних елементів.</p>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+  
+        <li>
+          <h4 class="section-title__name">Властивості анімації</h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value">animation-name <br> Щоб використовувати вже оголошену анімацію, потрібно вказати її ім'я як значення для властивості animation-name.</h5>
+              <p>.box {  animation-name: changeBgColor;}</p>
+              <p></p>
+
+              <h5 class="section-title__value">animation-duration <br> Встановлює тривалість анімації - час, за який будуть пройдені всі кадри.</h5>
+              <p>Задається в секундах або мілісекундах. Якщо не поставити тривалість, анімація буде миттєвою. <br>
+              За замовчуванням анімація відбувається один раз і фінальні значення анімованих властивостей не зберігаються, натомість елемент повертається до свого вихідного стану.</p>
+              <p>.box {  animation-name: changeBgColor;  animation-duration: 3000ms;}</p>
+
+              <h5 class="section-title__value">animation-timing-function <br> Встановлює функцію розподілу часу для анімації</h5>
+              <p>значення аналогічні transition-timing-function в CSS-переходах.</p>
+              <p>
+                .box { <br>
+                  animation-name: changeBgColor; <br>
+                  animation-duration: 3000ms; <br>
+                  animation-timing-function: linear; <br>
+                }
+              </p>
+
+              <h5 class="section-title__value">animation-delay <br> Встановлює затримку перед початком анімації в секундах або мілісекундах.</h5>
+              <p>значення аналогічні transition-timing-function в CSS-переходах.</p>
+              <p>
+                .box { <br>
+                  animation-name: changeBgColor; <br>
+                  animation-duration: 3000ms; <br>
+                  animation-timing-function: linear; <br>
+                  animation-delay: 1000ms; <br>
+                }
+              </p>
+
+              <h5 class="section-title__value">animation-iteration-count<br> Встановлює кількість повних повторень анімації.</h5>
+              <p>значення аналогічні transition-timing-function в CSS-переходах.</p>
+              <p>
+                .box { <br>
+                  animation-name: changeBgColor; <br>
+                  animation-duration: 3000ms; <br>
+                  animation-timing-function: linear; <br>
+                  animation-iteration-count: 5; <br>
+                }
+              </p>
+              <p>Значення може бути цілим додатним числом або ключовим словом infinite - це зробить анімацію нескінченною.</p>
+              <img class="animation-iteration-count" src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt=Sun width="300" height="300">
+
+              <h5 class="section-title__value">animation-direction<br> Контролює напрямок відтворення анімації </h5>
+              <p> від початкового до кінцевого кадру, навпаки від кінцевого кадру до початкового, або, можливо необхідно, щоб порядок чергувався на кожному повторенні.</p>
+
+              <p>
+                .box { <br>
+                  animation-name: changeBgColor; <br>
+                  animation-duration: 3000ms; <br>
+                  animation-timing-function: linear; <br>
+                  animation-iteration-count: infinite; <br>
+                  animation-direction: alternate; <br>
+                }
+              </p>
+              <p>normal - анімація відтворюється від початкового до кінцевого кадру, після чого відразу повертається у початковий кадр для наступного повторення (скидається до початкового стану). Це значення за замовчуванням. <br>
+                  reverse - анімація відтворюється у зворотному напрямку, починаючи від кінцевого кадру і до початкового, після чого відразу повертається у кінцевий кадр для наступного повторення. <br>
+                  alternate - перший раз відтворення починається від початкового і до кінцевого кадру, після чого відбувається зміна напрямку на кожному наступному повторенні. <br>
+                  alternate-reverse - перший раз відтворення починається від кінцевого і до початкового кадру, після чого відбувається зміна напрямку на кожному наступному повторенні.
+              </p>
+              <div>
+                <div class="animation-direction">normal</div>
+                <div class="animation-direction">reverse</div>
+                <div class="animation-direction">alternate</div>
+                <div class="animation-direction">alternate-reverse</div>
+              </div>
+
+              <h5 class="section-title__value">animation-fill-mode: none | forwards | backwards | both<br>Визначає, що відбувається зі стилями елемента до початку анімації і після її завершення. </h5>
+              <p>none - стилі анімації впливають на елемент тільки під час анімації. До і після анімації елемент знаходиться у своєму початковому стані. Значення за замовчуванням. <br>
+                forwards - стилі, застосовані в кінці анімації, залишаються на елементі після її завершення. <br>
+                backwards - стартові стилі анімації будуть застосовані до елемента ще до старту анімації. <br>
+                both - поєднує forwards і backwards, стилі застосовуються до і після анімації.</p>
+              <p></p>
+              <p></p>
+              <div class="container-animation-fill-mode">
+                  <div class="animation-fill-mode">none</div>
+                  <div class="animation-fill-mode">forwards</div>
+                  <div class="animation-fill-mode">backwards</div>
+                  <div class="animation-fill-mode">both</div>
+              </div>
+             
+              <h5 class="section-title__value">animation-play-state<br>Дозволяє призупинити відтворення анімації. </h5>
+              <p>За замовчуванням встановлено значення running. Якщо встановити значення paused, наприклад при :hover, анімація буде припинена, доки курсор миші знаходиться над елементом.</p>
+              <p></p>
+              <p></p>
+              <div class="animation-play-state"></div>
+
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+        
+        
+        <li>
+          <h4 class="section-title__name">Збірна властивість дозволяє коротше записати властивості анімації.</h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value">animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state]</h5>
+              <p>Значення необов'язкових властивостей можна пропустити або поміняти місцями. Виняток становлять властивості duration і delay - значення тривалості анімації завжди повинно зазначатися до затримки.</p>
+              <p>.box {  animation: magic 2s infinite;} <br>
+                .box {  animation: magic 2s 0.5s ease-in-out;} <br>
+                .box {  animation: magic 2s ease-in-out 0.5s forwards;} <br>
+                .box {  animation: magic 2s forwards infinite ease-out 0.5s;} <br>
+                @keyframes magic {  /* ... */}</p>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+        
+        <li>
+          <h4 class="section-title__name"></h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value"></h5>
+              <p></p>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+        
+        <li>
+          <h4 class="section-title__name"></h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value"></h5>
+              <p></p>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+          </ul>
+
+          <h3 class="section-title">Перспектива</h3>
+          <p>За замовчуванням елемент рендериться у 2D-просторі та, у разі трансформацій, - по осях X та Y, наприклад rotate, викривляється і виглядає неприродно.</p>
+          <ul>
+            
+        <li>
+          <h4 class="section-title__name">Функція perspective()</h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value"></h5>
+              <p>Це ще одна функція трансформації для властивості transform, яка дозволяє задати перспективу одному елементу, до якого застосовується.</p>
+              <p></p>
+              <div class="container-perspective">
+                  <div class="scene-perspective">
+                    <div class="box-perspective rotate-x">rotateX(60deg)</div>
+                  </div>
+                  <div class="scene-perspective">
+                    <div class="box-perspective rotate-y">rotateY(60deg)</div>
+                  </div>
+              </div>
+              <p>Встановивши perspective(400px), ми говоримо браузеру про необхідність рендерити div.box у 3D-просторі, додаючи елементу глибину сцени та об'єм. Значення 400px - це відстань до сцени, на якій знаходиться елемент. Що менше значення, то ближче глядач до сцени і навпаки.</p>
+              <p>У разі використання відразу на декількох елементах, у кожного створюється своя сцена і перспектива, тобто глядач ніби дивиться на кожен елемент з різної точки.</p>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h4 class="section-title__name">Дозволяє створити однакову перспективу цілій групі елементів на сцені. </h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value">Властивість perspective</h5>
+              <p>Ця властивість задається спільному контейнеру групи елементів (сцені), у нашому випадку - div.scene.</p>
+              <p></p>
+              
+                <div class="scene-perspective-group">
+                <div class="box-perspective-group"></div>
+                <div class="box-perspective-group"></div>
+                <div class="box-perspective-group"></div>
+                <div class="box-perspective-group"></div>
+                <div class="box-perspective-group"></div>
+                <div class="box-perspective-group"></div>
+                <div class="box-perspective-group"></div>
+                <div class="box-perspective-group"></div>
+                <div class="box-perspective-group"></div>
+              </div>
+              
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h4 class="section-title__name"></h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value"></h5>
+              <p></p>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+          </ul>
+
+          <h3 class="section-title">2D-трансформації</h3>
+          <ul>
+            
+        <li>
+          <h4 class="section-title__name">Відповідає за застосування однієї або більше трансформації до елемента.</h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value">transform: none | < тип трансформації> < тип трансформації> ...</h5>
+              <p>Трансформований елемент - це елемент з будь-яким встановленим значенням властивості transform, відмінним від none.</p>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h4 class="section-title__name">Масштабування</h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value"></h5>
+              <p>Функції scaleX(tx), scaleY(ty) і scale(tx, ty) масштабують блок по ширині та/або висоті, не впливаючи на геометрію оточуючих елементів. Якщо для scale() вказано одне значення, друге буде таке саме.</p>
+              <p>Початковий масштаб елемента - 1. Значення від 1 до 0 зменшують елемент, більше 1 - навпаки, збільшують. Наприклад, значення scale(1.25) - це 125% від початкового розміру, а scale(0.75) - 75%.</p>
+              <p>.box {  transform: scale(1.15);}</p>
+              <div class="container-scale">
+                <div class="box-scale"></div>
+                <div class="box-scale"></div>
+                <div class="box-scale"></div>
+              </div>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h4 class="section-title__name">Поворот</h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value"></h5>
+              <p>Функція rotate(кут) повертає елементи на задану кількість градусів (одиниця deg). Додатні значення повертають елемент за годинниковою стрілкою, від'ємні - проти.</p>
+              <p>
+                .box {  transform: rotate(45deg);}
+              </p>
+              <p>Значення можна передати не тільки в градусах, а й в «оборотах» (одиниця turn). Наприклад, rotate(0.5turn) - це половина обороту, аналог rotate(180deg).</p>
+              <div class="container-rotate">
+                <div class="box-rotate"></div>
+                <div class="box-rotate"></div>
+                <div class="box-rotate"></div>
+              </div>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h4 class="section-title__name">Зміщення</h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value"></h5>
+              <p>Функції translateX(tx), translateY(ty) і translate(tx, ty) переміщують елемент в горизонтальному (вісь X) та/або вертикальному (вісь Y) напрямках щодо початкового положення.</p>
+              <p>Додатні значення X зміщують елемент вправо, від'ємні - вліво. <br>
+                Додатні значення Y зміщують елемент вниз, від'ємні - вгору.</p>
+                <p>Значення можуть бути в пікселях або відсотках. Якщо значення задане у відсотках, то воно розраховується на підставі розміру елемента, що зміщується.</p>
+                <p>.box {  transform: translate(100px, 200px);}</p>
+                <div class="container-translate">
+                  <div class="box-translate"></div>
+                  <div class="box-translate"></div>
+                  <div class="box-translate"></div>
+                </div>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h4 class="section-title__name">Центрування елемента</h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value"></h5>
+              <p>Розглянемо прийом, за допомогою якого можна поставити абсолютно позиційований елемент точно по центру блоку, щодо якого він позиціонується. Техніка дуже проста і складається з трьох кроків.</p>
+              <p>Абсолютно позиціонуємо елемент щодо предка. <br>
+                Задаємо елементу властивості top і left зі значенням 50%, це поставить верхній лівий кут елемента рівно по центру предка. <br>
+                Задаємо елементу від'ємне зміщення (translate) по 50% його висоти і ширини. Це посуне елемент вгору і вліво, і відцентрує всередині предка.</p>
+                <p>
+                  .box { <br>
+                    position: absolute; <br>
+                    top: 50%; <br>
+                    left: 50%; <br>
+                    transform: translate(-50%, -50%); <br>
+                  }
+                </p>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h4 class="section-title__name">Викривлення</h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value"></h5>
+              <p>Функції skewX(кут), skewY(кут) і skew(x-кут, y-кут) використовуються для викривлення (нахилу, деформування) сторін елемента щодо координатних осей. Якщо для skew() вказане тільки одне значення, друге дорівнюватиме 0, тобто це буде аналог skewX().</p>
+              <p>.box {  transform: skew(30deg);}</p>
+              <div class="container-skew">
+                <div class="box-skew"></div>
+                <div class="box-skew"></div>
+                <div class="box-skew"></div>
+              </div>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h4 class="section-title__name">Точка трансформації</h4>
+          <div class="section-box">
+            <div>
+              <h5 class="section-title__value"></h5>
+              <p>Властивість transform-origin дозволяє змістити точку трансформації, щодо якої відбувається зміна положення, розміру або форми елемента. Значення за замовчуванням — center, або 50% 50%. Задається лише для трансформованих елементів. Не наслідується. <br>
+                У прикладі точка трансформації кожного елемента позначена синьою міткою. Значення можна вказувати не тільки ключовими словами, а також в пікселях або відсотках.</p>
+                <div class="container-transform-origin">
+                  <div class="box-transform-origin">top left</div>
+                  <div class="box-transform-origin">top center</div>
+                  <div class="box-transform-origin">top right</div>
+                  <div class="box-transform-origin">center left</div>
+                  <div class="box-transform-origin">center center</div>
+                  <div class="box-transform-origin">center right</div>
+                  <div class="box-transform-origin">bottom left</div>
+                  <div class="box-transform-origin">bottom center</div>
+                  <div class="box-transform-origin">bottom right</div>
+                </div>
+              <div class="section-box">
+                <img src="" width="400" alt="" />
+              </div>
+            </div>
+            <div class="section-icon">
+              <img src="" width="400" alt="" />
+            </div>
+          </div>
+        </li>
+
           </ul>
         </div>
       </div>

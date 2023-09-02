@@ -629,6 +629,137 @@
       
       
             <li>
+              <h4 class="section-title__name">управляє тим, як поводиться вміст елемента, якщо його розмір перевищує допустиму довжину або ширину.</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">overflow: visible | hidden | scroll | auto</h5>
+                  <p>
+                    visible - видимий переповнюючий вміст. Значення за замовчуванням. <br>
+                    hidden - все, що виходить за межі блоку, буде візуально приховане. <br>
+                    scroll - у разі переповнення з'являються горизонтальна і вертикальна смуги прокручування, навіть якщо потрібна тільки одна. <br>
+                    auto - схоже на значення scroll, але смуги прокручування показуються тільки там, де вони дійсно необхідні, а не всі відразу.
+                  </p>
+                  <h5 class="section-title__value">Значення visible</h5>
+                  <p>Якщо не вказати властивість overflow, то за замовчуванням встановлюється значення visible і, у разі переповнення, вміст буде відображатися за межами блоку.</p>
+                  <h5 class="section-title__value">Значення hidden</h5>
+                  <p>Протилежне значення visible. У цьому випадку будь-який переповнюючий вміст, який виходить за межі елемента, не відображається.</p>
+                  <p>Пам'ятайте, що у цьому випадку переповнюючий контент недоступний і прихований від користувача. Саме тому ми ніколи не задаємо фіксовану висоту текстовим блокам.</p>
+                  <h5 class="section-title__value">Значення scroll</h5>
+                  <p>Якщо встановлене значення scroll, переповнюючий вміст буде прихований, але з'являться скроллбари, щоб була можливість переглянути увесь контент. Водночас будуть показані обидва скроллбари - горизонтальний і вертикальний, навіть якщо потрібен тільки якийсь один.</p>
+                  <h5 class="section-title__value">Значення auto</h5>
+                  <p>Значення auto схоже на значення scroll, за винятком того, що показуються тільки ті смуги прокручування, які дійсно необхідні.</p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+      
+      
+      
+            <li>
+              <h4 class="section-title__name">Заокруглене зображення</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>Зображення поводяться таким чином, що візуально виходять за межі блоку, якщо їх розмір більший. Ця особливість спливає у прийомі заокруглення рамок зображення. Зображення обгортається в «тумбу», якій задаються стилі рамки та її радіуса. На допомогу приходить властивість overflow та її значення hidden, яке задається «тумбі» і контролює видимість переповнюючого контенту.</p>
+                  <p>
+                    * { box-sizing: border-box;} <br>
+                    img {  display: block;  max-width: 100%;} <br>
+                    .thumb {  border: 10px solid green;  border-radius: 50px;  width: 480px;  overflow: hidden;}
+                  </p>
+                  <div class="image-box">
+                    <img src="./img/html-css/заокруглене-зображення.jpg" width="200" alt="" />
+                    <img src="./img/html-css/заокруглене-зображення-2.jpg" width="200" alt="" />
+                  </div>
+                </div>
+              </div>
+            </li>
+      
+      
+      
+            <li>
+              <h4 class="section-title__name">Декоративний оверлей (ВИЇЖАЮЧЕ ВІКНО)</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>Властивість overflow зі значенням hidden використовується під час створення декоративних ефектів з появою прихованого контенту через межі блоку.</p>
+                  <div>
+                    <ol>
+                      <h3>Такий ефект реалізується за допомогою кількох простих кроків.</h3>
+                      <p>
+                        < div class="box"> <br>
+                          < div class="overlay">< /div> <br>
+                        < /div>
+                      </p>
+                      <li>
+                        <h4>Спочатку абсолютно позиціонуємо div.overlay щодо div.box і розтягуємо його на всю ширину і висоту div.box.</h4>
+                        <p>
+                          .box {position: relative;} <br>
+                          .overlay { <br>
+                            position: absolute; <br>
+                            top: 0; <br>
+                            left: 0; <br>
+                            width: 100%; <br>
+                            height: 100%; <br>
+                            }
+                        </p>
+                      </li>
+                      <li>
+                        <h4>Використовуючи властивість transform і translateX, зміщуємо div.overlay вліво на 100% його ширини.</h4>
+                        <p>
+                          .overlay { <br>
+                          position: absolute; <br>
+                          top: 0; <br>
+                          left: 0; <br>
+                          width: 100%; <br>
+                          height: 100%; <br>
+                          transform: translateX(-100%); <br>
+                          }
+                        </p>
+                      </li>
+                      <li>
+                        <h4>При ховері по div.box, використовуючи transform і translateX, повертаємо div.overlay у початкове положення.</h4>
+                        <p>
+                          .box:hover .overlay {  transform: translateX(0);}
+                        </p>
+                      </li>
+                      <li>
+                        <h4>Задаємо div.box властивість overflow зі значенням hidden, щоб візуально приховати div.overlay, коли той зміщений за межі div.box.</h4>
+                        <p>
+                          .box {  position: relative;  overflow: hidden;}
+                        </p>
+                      </li>
+                      <li>
+                        <h4>Додаємо div.overlay перехід для анімації властивості transform.</h4>
+                        <p>
+                          .overlay { <br>
+                          position: absolute; <br>
+                          top: 0; <br>
+                          left: 0; <br>
+                          width: 100%; <br>
+                          height: 100%; <br>
+                          transform: translateX(-100%); <br>
+                          transition: transform 250ms ease; <br>
+                          }                        </p>
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="box">
+                    <div class="overlay">
+                      <p>This content is hidden through transformation and only appears when hovering over <code>div.box</code></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+      
+      
+      
+            <li>
               <h4 class="section-title__name"></h4>
               <div class="section-box">
                 <div>
@@ -636,7 +767,7 @@
                   <p></p>
                 </div>
                 <div class="section-icon">
-                  <img src="" width="400" alt="" />
+                  <img src="" width="0" alt="" />
                 </div>
               </div>
             </li>

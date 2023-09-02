@@ -482,6 +482,26 @@
               </div>
             </li>
 
+            
+            <li>
+              <h4 class="section-title__name">Заокруглене зображення</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>Зображення поводяться таким чином, що візуально виходять за межі блоку, якщо їх розмір більший. Ця особливість спливає у прийомі заокруглення рамок зображення. Зображення обгортається в «тумбу», якій задаються стилі рамки та її радіуса. На допомогу приходить властивість overflow та її значення hidden, яке задається «тумбі» і контролює видимість переповнюючого контенту.</p>
+                  <p>
+                    * { box-sizing: border-box;} <br>
+                    img {  display: block;  max-width: 100%;} <br>
+                    .thumb {  border: 10px solid green;  border-radius: 50px;  width: 480px;  overflow: hidden;}
+                  </p>
+                  <div class="image-box">
+                    <img src="./img/html-css/заокруглене-зображення.jpg" width="200" alt="" />
+                    <img src="./img/html-css/заокруглене-зображення-2.jpg" width="200" alt="" />
+                  </div>
+                </div>
+              </div>
+            </li>
+
             <li>
               <h4 class="section-title__name">
                 Ефект на фото додати зверху колір (прозрачність)

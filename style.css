@@ -88,6 +88,10 @@ body {
 
   box-shadow: inset 0 0 7px 1px rgba(0, 0, 0);
 }
+.header-houm {
+  background-color: transparent;
+  box-shadow: none;
+}
 
 .logo {
   font-family: "Roboto", sans;
@@ -130,7 +134,8 @@ body {
 
 .section-box {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 .flex-box-img {
@@ -148,12 +153,12 @@ body {
 } */
 
 .start-page {
-  display: flex;
+  display: block;
   width: 100%;
   height: 100vh;
 
   background-image: url("./img/notebook-1.jpg");
-  flex-direction: column;
+  /* flex-direction: column; */
   background-size: cover;
   background-color: gray;
 }
@@ -164,8 +169,9 @@ body {
   align-items: center;
   justify-content: center;
 
-  margin-top: 200px;
   gap: 20px;
+  padding-top: 500px;
+  margin: 0;
 }
 
 .notebook-nav__link {
@@ -1081,3 +1087,457 @@ body {
   }
 }
 /* =================== */
+
+/* Forma */
+.form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  padding: 4px;
+  font-family: inherit;
+}
+
+.form-radio-bottom {
+  width: 225px;
+  border: 2px solid red;
+  padding: 10px;
+}
+
+.form-checkbox {
+  width: 230px;
+  border: 2px solid red;
+  padding: 10px;
+}
+/* ============ */
+
+/* Числа */
+.number {
+  width: 350px;
+  border: 2px solid red;
+  padding: 10px;
+}
+.form-number {
+  max-width: 300px;
+}
+
+.input-number {
+  padding: 8px;
+  font-family: inherit;
+}
+
+.label-number {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+/* =========== */
+
+/* Повзунки */
+.range {
+  width: 500px;
+  border: 2px solid red;
+  padding: 10px;
+}
+.form-label-range {
+  display: flex;
+  align-items: center;
+}
+/* ========== */
+
+/* Дата та час */
+.data {
+  width: 250px;
+}
+.input-data {
+  max-width: 300px;
+  padding: 8px;
+  font-family: inherit;
+}
+
+.label-data {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+/* ================ */
+
+/* textarea */
+.box-textarea {
+  width: 300px;
+  border: 2px solid red;
+  padding: 10px;
+}
+.input-textarea,
+textarea {
+  padding: 8px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.label-textarea {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+textarea {
+  resize: none;
+}
+/* ============ */
+
+/* select */
+.select-box {
+  width: 200px;
+  border: 2px solid red;
+  padding: 10px;
+}
+
+.label-select {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.select-select {
+  font-size: 16px;
+}
+/* ============ */
+
+/* details */
+.details {
+  width: 200px;
+  border: 2px solid red;
+  padding: 10px;
+}
+.label-datalist {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.input-datalist {
+  padding: 8px;
+  font-size: 16px;
+}
+/* ============ */
+
+/* Групування полів */
+.form-group-box {
+  width: 500px;
+  border: 2px solid red;
+  padding: 10px;
+}
+
+.form-box-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 300px;
+}
+
+.form-group-box-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.group-title-box-1 {
+  width: 100%;
+  font-weight: 700;
+}
+
+.form-label-box-1 {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.input-form-box-1 {
+  padding: 4px;
+}
+
+.form-field-box-1 {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+/* ==== 2 ==== */
+.form-group-box-2 {
+  width: 500px;
+  border: 2px solid red;
+  padding: 10px;
+}
+
+.form-group-2 {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.form-group-2 p {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 20px;
+}
+/* ================ */
+
+/* :enabled і :disabled */
+.btn-en-di {
+  display: inline-flex;
+  padding: 12px 24px;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 16px;
+  background-color: cyan;
+  color: black;
+  cursor: pointer;
+}
+
+.btn-en-di:hover,
+.btn-en-di:focus {
+  background-color: orange;
+}
+
+.btn-en-di:disabled {
+  background-color: lightgray;
+  cursor: not-allowed;
+}
+/* =============== */
+
+/* checked */
+.form-checked-box {
+  width: 300px;
+  border: 2px solid red;
+  padding: 10px;
+}
+
+.form-input-checked:checked {
+  outline: 2px solid #2196f3;
+  outline-offset: 2px;
+}
+
+.form-input-checked:checked + .form-label-checked {
+  color: #2196f3;
+}
+
+.form-checked {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.form-caption-checked {
+  margin: 0;
+  font-weight: 700;
+}
+
+.form-field-checked {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-label-checked {
+  cursor: pointer;
+}
+/* ============ */
+
+/* :in-range і :out-of-range */
+.in-out-range {
+  width: 600px;
+  border: 2px solid red;
+  padding: 10px;
+}
+
+.form-input-in-out-range:in-range {
+  border-color: #4caf50;
+}
+
+.form-input-in-out-range:out-of-range {
+  border-color: #f44336;
+}
+
+.form-field-in-out-range {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.form-label-in-out-range {
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.form-input-in-out-range {
+  padding: 8px;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 16px;
+  outline: none;
+}
+
+.button-in-out-range {
+  display: inline-flex;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2196f3;
+  color: #fff;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.button-in-out-range:hover,
+.button-in-out-range:focus {
+  background-color: #1976d2;
+}
+/* ================== */
+
+/*  */
+.form-input:not(:placeholder-shown):required:valid {
+  border-color: green;
+}
+
+.form-input:not(:placeholder-shown):required:invalid {
+  border-color: red;
+}
+
+/* Композиція псевдокласів */
+.composition {
+}
+
+.form-input-composition:not(:placeholder-shown):required:valid {
+  border-color: green;
+}
+
+.form-input-composition:not(:placeholder-shown):required:invalid {
+  border-color: red;
+}
+
+.form-label-composition {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.label-text-composition {
+  margin-bottom: 4px;
+}
+
+.form-input-composition {
+  padding: 8px;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 16px;
+  outline: none;
+}
+
+.form-input-composition::placeholder {
+  color: #9e9e9e;
+}
+
+.button-composition {
+  display: inline-flex;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2196f3;
+  color: #fff;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.button-composition:hover,
+.button-composition:focus {
+  background-color: #1976d2;
+}
+/* ============= */
+
+/* focus-within */
+.form-focus-within:focus-within {
+  border-color: #2196f3;
+}
+
+.form-label-focus-within:focus-within {
+  color: #2196f3;
+}
+
+.form-focus-within {
+  width: 100%;
+  padding: 24px;
+  border-radius: 4px;
+  border: 2px dashed #2a2a2a;
+}
+
+.form-label-focus-within {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.label-text-focus-within {
+  margin-bottom: 4px;
+}
+
+.form-input-focus-within {
+  padding: 8px;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 16px;
+  outline: none;
+}
+
+.button-focus-within {
+  display: inline-flex;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2196f3;
+  color: #fff;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.button-focus-within:hover,
+.button-focus-within:focus {
+  background-color: #1976d2;
+}
+/* =============== */
+
+/* Респонсивні фонові зображення */
+/* 1x screens, default value, 320x240 image */
+.responsive-img {
+  margin: 0 auto;
+  width: 320px;
+  height: 240px;
+  background-image: url("https://picsum.photos/id/237/320/240");
+  background-size: 320px 240px;
+}
+
+/* 2x screens, retina, 640x480 image */
+@media (min-resolution: 192dpi) {
+  .responsive-img {
+    background-image: url("https://picsum.photos/id/237/640/480");
+  }
+}
+/* ================== */

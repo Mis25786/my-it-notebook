@@ -59,7 +59,7 @@ body {
 
 .section {
   background-color: var(--bg-primary-section-color);
-  margin-top: 30px;
+  margin-top: 50px;
   margin-bottom: 20px;
 }
 
@@ -80,6 +80,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   background-color: #fff;
 
   width: 100%;
@@ -98,11 +99,14 @@ body {
   font-style: italic;
   font-size: 16px;
   font-weight: 700;
+  width: 100px;
+  margin-right: 10px;
   color: var(--text-akcent-color);
 }
 
 .header-nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -117,8 +121,11 @@ body {
   color: var(--bg-primary-focus-text-color);
 }
 
-/* .header-search {
-} */
+.header-search {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 
 /* .header-search__input {
 } */

@@ -125,7 +125,40 @@
       <div class="section">
         <div class="container">
           <h3 class="section-title">Фон елемента</h3>
+          <a href="https://fls.guru/cssbackground.html" target="_blank">ШПАРГАЛКА</a>
+          <br>
+          <a href="http://hex2rgba.devoth.com/" target="_blank">hex2rgba</a>
+          <br>
+          <a href="https://youtu.be/8sHgyURhAkM?list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr" target="_blank">background Frilancer</a>
           <ul>
+              <li>
+              <h4 class="section-title__name">
+                Збірна властивість для одночасного встановлення значень всіх
+                розглянутих властивостей.
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    background: background-color background-image
+                    background-repeat background-position background-attachment
+                  </h5>
+                  <p>background: колір зображення дублювання-зображення позиція-зображення заборона-прокручуватись-зі-скролом-зображенню</p>
+                  <p>
+                    Якщо якийсь компонент не вказаний, буде взято його значення
+                    за замовчуванням.
+                  </p>
+                  <h4>
+                      background: white url("./img/img-bg.jpg") 50%/cover no-repeat scroll;
+                  </h4>
+                  <p>поставить картинку по центру і розтягне і заборонить повторення</p>
+                  <br>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
             <li>
               <h4 class="section-title__name">Задає колір фону елемента.</h4>
               <div class="section-box">
@@ -300,29 +333,7 @@
                   <img src="" width="400" alt="" />
                 </div>
               </div>
-            </li>
-
-            <li>
-              <h4 class="section-title__name">
-                Збірна властивість для одночасного встановлення значень всіх
-                розглянутих властивостей.
-              </h4>
-              <div class="section-box">
-                <div>
-                  <h5 class="section-title__value">
-                    background: background-color background-image
-                    background-repeat background-position background-attachment
-                  </h5>
-                  <p>
-                    Якщо якийсь компонент не вказаний, буде взято його значення
-                    за замовчуванням.
-                  </p>
-                </div>
-                <div class="section-icon">
-                  <img src="" width="400" alt="" />
-                </div>
-              </div>
-            </li>
+            </li>          
 
             <li>
               <h4 class="section-title__name">
@@ -560,6 +571,68 @@
                   абзац < p>. Але, саме для таких завдань існують семантичні
                   теги < figure> і < figcaption>.
                 </p>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Підключення фото різних форматів</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    < picture class="accessories-icon"> <br>
+                      < source <br>
+                        srcset=" <br>
+                          ./images/accessories-photo/desktop/xiberia-k9-pro-pc-headset-desktop-webp-1x.webp 1x, <br>
+                          ./images/accessories-photo/desktop/xiberia-k9-pro-pc-headset-desktop-webp-2x.webp 2x <br>
+                        " <br>
+                        type="image/webp" <br>
+                      /> <br>
+                      < source <br>
+                        srcset=" <br>
+                          ./images/accessories-photo/tablet/xiberia-k9-pro-pc-headset-webp-tablet-1x.webp 1x, <br>
+                          ./images/accessories-photo/tablet/xiberia-k9-pro-pc-headset-webp-tablet-2x.webp 2x <br>
+                        " <br>
+                        type="image/webp" <br>
+                      /> <br>
+                      < source <br>
+                        srcset=" <br>
+                          ./images/accessories-photo/mobil/xiberia-k9-pro-pc-headset-webp-mobil-1x.webp 1x, <br>
+                          ./images/accessories-photo/mobil/xiberia-k9-pro-pc-headset-webp-mobil-2x.webp 2x <br>
+                        " <br>
+                        type="image/webp" <br>
+                      /> <br>
+                      < source <br>
+                        srcset=" <br>
+                          ./images/accessories-photo/desktop/xiberia-k9-pro-pc-headset-55.14-desktop-1x.jpg 1x, <br>
+                          ./images/accessories-photo/desktop/xiberia-k9-pro-pc-headset-55.14-desktop-2x.jpg 2x <br>
+                        " <br>
+                        media="(min-width: 1280px)" <br>
+                      /> <br>
+                      < source <br>
+                        srcset=" <br>
+                          ./images/accessories-photo/tablet/xiberia-k9-pro-pc-headset-55.14-tablet-1x.jpg 1x, <br>
+                          ./images/accessories-photo/tablet/xiberia-k9-pro-pc-headset-55.14-tablet-2x.jpg 2x <br>
+                        " <br>
+                        media="(min-width: 768px)" <br>
+                      /> <br>
+                      < source <br>
+                        srcset=" <br>
+                          ./images/accessories-photo/mobil/xiberia-k9-pro-pc-headset-55.14-mobile-1x.jpg 1x, <br>
+                          ./images/accessories-photo/mobil/xiberia-k9-pro-pc-headset-55.14-mobile-2x.jpg 2x <br>
+                        " <br>
+                        media="(min-width: 480px)" <br>
+                      /> <br>
+                      < img <br>
+                        src="./images/accessories-photo/desktop/xiberia-k9-pro-pc-headset-55.14-desktop-1x.jpg" <br>
+                        alt="навушники" <br>
+                      /> <br>
+                    < /picture> <br>
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
               </div>
             </li>
 

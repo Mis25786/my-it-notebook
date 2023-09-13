@@ -100,6 +100,7 @@
       <div class="section">
         <div class="container">
           <h3 class="section-title">Градієнт</h3>
+          <a href="https://www.colorzilla.com/gradient-editor/">Gradient Generator</a>
           <p>Градієнт - перехід від одного кольору до іншого.</p>
           <p>
             Градієнт в CSS - це фонове зображення, тому задається у властивості
@@ -323,6 +324,9 @@
         <div class="container">
           <h3 class="section-title">Тінь елемента</h3>
           <a href="https://cssgenerator.org/box-shadow-css-generator.html">Генератор тіні</a>
+          <br>
+          <a href="https://www.youtube.com/watch?v=G4aOu26s4_s&list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr&index=11" target="_blank">Frilancer</a>
+
           <ul>
             <li>
               <h4 class="section-title__name">
@@ -541,8 +545,19 @@
           <div class="section-box">
             <div>
               <h5 class="section-title__value">transition: [property] [duration] [timing-function] [delay]</h5>
+              <h3>transition: [до чого застосовується ефект] [за який час відбудеться перехід] [швидкість переходу] [затримка, після якої почнеться анімація]</h3>
+              <p>
+                translation-property: background-color; (що буде анімуватися)<br>
+                transition-duration: 250ms; (за який час виконається анімація) <br> 
+                transition-timing-function: linear;  (кубик тут вставляємо - cubic-bezier(0.4, 0, 0.2, 1)) <br>
+                transition-delay: 200ms; (затримка - через який час розпочнеться анімація) <br>
+                <br>
+                або коротко <br>
+                <br>
+                  transition: background-color 0.2 linear 0;
+              </p>
+              <br>
               <p>Якщо анімується кілька властивостей, то набір значень для кожного з них розділяється комою. Необхідно обов'язково вказати властивість і час переходу, функцію часу і затримку можна не вказувати, тоді для них будуть використані значення за замовчуванням.</p>
-              <p>transition: background-color 500ms linear, transform 500ms ease-in-out;</p>
               <div class="section-box">
                 <img src="" width="0" alt="" />
               </div>

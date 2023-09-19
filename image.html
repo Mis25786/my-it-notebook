@@ -49,27 +49,39 @@
       <div class="section">
         <div class="container">
           <h3 class="section-title">Оптимізація зображень</h3>
-          <div>
+          <ul>
+            <li>
             <a href="https://colorscheme.ru/html-colors.html" target="_blank"
               >Кольори</a
             >
-          </div>
+          </li>
 
-          <div>
+          <li>
             <a href="https://squoosh.app/" target="_blank"
               >Оптимізація зображень Squoosh</a
             >
-          </div>
-          <div>
+          </li>
+          <li>
             <a href="https://jakearchibald.github.io/svgomg/" target="_blank"
               >Оптимізація зображень SVG SVGOMG
             </a>
-          </div>
-          <div>
+          </li>
+          <li>
             <a href="https://icomoon.io/" target="_blank"
               >Іконки та створення спрайту SVG Icomoon
             </a>
-          </div>
+          </li>
+           <li>
+            <a href="https://www.favicon.by" target="_blank"
+              >Сервис створення favicon</a
+            >
+          </li>
+          <li>
+            <a href="https://squoosh.app/" target="_blank"></a>
+              Онлайн декодер WebP</a
+            >
+          </li>
+          </ul>
         </div>
       </div>
       <!-- Типи зображень -->
@@ -115,6 +127,96 @@
                 </div>
                 <div class="section-icon">
                   <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>      
+
+      <!-- Адаптивне зображення -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Адаптивне зображення</h3>
+          <a href="https://youtu.be/nTtuiBXKp88" target="_blank">Frilancer</a> <br>
+          <a href="https://fls.guru/ibg.html" target="_blank">ШПАРГАЛКА</a>
+           <ul>
+            <li>
+              <h4 class="section-title__name">Використання класса "ibg"</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                    <div>
+                      <h3>CSS</h3>
+                      <p>
+                        .ibg{ <br>
+                        background-position: center; <br>
+                        background-size: cover; <br>
+                        background-repeat: no-repeat; <br>
+                        position: relative; <br>
+                        } <br>
+                         <br>
+                        .ibg img{ <br>
+                        width: 0; <br>
+                        height: 0; <br>
+                        position: absolute; <br>
+                        top: 0; <br>
+                        left: 0; <br>
+                        opacity: 0; <br>
+                        visibility: hidden; <br>
+                        } <br>
+                      </p>
+                    </div>
+                    <div>
+                      <h3>JS</h3>
+                      <p>
+                        function ibg(){ <br>
+                        let ibg=document.querySelectorAll(".ibg"); <br>
+                        for (var i = 0; i < ibg.length; i++) { <br>
+                        if(ibg[i].querySelector('img')){ <br>
+                        ibg[i].style.backgroundImage = 'url('+ibg[i].querySelector('img').getAttribute('src')+')'; <br>
+                        } <br>
+                        } <br>
+                        } <br>
+                        ibg(); <br>
+                      </p>
+                    </div>
+                    <div>
+                      <h3>lQuery</h3>
+                      <p>
+                        function ibg(){ <br>
+                        $.each($('.ibg'), function(index, val) { <br>
+                        if($(this).find('img').length>0){ <br>
+                        $(this).css('background-image','url("'+$(this).find('img').attr('src')+'")'); <br>
+                        } <br>
+                        }); <br>
+                        } <br>
+                        ibg(); <br>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
                 </div>
               </div>
             </li>
@@ -683,6 +785,18 @@
           </ul>
         </div>
       </div>
+
+      <!-- Формати зображень -->
+      <div class="section">
+        <div class="container">
+           <h3 class="section-title">Формати зображень</h3>
+           <ul>
+            <li><a href="https://youtu.be/YHV35GiXA-w?list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr" target="_blank">Frilancer</a></li>
+            <li><a href="" target="_blank"></a></li>
+           </ul>
+        </div>
+      </div>
+
       <!-- Зображення з підписом -->
       <div class="section">
         <div class="container">

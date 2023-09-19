@@ -154,104 +154,232 @@
                 </div>
               </div>
             </li>
+
+            <li>
+              <h4 class="section-title__name">Випадаючий текст з рядка</h4>
+              <a href="https://youtu.be/Cj8hWtm_40M" target="_blank"
+                >Frilancer</a
+              >
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                
+                  <div class="block__box-wrap one">
+                    <div class="block__box-item">
+                      <div class="block__box-title">Заголовок №1</div>
+                      <div class="block__box-text">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Molestiae voluptatum in tempore dolore iusto nulla
+                        eveniet rerum nostrum cupiditate deleniti eaque, quo nam
+                        aut deserunt, velit iure magni exercitationem corporis?
+                      </div>
+                    </div>
+                    <div class="block__box-item">
+                      <div class="block__box-title">Заголовок №2</div>
+                      <div class="block__box-text">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Molestiae voluptatum in tempore dolore iusto nulla
+                        eveniet rerum nostrum cupiditate deleniti eaque, quo nam
+                        aut deserunt, velit iure magni exercitationem corporis?
+                      </div>
+                    </div>
+                    <div class="block__box-item">
+                      <div class="block__box-title">Заголовок №3</div>
+                      <div class="block__box-text">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Molestiae voluptatum in tempore dolore iusto nulla
+                        eveniet rerum nostrum cupiditate deleniti eaque, quo nam
+                        aut deserunt, velit iure magni exercitationem corporis?
+                      </div>
+                    </div>
+                  </div>
+
+                    <div class="section-box">
+                            <div>
+                          < div class="block__box-wrap one"> <br>
+                          < div class="block__box-item"> <br>
+                            < div class="block__box-title">Заголовок №1</ div> <br>
+                            < div class="block__box-text"> <br>
+                              Lorem ipsum, dolor sit amet consectetur adipisicing <br>
+                              elit. Molestiae voluptatum in tempore dolore iusto nulla <br>
+                              eveniet rerum nostrum cupiditate deleniti eaque, quo nam <br>
+                              aut deserunt, velit iure magni exercitationem corporis? <br>
+                            </ div> <br>
+                          </ div> <br>
+                          < div class="block__box-item"> <br>
+                            < div class="block__box-title">Заголовок №2</ div> <br>
+                            < div class="block__box-text"> <br>
+                              Lorem ipsum, dolor sit amet consectetur adipisicing <br>
+                              elit. Molestiae voluptatum in tempore dolore iusto nulla <br>
+                              eveniet rerum nostrum cupiditate deleniti eaque, quo nam <br>
+                              aut deserunt, velit iure magni exercitationem corporis? <br>
+                            </ div> <br>
+                          </ div> <br>
+                          < div class="block__box-item"> <br>
+                            < div class="block__box-title">Заголовок №3</ div> <br>
+                            < div class="block__box-text"> <br>
+                              Lorem ipsum, dolor sit amet consectetur adipisicing <br>
+                              elit. Molestiae voluptatum in tempore dolore iusto nulla <br>
+                              eveniet rerum nostrum cupiditate deleniti eaque, quo nam <br>
+                              aut deserunt, velit iure magni exercitationem corporis? <br>
+                              </ div> <br>
+                            </ div> <br>
+                          </ div> <br>
+                        </div>
+                        <div>
+                          .block__box-wrap {
+                          } <br>
+                           <br>
+                          .block__box-item { <br>
+                            margin: 0 0 20px 0; <br>
+                          } <br>
+                           <br>
+                          .block__box-title { <br>
+                            text-transform: uppercase; <br>
+                            letter-spacing: 2px; <br>
+                            position: relative; <br>
+                            padding: 0 0 0 30px; <br>
+                            cursor: pointer; <br>
+                          } <br>
+                          .block__box-title::before, <br>
+                          .block__box-title::after { <br>
+                            content: ""; <br>
+                            width: 10px; <br>
+                            height: 1px; <br>
+                            background-color: #000; <br>
+                            position: absolute; <br>
+                            top: 8px; <br>
+                            transition: all 0.3s ease 0s; <br>
+                          } <br>
+                          .block__box-title::before { <br>
+                            transform: rotate(40deg); <br>
+                            left: 0; <br>
+                          } <br>
+                          .block__box-title::after { <br>
+                            transform: rotate(-40deg); <br>
+                            left: 8px; <br>
+                          } <br>
+                          .block__box-title::before, <br>
+                          .block__box-title::after { <br>
+                            background-color: red; <br>
+                          } <br>
+                          .block__box-title.active::before { <br>
+                            transform: rotate(-40deg); <br>
+                          } <br>
+                          .block__box-title.active::after { <br>
+                            transform: rotate(40deg); <br>
+                          } <br>
+                           <br>
+                          .block__box-text { <br>
+                            display: none; <br>
+                            padding: 10px 0 0 0; <br>
+                          } <br>
+                        </div>
+                        <div>
+                          $(document).ready(function () { <br>
+                            $(".block__box-title").click(function (event) { <br>
+                              if ($(".block__box-wrap").hasClass("one")) { <br>
+                                $("block__box-title").not($(this)).removeClass("active"); <br>
+                                $("block__box-text").not($(this).next()).slideUp(300); <br>
+                              } <br>
+                              $(this).toggleClasss("active").next().slideToggle(300); <br>
+                            }); <br>
+                          }); <br>
+                        </div>
+                  </div>
+                
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Меню бургер</h4>
+              <a href="https://youtu.be/chJQofBSx94" target="_blank"
+                >Frilancer</a
+              >
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="400" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="400" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="400" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="400" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="400" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="400" alt="" />
+                </div>
+              </div>
+            </li>
           </ul>
         </div>
-
-        <li>
-          <h4 class="section-title__name"></h4>
-          <div class="section-box">
-            <div>
-              <h5 class="section-title__value"></h5>
-              <p></p>
-              <div class="section-box">
-                <img src="" width="400" alt="" />
-              </div>
-            </div>
-            <div class="section-icon">
-              <img src="" width="400" alt="" />
-            </div>
-          </div>
-        </li>
-
-        <li>
-          <h4 class="section-title__name"></h4>
-          <div class="section-box">
-            <div>
-              <h5 class="section-title__value"></h5>
-              <p></p>
-              <div class="section-box">
-                <img src="" width="400" alt="" />
-              </div>
-            </div>
-            <div class="section-icon">
-              <img src="" width="400" alt="" />
-            </div>
-          </div>
-        </li>
-
-        <li>
-          <h4 class="section-title__name"></h4>
-          <div class="section-box">
-            <div>
-              <h5 class="section-title__value"></h5>
-              <p></p>
-              <div class="section-box">
-                <img src="" width="400" alt="" />
-              </div>
-            </div>
-            <div class="section-icon">
-              <img src="" width="400" alt="" />
-            </div>
-          </div>
-        </li>
-
-        <li>
-          <h4 class="section-title__name"></h4>
-          <div class="section-box">
-            <div>
-              <h5 class="section-title__value"></h5>
-              <p></p>
-              <div class="section-box">
-                <img src="" width="400" alt="" />
-              </div>
-            </div>
-            <div class="section-icon">
-              <img src="" width="400" alt="" />
-            </div>
-          </div>
-        </li>
-
-        <li>
-          <h4 class="section-title__name"></h4>
-          <div class="section-box">
-            <div>
-              <h5 class="section-title__value"></h5>
-              <p></p>
-              <div class="section-box">
-                <img src="" width="400" alt="" />
-              </div>
-            </div>
-            <div class="section-icon">
-              <img src="" width="400" alt="" />
-            </div>
-          </div>
-        </li>
-
-        <li>
-          <h4 class="section-title__name"></h4>
-          <div class="section-box">
-            <div>
-              <h5 class="section-title__value"></h5>
-              <p></p>
-              <div class="section-box">
-                <img src="" width="400" alt="" />
-              </div>
-            </div>
-            <div class="section-icon">
-              <img src="" width="400" alt="" />
-            </div>
-          </div>
-        </li>
       </div>
     </main>
     <footer class="footer"></footer>

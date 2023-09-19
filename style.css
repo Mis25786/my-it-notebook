@@ -132,7 +132,7 @@ body {
 
 /* Main */
 .section-title {
-  font-size: 20px;
+  font-size: 30px;
   background: linear-gradient(right, red, lime);
   color: linear-gradient(right, red, lime);
   color: var(--text-akcent-color);
@@ -205,12 +205,12 @@ body {
 } */
 
 .section-title__name {
-  font-size: 17px;
+  font-size: 25px;
   color: var(--text-akcent-primary-color);
 }
 
 .section-title__value {
-  font-size: 15px;
+  font-size: 20px;
   color: var(--text-akcent-secondary-color);
 }
 
@@ -1548,3 +1548,52 @@ textarea {
   }
 }
 /* ================== */
+
+/* Випадаючий рядок */
+.block__box-wrap {
+}
+
+.block__box-item {
+  margin: 0 0 20px 0;
+}
+
+.block__box-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  padding: 0 0 0 30px;
+  cursor: pointer;
+}
+.block__box-title::before,
+.block__box-title::after {
+  content: "";
+  width: 10px;
+  height: 1px;
+  background-color: #000;
+  position: absolute;
+  top: 8px;
+  transition: all 0.3s ease 0s;
+}
+.block__box-title::before {
+  transform: rotate(40deg);
+  left: 0;
+}
+.block__box-title::after {
+  transform: rotate(-40deg);
+  left: 8px;
+}
+.block__box-title::before,
+.block__box-title::after {
+  background-color: red;
+}
+.block__box-title.active::before {
+  transform: rotate(-40deg);
+}
+.block__box-title.active::after {
+  transform: rotate(40deg);
+}
+
+.block__box-text {
+  display: none;
+  padding: 10px 0 0 0;
+}

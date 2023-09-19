@@ -97,7 +97,7 @@
         <div class="container">
           <div>
             <!-- Методи часто використовувані -->
-            <h3 class="section-title">Методи часто використовувані</h3>
+            <h3 class="section-title">Різні Методи</h3>
             <div>
               <h4 class="section-title__name">Знайти кіл-ть символів рядка</h4>
               <h5 class="section-title__value">.length</h5>
@@ -115,9 +115,2167 @@
               <h5 class="section-title__value">.toLowerCase()</h5>
               <p>"JavaScript is awesome".toLowerCase();</p>
             </div>
+            <div>
+              <!-- Отримання даних -->
+              <h4 class="section-title__name">Отримання даних</h4>
+              <h5 class="section-title__value">confirm()</h5>
+              <p>
+                виводить модальне вікно з повідомленням, і дві кнопки, Ok і
+                Cancel. Натискаючи на Ok, результатом будет true, натискаючи на
+                Cancel - повертається false.
+              </p>
+              <p>
+                const isComing = confirm("Please confirm hotel reservation");
+                <br />
+                console.log(isComing);
+              </p>
+              <h5 class="section-title__value">prompt()</h5>
+              <p>
+                виводить модальне вікно з полем введення і кнопками Ok і Cancel.
+                Натискаючи на Ok, результатом буде те, що ввів користувач, у
+                випадку Cancel - повертається null. <br />
+                Важлива особливість prompt полягає в тому, що незалежно від
+                того, що ввів користувач, завжди повернеться рядок. Тобто, якщо
+                користувач ввів 5, то повернеться не число 5, а рядок "5".
+              </p>
+              <p>
+                const hotelName = prompt("Please enter desired hotel name");
+                <br />
+                console.log(hotelName);
+              </p>
+            </div>
           </div>
+          <h3 class="section-title">Числа</h3>
+          <!-- <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul> -->
+          <ul>
+            <li>
+              <h4 class="section-title__name">Приведення до числа</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Number(val)</h5>
+                  <p>
+                    Більшість арифметичних операцій і математичних функцій
+                    перетворюють значення у число автоматично. Для того, щоб
+                    зробити це явно, використовуйте функцію Number(val),
+                    передаючи їй у val те, що потрібно привести до числа. <br />
+                    Якщо значення привести до числа неможливо, результатом буде
+                    спеціальне числове значення NaN (Not a Number). Аналогічним
+                    чином відбувається перетворення і в інших математичних
+                    операторах і функціях.
+                  </p>
+                  <p>
+                    const valueA = "5"; <br />
+                    console.log(Number(valueA)); // 5 <br />
+                    console.log(typeof Number(valueA)); // "number" <br />
+                    <br />
+                    const valueB = "random string"; <br />
+                    console.log(Number(valueB)); // NaN <br />
+                    console.log(typeof Number(valueB)); // "number" <br />
+                  </p>
+                  <!-- <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div> -->
+                </div>
+                <!-- <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div> -->
+              </div>
+            </li>
+            <li>
+              <h4 class="section-title__name">парсить з рядка ціле число</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Number.parseInt()</h5>
+                  <p>
+                    console.log(Number.parseInt("5px")); // 5 <br />
+                    console.log(Number.parseInt("12qwe74")); // 12 <br />
+                    console.log(Number.parseInt("12.46qwe79")); // 12 <br />
+                    console.log(Number.parseInt("qweqwe")); // NaN <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <h4 class="section-title__name">парсить з рядка дробове число</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Number.parseFloat()</h5>
+                  <p>
+                    console.log(Number.parseFloat("5px")); // 5 <br />
+                    console.log(Number.parseFloat("12qwe74")); // 12 <br />
+                    console.log(Number.parseFloat("12.46qwe79")); // 12.46
+                    <br />
+                    console.log(Number.parseFloat("qweqwe")); // NaN <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <h4 class="section-title__name">Перевірка на число</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Number.isNaN(val)</h5>
+                  <p>
+                    Він перевіряє, чи вказане значення є NaN. Метод відповідає
+                    на запитання "Це Not A Number?" і повертає:
+                  </p>
+                  <p>
+                    true - якщо значення val - NaN <br />
+                    false - якщо значення val - не NaN
+                  </p>
+                  <p>
+                    <br />
+                    const validNumber = Number("51"); // 51 <br />
+                    console.log(Number.isNaN(validNumber)); // false <br />
+                    <br />
+                    const invalidNumber = Number("qweqwe"); // NaN <br />
+                    console.log(Number.isNaN(invalidNumber)); // true <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <h4 class="section-title__name">
+                Додавання чисел з рухомою крапкою (комою)
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">toFixed()</h5>
+                  <p>
+                    При додаванні 0.1 і 0.2, додаються дві неточності, виходить
+                    незначна, але все-таки помилка в обчисленнях.
+                  </p>
+                  <p>
+                    console.log(0.1 + 0.2 === 0.3); // false <br />
+                    console.log(0.1 + 0.2); // 0.30000000000000004
+                  </p>
+                  <p>
+                    Можна зробити їх цілими, помноживши на N, додати, а потім
+                    результат поділити також на N.
+                    <br />
+                    console.log(0.17 + 0.24); // 0.41000000000000003 <br />
+                    console.log((0.17 * 100 + 0.24 * 100) / 100); // 0.41
+                  </p>
+                  <p>
+                    Ще один спосіб - додати, а результат скоротити до певного
+                    знаку після коми за допомогою методу toFixed().
+                    <br />
+                    console.log(0.17 + 0.24); // 0.41000000000000003 <br />
+                    console.log((0.17 + 0.24).toFixed(2)); // 0.41
+                  </p>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <h4 class="section-title__name">Клас Math</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    // Math.floor(num) - повертає найменше ціле число, <br />
+                    // менше, або яке дорівнює зазначеному числу <br />
+                    console.log(Math.floor(1.7)); // 1 <br />
+                    <br />
+                    // Math.ceil(num) - повертає найбільше ціле число, <br />
+                    // більше, або яке дорівнює зазначеному числу. <br />
+                    console.log(Math.ceil(1.2)); // 2 <br />
+                    <br />
+                    // Math.round(num) - повертає значення числа, <br />
+                    // округленого до найближчого цілого <br />
+                    console.log(Math.round(1.2)); // 1 <br />
+                    console.log(Math.round(1.5)); // 2 <br />
+                    <br />
+                    // Math.max(num1, num2, ...) - повертає найбільше ціле число
+                    з набору <br />
+                    console.log(Math.max(20, 10, 50, 40)); // 50 <br />
+                    <br />
+                    // Math.min(num1, num2, ...) - повертає найменше ціле число
+                    з набору <br />
+                    console.log(Math.min(20, 10, 50, 40)); // 10 <br />
+                    <br />
+                    // Math.pow(base, exponent) - піднесення до степеня <br />
+                    console.log(Math.pow(2, 4)); // 16 <br />
+                    <br />
+                    // Math.random() - повертає псевдовипадкове число в
+                    діапазоні [0, 1) <br />
+                    console.log(Math.random()); // випадкове число між 0 і 1
+                    <br />
+                    console.log(Math.random() * (10 - 1) + 1); //
+                    псевдовипадкове число від 1 до 10 <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
+
+      <!-- Інструменти розробника -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Інструменти розробника</h3>
+          <ul>
+            <li>
+              <a
+                href="https://developer.chrome.com/docs/devtools/console/log/"
+                target="_blank"
+                >Виведення повідомлень в консоль</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://developer.chrome.com/docs/devtools/console/api/"
+                target="_blank"
+                >Довідник з API консолі</a
+              >
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name">
+                Наступні комбінації клавіш відкривають інструменти розробника на
+                вкладці Console:
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    Windows і Linux - Ctrl + Shift + J або F12 <br />
+                    MacOS - Command + Option + J
+                  </h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Основи синтаксису -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Основи синтаксису</h3>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Імена змінних -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Імена змінних</h3>
+          <ul>
+            <li>
+              <a
+                href="https://bookflow.ru/kak-nazyvat-peremennye/"
+                target="_blank"
+                >Як називати змінні</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.freecodecamp.org/news/javascript-naming-conventions-dos-and-don-ts-99c0e2fdd78a"
+                target="_blank"
+                >Домовленість про імена змінних</a
+              >
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Ідентифікатор - це ім'я змінної, функції або класу.
+                    Складається з одного або декількох символів у наступному
+                    форматі. <br />
+                    Першим символом повинна бути літера a-z або A-Z, символ
+                    підкреслення _ або знак долара $. <br />
+                    Інші символи можуть бути літерами a-z, A-Z, цифрами 0-9,
+                    підкресленнями _ і знаками долара $. <br />
+                    Ідентифікатори чуттєві до регістру. Це означає, що змінні
+                    user, usEr і User - різні. <br />
+                  </p>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+          <h3 class="section-title">Оголошення змінних</h3>
+          <!-- <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul> -->
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    Оголошення змінної починається з ключового слова const. Така
+                    змінна повинна бути одразу ініціалізована значенням, після
+                    чого її не можна перевизначити.
+                  </h5>
+                  <p>
+                    const yearOfBirth = 2006; <br />
+                    console.log(yearOfBirth); // 2006
+                  </p>
+                  <h5 class="section-title__value">
+                    Для того, щоб оголосити змінну, якій у подальшому можна буде
+                    присвоїти нове значення, використовується ключове слово let.
+                  </h5>
+                  <p>
+                    let age; <br />
+                    console.log(age); // undefined <br />
+                    age = 14; <br />
+                    console.log(age); // 14
+                  </p>
+                  <p>
+                    <br />
+                    Єдина відмінність const і let полягає у тому, що const
+                    забороняє повторно присвоювати змінній будь-яке значення.
+                    Оголошення const робить код читабельнішим, тому що змінна
+                    завжди посилається на одне і те саме зачення. У випадку з
+                    let такої впевненості немає. <br />
+                    <br />
+                    Буде розумно використовувати let і const наступним чином:
+                    <br />
+                    <br />
+                    Використовуйте const за замовчуванням, більшість змінних
+                    будуть оголошені саме таким чином. <br />
+                    Використовуйте let, якщо необхідно присвоїти змінній інше
+                    значення під час виконання скрипту. <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Основні оператори -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Основні оператори</h3>
+          <!-- <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul> -->
+          <ul>
+            <li>
+              <h4 class="section-title__name">Математичні оператори</h4>
+              <p>
+                Призначення, функціонал і пріоритет (порядок) операцій нічим не
+                відрізняються від шкільного курсу алгебри. Оператори повертають
+                значення у вигляді результату виразу.
+              </p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    const x = 10; <br />
+                    const y = 5; <br />
+                    <br />
+                    // Додавання <br />
+                    console.log(x + y); // 15 <br />
+                    // Віднімання <br />
+                    console.log(x - y); // 5 <br />
+                    // Множення <br />
+                    console.log(x * y); // 50 <br />
+                    // Ділення <br />
+                    console.log(x / y); // 2 <br />
+                    // Остача від ділення <br />
+                    console.log(x % y); // 0 <br />
+                    <br />
+                    // Додавання із заміною (також є для всіх інших операторів)
+                    <br />
+                    let value = 5; <br />
+                    <br />
+                    // Аналогічно запису value = value + 10; <br />
+                    value += 10; <br />
+                    console.log(value); // 15 <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+              <h4 class="section-title__name">Оператори порівняння</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    a > b і a < b - більше/менше <br />
+                    a >= b і a <= b - більше/менше або дорівнює <br />
+                    a == b - рівність <br />
+                    a != b - нерівність <br />
+                    a === b - строга рівність <br />
+                    a !== b - строга нерівність <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+              <h4 class="section-title__name">Оператори рівності</h4>
+              <p>
+                «Нестрогі» оператори рівності == і != виконують перетворення
+                типів порівнюваних значень у число, що може призвести до
+                помилок, особливо у початківців.
+              </p>
+              <p>
+                Тому для перевірки рівності або нерівності двох значень,
+                використовуються тільки оператори === (строга рівність) і !==
+                (строга нерівність), які не виконують приведення типів
+                операндів.
+              </p>
+              <p></p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    // ❌ Погано, виконується приведення типів <br />
+                    console.log(5 == "5"); // true <br />
+                    console.log(5 != "5"); // false <br />
+                    console.log(1 == true); // true <br />
+                    console.log(1 != true); // false <br />
+                    // ✅ Добре, приведення типів не виконується <br />
+                    console.log(5 === "5"); // false <br />
+                    console.log(5 === 5); // true <br />
+                    console.log(5 !== "5"); // true <br />
+                    console.log(5 !== 5); // false <br />
+                    console.log(1 === true); // false <br />
+                    console.log(1 !== true); // true <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+              <h4 class="section-title__name">Логічні оператори</h4>
+              <div>
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    ?? - використовуэться з null. Наприклад (null??5) то якщо
+                    прилетить null то цей вираз буде дорівнювати 5 <br />
+                    ? - (якщо є) - наприклад (number?.lenght) тут написано якщо
+                    number (є взагалі) true то далі провірить його довжину
+                    (кількість синволів)
+                  </p>
+                </div>
+                <div>
+                  <h5 class="section-title__value">
+                    Логічне «І» && - шукає до першого false
+                  </h5>
+                  <h3>
+                    Тобто, логічне «І» зупиняється на хибному і повертає те, на
+                    чому зупинилось, або останній операнд.
+                  </h3>
+                  <p>
+                    const age = 20; <br />
+                    console.log(age > 10 && age < 30); // true && true -> true
+                    <br />
+                    const age = 50; <br />
+                    console.log(age > 10 && age < 30); // true && false -> false
+                    <br />
+                    console.log(age > 80 && age < 120); // false && true ->
+                    false <br />
+                    console.log(1 && 5); // true && true -> 5 <br />
+                    console.log(5 && 1); // true && true -> 1 <br />
+                    console.log(0 && 2); // false && true -> 0 <br />
+                    console.log(2 && 0); // true && false -> 0 <br />
+                    console.log("" && "Mango"); // false && true -> "" <br />
+                    console.log("Mango" && ""); // true && false -> "" <br />
+                    console.log("Mango" && "Poly"); // true && true -> "Poly"
+                    <br />
+                    console.log("Poly" && "Mango"); // true && true -> "Mango"
+                    <br />
+                  </p>
+                </div>
+                <div>
+                  <h5 class="section-title__value">
+                    Логічне «АБО» || - шукаэ до першого true
+                  </h5>
+                  <h3>
+                    Тобто, логічне «АБО» зупиняється на правді і повертає те, на
+                    чому зупинилося або останній операнд.
+                  </h3>
+                  <p>
+                    const age = 5; <br />
+                    console.log(age < p 10 || age>30); // true || false -> true
+                    <br />
+                    const age = 40; <br />
+                    console.log(age < 10 || age > 30); // false || true -> true
+                    <br />
+                    const age = 20; <br />
+                    console.log(age < 10 || age > 30); // false || false ->
+                    false <br />
+                    console.log(true || false); // true <br />
+                    console.log(false || true); // true <br />
+                    console.log(true || true); // true <br />
+                    <br />
+                    console.log(3 || false); // 3 <br />
+                    console.log(false || 3); // 3 <br />
+                    console.log(3 || true); // 3 <br />
+                    console.log(true || 3); // true <br />
+                  </p>
+                </div>
+                <div>
+                  <h5 class="section-title__value">
+                    Логічне «НЕ» ! - змінює false на true і навпаки
+                  </h5>
+                  <h3>
+                    Оператор ! приводить операнд до буля, якщо необхідно, а
+                    потім робить інверсію - змінює його на протилежний true ->
+                    false або false -> true.
+                  </h3>
+                  <p>
+                    console.log(!true); // false <br />
+                    console.log(!false); // true <br />
+                    console.log(!3); // !3 -> !true -> false <br />
+                    console.log(!"Mango"); // !"Mango" -> !true -> false <br />
+                    console.log(!0); // !0 -> !false -> true <br />
+                    console.log(!""); // !"" -> !false -> true <br />
+                    <br />
+                    const isOnline = true; <br />
+                    const isNotOnline = !isOnline; // !isOnline -> !true ->
+                    false <br />
+                  </p>
+                </div>
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                </div>
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Рядки -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Рядки</h3>
+          <div>
+            <p>
+              Рядок - це індексований набір з нуля або більше символів, взятих в
+              одинарні або подвійні лапки. <br />
+              Вміст рядка не можна змінити, лише прочитати, як тільки рядок
+              створений - він такий назавжди.
+            </p>
+            <p>const username = "Mango";</p>
+          </div>
+          <!-- <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul> -->
+          <img src="./img/js/string.jpg" width="400" alt="" />
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Конкатенація рядків</h5>
+                  <p>
+                    const message = "Mango " + "is" + " happy"; <br />
+                    console.log(message); // Mango is happy <br />
+                    <br />
+                    console.log(1 + "2"); // "12" <br />
+                    console.log(1 + "2" + 4); // "124" <br />
+                    console.log(1 + 2 + "4"); // "34" <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Шаблонні рядки</h5>
+                  <p>
+                    Шаблонні рядки - це альтернатива конкатенації зі зручнішим
+                    синтаксисом. Шаблонний рядок береться у зворотні (косі)
+                    лапки, замість подвійних або одинарних, і може містити
+                    заповнювачі місця, які позначаються знаком долара і
+                    фігурними дужками - ${вираз}. <br />
+                    <br />
+                    // Використовуючи змінні, необхідно скласти рядок з
+                    підставленими значеннями <br />
+                    const guestName = "Манго"; <br />
+                    const roomNumber = 207; <br />
+                    const greeting = <br />
+                    "Welcome " + guestName + ", your room number is " +
+                    roomNumber + "!"; <br />
+                    console.log(greeting); // "Welcome Mango, your room number
+                    is 207!" <br />
+                    <br />
+                    Складати рядки з підставленими значеннями, використовуючи
+                    конкатенацію, - дуже незручно. На допомогу приходять
+                    шаблонні рядки та інтерполяція. <br />
+                    <br />
+                    const guestName = "Манго"; <br />
+                    const roomNumber = 207; <br />
+                    const greeting = `Welcome ${guestName}, your room number is
+                    ${roomNumber}!`; <br />
+                    console.log(greeting); // "Welcome Mango, your room number
+                    is 207!" <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <h4 class="section-title__name">Властивості і методи рядків</h4>
+              <div>
+                <div>
+                  <h5 class="section-title__value">Властивість length</h5>
+                  <h3>
+                    Для того, щоб дізнатися довжину рядка, тобто кількість його
+                    символів
+                  </h3>
+                  <p>
+                    const message = "Welcome to Bahamas!"; <br />
+                    console.log(message.length); // 19 <br />
+                    console.log("There is nothing impossible to him who will
+                    try".length); // 47 <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div>
+                  <h5 class="section-title__value">
+                    Методи toLowerCase() і toUpperCase()
+                  </h5>
+                  <h3>
+                    Повертають новий рядок у відповідному регістрі, не змінюючи
+                    оригінальний рядок.
+                  </h3>
+                  <p>
+                    const message = "Welcome to Bahamas!"; <br />
+                    console.log(message.toLowerCase()); // "welcome to bahamas!"
+                    <br />
+                    console.log(message.toUpperCase()); // "WELCOME TO BAHAMAS!"
+                    <br />
+                    console.log(message); // "Welcome to Bahamas!" <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div>
+                  <h5 class="section-title__value">Метод indexOf()</h5>
+                  <h3>
+                    Повертає позицію (індекс), на якій знаходиться перший збіг
+                    підрядка або -1, якщо нічого не знайдено.
+                  </h3>
+                  <p>
+                    const message = "Welcome to Bahamas!"; <br />
+                    console.log(message.indexOf("to")); // 8 <br />
+                    console.log(message.indexOf("hello")); // -1 <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div>
+                  <h5 class="section-title__value">Метод includes()</h5>
+                  <h3>
+                    Перевіряє, чи міститься підрядок в рядку, повертає буль -
+                    true, якщо міститься, і false - в іншому випадку. Регістр
+                    символів в рядку і підрядку має значення, оскільки,
+                    наприклад, літера "a" не дорівнює літері "А".
+                  </h3>
+                  <p>
+                    const productName = "Ремонтний дроїд"; <br />
+                    <br />
+                    console.log(productName.includes("н")); // true <br />
+                    console.log(productName.includes("Н")); // false <br />
+                    console.log(productName.includes("дроїд")); // true <br />
+                    console.log(productName.includes("Дроїд")); // false <br />
+                    console.log(productName.includes("Ремонтний")); // true
+                    <br />
+                    console.log(productName.includes("ремонтний")); // false
+                    <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div>
+                  <h5 class="section-title__value">Метод endsWith()</h5>
+                  <h3>
+                    Дозволяє визначити, чи завершується рядок символами
+                    (підрядком), зазначеними в дужках, повертаючи true або
+                    false.
+                  </h3>
+                  <p>
+                    const jsFileName = "script.js"; <br />
+                    console.log(jsFileName.endsWith(".js")); // true <br />
+                    <br />
+                    const cssFileName = "styles.css"; <br />
+                    console.log(cssFileName.endsWith(".js")); // false
+                  </p>
+                  <br />
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div>
+                  <h5 class="section-title__value">
+                    Методи replace() і replaceAll()
+                  </h5>
+                  <h3>
+                    Повертає новий рядок, в якому перше (replace) або усі збіги
+                    (replaceAll) підрядка замінені на вказане значення.
+                  </h3>
+                  <p>
+                    const jsFileName = "script.js"; <br />
+                    const minifiedJsFileName = jsFileName.replace(".js",
+                    ".min.js"); <br />
+                    console.log(minifiedJsFileName); // "script.min.js" <br />
+                    <br />
+                    const cssFileNames = "styles.css, about.css, portfolio.css";
+                    <br />
+                    const minifiedCssFileNames = cssFileNames.replaceAll(".css",
+                    ".min.css"); <br />
+                    console.log(minifiedCssFileNames); // "styles.min.css,
+                    about.min.css, portfolio.min.css" <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div>
+                  <h5 class="section-title__value">Метод slice()</h5>
+                  <h3>
+                    Метод рядків slice (startIndex, endIndex) використовується
+                    для створення копії частини або всього рядка. Він робить
+                    копію елементів рядка від startIndex і до, але не включно
+                    endIndex і повертає новий рядок, не змінюючи оригінал.
+                  </h3>
+                  <p>
+                    const productName = "Repair droid"; <br />
+                    console.log(productName.slice(0, 4)); // "Repa" <br />
+                    console.log(productName.slice(3, 9)); // "air dr" <br />
+                    console.log(productName.slice(0, productName.length)); //
+                    "Repair droid" <br />
+                    console.log(productName.slice(7, productName.length)); //
+                    "droid"
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Розгалуження -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Розгалуження</h3>
+          <p>
+            Принцип роботи простий - результат умови приводиться до буля true
+            або false, після чого потік програми спрямовується в ту або іншу
+            гілку.
+          </p>
+          <!-- <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul> -->
+          <ul>
+            <li>
+              <h4 class="section-title__name">Інструкція if</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">if</h5>
+                  <p>
+                    let cost = 0; <br />
+                    const subscription = "pro"; <br />
+                    <br />
+                    if (subscription === "pro") { <br />
+                    cost = 100; <br />
+                    } <br />
+                    <br />
+                    console.log(cost); // 100 <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div>
+                  <h5 class="section-title__value">if...else</h5>
+                  <p>
+                    let cost; <br />
+                    const subscription = "free"; <br />
+                    <br />
+                    if (subscription === "pro") { <br />
+                    cost = 100; <br />
+                    } else { <br />
+                    cost = 0; <br />
+                    } <br />
+                    <br />
+                    console.log(cost); // 0 <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div>
+                  <h5 class="section-title__value">else...if</h5>
+                  <p>
+                    let cost; <br />
+                    const subscription = "premium"; <br />
+                    <br />
+                    if (subscription === "free") { <br />
+                    cost = 0; <br />
+                    } else if (subscription === "pro") { <br />
+                    cost = 100; <br />
+                    } else if (subscription === "premium") { <br />
+                    cost = 500; <br />
+                    } else { <br />
+                    console.log("Invalid subscription type"); <br />
+                    } <br />
+                    <br />
+                    console.log(cost); // 500 <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Тернарний оператор</h4>
+              <p>
+                Тернарний оператор використовується у якості синтаксично
+                коротшої заміни інструкції if...else, коли одній і тій самій
+                змінній необхідно присвоїти різні значення за умовою. <br />
+                < умова> ? < вираз_якщо_умова_правдива> : <
+                вираз_якщо_умова_хибна>
+              </p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    const age = 20; <br />
+                    const type = age >= 18 ? "adult" : "child"; <br />
+                    console.log(type); // "adult" <br />
+                    <br />
+                    const num1 = 5; <br />
+                    const num2 = 10; <br />
+                    const biggerNumber = num1 > num2 ? num1 : num2; <br />
+                    <br />
+                    console.log(biggerNumber); // 10 <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Інструкція switch</h4>
+              <p>
+                Його синтаксис складається із блоку switch(значення) - що
+                потрібно порівняти і набору окремих випадків case значення - з
+                чим потрібно порівняти. Для порівняння використовується оператор
+                строгої рівності ===. Тобто, не можна порівняти більше або
+                менше, лише рівність.
+              </p>
+              <p></p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    switch (значення) { <br />
+                    case значення: <br />
+                    інструкції; <br />
+                    break; <br />
+                    <br />
+                    case значення: <br />
+                    інструкції; <br />
+                    break; <br />
+                    <br />
+                    default: <br />
+                    інструкції; <br />
+                    } <br />
+                  </p>
+                  <p>
+                    let cost; <br />
+                    const subscription = "premium"; <br />
+                    <br />
+                    switch (subscription) { <br />
+                    case "free": <br />
+                    cost = 0; <br />
+                    break; <br />
+                    <br />
+                    case "pro": <br />
+                    cost = 100; <br />
+                    break; <br />
+                    <br />
+                    case "premium": <br />
+                    cost = 500; <br />
+                    break; <br />
+                    <br />
+                    default: <br />
+                    console.log("Invalid subscription type"); <br />
+                    } <br />
+                    <br />
+                    console.log(cost); // 500 <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Область видимості -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Область видимості</h3>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    Область видимості змінних (variable scope) - доступність
+                    змінних в певному місці коду.
+                  </h5>
+                  <p>
+                    Область видимості змінних (variable scope) - доступність
+                    змінних в певному місці коду. <br />
+                    Глибина вкладеності областей видимості - необмежена, і всі
+                    вони будуть працювати за одним принципом - область видимості
+                    має доступ до всіх змінних, оголошених вище по ієрархії
+                    вкладеності, але не може отримати доступ до змінних,
+                    оголошених у вкладених областях видимості.
+                  </p>
+                  <p>
+                    const global = "global"; <br />
+                    <br />
+                    if (true) { <br />
+                    const blockA = "block A"; <br />
+                    <br />
+                    // Бачимо глобальну + локальну A <br />
+                    console.log(global); // 'global' <br />
+                    console.log(blockA); // block A <br />
+                    <br />
+                    // Змінні blockB і blockC не знайдені в доступних областях
+                    видимості. <br />
+                    // Буде помилка звернення до змінної. <br />
+                    console.log(blockB); // ReferenceError: blockB is not
+                    defined <br />
+                    console.log(blockC); // ReferenceError: blockC is not
+                    defined <br />
+                    <br />
+                    if (true) { <br />
+                    const blockB = "block B"; <br />
+                    <br />
+                    // Бачимо глобальну + зовнішню A + локальну B <br />
+                    console.log(global); // global <br />
+                    console.log(blockA); // block A <br />
+                    console.log(blockB); // block B <br />
+                    <br />
+                    // Змінна blockC не знайдена в доступних областях видимості.
+                    <br />
+                    // Буде помилка звернення до змінної. <br />
+                    console.log(blockC); // ReferenceError: blockC is not
+                    defined <br />
+                    } <br />
+                    } <br />
+                    <br />
+                    if (true) { <br />
+                    const blockC = "block C"; <br />
+                    <br />
+                    // Бачимо глобальну + локальну C <br />
+                    console.log(global); // global <br />
+                    console.log(blockC); // block C <br />
+                    <br />
+                    // Змінні blockA і blockB не знайдені в доступних областях
+                    видимості. <br />
+                    // Буде помилка звернення до змінної. <br />
+                    console.log(blockA); // ReferenceError: blockA is not
+                    defined <br />
+                    console.log(blockB); // ReferenceError: blockB is not
+                    defined <br />
+                    } <br />
+                    <br />
+                    // Бачимо лише глобальну <br />
+                    console.log(global); // global <br />
+                    <br />
+                    // Змінні blockA, blockB і blockC не знайдені в доступних
+                    областях видимості. <br />
+                    // Буде помилка звернення до змінної. <br />
+                    console.log(blockA); // ReferenceError: blockA is not
+                    defined <br />
+                    console.log(blockB); // ReferenceError: blockB is not
+                    defined <br />
+                    console.log(blockC); // ReferenceError: blockC is not
+                    defined <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Цикли -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Цикли</h3>
+          <p>
+            Часте завдання програмування - багаторазове виконання однотипної
+            дії. Наприклад, вивести клієнтів зі списку один за одним, або
+            перебрати суми зарплат, і для кожної виконати однаковий код. Саме
+            для таких цілей - багаторазового повторення однієї частини коду,
+            використовуються цикли.
+          </p>
+          <ul>
+            <h3>Цикл</h3>
+            - керуюча конструкція у високорівневих мовах програмування,
+            призначена для організації багаторазового виконання набору
+            інструкцій.
+            <br />
+            <h3>Тіло циклу</h3>
+            - послідовність інструкцій, призначена для багаторазового виконання.
+            <br />
+            <h3>Ітерація</h3>
+            - одноразове виконання тіла циклу.
+            <br />
+            <h3>Умова виходу</h3>
+            - вираз, що визначає, чи буде в черговий раз виконуватися ітерація,
+            або цикл завершиться.
+            <br />
+            <h3>Лічильник</h3>
+            - змінна, що зберігає поточний номер ітерації. Цикл не обов'язково
+            містить лічильник, і він не повинен бути один, умова виходу з циклу
+            може залежати від декількох змінних, що змінюються в циклі.
+            <br />
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name">Цикл while</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Цикл з передумовою</h5>
+                  <p>
+                    Цикл з передумовою — цикл, який виконується, доки правдива
+                    якась умова, зазначена до його початку. Ця умова
+                    перевіряється до виконання тіла циклу, тому тіло може не
+                    виконатися жодного разу, якщо умова від самого початку -
+                    хибна.
+                  </p>
+                  <p>
+                    Конструкція while створює цикл, який виконує блок коду, доки
+                    умова перевірки оцінюється як true. <br />
+                    <br />
+                    condition, тобто умова, оцінюється перед кожною ітерацією
+                    циклу. <br />
+                    Якщо condition оцінюється як true, оператор while виконує
+                    statement. <br />
+                    Якщо condition оцінюється як false, виконання циклу
+                    переривається і скрипт продовжує виконувати інструкції після
+                    циклу while. <br />
+                  </p>
+                  <p>
+                    Створимо лічильник. <br />
+                    <br />
+                    let counter = 0; <br />
+                    <br />
+                    while (counter < 10) { <br />
+                    console.log("counter: ", counter); <br />
+                    counter += 1; <br />
+                    } <br />
+                    <br />
+                    Будемо заповнювати місця в готелі доти, доки поточна
+                    кількість клієнтів не буде дорівнювати максимально можливій.
+                    <br />
+                    <br />
+                    let clientCounter = 18; <br />
+                    const maxClients = 25; <br />
+                    <br />
+                    while (clientCounter < maxClients) { <br />
+                    console.log(clientCounter); <br />
+                    clientCounter += 1; <br />
+                    } <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Цикл do...while</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Цикл з постумовою</h5>
+                  <p>
+                    Цикл з постумовою - цикл, в якому умова перевіряється після
+                    виконання тіла циклу. З цього випливає, що тіло завжди
+                    виконується хоча б один раз.
+                  </p>
+                  <p>
+                    Конструкція do...while створює цикл, який виконує блок коду
+                    доти, доки condition не поверне false. <br />
+                    <br />
+                    На відміну від циклу while, цикл do...while завжди виконує
+                    statement мінімум один раз, перш ніж він оцінить condition.
+                    <br />
+                    <br />
+                    Всередині циклу потрібно внести зміни в деяку змінну, щоб
+                    переконатися, що вираз дорівнює false після ітерацій. Інакше
+                    буде нескінченний цикл. <br />
+                  </p>
+                  <p>
+                    let password = ""; <br />
+                    <br />
+                    do { <br />
+                    password = prompt("Введіть пароль довший 4-х символів", "");
+                    <br />
+                    } while (password.length < 5); <br />
+                    <br />
+                    console.log("Ввели пароль: ", password); <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Цикл for</h4>
+              <p>
+                Цикл з лічильником - цикл, в якому певна змінна змінює своє
+                значення із заданого початкового до кінцевого значення з деяким
+                кроком, і для кожного значення цієї змінної тіло циклу
+                виконується один раз.
+              </p>
+              <div>
+                <div>
+                  <h5 class="section-title__value">
+                    for (let i = 0; i <= 20; i += 5) { console.log(i);}
+                  </h5>
+                  <div>
+                    Алгоритм виконання циклу for: <br />
+                    <br />
+                    <h3>Ініціалізація (initialization)</h3>
+                    - виконується один раз до початку циклу. Використовується
+                    для створення змінної-лічильника і зазначення її початкового
+                    значення.
+                    <br />
+                    <h3>Умова (condition)</h3>
+                    - вираз, що оцінюється перед кожною ітерацією (повторенням)
+                    циклу. Тіло циклу виконується тільки тоді, коли вираз
+                    приводиться до true. Цикл завершується, якщо значення буде
+                    false. <br />
+                    <h3>Тіло (statements)</h3>
+                    - набір інструкцій для виконання на кожному повторенні.
+                    Виконується, якщо вираз умови приводиться до true. <br />
+                    <h3>Пост-вираз (post-expression)</h3>
+                    - виконується в кінці кожного повторення циклу, до перевірки
+                    умови. Використовується для оновлення змінної-лічильника.
+                    <br />
+                    Змінні-лічильники, за традицією, називаються літерами i, j і
+                    k. <br />
+                  </div>
+                  <p>
+                    Порахуємо суму чисел до певного значення. <br />
+                    <br />
+                    const target = 3; <br />
+                    let sum = 0; <br />
+                    <br />
+                    for (let i = 0; i <= target; i += 1) { <br />
+                    sum += i; <br />
+                    } <br />
+                    console.log(sum); <br />
+                    <br />
+                    Згадаємо про операцію a % b і виведемо остачу від ділення за
+                    допомогою циклу. <br />
+                    <br />
+                    const max = 10; <br />
+                    for (let i = 0; i < max; i += 1) { <br />
+                    console.log(`${max} % ${i} = `, max % i); <br />
+                    } <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div>
+                  <h5 class="section-title__value">Оператор break</h5>
+                  <h3>
+                    Перервати виконання циклу можна в будь-який момент. Для
+                    цього існує оператор break, який повністю припиняє виконання
+                    циклу і передає управління на рядок після його тіла.
+                  </h3>
+                  <p>
+                    Знайдемо число 3. Щойно виконається умова if, цикл припинить
+                    своє виконання (буде перерваний). <br />
+                    <br />
+                    for (let i = 0; i <= 5; i += 1) { <br />
+                    console.log(i); <br />
+                    <br />
+                    if (i === 3) { <br />
+                    console.log("Знайшли число 3, перериваємо виконання циклу");
+                    <br />
+                    break; <br />
+                    } <br />
+                    } <br />
+                    console.log("Лог після циклу"); <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div>
+                  <h5 class="section-title__value">Оператор continue</h5>
+                  <h3>
+                    Перериває не увесь цикл, а тільки виконання поточної
+                    ітерації.
+                  </h3>
+                  <p>
+                    Його використовують, якщо зрозуміло, що на поточній ітерації
+                    циклу більше немає що робити або взагалі не потрібно нічого
+                    робити, і час переходити до наступної ітерації.
+                  </p>
+                  <p>
+                    Використовуємо цикл для введення тільки непарних чисел. Для
+                    парних i спрацьовує continue, виконання тіла припиняється і
+                    управління передається до наступної ітерації. <br />
+                    <br />
+                    const number = 10; <br />
+                    <br />
+                    for (let i = 0; i < number; i += 1) { <br />
+                    if (i % 2 === 0) { <br />
+                    continue; <br />
+                    } <br />
+                    console.log("Непарне i: ", i); // 1, 3, 5, 7, 9 <br />
+                    } <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Цикл for...of</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Конструкція for...of оголошує цикл, що перебирає ітерабельні
+                    об'єкти, як-от масиви і рядки. Тіло циклу буде виконуватися
+                    для значення кожного елемента. Це хороша заміна циклу for,
+                    якщо не потрібен доступ до лічильника ітерації. <br />
+                    <br />
+                    for (const variable of iterable) { <br />
+                    // тіло циклу <br />
+                    } <br />
+                    variable — змінна, яка буде зберігати значення елемента на
+                    кожній ітерації. <br />
+                    iterable — колекція, яка містить ітерабельні (що можна
+                    порахувати) елементи, наприклад масив.
+                  </p>
+                  <p>
+                    const clients = ["Mango", "Ajax", "Poly"]; <br />
+                    <br />
+                    for (const client of clients) { <br />
+                    console.log(client); <br />
+                    } <br />
+                    <br />
+                    const string = "javascript"; <br />
+                    <br />
+                    for (const character of string) { <br />
+                    console.log(character); <br />
+                    } <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Масиви -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Масиви</h3>
+          <!-- <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul> -->
+          <ul>
+            <li>
+              <h4 class="section-title__name">Створення</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Масив оголошується і береться у квадратні дужки [] -
+                    літералом масиву. <br />
+                    Всередині дужок кожен елемент масиву розділяється комою.
+                    <br />
+
+                    const clients = ["Mango", "Poly", "Ajax"];
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Доступ до елементів</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Для доступу до значення елемента масиву використовується
+                    синтаксис квадратних дужок масив[індекс]. Між іменем
+                    змінної, що зберігає масив, і квадратними дужками не повинно
+                    бути пробілу.
+                  </p>
+                  <p>
+                    const clients = ["Mango", "Poly", "Ajax"]; <br />
+                    <br />
+                    // Зазначаючи в дужках індекс елемента, ми отримуємо його
+                    значення <br />
+                    console.log(clients[0]); // Mango <br />
+                    console.log(clients[1]); // Poly <br />
+                    console.log(clients[2]); // Ajax <br />
+                  </p>
+                  <p>Індексація елементів масиву починається з нуля.</p>
+                  <div class="section-box">
+                    <img src="./img/js/array-element.jpg" width="300" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Перевизначення</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    На відміну від рядків, елементи масиву можна змінювати,
+                    звернувшись до них за індексом і присвоївши інше значення.
+                    <br />
+                    <br />
+                    const clients = ["Mango", "Poly", "Ajax"]; <br />
+                    clients[0] = "Kiwi"; <br />
+                    clients[1] = "Pango"; <br />
+                    console.log(clients); // ["Kiwi", "Pango", "Ajax"] <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Довжина масиву</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    const clients = ["Mango", "Poly", "Ajax"]; <br />
+                    console.log(clients.length); // 3
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Індекс останнього елемента</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    const clients = ["Mango", "Poly", "Ajax"]; <br />
+                    const lastElementIndex = clients.length - 1; <br />
+                    console.log(lastElementIndex); // 2 <br />
+                    console.log(clients[lastElementIndex]); // "Ajax" <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Ітерація по масиву</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Цикл for можна використовувати для ітерації по масиву, тобто
+                    «перебрати» його поелементно. <br />
+                    <br />
+                    const clients = ["Mango", "Ajax", "Poly"]; <br />
+                    <br />
+                    for (let i = 0; i < clients.length; i += 1) { <br />
+                    console.log(clients[i]); <br />
+                    } <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Цикл for...of</h5>
+                  <p>
+                    Конструкція for...of оголошує цикл, що перебирає ітерабельні
+                    об'єкти, як-от масиви і рядки. Тіло циклу буде виконуватися
+                    для значення кожного елемента. Це хороша заміна циклу for,
+                    якщо не потрібен доступ до лічильника ітерації. <br />
+                    <br />
+                    for (const variable of iterable) { <br />
+                    // тіло циклу <br />
+                    } <br />
+                    variable — змінна, яка буде зберігати значення елемента на
+                    кожній ітерації. <br />
+                    iterable — колекція, яка містить ітерабельні (що можна
+                    порахувати) елементи, наприклад масив.
+                  </p>
+                  <p>
+                    const clients = ["Mango", "Ajax", "Poly"]; <br />
+                    <br />
+                    for (const client of clients) { <br />
+                    console.log(client); <br />
+                    } <br />
+                    <br />
+                    const string = "javascript"; <br />
+                    <br />
+                    for (const character of string) { <br />
+                    console.log(character); <br />
+                    } <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    Оператори break і continue
+                  </h5>
+                  <p>
+                    Будемо шукати ім'я клієнта в масиві імен, якщо знайшли -
+                    перериваємо цикл, оскільки немає сенсу шукати далі, імена у
+                    нас унікальні. <br />
+                    <br />
+                    const clients = ["Mango", "Poly", "Ajax"]; <br />
+                    const clientNameToFind = "Poly"; <br />
+                    let message; <br />
+                    <br />
+                    for (const client of clients) { <br />
+                    // На кожній ітерації будемо перевіряти чи збігається
+                    елемент масиву з <br />
+                    // іменем клієнта. Якщо збігається - записуємо в message
+                    повідомлення <br />
+                    // про успіх і робимо break, щоб далі не шукати <br />
+                    if (client === clientNameToFind) { <br />
+                    message = "Клієнт з таким ім'ям є в базі даних!"; <br />
+                    break; <br />
+                    } <br />
+                    <br />
+                    // Якщо вони не збігаються - записуємо в message
+                    повідомлення про відсутність імені <br />
+                    message = "Клієнт з таким ім'ям відсутній в базі даних!";
+                    <br />
+                    } <br />
+                    console.log(message); // "Клієнт з таким ім'ям є в базі
+                    даних!" <br />
+                    <br />
+                  </p>
+                  <p>
+                    Використовуємо цикл для виведення тільки чисел, більших за
+                    певне значення. <br />
+                    <br />
+                    const numbers = [1, 3, 14, 18, 4, 7, 29, 6, 34]; <br />
+                    const threshold = 15; <br />
+                    <br />
+                    // Для чисел, менших ніж порогове значення, спрацьовує
+                    continue, виконання тіла <br />
+                    // припиняється і управління передається на наступну
+                    ітерацію. <br />
+                    for (let i = 0; i < numbers.length; i += 1) { <br />
+                    if (numbers[i] < threshold) { <br />
+                    continue; <br />
+                    } <br />
+                    console.log(`Число більше за ${threshold}: ${numbers[i]}`);
+                    // 18, 29, 34 <br />
+                    } <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Методи масиву</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Методи split() і join()</h5>
+                  <h3>
+                    Метод split(delimiter) перетворює рядок в масив,
+                    «розбиваючи» його роздільником delimiter.
+                  </h3>
+                  <p>
+                    Якщо роздільник - це порожній рядок, то створиться масив
+                    окремих символів. Роздільником може бути один або декілька
+                    символів. <br />
+                    <br />
+                    const name = "Mango"; <br />
+                    console.log(name.split("")); // ["M", "a", "n", "g", "o"]
+                    <br />
+                    <br />
+                    const message = "JavaScript - це цікаво"; <br />
+                    console.log(message.split(" ")); // ["JavaScript", "-",
+                    "це", "цікаво"] <br />
+                  </p>
+                  <h3>
+                    Метод масивів join(delimiter) об'єднує елементи масиву у
+                    рядок.
+                  </h3>
+                  <p>
+                    У рядку елементи будуть розділені символом або групою
+                    символів, зазначених в delimiter. Тобто ця операція
+                    протилежна методу рядків split(delimiter). <br />
+                    <br />
+                    const words = ["JavaScript", "це", "цікаво"]; <br />
+                    console.log(words.join("")); // "JavaScriptцецікаво" <br />
+                    console.log(words.join(" ")); // "JavaScript це цікаво"
+                    <br />
+                    console.log(words.join("-")); // "JavaScript-це-цікаво"
+                    <br />
+                  </p>
+                  <h5 class="section-title__value">Метод indexOf()</h5>
+                  <h3>
+                    indexOf(value) повертає перший індекс, в якому елемент зі
+                    значенням value був знайдений в масиві, або число -1, якщо
+                    такий елемент відсутній.
+                  </h3>
+                  <p>
+                    Використовуйте indexOf тоді, коли необхідно отримати сам
+                    індекс елемента. <br />
+                    <br />
+                    const clients = ["Mango", "Ajax", "Poly", "Kiwi"]; <br />
+                    console.log(clients.indexOf("Poly")); // 2 <br />
+                    console.log(clients.indexOf("Monkong")); // -1 <br />
+                  </p>
+                  <h5 class="section-title__value">Метод includes()</h5>
+                  <h3>
+                    includes(value) перевіряє, чи містить масив елемент зі
+                    значенням value і повертає true або false відповідно.
+                  </h3>
+                  <p>
+                    Застосування цього методу корисне в ситуаціях, коли
+                    необхідно перевірити, чи є елемент в масиві і не важлива
+                    його позиція (індекс). <br />
+                    <br />
+                    const clients = ["Mango", "Ajax", "Poly", "Kiwi"]; <br />
+                    console.log(clients.includes("Poly")); // true <br />
+                    console.log(clients.includes("Monkong")); // false <br />
+                  </p>
+                  <h4>Перевірка багатьох умов з includes()</h4>
+                  <p>
+                    // Виносимо варіанти в масив <br />
+                    const redFruits = ["apple", "strawberry", "cherry",
+                    "cranberries"]; <br />
+                    const fruit = "cherry"; <br />
+                    // Перевіряємо присутність елемента <br />
+                    const hasFruit = redFruits.includes(fruit); <br />
+                    <br />
+                    if (hasFruit) { <br />
+                    console.log(`${fruit} is a red fruit!`); <br />
+                    } <br />
+                  </p>
+                  <h5 class="section-title__value">Методи push() і pop()</h5>
+                  <h3>Додають або видаляють крайні елементи масиву.</h3>
+                  <div class="section-box">
+                    <img src="./img/js/push-pop.jpg" width="300" alt="" />
+                  </div>
+                  <h3>Метод push()</h3>
+                  <p>
+                    додає один або декілька елементів наприкінці масиву, без
+                    необхідності зазначати індекси елементів, що додаються.
+                    Повертає довжину масиву після додавання елементів.
+                  </p>
+                  <p>
+                    const numbers = []; <br />
+                    <br />
+                    numbers.push(1); <br />
+                    console.log(numbers); // [1] <br />
+                    <br />
+                    numbers.push(2); <br />
+                    console.log(numbers); // [1, 2] <br />
+                    <br />
+                    numbers.push(3); <br />
+                    console.log(numbers); // [1, 2, 3] <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="./img/js/array-push.jpg" width="500" alt="" />
+                  </div>
+                  <h3>Метод pop()</h3>
+                  <p>
+                    видаляє останній елемент з кінця масиву і повертає видалений
+                    елемент. Якщо масив порожній, метод повертає undefined.
+                  </p>
+                  <p>
+                    const numbers = [1, 2, 3, 4, 5]; <br />
+                    <br />
+                    console.log(numbers.pop()); // 5 <br />
+                    console.log(numbers); // [1, 2, 3, 4] <br />
+                    <br />
+                    console.log(numbers.pop()); // 4 <br />
+                    console.log(numbers); // [1, 2, 3] <br />
+                    <br />
+                    console.log(numbers.pop()); // 3 <br />
+                    console.log(numbers); // [1, 2]
+                  </p>
+                  <div class="section-box">
+                    <img src="./img/js/array-pop.jpg" width="500" alt="" />
+                  </div>
+                  <h5 class="section-title__value">Метод slice()</h5>
+                  <h3>
+                    slice(begin, end) повертає новий масив, що містить копію
+                    частини вихідного масиву, не змінюючи його. Копія
+                    створюється з begin і до, але не включно, end - індекси
+                    елементів вихідного масиву.
+                  </h3>
+                  <div class="section-box">
+                    <img src="./img/js/array-slice.jpg" width="200" alt="" />
+                  </div>
+                  <p>
+                    const clients = ["Mango", "Ajax", "Poly", "Kiwi"]; <br />
+                    console.log(clients.slice(1, 3)); // ["Ajax", "Poly"] <br />
+                    <br />
+                    Якщо begin і end не зазначені, буде створена повна копія
+                    вихідного масиву. <br />
+                    <br />
+                    const clients = ["Mango", "Ajax", "Poly", "Kiwi"]; <br />
+                    console.log(clients.slice()); // ["Mango", Ajax", "Poly",
+                    "Kiwi"] <br />
+                    <br />
+                    Якщо не зазначено end, копіювання буде зі start і до кінця
+                    вихідного масиву. <br />
+                    <br />
+                    const clients = ["Mango", "Ajax", "Poly", "Kiwi"]; <br />
+                    console.log(clients.slice(1)); // ["Ajax", "Poly", "Kiwi"]
+                    <br />
+                    console.log(clients.slice(2)); // ["Poly", "Kiwi"] <br />
+                    <br />
+                    Якщо значення start від'ємне, а end не зазначено - будуть
+                    скопійовані останні start елементи <br />
+                    <br />
+                    const clients = ["Mango", "Ajax", "Poly", "Kiwi"]; <br />
+                    console.log(clients.slice(-2)); // ["Poly", "Kiwi"] <br />
+                  </p>
+                  <h5 class="section-title__value">Метод splice()</h5>
+                  <h3>
+                    Видаляє, додає і замінює елементи у довільному місці масиву.
+                  </h3>
+                  <h2>Видалення</h2>
+                  <p>
+                    Щоб видалити елементи в масиві, передаються два аргументи.
+                    <br />
+                    <br />
+                    splice(position, num) <br />
+                    <br />
+                    position - вказує на позицію (індекс) першого елемента для
+                    видалення <br />
+                    num - визначає кількість елементів, що видаляються <br />
+                    Метод splice змінює вихідний масив і повертає масив, що
+                    містить видалені елементи. Наприклад, у нас є масив оцінок,
+                    який містить п'ять чисел від 1 до 5. <br />
+                    <br />
+                    const scores = [1, 2, 3, 4, 5]; <br />
+                    <br />
+                    // Видаляємо три елементи масиву, починаючи з першого
+                    елемента (індекс 0) <br />
+                    const deletedScores = scores.splice(0, 3); <br />
+                    <br />
+                    // Тепер масив scores містить два елементи <br />
+                    console.log(scores); // [4, 5] <br />
+                    <br />
+                    // А масив deletedScores містить три видалені елементи
+                    <br />
+                    console.log(deletedScores); // [1, 2, 3] <br />
+                  </p>
+                  <div class="section-box">
+                    <img
+                      src="./img/js/array-splice-delete.jpg"
+                      width="500"
+                      alt=""
+                    />
+                  </div>
+                  <h2>Додавання</h2>
+                  <p>
+                    Для того, щоб додати один або декілька елементів в масив,
+                    необхідно передати три або більше аргументи, за такої умови,
+                    другий аргумент повинен дорівнювати нулю. <br />
+                    <br />
+                    splice(position, 0, new_element_1, new_element_2, ...)
+                    <br />
+                    <br />
+                    Аргумент position вказує початкову позицію в масиві, куди
+                    будуть вставлені нові елементи. <br />
+                    Другий аргумент - це нуль, він говорить методу не видаляти
+                    елементи в місці додавання нових. <br />
+                    Третій, четвертий і всі наступні аргументи - це нові
+                    елементи, які додаються в масив. <br />
+                    Наприклад, у нас є масив з назвами кольорів у вигляді
+                    рядків. Додамо новий колір перед елементом з індексом 2.
+                    <br />
+                    <br />
+                    const colors = ["red", "green", "blue"]; <br />
+                    <br />
+                    colors.splice(2, 0, "purple"); <br />
+                    console.log(colors); // ["red", "green", "purple", "blue"]
+                    <br />
+                    Можна додати довільну кількість елементів, передавши
+                    четвертий, п'ятий аргумент тощо. <br />
+                    <br />
+                    const colors = ["red", "green", "blue"]; <br />
+                    <br />
+                    colors.splice(1, 0, "yellow", "pink"); <br />
+                    console.log(colors); // ["red", "yellow", "pink", "green",
+                    "blue"] <br />
+                  </p>
+                  <div class="section-box">
+                    <img
+                      src="./img/js/array-splice-add.jpg"
+                      width="500"
+                      alt=""
+                    />
+                  </div>
+                  <h2>Заміна</h2>
+                  <p>
+                    Заміна - це операція додавання, в якій видаляються елементи
+                    в місці додавання нових. Для цього необхідно передати
+                    мінімум три аргументи. Кількість елементів, що видаляються і
+                    додаються, може не збігатися. <br />
+                    <br />
+                    splice(position, num, new_element_1, new_element_2, ...)
+                    <br />
+                    <br />
+                    position - вказує на позицію (індекс) першого елемента для
+                    видалення <br />
+                    num - визначає кількість елементів, що видаляються <br />
+                    Третій, четвертий і всі наступні аргументи - це нові
+                    елементи, які додаються в масив. <br />
+                    Наприклад, у нас є масив мов програмування з чотирьох
+                    елементів. <br />
+                    <br />
+                    const languages = ["C", "C++", "Java", "JavaScript"]; <br />
+                    <br />
+                    // Заміняємо елемент з індексом 1 на новий <br />
+                    languages.splice(1, 1, "Python"); <br />
+                    console.log(languages); // ["C", "Python", "Java",
+                    "JavaScript"] <br />
+                    <br />
+                    // Заміняємо один елемент (з індексом 2) на декілька <br />
+                    languages.splice(2, 1, "C#", "Swift", "Go"); <br />
+                    console.log(languages); // ["C", "Python", "C#", "Swift",
+                    "Go", "JavaScript"] <br />
+                  </p>
+                  <div class="section-box">
+                    <img
+                      src="./img/js/array-splice-aupdate.jpg"
+                      width="500"
+                      alt=""
+                    />
+                  </div>
+                  <h5 class="section-title__value">Метод concat()</h5>
+                  <h3>Об'єднує два або більше масивів в один.</h3>
+                  <p>
+                    Він не змінює масив, на якому викликається, а повертає
+                    новий. Порядок аргументів методу впливає на порядок
+                    елементів нового масиву. <br />
+                    <br />
+                    const oldClients = ["Mango", "Ajax", "Poly", "Kiwi"]; <br />
+                    const newClients = ["Monkong", "Singu"]; <br />
+                    <br />
+                    const allClientsWithOldFirst =
+                    oldClients.concat(newClients); <br />
+                    console.log(allClientsWithOldFirst); // ["Mango", "Ajax",
+                    "Poly", "Kiwi", "Monkong", "Singu"] <br />
+                    <br />
+                    const allClientsWithNewFirst =
+                    newClients.concat(oldClients); <br />
+                    console.log(allClientsWithNewFirst); // ["Monkong", "Singu",
+                    "Mango", "Ajax", "Poly", "Kiwi"] <br />
+                    <br />
+                    console.log(oldClients); // ["Mango", "Ajax", "Poly",
+                    "Kiwi"] <br />
+                    console.log(newClients); // ["Monkong", "Singu"] <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">sectionTitle</h3>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">sectionTitle</h3>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </main>
     <footer class="footer"></footer>
   </body>

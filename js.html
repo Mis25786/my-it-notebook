@@ -23,16 +23,16 @@
     <div class="wrapper">
       <header class="header">
         <a class="logo" href="/index.html">Конспект-ІТ</a>
-        <div class="header-nav">
+        <nav class="header-nav">
           <a class="header-page" href="./html.html">html/css</a>
           <a class="header-page" href="./image.html">Зображення</a>
-          <a class="header-page" href="./animations.html">Анімації</a>
+          <a class="header-page" href="./animations.html">Анімації/Ефекти</a>
           <a class="header-page" href="./js.html">JavaScript</a>
           <a class="header-page" href="./react.html">React</a>
           <a class="header-page" href="./node.html">Node</a>
           <a class="header-page" href="./commponents.html">Компоненти</a>
           <a class="header-page" href="./resources.html">Ресурси/Бібліотеки</a>
-        </div>
+        </nav>
         <div class="header-search">
           <i class="fa-solid fa-magnifying-glass"></i>
           <input
@@ -45,11 +45,21 @@
       </header>
     </div>
     <main class="main">
+      <!-- Підключення JS -->
       <section class="section">
         <div class="container">
           <div>
             <!-- Підключення JS до проекту -->
             <h3 class="section-title">Підключення JS до проекту</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://youtu.be/wdViO9OcQzs?list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr"
+                  target="_blank"
+                  >JAVASCRIPT Frilancer</a
+                >
+              </li>
+            </ul>
             <ol>
               <h4>Щоб підключити JavaScript із зовнішнього файлу:</h4>
               <li>Створіть в папці проекту файл з розширенням .js</li>
@@ -69,15 +79,6 @@
             <img src="./img/js/підключення-джс-2.jpg" alt="" />
           </div>
           <div>
-            <!-- Отримання типу значення змінної -->
-            <h3 class="section-title">Отримання типу значення змінної</h3>
-            <h4 class="section-title__name">Оператор typeof</h4>
-            <p>
-              const quantity = 17; <br />
-              console.log(typeof quantity); // "number"
-            </p>
-          </div>
-          <div>
             <!-- Суворий режим -->
             <h3 class="section-title">Суворий режим</h3>
             <p>
@@ -92,31 +93,35 @@
           </div>
         </div>
       </section>
+
       <!-- Методи -->
       <section class="section">
         <div class="container">
-          <div>
+          <ul>
             <!-- Методи часто використовувані -->
             <h3 class="section-title">Різні Методи</h3>
-            <div>
+            <li>
               <h4 class="section-title__name">Знайти кіл-ть символів рядка</h4>
               <h5 class="section-title__value">.length</h5>
               <p>"JavaScript is awesome".length;</p>
-            </div>
-            <div>
-              <!-- Зробить усі літери великими -->
+            </li>
+
+            <!-- Зробить усі літери великими -->
+            <li>
               <h4 class="section-title__name">Зробить усі літери великими</h4>
               <h5 class="section-title__value">.toUpperCase()</h5>
               <p>"JavaScript is awesome".toUpperCase();</p>
-            </div>
-            <div>
-              <!-- Зробить усі літери малими -->
+            </li>
+
+            <!-- Зробить усі літери малими -->
+            <li>
               <h4 class="section-title__name">Зробить усі літери малими</h4>
               <h5 class="section-title__value">.toLowerCase()</h5>
               <p>"JavaScript is awesome".toLowerCase();</p>
-            </div>
-            <div>
-              <!-- Отримання даних -->
+            </li>
+
+            <!-- Отримання даних -->
+            <li>
               <h4 class="section-title__name">Отримання даних</h4>
               <h5 class="section-title__value">confirm()</h5>
               <p>
@@ -143,8 +148,58 @@
                 <br />
                 console.log(hotelName);
               </p>
-            </div>
-          </div>
+            </li>
+
+            <!-- Отримання типу значення змінної -->
+            <li>
+              <h4 class="section-title__name">
+                Отримання типу значення змінної
+              </h4>
+              <h5 class="section-title__value">typeof</h5>
+              <p>
+                const quantity = 17; <br />
+                console.log(typeof quantity); // "number"
+              </p>
+            </li>
+
+            <!-- Перетворити в рядок -->
+            <li>
+              <h4 class="section-title__name">Перетворити в рядок</h4>
+              <h5 class="section-title__value">String(thing)</h5>
+              <p>
+                value = String(value); // тепер value - це рядок "true" <br />
+                alert(typeof value); // string
+              </p>
+            </li>
+
+            <!-- Перетворити в число -->
+            <li>
+              <h4 class="section-title__name">Перетворити в число</h4>
+              <h5 class="section-title__value">Number('123')</h5>
+              <p>
+                let str = "123"; <br />
+                alert(typeof str); // string <br />
+                <br />
+                let num = Number(str); // становится числом 123 <br />
+                <br />
+                alert(typeof num); // number <br />
+              </p>
+            </li>
+
+            <!-- Перетворити в булеан -->
+            <li>
+              <h4 class="section-title__name">Перетворити в булеан</h4>
+              <h5 class="section-title__value">Boolean("Привет!")</h5>
+              <p>
+                alert( Boolean(1) ); // true <br />
+                alert( Boolean(0) ); // false <br />
+                <br />
+                alert( Boolean("Привет!") ); // true <br />
+                alert( Boolean("") ); // false <br />
+              </p>
+            </li>
+          </ul>
+
           <h3 class="section-title">Числа</h3>
           <!-- <ul>
             <li><a href="" target="_blank"></a></li>
@@ -394,9 +449,60 @@
         <div class="container">
           <h3 class="section-title">Основи синтаксису</h3>
           <ul>
-            <li><a href="" target="_blank"></a></li>
+            <li>
+              <a
+                href="https://youtu.be/uOeFpp872MY?list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr"
+                target="_blank"
+                >Frilancer</a
+              >
+            </li>
           </ul>
           <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Типы данных -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Типы данных</h3>
+          <ul>
+            <li>
+              <a
+                href="https://youtu.be/g7jDucodUzQ?list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr"
+                target="_blank"
+                >Типы данных JAVASCRIPT. Null String Undefined Boolean Number та
+                інші. Frilancer</a
+              >
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <!-- Отримання типу значення змінної -->
+              <h4 class="section-title__name">
+                Отримання типу значення змінної
+              </h4>
+              <h5 class="section-title__value">typeof</h5>
+              <p>
+                const quantity = 17; <br />
+                console.log(typeof quantity); // "number"
+              </p>
+            </li>
             <li>
               <h4 class="section-title__name"></h4>
               <div class="section-box">
@@ -433,6 +539,14 @@
                 href="https://www.freecodecamp.org/news/javascript-naming-conventions-dos-and-don-ts-99c0e2fdd78a"
                 target="_blank"
                 >Домовленість про імена змінних</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://youtu.be/5V8IeATHr4w?list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr"
+                target="_blank"
+                >Перемінні в JAVASCRIPT. Константи. Ключові слова LET CONST VAR.
+                Frilancer</a
               >
             </li>
           </ul>

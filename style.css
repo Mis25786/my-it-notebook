@@ -1428,8 +1428,8 @@ textarea {
 }
 
 /* Композиція псевдокласів */
-.composition {
-}
+/* .composition {
+} */
 
 .form-input-composition:not(:placeholder-shown):required:valid {
   border-color: green;
@@ -1550,8 +1550,8 @@ textarea {
 /* ================== */
 
 /* Випадаючий рядок */
-.block__box-wrap {
-}
+/* .block__box-wrap {
+} */
 
 .block__box-item {
   margin: 0 0 20px 0;

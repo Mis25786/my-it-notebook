@@ -9,6 +9,7 @@
       src="https://kit.fontawesome.com/7f832f4aea.js"
       crossorigin="anonymous"
     ></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -45,54 +46,133 @@
       </header>
     </div>
     <main class="main">
-      <!-- Підключення JS -->
-      <section class="section">
+      <!-- Підключення JS до проекту -->
+      <div class="section">
         <div class="container">
-          <div>
-            <!-- Підключення JS до проекту -->
-            <h3 class="section-title">Підключення JS до проекту</h3>
-            <ul>
-              <li>
-                <a
-                  href="https://youtu.be/wdViO9OcQzs?list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr"
-                  target="_blank"
-                  >JAVASCRIPT Frilancer</a
-                >
-              </li>
-            </ul>
-            <ol>
-              <h4>Щоб підключити JavaScript із зовнішнього файлу:</h4>
-              <li>Створіть в папці проекту файл з розширенням .js</li>
-              <li>
-                Потім вкажіть шлях до файлу скрипту в атрибуті src тегу script.
-              </li>
-              <img src="./img/js/підключення-джс.jpg" alt="" />
-            </ol>
-          </div>
-          <div>
-            <!-- Підключення декілька скриптів -->
-            <h3 class="section-title">Підключення декілька скриптів</h3>
-            <p>
-              Підключаючи декілька JavaScript-файлів до сторінки, інтерпретатор
-              обробляє їх у тому порядку, в якому вони зазначені в HTML-файлі.
-            </p>
-            <img src="./img/js/підключення-джс-2.jpg" alt="" />
-          </div>
-          <div>
-            <!-- Суворий режим -->
-            <h3 class="section-title">Суворий режим</h3>
-            <p>
-              Для того, щоб перевести скрипт в суворий режим, достатньо
-              зазначити директиву на початку js-файлу. Завжди пишіть код в
-              суворому режимі.
-            </p>
-            <p>
-              В файлі script.js прописуємо <br />
-              "use strict";
-            </p>
-          </div>
+          <h3 class="section-title">Підключення JS до проекту</h3>
+          <ul>
+            <li>
+              <a
+                href="https://youtu.be/wdViO9OcQzs?list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr"
+                target="_blank"
+                >JAVASCRIPT Frilancer</a
+              >
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <ol>
+                    <h4>Щоб підключити JavaScript із зовнішнього файлу:</h4>
+                    <li>Створіть в папці проекту файл з розширенням .js</li>
+                    <li>
+                      Потім вкажіть шлях до файлу скрипту в атрибуті src тегу
+                      script.
+                    </li>
+                    <img src="./img/js/підключення-джс.jpg" alt="" />
+                  </ol>
+
+                  <h5 class="section-title__value">
+                    Підключення декілька скриптів
+                  </h5>
+                  <p>
+                    Підключаючи декілька JavaScript-файлів до сторінки,
+                    інтерпретатор обробляє їх у тому порядку, в якому вони
+                    зазначені в HTML-файлі.
+                  </p>
+                  <img src="./img/js/підключення-джс-2.jpg" alt="" />
+
+                  <h5 class="section-title__value">Суворий режим</h5>
+                  <p>
+                    Для того, щоб перевести скрипт в суворий режим, достатньо
+                    зазначити директиву на початку js-файлу. Завжди пишіть код в
+                    суворому режимі. <br />
+                    <br />
+                    В файлі script.js прописуємо - "use strict"; <br />
+                    <br />
+                  </p>
+
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Завантаження і виконання скрипта, зазначеного в тезі script
+                    без будь-яких атрибутів, блокують обробку HTML-документа і
+                    побудову DOM. Це проблема. <br />
+                    <br />
+                  </p>
+                  <h3>script src="path-to-script.js" /script</h3>
+                  <br />
+                  <p>
+                    Коли аналізатор зустрічає такий тег, обробка HTML-документа
+                    припиняється і починається завантаження файлу скрипта,
+                    зазначеного в атрибуті src. Після завантаження скрипт
+                    виконується, і тільки потім відновлюється обробка HTML. Це
+                    називається «блокуючий» скрипт. <br />
+                    <br />
+                    Атрибути defer та async були введені, щоб дати розробникам
+                    можливість краще контролювати спосіб завантаження скриптів,
+                    і коли саме їх виконувати. <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                  <h5 class="section-title__value">Атрибут defer</h5>
+                  <h3>script defer src="path-to-script.js /script</h3>
+                  <p>
+                    Атрибут defer вказує браузеру завантажувати файл скрипта у
+                    фоновому режимі, паралельно обробці HTML-документа і
+                    побудові DOM. Скрипт буде виконаний тільки після того, як
+                    HTML-документ був оброблений, а DOM побудований. Такі
+                    скрипти не блокують побудову DOM-дерева і гарантовано
+                    виконуються у тому порядку, в якому вказані в
+                    HTML-документі.
+                  </p>
+                  <div class="section-box">
+                    <img src="./img/js/js-defer.jpg" width="400" alt="" />
+                  </div>
+                  <h5 class="section-title__value">Атрибут async</h5>
+                  <h3>script async src="path-to-script.js" /script</h3>
+                  <p>
+                    Завантаження скрипта з атрибутом async не блокує побудову
+                    DOM, але він виконується відразу після завантаження. Це
+                    означає, що такі скрипти можуть заблокувати побудову DOM, і
+                    виконуються у довільному порядку.
+                  </p>
+                  <div class="section-box">
+                    <img src="./img/js/js-async.jpg" width="400" alt="" />
+                  </div>
+                  <h5 class="section-title__value">type="module"</h5>
+                  <h3>script type="module" src="path-to-script.js" /script</h3>
+                  <p>
+                    Додається щоб можна було експортувати/імпортувати з файлів
+                    js
+                  </p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
-      </section>
+      </div>
 
       <!-- Методи -->
       <section class="section">
@@ -481,10 +561,10 @@
         </div>
       </div>
 
-      <!-- Типы данных -->
+      <!-- Типи данных -->
       <div class="section">
         <div class="container">
-          <h3 class="section-title">Типы данных</h3>
+          <h3 class="section-title">Типи данних</h3>
           <ul>
             <li>
               <a
@@ -901,6 +981,15 @@
       <div class="section">
         <div class="container">
           <h3 class="section-title">Рядки</h3>
+          <ul>
+            <li>
+              <a
+                href="https://youtu.be/jc5Upe8xIN0?list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr"
+                target="_blank"
+                >Frilancer</a
+              >
+            </li>
+          </ul>
           <div>
             <p>
               Рядок - це індексований набір з нуля або більше символів, взятих в
@@ -1753,9 +1842,15 @@
       <div class="section">
         <div class="container">
           <h3 class="section-title">Масиви</h3>
-          <!-- <ul>
-            <li><a href="" target="_blank"></a></li>
-          </ul> -->
+          <ul>
+            <li>
+              <a
+                href="https://youtu.be/GULFKAX0nxY?list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr"
+                target="_blank"
+                >Frilancer</a
+              >
+            </li>
+          </ul>
           <ul>
             <li>
               <h4 class="section-title__name">Створення</h4>
@@ -2430,6 +2525,813 @@
                 </div>
               </div>
             </li>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Document object model (DOM) -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Document object model (DOM)</h3>
+          <ul>
+            <li>
+              <a
+                href="https://youtu.be/DuWyc76lYC4?list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr"
+                target="_blank"
+                >Frilancer</a
+              >
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name">Навігація по DOM</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <h3>
+                    Для навігації по цій ієрархії елементи мають наступні
+                    властивості.
+                  </h3>
+                  <div class="section-box">
+                    <img src="./img/js/navigation-DOM.jpg" width="500" alt="" />
+                  </div>
+                  <ul>
+                    <li>
+                      <h3>elem.parentNode</h3>
+                      <p>вибере батьківський elem.</p>
+                    </li>
+                    <li>
+                      <h3>elem.childNodes</h3>
+                      <p>
+                        псевдомасив, зберігає всі дочірні елементи, включно з
+                        текстовими.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>elem.children</h3>
+                      <p>
+                        псевдомасив, зберігає тільки дочірні вузли-елементи,
+                        тобто ті, що відповідають тегам.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>elem.firstChild</h3>
+                      <p>
+                        вибере перший дочірній елемент всередині elem, включно з
+                        текстовими вузлами.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>elem.firstElementChild</h3>
+                      <p>
+                        вибере перший дочірній вузол-елемент всередині elem.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>elem.lastChild</h3>
+                      <p>
+                        вибере останній дочірній елемент всередині elem, включно
+                        з текстовими вузлами.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>elem.lastElementChild</h3>
+                      <p>
+                        вибере останній дочірній вузол-елемент всередині elem.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>elem.previousSibling</h3>
+                      <p>
+                        вибере елемент «зліва» від elem (його попереднього
+                        сусіда).
+                      </p>
+                    </li>
+                    <li>
+                      <h3>elem.previousElementSibling</h3>
+                      <p>
+                        вибере вузол-елемент «зліва» від elem (його попереднього
+                        сусіда).
+                      </p>
+                    </li>
+                    <li>
+                      <h3>elem.nextSibling</h3>
+                      <p>
+                        вибере елемент «праворуч» від elem (його наступного
+                        сусіда)
+                      </p>
+                    </li>
+                    <li>
+                      <h3>elem.nextElementSibling</h3>
+                      <p>
+                        вибере вузол-елемент «праворуч» від elem (його
+                        наступного сусіда).
+                      </p>
+                    </li>
+                  </ul>
+                  <p></p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Пошук елементів</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    element.querySelector(selector);
+                  </h5>
+                  <h3>
+                    Використовується, якщо необхідно знайти тільки один,
+                    найчастіше унікальний елемент.
+                  </h3>
+                  <p>
+                    Повертає перший знайдений елемент всередині element, що
+                    відповідає CSS-селектору selector. <br />
+                    Якщо нічого не знайдено, поверне null.
+                  </p>
+                  <h5 class="section-title__value">
+                    element.querySelectorAll(selector)
+                  </h5>
+                  <h3>
+                    Використовується, якщо необхідно знайти колекцію елементів,
+                    тобто отримати масив посилань на елементи з однаковим
+                    селектором. Наприклад, всі елементи списку з класом
+                    menu-item.
+                  </h3>
+                  <p>
+                    Повертає псевдомасив всіх елементів всередині element, які
+                    відповідають CSS-селектору selector. <br />
+                    Якщо нічого не знайдено, поверне порожній масив.
+                  </p>
+                  <p>
+                    const listWithId = document.querySelector('#menu'); <br />
+                    listWithId.style.textTransform = 'uppercase'; <br />
+                    listWithId.style.fontSize = '24px'; <br />
+                    console.log(listWithId); <br />
+                    <br />
+                    const listWithClass = document.querySelector('.menu');
+                    <br />
+                    console.log(listWithClass); <br />
+                    <br />
+                    const menuItemsByTagName = document.querySelectorAll("li");
+                    <br />
+                    console.log(menuItemsByTagName); <br />
+                    <br />
+                    const menuItemsByClass =
+                    document.querySelectorAll(".menu-item"); <br />
+                    console.log(menuItemsByClass); <br />
+                    <br />
+                    const firstMenuItem = document.querySelector(".menu-item");
+                    <br />
+                    firstMenuItem.style.color = 'tomato'; <br />
+                    console.log(firstMenuItem); <br />
+                  </p>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Властивості та атрибути</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Під час побудови DOM-дерева, деякі стандартні HTML-атрибути
+                    стають властивостями елементів. Подивимося на декілька
+                    властивостей, які часто використовуються.
+                  </p>
+                  <ul>
+                    <li>
+                      <h3>value</h3>
+                      <p>містить поточний текстовий контент елементів форм.</p>
+                    </li>
+                    <li>
+                      <h3>checked</h3>
+                      <p>зберігає стан чекбокса або радіокнопки.</p>
+                    </li>
+                    <li>
+                      <h3>name</h3>
+                      <p>зберігає значення, вказане в HTML-атрибуті name.</p>
+                    </li>
+                    <li>
+                      <h3>src</h3>
+                      <p>шлях до зображення тегу < img >.</p>
+                    </li>
+                  </ul>
+                  <h5 class="section-title__value">Властивість textContent</h5>
+                  <p>
+                    elem.textContent повертає текстовий контент всередині
+                    елемента. Доступний для читання і запису. Неважливо, що буде
+                    передано в textContent, дані завжди будуть записані як
+                    текст.
+                  </p>
+                  <p>
+                    const textEl = document.querySelector(".article-text");
+                    <br />
+                    console.log(textEl.textContent); // text inside
+                    p.article-text <br />
+                    <br />
+                    const titleEl = document.querySelector(".article-title");
+                    <br />
+                    titleEl.textContent = 'Welcome to Bahamas!'; <br />
+                  </p>
+                  <h5 class="section-title__value">Властивість classList</h5>
+                  <p>
+                    У властивості classList зберігається об'єкт з методами для
+                    роботи з класами елемента.
+                  </p>
+                  <ul>
+                    <li>
+                      <h3>elem.classList.contains(cls)</h3>
+                      <p>
+                        повертає true або false, залежно від наявності класу cls
+                        в елемента.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>elem.classList.add(cls)</h3>
+                      <p>додає клас cls до списку класів елемента.</p>
+                    </li>
+                    <li>
+                      <h3>elem.classList.remove(cls)</h3>
+                      <p>видаляє клас cls зі списку класів елемента.</p>
+                    </li>
+                    <li>
+                      <h3>elem.classList.toggle(cls)</h3>
+                      <p>
+                        якщо відсутній клас cls, то додає його, якщо -
+                        присутній, навпаки - видаляє.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>elem.classList.replace(oldClass, newClass)</h3>
+                      <p>
+                        замінює існуючий клас oldClass на вказаний newClass.
+                      </p>
+                    </li>
+                  </ul>
+                  <p>
+                    const link = document.querySelector(".link"); <br />
+                    console.log(link.classList); <br />
+                    <br />
+                    const hasActiveClass = link.classList.contains("is-active");
+                    <br />
+                    console.log(`hasActiveClass - ${hasActiveClass}`); <br />
+                    <br />
+                    link.classList.add("special"); <br />
+                    console.log(link.classList); <br />
+                    <br />
+                    link.classList.remove("is-active"); <br />
+                    console.log(link.classList); <br />
+                    <br />
+                    link.classList.toggle("is-active"); <br />
+                    console.log(link.classList); <br />
+                    <br />
+                    link.classList.replace("special", "regular"); <br />
+                    console.log(link.classList); <br />
+                  </p>
+                  <h5 class="section-title__value">Властивість style</h5>
+                  <p>
+                    Використовується для читання та зміни інлайнових стилів.
+                    Повертає об'єкт CSSStyleDeclaration, який містить список
+                    усіх властивостей, визначених тільки у вбудованих стилях
+                    елемента, а не увесь CSS. Під час запису властивості
+                    записуються в camelCase, тобто background-color
+                    перетворюється на element.style.backgroundColor тощо.
+                  </p>
+                  <p>
+                    const button = document.querySelector(".btn"); <br />
+                    <br />
+                    button.style.backgroundColor = "teal"; <br />
+                    button.style.fontSize = "24px"; <br />
+                    button.style.textAlign = "center"; <br />
+                    <br />
+                    console.log(button.style); // inline styles object <br />
+                  </p>
+                  <p>
+                    На практиці стилізація елементів виконується шляхом
+                    додавання CSS-класів. Властивість style використовується для
+                    додавання будь-яких динамічних стилів, наприклад, під час
+                    анімації.
+                  </p>
+                  <h5 class="section-title__value">Атрибути</h5>
+                  <p>
+                    DOM-елементам відповідають HTML-теги, які містять текстові
+                    атрибути. Доступ до атрибутів здійснюється за допомогою
+                    стандартних методів. Ці методи працюють зі значенням, яке
+                    знаходиться в HTML.
+                  </p>
+                  <ul>
+                    <li>
+                      <h3>elem.hasAttribute(name)</h3>
+                      <p>
+                        перевіряє наявність атрибута, повертає true або false.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>elem.getAttribute(name)</h3>
+                      <p>отримує значення атрибута і повертає його.</p>
+                    </li>
+                    <li>
+                      <h3>elem.setAttribute(name, value)</h3>
+                      <p>встановлює атрибут.</p>
+                    </li>
+                    <li>
+                      <h3>elem.removeAttribute(name)</h3>
+                      <p>видаляє атрибут.</p>
+                    </li>
+                    <li>
+                      <h3>elem.attributes</h3>
+                      <p>
+                        властивість, що повертає об'єкт усіх атрибутів елемента.
+                      </p>
+                    </li>
+                  </ul>
+                  <p>
+                    const image = document.querySelector(".image"); <br />
+                    <br />
+                    console.log(image.attributes); // NamedNodeMap {0: class, 1:
+                    src, 2: alt, length: 3} <br />
+                    <br />
+                    console.log(image.hasAttribute("src")); // true <br />
+                    <br />
+                    console.log(image.getAttribute("alt")); // "Rocks and
+                    waterfall" <br />
+                    <br />
+                    image.setAttribute("alt", "Amazing nature"); <br />
+                    <br />
+                    console.log(image.getAttribute("alt")); // Amazing nature
+                    <br />
+                  </p>
+                  <h5 class="section-title__value">data-атрибути</h5>
+                  <p>
+                    Дозволяють додати до тегу довільний атрибут і отримати його
+                    значення в JavaScript. Цю можливість використовують для
+                    того, щоб спростити написання коду, наприклад, зв'язати дані
+                    і розмітку за унікальним ідентифікатором, вказати тип дії
+                    кнопки тощо.
+                  </p>
+                  <p>
+                    < button type="button" data-action="save">Save< /button>
+                    <br />
+                    < button type="button" data-action="close">Close< /button>
+                  </p>
+                  <p>
+                    Для отримання значення data-атрибута використовується
+                    властивість dataset, після якого стоїть ім'я атрибута. Тобто
+                    data- відкидається, а інша частина імені записується як ім'я
+                    властивості об'єкта.
+                  </p>
+                  <p>
+                    const saveBtn =
+                    document.querySelector('button[data-action="save"]'); <br />
+                    console.log(saveBtn.dataset.action); // "save" <br />
+                    <br />
+                    const closeBtn =
+                    document.querySelector('button[data-action="close"]');
+                    <br />
+                    console.log(closeBtn.dataset.action); // "close" <br />
+                  </p>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Створення та видалення елементів
+              </h4>
+              <p>
+                DOM API дозволяє не тільки вибирати або змінювати вже існуючі,
+                але й видаляти, а також створювати нові елементи, після чого
+                додавати їх в документ.
+              </p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Створення</h5>
+                  <h3>document.createElement(tagName);</h3>
+                  <p>
+                    Створює елемент з ім'ям tagName і повертає посилання на
+                    нього як результат свого виконання. tagName - це рядок, що
+                    вказує тип елемента, який створюється. Елемент створюється в
+                    пам'яті, в DOM його ще немає.
+                  </p>
+                  <p>
+                    const heading = document.createElement("h1"); <br />
+                    console.log(heading); // < h1>< /h1> <br />
+                    <br />
+                    heading.textContent = "This is a heading"; <br />
+                    console.log(heading); // < h1>This is a heading< /h1> <br />
+                    <br />
+                    const image = document.createElement("img"); <br />
+                    image.src = "https://placeimg.com/640/480/nature"; <br />
+                    image.alt = "Nature"; <br />
+                    console.log(image); // < img
+                    src="https://placeimg.com/640/480/nature" alt="Nature" />
+                    <br />
+                  </p>
+                  <h5 class="section-title__value">Додавання</h5>
+                  <p>
+                    Щоб створений елемент відображався на сторінці, його
+                    необхідно додати до вже існуючого елемента в DOM-дереві.
+                    Припустимо, що додаємо до певного елемента element, для
+                    цього існують методи.
+                  </p>
+                  <ul>
+                    <li>
+                      <h3>element.append(el1, el2, ...)</h3>
+                      <p>
+                        - додає один або декілька елементів після всіх дітей
+                        елемента element.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>element.prepend(el1, el2, ...)</h3>
+                      <p>
+                        - додає один або декілька елементів перед усіма дітьми
+                        елемента element.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>element.after(el1, el2, ...)</h3>
+                      <p>
+                        - додає один або декілька елементів після елемента
+                        element.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>element.before(el1, el2, ...)</h3>
+                      <p>
+                        - додає один або декілька елементів перед елементом
+                        element.
+                      </p>
+                    </li>
+                  </ul>
+                  <p>
+                    У всіх цих методах el - це елементи або рядки, в будь-якому
+                    поєднанні і кількості. Рядки додаються як текстові вузли.
+                  </p>
+                  <p>
+                    const list = document.querySelector(".usernames"); <br />
+                    <br />
+                    // Adds an item to the end of the list <br />
+                    const lastItem = document.createElement("li"); <br />
+                    lastItem.textContent = "Poly"; <br />
+                    list.append(lastItem); <br />
+                    <br />
+                    // Adds an item to the beginning of the list <br />
+                    const firstItem = document.createElement("li"); <br />
+                    firstItem.textContent = "Ajax"; <br />
+                    list.prepend(firstItem); <br />
+                    <br />
+                    // Adds a title before the list <br />
+                    const title = document.createElement("h2"); <br />
+                    title.textContent = "USERNAMES"; <br />
+                    list.before(title); <br />
+                    <br />
+                    // Adds a paragraph after the list <br />
+                    const text = document.createElement("p"); <br />
+                    text.textContent = <br />
+                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Nostrum tenetur assumenda fugiat maxime, soluta aspernatur
+                    quasi nihil in asperiores ad distinctio illo et debitis
+                    error iure voluptate numquam maiores nisi. Lorem ipsum dolor
+                    sit amet, consectetur adipisicing elit. Nostrum tenetur
+                    assumenda fugiat maxime, soluta aspernatur quasi nihil in
+                    asperiores ad distinctio illo et debitis error iure
+                    voluptate numquam maiores nisi!"; <br />
+                    list.after(text); <br />
+                  </p>
+                  <p>
+                    Якщо елемент для додавання вже знаходиться в DOM, то він
+                    видаляється зі свого старого місця і додається у нове. З
+                    цього випливає правило - один і той самий елемент не може
+                    бути одночасно у двох місцях.
+                  </p>
+                  <h5 class="section-title__value">Видалення</h5>
+                  <h3>elem.remove();</h3>
+                  <p>
+                    Для того, щоб видалити елемент, використовується метод
+                    remove(). Він викликається на елементі elem, який необхідно
+                    видалити
+                  </p>
+                  <p>
+                    const text = document.querySelector('.text'); <br />
+                    text.remove();
+                  </p>
+                  <h5 class="section-title__value">Оптимізація роботи з DOM</h5>
+                  <p>
+                    Сучасні браузери намагаються оптимізувати процес відтворення
+                    сторінки без втручання розробника. Проте, зміна DOM-дерева -
+                    це дорога операція, тому необхідно намагатися мінімізувати
+                    кількість звернень до DOM.
+                  </p>
+                  <ul>
+                    <li>
+                      <h3>Repaint</h3>
+                      <p>
+                        - відбувається, коли зміни торкнулися стилів, що
+                        впливають на зовнішній вигляд елемента, але не на
+                        геометрію. Наприклад opacity, background-color,
+                        visibility і outline. Браузер повторно створює елемент,
+                        з урахуванням нового стилю. Також перевіряється
+                        видимість інших елементів, один або більше можуть
+                        виявитися прихованими під елементом, що змінив зовнішній
+                        вигляд.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>Reflow</h3>
+                      <p>
+                        - відбувається, коли зміни впливають на вміст, структуру
+                        документу, положення елементів. Відбувається перерахунок
+                        позиціонування і розмірів, що призводить до повторного
+                        створення частини або всього документу. Зміна розміру
+                        одного батьківського контейнера вплине на всіх його
+                        дітей і предків. Має значно більший вплив на
+                        продуктивність, ніж repaint.
+                      </p>
+                    </li>
+                  </ul>
+                  <p>
+                    Усі перераховані вище операції блокують браузер. Сторінка не
+                    може виконувати жодні інші операції у той час, коли
+                    відбувається reflow або repaint.
+                  </p>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Властивість innerHTML</h4>
+              <p>
+                Ще один спосіб створити DOM-елементи і помістити їх в дерево -
+                це використовувати рядки з тегами і дозволити браузеру зробити
+                всю важку роботу.
+              </p>
+              <p style="color: red">
+                ВИКОРИТСОВУВАТИ ТІЛЬКИ ДЛЯ ОЧИЩЕННЯ РЯДКА (text.innerHTML="")
+                АБО ДОДАВАННЯ ЧОГОСЬ НОВОГО НЕ ЗАМІНЮВАТИ СТАРЕ
+              </p>
+              <p>
+                Якщо у властивість innerHTML записати порожній рядок, то вміст
+                елемента буде очищено. Це простий і швидкий спосіб видалення
+                всього вмісту. <br />
+                Використовуйте властивість elem.innerHTML для додавання тільки
+                тоді, коли елемент elem - порожній, або якщо потрібно повністю
+                замінити його вміст.
+              </p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Читання</h5>
+                  <p>
+                    Властивість innerHTML зберігає вміст елемента, включно з
+                    тегами, у вигляді рядка. Значення, що повертається, - це
+                    завжди валідний HTML-код.
+                  </p>
+                  <p>
+                    const article = document.querySelector(".article"); <br />
+                    console.log(article.innerHTML); <br />
+                    <br />
+                    const title = document.querySelector(".article .title");
+                    <br />
+                    console.log(title.innerHTML); <br />
+                    <br />
+                    const text = document.querySelector(".article .text");
+                    <br />
+                    console.log(text.innerHTML); <br />
+                    <br />
+                    const link = document.querySelector(".article .link");
+                    <br />
+                    console.log(link.innerHTML); <br />
+                  </p>
+                  <h5 class="section-title__value">Зміна</h5>
+                  <p>
+                    Властивість innerHTML доступна і для читання, і для запису.
+                    Якщо записати в неї рядок з HTML-тегами, то браузер під час
+                    парсингу рядка перетворить їх у валідні елементи і додасть в
+                    DOM-дерево.
+                  </p>
+                  <p>
+                    const title = document.querySelector(".article .title");
+                    <br />
+                    title.innerHTML = 'New and < span class="accent">improved<
+                    /span> title'; <br />
+                  </p>
+                  <p>
+                    Однотипна (шаблонна) розмітка створюється із масиву даних.
+                    Прийом полягає у перебиранні цього масиву і складанні одного
+                    рядка з HTML-тегами, який потім записуємо в innerHTML
+                    елемента.
+                  </p>
+                  <p>
+                    const technologies = ["HTML", "CSS", "JavaScript", "React",
+                    "Node"]; <br />
+                    const list = document.querySelector(".list"); <br />
+                    <br />
+                    const markup = technologies <br />
+                    .map((technology) => `< li class="list-item">${technology}<
+                    /li>`) <br />
+                    .join(""); <br />
+                    <br />
+                    // Check the console, you'll see a single string with HTML
+                    tags <br />
+                    console.log(markup); <br />
+                    <br />
+                    // Adding all the markup in one operation <br />
+                    list.innerHTML = markup; <br />
+                  </p>
+
+                  <h5 class="section-title__value">Додавання</h5>
+                  <p>
+                    Зміна elem.innerHTML повністю видалить і повторно створить
+                    всі нащадки елемента elem. Якщо елемент спочатку не був
+                    порожній, то виникнуть додаткові витрати на серіалізацію вже
+                    існуючої розмітки, а це погано.
+                  </p>
+                  <p>
+                    const article = document.querySelector(".article"); <br />
+                    const htmlString = `< p class="article-text">Nullam quis
+                    ante. Vestibulum dapibus nunc ac augue. In consectetuer
+                    turpis ut velit.< /p> <br />
+                    < a class="link" href="#">Read more...< /a>`; <br />
+                    <br />
+                    // Replace += with = operator. See the difference? <br />
+                    // Article title is lost because we overwrite element
+                    content. <br />
+                    article.innerHTML += htmlString; <br />
+                    <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Метод insertAdjacentHTML()</h4>
+              <p>
+                Сучасний метод для додавання рядка з HTML-тегами перед, після
+                або всередину елемента. Вирішує проблему innerHTML з повторною
+                серіалізацією вмісту елемента під час додавання розмітки до вже
+                існуючої.
+              </p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    elem.insertAdjacentHTML(position, string);
+                  </h5>
+                  <ul>
+                    <li>
+                      <p>
+                        Аргумент position - це рядок, позиція щодо елемента
+                        elem. Приймає одне з чотирьох значень.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>"beforebegin"</h3>
+                      <p>- перед elem</p>
+                    </li>
+                    <li>
+                      <h3>"afterbegin"</h3>
+                      <p>- всередині elem, перед усіма дітьми</p>
+                    </li>
+                    <li>
+                      <h3>"beforeend"</h3>
+                      <p>- всередині elem, після усіх дітей</p>
+                    </li>
+                    <li>
+                      <h3>"afterend"</h3>
+                      <p>- після elem</p>
+                    </li>
+                  </ul>
+
+                  <p>
+                    const list = document.querySelector(".list"); <br />
+                    <br />
+                    const newTechnologies = ["React", "TypeScript", "Node.js"];
+                    <br />
+                    const markup = newTechnologies <br />
+                    .map((technology) => `< li class="list-item
+                    new">${technology}< /li>`) <br />
+                    .join(""); <br />
+                    <br />
+                    list.insertAdjacentHTML("beforeend", markup); <br />
+                    list.insertAdjacentHTML("beforebegin", "< h2>Popular
+                    technologies< /h2>"); <br />
+                  </p>
+                  <div class="section-box">
+                    <img
+                      src="./img/js/insertAdjacentHTML.jpg"
+                      width="500"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Розміри, прокрутка і координати елементів на сторінці і вікні браузера -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">
+            Розміри, прокрутка і координати елементів на сторінці і вікні
+            браузера
+          </h3>
+          <ul>
+            <li>
+              <a
+                href="https://youtu.be/TEeKr2ON66A?list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr"
+                target="_blank"
+                >Frilancer</a
+              >
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Події -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Події</h3>
+          <ul>
+            <li>
+              <a
+                href="https://youtu.be/bWCzbR5DvCo?list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr"
+                target="_blank"
+                >Frilancer</a
+              >
+            </li>
+          </ul>
+          <ul>
             <li>
               <h4 class="section-title__name"></h4>
               <div class="section-box">

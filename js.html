@@ -174,7 +174,7 @@
         </div>
       </div>
 
-      <!-- Методи -->
+      <!-- Різні Методи -->
       <section class="section">
         <div class="container">
           <h3 class="section-title">Різні Методи</h3>
@@ -481,6 +481,254 @@
           </ul>
         </div>
       </section>
+
+      <!-- Цікаві фішки -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Цікаві фішки</h3>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name">
+                Показує ім'я елемента (в фуц. які ставляться при слухачах на
+                кнопки або ...)
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">event.target.nodeName</h5>
+                  <p>
+                    function onClick(event){ console.log(event.target.nodeName)
+                    }
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Показує значення дата-атрибута в тегу
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    event.target.dataset.value
+                  </h5>
+                  <p>
+                    < button type="button" data-action="open">< /button> <br />
+                    <br />
+                    console.log(event.target.dataset.value) покаже -> open
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Провірити чи клікнули по елементу в якому є вказаний клас
+                class="tree"
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    event.target.classList.contains('tree')
+                  </h5>
+                  <p>console.log(event.target.classList.contains('tree)</p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Викликає функцію кожні ... (скільки покажемо) мілісекунд
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    _.throttle(func, [wait=0], [options={}])
+                  </h5>
+                  <h3>
+                    window.addEventListener("mousemove", _.throttle(onMouseMove,
+                    250));
+                  </h3>
+                  <p></p>
+                  <a
+                    href="https://www.npmjs.com/package/lodash.throttle"
+                    target="_blank"
+                    >Пакет lodash.throttle (не ціла бібліотека)</a
+                  >
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Викликає функцію при зупиненні введення інформації з інтервалом
+                (показуємо в секундах яка пауза має бути після зупинки)
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    _.debounce(func, [wait=0], [options={}])
+                  </h5>
+                  <h3>
+                    inputValue.addEventListener('input',
+                    _.debounce(onInputChange, 2000))
+                  </h3>
+                  <p>
+                    Використовується часто в інпутах при введенні данних для
+                    пошуку, коли не потрібно шукати по кожному введеному
+                    синволі. Запускає функцію після припинення введення з
+                    інтервалом в 2сек (2000), час паузи встановлюємо будь-який
+                  </p>
+                  <a
+                    href="https://www.npmjs.com/package/lodash.debounce"
+                    target="_blank"
+                    >Пакет lodash.debounce (не ціла бібліотека)</a
+                  >
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Слухач спряцьовує один рас і самовидалиться
+              </h4>
+              <h3>
+                Коли нам потрі,но повісити слухача і щоб він спрацював тільки
+                один рас а потім самовидалився без remove то додаємо опції
+              </h3>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">{once: true}</h5>
+                  <p class="exemplar">
+                    image.addEventListener("load", onImageLoaded, {once: true});
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Очищає всі поля форми</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    evt.currentTarget.reset()
+                  </h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                При валідації щоб можна вводити тільки числа і букви
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">.alphanum</h5>
+                  <p>
+                    const passwordShema = Joi.string().min(3).max(10).alphanum()
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Зберегти з форми в об'єкт кожене значення введене в інпуті
+                окремо
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    formData[e.target.name] = e.target.value
+                  </h5>
+                  <p>
+                    let form = document.querySelector('.form'); <br />
+                    <br />
+                    const formData = {}; <br />
+                    <br />
+                    form.addEventListener('input', e =>
+                    {formData[e.target.value] = e.target.value})
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
 
       <!-- Інструменти розробника -->
       <div class="section">
@@ -2074,7 +2322,7 @@
                     даних!" <br />
                     <br />
                   </p>
-                  <p>
+                  <p class="exemplar">
                     Використовуємо цикл для виведення тільки чисел, більших за
                     певне значення. <br />
                     <br />
@@ -2170,7 +2418,7 @@
                     console.log(clients.includes("Monkong")); // false <br />
                   </p>
                   <h4>Перевірка багатьох умов з includes()</h4>
-                  <p>
+                  <p class="exemplar">
                     // Виносимо варіанти в масив <br />
                     const redFruits = ["apple", "strawberry", "cherry",
                     "cranberries"]; <br />
@@ -2193,7 +2441,7 @@
                     необхідності зазначати індекси елементів, що додаються.
                     Повертає довжину масиву після додавання елементів.
                   </p>
-                  <p>
+                  <p class="exemplar">
                     const numbers = []; <br />
                     <br />
                     numbers.push(1); <br />
@@ -2213,7 +2461,7 @@
                     видаляє останній елемент з кінця масиву і повертає видалений
                     елемент. Якщо масив порожній, метод повертає undefined.
                   </p>
-                  <p>
+                  <p class="exemplar">
                     const numbers = [1, 2, 3, 4, 5]; <br />
                     <br />
                     console.log(numbers.pop()); // 5 <br />
@@ -2238,7 +2486,7 @@
                   <div class="section-box">
                     <img src="./img/js/array-slice.jpg" width="200" alt="" />
                   </div>
-                  <p>
+                  <p class="exemplar">
                     const clients = ["Mango", "Ajax", "Poly", "Kiwi"]; <br />
                     console.log(clients.slice(1, 3)); // ["Ajax", "Poly"] <br />
                     <br />
@@ -2383,7 +2631,9 @@
                   <p>
                     Він не змінює масив, на якому викликається, а повертає
                     новий. Порядок аргументів методу впливає на порядок
-                    елементів нового масиву. <br />
+                    елементів нового масиву.
+                  </p>
+                  <p class="exemplar">
                     <br />
                     const oldClients = ["Mango", "Ajax", "Poly", "Kiwi"]; <br />
                     const newClients = ["Monkong", "Singu"]; <br />
@@ -2682,7 +2932,7 @@
                     відповідають CSS-селектору selector. <br />
                     Якщо нічого не знайдено, поверне порожній масив.
                   </p>
-                  <p>
+                  <p class="exemplar">
                     const listWithId = document.querySelector('#menu'); <br />
                     listWithId.style.textTransform = 'uppercase'; <br />
                     listWithId.style.fontSize = '24px'; <br />
@@ -2752,7 +3002,7 @@
                     передано в textContent, дані завжди будуть записані як
                     текст.
                   </p>
-                  <p>
+                  <p class="exemplar">
                     const textEl = document.querySelector(".article-text");
                     <br />
                     console.log(textEl.textContent); // text inside
@@ -2797,7 +3047,7 @@
                       </p>
                     </li>
                   </ul>
-                  <p>
+                  <p class="exemplar">
                     const link = document.querySelector(".link"); <br />
                     console.log(link.classList); <br />
                     <br />
@@ -2826,7 +3076,7 @@
                     записуються в camelCase, тобто background-color
                     перетворюється на element.style.backgroundColor тощо.
                   </p>
-                  <p>
+                  <p class="exemplar">
                     const button = document.querySelector(".btn"); <br />
                     <br />
                     button.style.backgroundColor = "teal"; <br />
@@ -2874,7 +3124,7 @@
                       </p>
                     </li>
                   </ul>
-                  <p>
+                  <p class="exemplar">
                     const image = document.querySelector(".image"); <br />
                     <br />
                     console.log(image.attributes); // NamedNodeMap {0: class, 1:
@@ -2898,7 +3148,7 @@
                     і розмітку за унікальним ідентифікатором, вказати тип дії
                     кнопки тощо.
                   </p>
-                  <p>
+                  <p class="exemplar">
                     < button type="button" data-action="save">Save< /button>
                     <br />
                     < button type="button" data-action="close">Close< /button>
@@ -2909,7 +3159,7 @@
                     data- відкидається, а інша частина імені записується як ім'я
                     властивості об'єкта.
                   </p>
-                  <p>
+                  <p class="exemplar">
                     const saveBtn =
                     document.querySelector('button[data-action="save"]'); <br />
                     console.log(saveBtn.dataset.action); // "save" <br />
@@ -2949,7 +3199,7 @@
                     вказує тип елемента, який створюється. Елемент створюється в
                     пам'яті, в DOM його ще немає.
                   </p>
-                  <p>
+                  <p class="exemplar">
                     const heading = document.createElement("h1"); <br />
                     console.log(heading); // < h1>< /h1> <br />
                     <br />
@@ -3004,7 +3254,7 @@
                     У всіх цих методах el - це елементи або рядки, в будь-якому
                     поєднанні і кількості. Рядки додаються як текстові вузли.
                   </p>
-                  <p>
+                  <p class="exemplar">
                     const list = document.querySelector(".usernames"); <br />
                     <br />
                     // Adds an item to the end of the list <br />
@@ -3048,7 +3298,7 @@
                     remove(). Він викликається на елементі elem, який необхідно
                     видалити
                   </p>
-                  <p>
+                  <p class="exemplar">
                     const text = document.querySelector('.text'); <br />
                     text.remove();
                   </p>
@@ -3130,7 +3380,7 @@
                     тегами, у вигляді рядка. Значення, що повертається, - це
                     завжди валідний HTML-код.
                   </p>
-                  <p>
+                  <p class="exemplar">
                     const article = document.querySelector(".article"); <br />
                     console.log(article.innerHTML); <br />
                     <br />
@@ -3153,7 +3403,7 @@
                     парсингу рядка перетворить їх у валідні елементи і додасть в
                     DOM-дерево.
                   </p>
-                  <p>
+                  <p class="exemplar">
                     const title = document.querySelector(".article .title");
                     <br />
                     title.innerHTML = 'New and < span class="accent">improved<
@@ -3165,7 +3415,7 @@
                     рядка з HTML-тегами, який потім записуємо в innerHTML
                     елемента.
                   </p>
-                  <p>
+                  <p class="exemplar">
                     const technologies = ["HTML", "CSS", "JavaScript", "React",
                     "Node"]; <br />
                     const list = document.querySelector(".list"); <br />
@@ -3190,7 +3440,7 @@
                     порожній, то виникнуть додаткові витрати на серіалізацію вже
                     існуючої розмітки, а це погано.
                   </p>
-                  <p>
+                  <p class="exemplar">
                     const article = document.querySelector(".article"); <br />
                     const htmlString = `< p class="article-text">Nullam quis
                     ante. Vestibulum dapibus nunc ac augue. In consectetuer
@@ -3251,7 +3501,7 @@
                     </li>
                   </ul>
 
-                  <p>
+                  <p class="exemplar">
                     const list = document.querySelector(".list"); <br />
                     <br />
                     const newTechnologies = ["React", "TypeScript", "Node.js"];
@@ -3278,6 +3528,22 @@
                 </div>
               </div>
             </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -3296,6 +3562,10 @@
                 target="_blank"
                 >Frilancer</a
               >
+            </li>
+
+            <li>
+              <p>Лінива загрузка throttle debaunce Модуль 8_2</p>
             </li>
           </ul>
           <ul>
@@ -3322,12 +3592,624 @@
       <div class="section">
         <div class="container">
           <h3 class="section-title">Події</h3>
+
           <ul>
             <li>
               <a
                 href="https://youtu.be/bWCzbR5DvCo?list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr"
                 target="_blank"
                 >Frilancer</a
+              >
+            </li>
+          </ul>
+
+          <p>
+            Подія - це сигнал від браузера про те, що на веб-сторінці щось
+            відбулося. Події використовуються для реакції на дії користувача і
+            виконання коду, пов'язаного з певною подією. <br />
+            <br />
+            Одна дія може викликати декілька подій. <br />
+            <br />
+            Для того, щоб елемент реагував на дії користувача, до нього
+            необхідно додати слухача (обробника) події. Тобто функцію, яка буде
+            викликана, щойно подія відбулася.
+          </p>
+          <ul>
+            <li>
+              <h4 class="section-title__name">
+                Додає слухача події на елемент.
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    element.addEventListener(event, handler, options);
+                  </h5>
+                  <ul>
+                    <li>
+                      <h3>event</h3>
+                      <p>- ім'я події, рядок, наприклад "click".</p>
+                    </li>
+                    <li>
+                      <h3>handler</h3>
+                      <p>
+                        - колбек-функція, яка буде викликана під час настання
+                        події.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>options</h3>
+                      <p>
+                        - необов'язковий об'єкт параметрів з розширеними
+                        налаштуваннями.
+                      </p>
+                    </li>
+                  </ul>
+
+                  <p>
+                    Для колбека можна (і бажано) використовувати окрему функцію
+                    і передавати на неї посилання. Іменована функція підвищує
+                    читабельність коду.
+                  </p>
+                  <p>
+                    const button = document.querySelector(".my-button"); <br />
+                    <br />
+                    const handleClick = () => { <br />
+                    console.log("Button was clicked"); <br />
+                    }; <br />
+                    <br />
+                    button.addEventListener("click", handleClick); <br />
+                  </p>
+                  <p class="exemplar">
+                    const singleBtn = document.querySelector("#single"); <br />
+                    <br />
+                    const handleClick = () => { <br />
+                    console.log("click event listener callback"); <br />
+                    }; <br />
+                    <br />
+                    singleBtn.addEventListener("click", handleClick); <br />
+                    <br />
+                    // =============================================== <br />
+                    const multiBtn = document.querySelector("#multiple"); <br />
+                    <br />
+                    const firstCallback = () => { <br />
+                    console.log("First callback!"); <br />
+                    }; <br />
+                    const secondCallback = () => { <br />
+                    console.log("Second callback!"); <br />
+                    }; <br />
+                    const thirdCallback = () => { <br />
+                    console.log("Third callback!"); <br />
+                    }; <br />
+                    <br />
+                    multiBtn.addEventListener("click", firstCallback); <br />
+                    multiBtn.addEventListener("click", secondCallback); <br />
+                    multiBtn.addEventListener("click", thirdCallback); <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Видаляє слухача події з елемента.
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    element.removeEventListener(event, handler, options);
+                  </h5>
+                  <p>
+                    Для видалення потрібно передати посилання саме на ту
+                    колбек-функцію, яка була призначена в addEventListener(). У
+                    такому разі, для колбеків використовують окрему функцію і
+                    передають її за ім'ям (посиланням).
+                  </p>
+                  <p class="exemplar">
+                    const addListenerBtn = document.querySelector('.js-add');
+                    <br />
+                    const removeListenerBtn =
+                    document.querySelector('.js-remove'); <br />
+                    const btn = document.querySelector(".target-btn"); <br />
+                    <br />
+                    const handleClick = () => { <br />
+                    console.log("click event listener callback"); <br />
+                    }; <br />
+                    <br />
+                    addListenerBtn.addEventListener("click", () => { <br />
+                    btn.addEventListener("click", handleClick); <br />
+                    console.log("click event listener was added to btn"); <br />
+                    }); <br />
+                    <br />
+                    removeListenerBtn.addEventListener("click", () => { <br />
+                    btn.removeEventListener("click", handleClick); <br />
+                    console.log("click event listener was removed from btn");
+                    <br />
+                    }); <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Ключове слово this</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Якщо колбеком буде функція, яка використовує this, за
+                    замовчуванням контекст всередині неї буде посилатися на
+                    DOM-елемент, на якому висить слухач.
+                  </p>
+                  <p>
+                    const mango = { <br />
+                    username: "Mango", <br />
+                    showUsername() { <br />
+                    console.log(this); <br />
+                    console.log(`My username is: ${this.username}`); <br />
+                    }, <br />
+                    }; <br />
+                    <br />
+                    const btn = document.querySelector(".js-btn"); <br />
+                    <br />
+                    // ✅ Працює <br />
+                    mango.showUsername(); <br />
+                    <br />
+                    // ❌ this буде посилатися на button, якщо використовувати
+                    showUsername як callback <br />
+                    btn.addEventListener("click", mango.showUsername); // не
+                    працює <br />
+                    <br />
+                    // ✅ Не забувайте прив'язувати контекст методів об'єкта
+                    <br />
+                    btn.addEventListener("click",
+                    mango.showUsername.bind(mango)); <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Об'єкт події</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Щоб обробити подію - недостатньо знати про те, що це клік
+                    або натискання клавіші, можуть знадобитися деталі.
+                    Наприклад, поточне значення текстового поля, елемент, на
+                    якому відбулася подія, вбудовані методи та інші.
+                  </p>
+                  <p>
+                    const handleClick = event => { <br />
+                    console.log(event); <br />
+                    }; <br />
+                    <br />
+                    button.addEventListener("click", handleClick); <br />
+                  </p>
+                  <p>
+                    Параметр event - це і є об'єкт події, який автоматично
+                    передається першим аргументом під час виклику
+                    колбек-функції. Ми можемо називати його як завгодно, але, як
+                    правило, його оголошують як e, evt або event.
+                  </p>
+                  <ul>
+                    <li>
+                      <p>Деякі властивості об'єкта події:</p>
+                    </li>
+                    <li>
+                      <h3>event.type</h3>
+                      <p>- тип події.</p>
+                    </li>
+                    <li>
+                      <h3>event.currentTarge</h3>
+                      <p>елемент, на якому виконується обробник події.</p>
+                    </li>
+                    <li>
+                      <h3>event.target</h3>
+                      <p>елемент, на якому виконується обробник події.</p>
+                    </li>
+                  </ul>
+                  <p class="exemplar">
+                    const button = document.querySelector(".btn"); <br />
+                    <br />
+                    const handleClick = (event) => { <br />
+                    console.log("event: ", event); <br />
+                    console.log("event type: ", event.type); <br />
+                    console.log("currentTarget: ", event.currentTarget); <br />
+                    }; <br />
+                    <br />
+                    button.addEventListener("click", handleClick); <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                скасування дії браузера за замовчуванням
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">event.preventDefault()</h5>
+                  <p>
+                    Деякі події викликають дію браузера, вбудовану за
+                    замовчуванням як реакція на певний тип події. Наприклад,
+                    клік на посиланні ініціює перехід на нову адресу, зазначену
+                    в href, а відправлення форми перезавантажує сторінку.
+                    Найчастіше ця поведінка небажана і її необхідно скасувати.
+                  </p>
+                  <p class="exemplar">
+                    const form = document.querySelector(".register-form");
+                    <br />
+                    <br />
+                    form.addEventListener("submit", (event) => { <br />
+                    event.preventDefault(); <br />
+                    const { <br />
+                    elements: { username, password } <br />
+                    } = event.currentTarget; <br />
+                    console.log(username.value, password.value); <br />
+                    }); <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Події клавіатури</h4>
+              <p>
+                Існує дві основні події клавіатури: keydown і keyup. На відміну
+                від інших, події клавіатури обробляються на документі, а не на
+                конкретному елементі.
+              </p>
+              <p>
+                document.addEventListener("keydown", event => { <br />
+                console.log("Keydown: ", event); <br />
+                }); <br />
+                <br />
+                document.addEventListener("keyup", event => { <br />
+                console.log("Keyup: ", event); <br />
+                }); <br />
+              </p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Властивості key і code</h5>
+                  <p>
+                    Властивість key повертає символ, згенерований натисканням
+                    клавіші, враховуючи стан клавіш-модифікаторів, наприклад,
+                    Shift, а також поточну мову. Властивість code повертає код
+                    фізичної клавіші на клавіатурі і не залежить від мови.
+                  </p>
+                  <p>
+                    document.addEventListener("keydown", event => { <br />
+                    console.log("key: ", event.key); <br />
+                    console.log("code: ", event.code); <br />
+                    }); <br />
+                  </p>
+                  <h5 class="section-title__value">Клавіші-модифікатори</h5>
+                  <p>
+                    Для обробки комбінації клавіш, наприклад Ctrl + s або
+                    будь-якої іншої, на об'єкті події є властивості ctrlKey,
+                    altKey, shiftkey і metaKey, що зберігають булеве значення,
+                    яке сигналізує про те, чи була затиснута
+                    клавіша-модифікатор.
+                  </p>
+                  <p>
+                    document.addEventListener("keydown", event => { <br />
+                    event.preventDefault(); <br />
+                    <br />
+                    if ((event.ctrlKey || event.metaKey) && event.code ===
+                    "KeyS") { <br />
+                    console.log("«Ctrl + s» or «Command + s» combo"); <br />
+                    } <br />
+                    }); <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Події елементів форм</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Подія submit</h5>
+                  <p>
+                    Відправлення форми відбувається під час кліку по кнопці з
+                    атрибутом type="submit" або натискання клавіші Enter,
+                    перебуваючи в будь-якому її текстовому полі. Подію submit
+                    можна застосувати для валідації (перевірки) форми перед
+                    відправленням, оскільки на об'єкті події існує багато
+                    корисних властивостей, пов'язаних з елементами форми. Сабміт
+                    форми перезавантажує сторінку, тому не забувайте скасовувати
+                    дію за замовчуванням методом preventDefault().
+                  </p>
+                  <p class="exemplar">
+                    const registerForm = document.querySelector(".form"); <br />
+                    <br />
+                    registerForm.addEventListener("submit", handleSubmit);
+                    <br />
+                    <br />
+                    function handleSubmit(event) { <br />
+                    event.preventDefault(); <br />
+                    cont form = event.currentTarget; <br />
+                    const login = form.elements.login.value; <br />
+                    const password = form.elements.password.value; <br />
+                    <br />
+                    if (login === "" || password === "") { <br />
+                    return console.log("Please fill in all the fields!"); <br />
+                    } <br />
+                    <br />
+                    console.log(`Login: ${login.value}, Password:
+                    ${password.value}`); <br />
+                    form.reset(); <br />
+                    } <br />
+                  </p>
+                  <p>
+                    Властивість elements DOM-елемента форми містить об'єкт з
+                    посиланнями на усі її елементи, які мають атрибут name. Тому
+                    в прикладі ми отримуємо значення полів, звертаючись до
+                    login.value і password.value.
+                  </p>
+                  <h5 class="section-title__value">Подія change</h5>
+                  <p>
+                    Відбувається після зміни елемента форми. Для текстових полів
+                    або textarea подія відбудеться не на кожному введенні
+                    символу, а після втрати фокусу, що не завжди зручно.
+                    Наприклад, доки ви набираєте щось у текстовому полі - подія
+                    відсутня, але як тільки фокус пропав, відбудеться подія
+                    change. Для інших елементів, наприклад, select, чекбоксів і
+                    радіо-кнопок, подія change спрацьовує відразу під час вибору
+                    значення.
+                  </p>
+                  <p>
+                    const select = document.querySelector(".pizza-select");
+                    <br />
+                    const textOutput = document.querySelector(".text-output");
+                    <br />
+                    const valueOutput = document.querySelector(".value-output");
+                    <br />
+                    <br />
+                    select.addEventListener("change", setOutput); <br />
+                    <br />
+                    function setOutput(event) { <br />
+                    const selectedOptionValue = event.currentTarget.value;
+                    <br />
+                    const selectedOptionIndex =
+                    event.currentTarget.selectedIndex; <br />
+                    const selectedOptionText = <br />
+                    event.currentTarget.options[selectedOptionIndex].text;
+                    <br />
+                    <br />
+                    textOutput.textContent = selectedOptionText; <br />
+                    valueOutput.textContent = selectedOptionValue; <br />
+                    } <br />
+                  </p>
+                  <h5 class="section-title__value">Подія input</h5>
+                  <p>
+                    Відбувається тільки на текстових полях і textarea, і
+                    створюється щоразу при зміні значення елемента, не чекаючи
+                    втрати фокусу. На практиці input - це найголовніша подія для
+                    роботи з текстовими полями форми.
+                  </p>
+                  <p>
+                    const textInput = document.querySelector(".text-input");
+                    <br />
+                    const output = document.querySelector(".output"); <br />
+                    <br />
+                    textInput.addEventListener("input", (event) => { <br />
+                    output.textContent = event.currentTarget.value; <br />
+                    }); <br />
+                  </p>
+                  <h5 class="section-title__value">Подія focus і blur</h5>
+                  <p>
+                    Елемент отримує фокус під час кліку миші або переходу
+                    клавішею Tab. Момент отримання і втрати фокусу - дуже
+                    важливий, отримуючи фокус, ми можемо завантажити дані для
+                    автозаповнення, почати відстежувати зміни тощо. Під час
+                    втрати фокусу - перевірити введені дані.
+                    <br />
+                    Під час фокусування елемента відбувається подія focus, а
+                    коли фокус зникає, наприклад, користувач клікає в іншому
+                    місці екрана, відбувається подія blur. Активувати або
+                    скасувати фокус можна програмно, викликавши в коді для
+                    елемента однойменні методи focus() і blur(). <br />
+                    <br />
+                    Фокус може бути тільки на одному елементі сторінки за
+                    одиницю часу, і поточний елемент, на якому знаходиться
+                    фокус, доступний як document.activeElement.
+                  </p>
+                  <p class="exemplar">
+                    const textInput = document.querySelector(".text-input");
+                    <br />
+                    const setFocusBtn =
+                    document.querySelector('[data-action="set"]'); <br />
+                    const removeFocusBtn =
+                    document.querySelector('[data-action="remove"]'); <br />
+                    <br />
+                    setFocusBtn.addEventListener("click", () => { <br />
+                    textInput.focus(); <br />
+                    }); <br />
+                    <br />
+                    removeFocusBtn.addEventListener("click", () => { <br />
+                    textInput.blur(); <br />
+                    }); <br />
+                    <br />
+                    textInput.addEventListener("focus", () => { <br />
+                    textInput.value = "This input has focus"; <br />
+                    }); <br />
+                    <br />
+                    textInput.addEventListener("blur", () => { <br />
+                    textInput.value = ""; <br />
+                    }); <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Спливання подій</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <ul>
+                    <li>
+                      <h3>event.target</h3>
+                      <p>
+                        - це посилання на вихідний елемент, на якому відбулася
+                        подія, в процесі спливання вона - незмінна.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>event.currentTarget</h3>
+                      <p>
+                        - це посилання на поточний елемент, до якого дійшло
+                        спливання, на ньому зараз виконується обробник події.
+                      </p>
+                    </li>
+                  </ul>
+                  <h5 class="section-title__value"></h5>
+
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Припинення спливання</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    тільки перешкоджає просуванню події далі
+                  </h5>
+                  <h3>stopPropagation()</h3>
+                  <p>
+                    descendant.addEventListener("click", (event) => { <br />
+                    event.stopPropagation(); <br />
+                    alert("Descendant click handler"); <br />
+                    }); <br />
+                  </p>
+                  <h5 class="section-title__value">
+                    повністю зупинить обробку події
+                  </h5>
+                  <h3>stopImmediatePropagation()</h3>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Делегування подій</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Спливання дозволяє реалізувати один із найкорисніших
+                    прийомів - делегування подій (event delegation). Він полягає
+                    у тому, що, якщо є група елементів, події яких потрібно
+                    обробляти однаково, то додається один обробник на їх
+                    загального предка, замість того, щоб додавати обробник до
+                    кожного елемента. Використовуючи властивість event.target,
+                    можна отримати посилання на цільовий елемент, зрозуміти, на
+                    якому саме дочірньому елементі відбулася подія, і обробити
+                    її.
+                  </p>
+                  <div class="section-box">
+                    <img src="./img/js/delegate-1.jpg" width="500" alt="" />
+                    <img src="./img/js/delegate-2.jpg" width="500" alt="" />
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Parcel -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Parcel</h3>
+          <h3>
+            Node.js npm parcel export/import = default/export (дефаултний та
+            іменований) - модуль 8_1
+          </h3>
+
+          <ul>
+            <li>
+              <a href="https://parceljs.org" target="_blank"
+                >Зборщик проекта PARCEL</a
               >
             </li>
           </ul>
@@ -3351,10 +4233,816 @@
         </div>
       </div>
 
-      <!-- -->
+      <!-- Webpack -->
       <div class="section">
         <div class="container">
-          <h3 class="section-title">sectionTitle</h3>
+          <h3 class="section-title">Webpack</h3>
+          <h3>Webpack модуль 9_2</h3>
+          <ul>
+            <li>
+              <a href="https://webpack.js.org" target="_blank"
+                >Зборщик проектів Webpack</a
+              >
+              <a
+                href="https://www.youtube.com/watch?v=o8KMucDpSno&pp=ygUbd2VicGFjayDRj9C6INC30ZbQsdGA0LDRgtC4"
+                target="_blank"
+                >Webpack 5 — Полный курс для начинающих. Обработка html, css,
+                scss, js, image compress.</a
+              >
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    - це збирач JS-модулів, менеджер модульних залежностей, який аналізує дерево залежностей і створює один або декілька результуючих файлів, що містять всю кодову базу проекту. Вибудовує порядок підключення модулів, збирає, мініфікує, запаковує та багато іншого.
+                  </p>
+                  <h5 class="section-title__value">Налаштування</h5>
+                  <p>
+                    За посиланнями нижче ви знайдете вичерпні інструкції з покроковими поясненнями налаштування Webpack.
+                  </p>
+                  <ul>
+                    <li><a href="https://www.taniarascia.com/how-to-use-webpack/" target="_blank">How to set up webpack 5 from scratch</a></li>
+                    <li><a href="https://webpack.js.org/concepts/" target="_blank">Документація Webpack</a></li>
+                  </ul>
+
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- GULP -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">GULP</h3>
+          <ul>
+            <li>
+              <a href="https://youtu.be/jU88mLuLWlk" target="_blank">Зборщик проектів GULP video settings</a>
+            <div>
+              <a href="https://gulpjs.com/" target="_blank">GULP</a>
+            </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+
+      <!-- Формат JSON -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Формат JSON</h3>
+          <h3>Модуль 8_3</h3>
+          <div>
+            <h3>JSON (JavaScript Object Notation)</h3>
+            <p>- сучасний текстовий формат зберігання і передачі структурованих даних у текстовій формі. </p>
+            <p>
+              Але JSON - це не об'єкт, а його рядкове відображення. Синтаксис схожий на об'єкт, за винятком того, що ключі - це завжди рядки у подвійних лапках. Рядкові значення також обов'язково повинні бути взяті у подвійні лапки. Значеннями властивостей можуть бути типи: string, number, object, array, boolean і null.
+            </p>
+          </div>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name">Перетворення об'єкта або масива у рядок</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Метод JSON.stringify()</h5>
+                  <p>
+                    Приймає значення і перетворює його у JSON. Значенням може бути число, буль, null, масив або об'єкт. Рядки - це вже валідний JSON, тому в їх перетворенні немає сенсу.
+                                      </p>
+               <p class="exemplar"> 
+                const dog = { <br>
+                  name: "Mango", <br>
+                  age: 3, <br>
+                  isHappy: true, <br>
+                }; <br>
+                 <br>
+                const dogJSON = JSON.stringify(dog); <br>
+                console.log(dogJSON); // "{"name":"Mango","age":3,"isHappy":true}" <br>
+               </p>
+               <p>
+                Не будь-який JavaScript об'єкт може бути перетворений один до одного у JSON. Наприклад, якщо в об'єкта є методи, то при перетворенні вони будуть проігноровані.
+               </p>
+               <p class="exemplar">
+                const dog = { <br>
+                  name: "Mango", <br>
+                  age: 3, <br>
+                  isHappy: true, <br>
+                  bark() { <br>
+                    console.log("Woof!"); <br>
+                  }, <br>
+                }; <br>
+                 <br>
+                const dogJSON = JSON.stringify(dog); <br>
+                console.log(dogJSON); // "{"name":"Mango","age":3,"isHappy":true}" <br>
+               </p>
+               <p>Також, при спробі перетворити функцію в JSON, результатом буде undefined.</p>
+               <p class="exemplar">JSON.stringify(() => console.log("Well, this is awkward")); // undefined</p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <h4 class="section-title__name">Перетворення рядка в об'єкт</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Метод JSON.parse()</h5>
+                  <p>
+                    Щоб отримати з JSON валідне JavaScript значення, його необхідно розпарсити (parse). Це операція зворотна перетворенню в рядок (stringify).
+                  </p>
+                <p class="exemplar">
+                const json = '{"name":"Mango","age":3,"isHappy":true}'; <br>
+                <br>
+                const dog = JSON.parse(json); <br>
+                console.log(dog); // {name: "Mango", age: 3, isHappy: true} <br>
+                console.log(dog.name); // "Mango" <br>
+                </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <h4 class="section-title__name">Обробка помилок (try...catch)</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    try...catch ловить тільки помилки, які виникли під час виконання коду (runtime errors). Це означає, що код повинен бути синтаксично правильним, інакше фаза виконання просто не запуститься. Помилки, які виникають під час фази оцінки, називаються помилками парсингу.
+                  </p>
+                    <ol>
+                      <li>
+                      <p>Спочатку виконується код всередині блоку try.</p>
+                    </li>
+                    <li>
+                      <p>Якщо помилки відсутні, блок catch ігнорується і управління передається далі.</p>
+                    </li>
+                    <li>
+                      <p>Якщо в блоці try сталася помилка, його виконання зупиняється та інтерпретатор переходить до блоку catch.</p>
+                    </li>
+                    </ol>
+                    <p>Змінна error - це об'єкт помилки з інформацією про те, що сталося. У цього об'єкта є кілька корисних властивостей:</p>
+                    <ul>
+                      <li><h3>name</h3> - тип помилки. Для помилки парса - це SyntaxError.</li>
+                      <li><h3>message</h3> - повідомлення про деталі помилки.</li>
+                      <li><h3>stack</h3> - стек викликів функцій на момент помилки. Використовується для налагодження.</li>
+                    </ul>
+                    <h3>
+                     Використовуючи конструкцію try...catch, ми можемо обробити код таким чином, щоб скрипт продовжив працювати, навіть у разі помилки.
+                    </h3>
+                    <p >
+                                    try { <br>
+                      const data = JSON.parse("Well, this is awkward"); <br>
+                    } catch (error) { <br>
+                      console.log(error.name); // "SyntaxError" <br>
+                      console.log(error.message); // Unexpected token W in JSON at position 0 <br>
+                    } <br>
+                     <br>
+                    console.log("✅ This is fine, we handled parse error in try...catch"); <br>
+                                   </p>
+                    <p>Те саме буде при спробі парса невалідного JSON, який, наприклад, може прийти з бекенду або бути прочитаний з файлу. У прикладі у властивості username бракує подвійних лапок.</p>
+                    <p>
+                      try { <br>
+                      const data = JSON.parse('{username: "Mango"}'); <br>
+                    } catch (error) { <br>
+                      console.log(error.name); // "SyntaxError" <br>
+                      console.log(error.message); // "Unexpected token u in JSON at position 1" <br>
+                    } <br>
+                     <br>
+                    console.log("✅ This is fine, we handled parse error in try...catch"); <br>
+                    </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+              <li>
+              <h4 class="section-title__name">Фази виконання коду</h4>
+              <p>В JavaScript код виконується не відразу, для початку рушію потрібно прочитати код і дізнатися, чи можливо його взагалі виконати.</p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <h3>Фаза інтерпретації або оцінки (compile time, evaluation time)</h3>
+                  <p> - підготовка перед виконанням коду, рушій знаходить синтаксичні помилки, помилки типізації тощо. Тобто код ще не виконується, тільки оцінюється. Якщо ця фаза пройшла успішно, це як мінімум означає, що в коді відсутні синтаксичні помилки і його можна запустити для виконання.</p>
+                  <h3>Фаза виконання (runtime)</h3>
+                  <p>- скрипт починає виконуватися, виконуються інструкції викликів функцій і оцінки виразів, відбувається пошук необхідних ідентифікаторів у відповідних областях видимості тощо.</p>
+                  <p>Якщо ця фаза завершилася успішно, отже скрипт написаний без явних помилок і завершив свою роботу. На цій фазі можуть бути помилки, пов'язані з відсутніми властивостями і змінними, перетворенням типів тощо, тобто щось, що відбувається тільки під час виконання коду.</p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Веб-сховище localStorage -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Веб-сховище localStorage</h3>
+          <h3>Модуль 8_3</h3>
+          <p>Подивитися вміст веб-сховища можна в інструментах розробника на вкладці Application.</p>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name">Web Storage API</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Веб-сховище складається з локального сховища (localStorage) і сховища сеансів (sessionStorage). Забезпечує спосіб зберігання даних інтуїтивно зрозумілим чином у вигляді пар ключ:значення.  <br>
+                     Технічно у веб-сховище можна записати тільки рядки. <br>
+                     У веб-сховищі не зберігають паролі, номери банківських карт і подібну конфіденційну інформацію. <br>
+                  </p>
+                  <h3>Локальне сховище (localStorage)</h3>
+                  <p>- унікальне для кожного веб-застосунку і буде однаковим на декількох вкладках, в яких він (веб-застосунок) запущений. Дані в локальному сховищі не видаляються, навіть після закриття браузера або вимкнення комп'ютера. Щоб їх видалити, необхідно використовувати JavaScript.</p>
+                  <h3>Сховище сеансів (sessionStorage) схоже на локальне</h3>
+                  <p>- воно також унікальне для кожного веб-застосунку, але час життя збережених даних обмежений сесією вкладки браузера. Щойно користувач закриває вкладку або браузер, дані очищаються. На практиці сховище сеансів використовується значно рідше.</p>
+
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <h4 class="section-title__name">Локальне сховище (localStorage)</h4>
+              <p>Дозволяє зберігати дані без закінчення терміну дії у форматі пар ключ:значення на комп'ютері користувача і читати їх при повторному відвідуванні сторінки.</p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <ul>
+                    <li><h3>setItem(key, value)</h3> - створює новий, або оновлює вже існуючий запис у сховищі.</li>
+                    <li><h3>getItem(key</h3>) - повертає зі сховища значення з ключем key.</li>
+                    <li><h3>removeItem(key)</h3> - видаляє зі сховища запис з ключем key.</li>
+                    <li><h3>clear()</h3> - повністю очищає всі записи сховища.</li>
+                    <li><h3>length </h3>- кількість записів у сховищі.</li>
+                  </ul>
+                  <h5 class="section-title__value">Збереження</h5>
+                  <p>Використовуючи метод setItem(key, value), можна додати новий запис у вигляді пари ключ:значення.</p>
+                  <p>localStorage.setItem("notification-level", "mute");</p>
+                  <p>
+                    Якщо необхідно зберегти щось, крім рядка, наприклад, масив або об'єкт, необхідно перетворити їх у рядок методом JSON.stringify(). <br>
+                    localStorage.setItem("settings", JSON.stringify(settings));
+                  </p>
+                  <h5 class="section-title__value">Читання</h5>
+                  <p>Метод getItem(key) дозволяє прочитати зі сховища запис з ключем key. Якщо у сховищі відсутній запис з таким ключем, метод повертає null. Якщо значення - це звичайний рядок, немає потреби його парсити.</p>
+                  <p>
+                    localStorage.setItem("ui-theme", "dark"); <br>
+                    <br>
+                    const theme = localStorage.getItem("ui-theme"); <br>
+                    console.log(theme); // "dark" <br>
+                  </p>
+                  <p>
+                    В іншому випадку, необхідно розпарсити значення методом JSON.parse(), щоб отримати валідні дані.
+                  </p>
+                  <p>
+                    const settings = { <br>
+                      theme: "dark", <br>
+                      isAuthenticated: true, <br>
+                      options: [1, 2, 3], <br>
+                    }; <br>
+                    <br>
+                    localStorage.setItem("settings", JSON.stringify(settings)); <br>
+                    <br>
+                    const savedSettings = localStorage.getItem("settings"); <br>
+                    const parsedSettings = JSON.parse(savedSettings); <br>
+                    console.log(parsedSettings); // settings object <br>
+                  </p>
+                  <h5 class="section-title__value">Видалення</h5>
+                  <p>Метод removeItem(key) видаляє зі сховища вже існуючий запис з ключем key.</p>
+                  <p>
+                    localStorage.setItem("ui-theme", "dark"); <br>
+                    console.log(localStorage.getItem("ui-theme")); // "dark" <br>
+                    <br>
+                    localStorage.removeItem("ui-theme"); <br>
+                    console.log(localStorage.getItem("ui-theme")); // null <br>
+                  </p>
+                  <h5 class="section-title__value">Очищення сховища</h5>
+                  <p>Операція повного очищення сховища - небезпечна, оскільки може порушити записи, зроблені іншими розробниками проекту. Проте, якщо ви хочете повністю очистити сховище, потрібно викликати метод clear().</p>
+                  <p>
+                    localStorage.setItem("ui-theme", "light"); <br>
+                    console.log(localStorage.getItem("ui-theme")); // "light" <br>
+                    <br>
+                    localStorage.clear(); <br>
+                    console.log(localStorage.getItem("ui-theme")); // null <br>
+                  </p>
+                  <div class="exemplar">
+                    <h3>Створимо форму для введення повідомлення і будемо зберігати його в localStorage по сабміту. </h3>
+                    <div>
+                      <h3>HTML</h3>
+                      <p>
+                        < form class="feedback-form"> <br>
+                          < textarea name="message">< /textarea> <br>
+                          < button type="submit">Send feedback< /button> <br>
+                        < /form> <br>
+                      </p>
+                    </div>
+                    <div>
+                      <h3>CSS</h3>
+                      <p>
+                        body {  margin: 16px; }
+                      </p>
+                    </div>
+                    <div>
+                      <h3>JS</h3>
+                      <p>
+                        const form = document.querySelector(".feedback-form"); <br>
+                        const localStorageKey = "goit-example-message"; <br>
+                                               <br>
+                        form.elements.message.value = localStorage.getItem(localStorageKey) ?? ""; <br>
+                                               <br>
+                        form.addEventListener("input", (evt) => { <br>
+                          localStorage.setItem(localStorageKey, evt.target.value); <br>
+                        }); <br>
+                         <br>
+                        form.addEventListener("submit", (evt) => { <br>
+                          evt.preventDefault(); <br>
+                          localStorage.removeItem(localStorageKey); <br>
+                          form.reset(); <br>
+                        }); <br>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <h4 class="section-title__name">Сервіс для localStorage</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Для того, щоб скоротити кількість повторюваного коду при роботі з веб-сховищем, можна написати сервіс зі стандартними методами, наприклад, save і load. Вони будуть абстрагувати повторюваний код перевірки помилок парса і подібну рутину.
+                  </p>
+                  <p>
+                    const save = (key, value) => { <br>
+                      try { <br>
+                        const serializedState = JSON.stringify(value); <br>
+                        localStorage.setItem(key, serializedState); <br>
+                      } catch (error) { <br>
+                        console.error("Set state error: ", error.message); <br>
+                      } <br>
+                    }; <br>
+                     <br>
+                    const load = key => { <br>
+                      try { <br>
+                        const serializedState = localStorage.getItem(key); <br>
+                        return serializedState === null ? undefined : JSON.parse(serializedState); <br>
+                      } catch (error) { <br>
+                        console.error("Get state error: ", error.message); <br>
+                      } <br>
+                    }; <br>
+                     <br>
+                    export default { <br>
+                      save, <br>
+                      load, <br>
+                    }; <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Асинхроність -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Асинхроність </h3>
+          <h3>Модуль 9_1</h3>
+          <p>JavaScript є однопоточною синхронною мовою програмування, і тому всі процеси виконуються послідовно один за одним в одному потоку і тому поки не виконяється одна дія всі інші будуть чекати в черзі на виконання. Асинхроність виконання дій реалізується за допомогою відкладення виклику дії, який здійсниться через вказаний проміжок часу. </p>
+          <h4>(запуск відкладених функцій - повідомлення)</h4>
+          <!-- <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul> -->
+          <ul>
+            <li>
+              <h4 class="section-title__name">дозволяє запланувати запуск одноразово функції через певний час</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">setTimeout()</h5>
+                  <h3>const timerId = setTimeout(callback, delay, arg1, arg2, ...);</h3>
+                  <ul>
+                    <li><h3>callback</h3> - функція, виконання якої необхідно запланувати.</li>
+                    <li><h3>delay</h3> - час в мілісекундах, через який callback-функція буде викликана один раз.</li>
+                  </ul>
+                  
+                  <div class="section-box">
+                    <p class="exemplar">
+                      HTML <br>
+                      < button type="button" class="btn">Click me< /button> <br>
+                    </p>
+                    <p class="exemplar">
+                      CSS <br>
+                      body { <br>
+                        margin: 16px; <br>
+                        text-align: center; <br>
+                      } <br>
+                    </p>
+                    <p class="exemplar">
+                      JS <br>
+                      const button = document.querySelector("button"); <br>
+                      <br>
+                      const onClick = () => { <br>
+                        const timerId = setTimeout(() => {console.log("I love async JS!");}, 2000); <br>
+                      <br>
+                        console.log(timerId); <br>
+                      }; <br>
+                      <br>
+                      button.addEventListener("click", onClick); <br>
+                    </p>
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">скасувати виклик функції (setTimeout()) </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">clearTimeout(id)</h5>
+                  <p class="exemplar">
+                    const greet = () => {console.log("Hello!"); }; <br>
+                    const timerId = setTimeout(greet, 3000); <br>
+                    clearTimeout(timerId); <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">запускає виконання функції не один раз, а регулярно повторює її через вказаний проміжок часу</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">setInterval()</h5>
+                  <h3>const timerId = setInterval(callback, delay, arg1, arg2, ...);</h3>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Зупинити виконання setInterval()</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">clearInterval(id)</h5>
+                  <p class="exemplar">
+                    Клікаючи на кнопку «Start», запустимо інтервал і будемо кожну секунду виводити в консоль рядок. <br>
+                    По кліку на кнопку «Stop» викличемо clearInterval() і передамо ідентифікатор інтервалу, який потрібно зупинити. <br>
+                    <br>
+                  </p>
+                  <div class="section-box">
+                    <p class="exemplar">
+                      HTML <br>
+                      < button class="btn js-start">Start< /button> <br>
+                      < button class="btn js-stop">Stop< /button> <br>
+                    </p>
+                    <p class="exemplar">
+                      CSS <br>
+                      body { margin: 16px; text-align: center;}
+                    </p>
+                    <p class="exemplar">
+                      JS <br>
+                      const startBtn = document.querySelector(".js-start"); <br>
+                      const stopBtn = document.querySelector(".js-stop"); <br>
+                      let timerId = null; <br>
+                      <br>
+                      startBtn.addEventListener("click", () => { <br>
+                        timerId = setInterval(() => { <br>
+                          console.log(`I love async JS!  ${Math.random()}`); <br>
+                        }, 1000); <br>
+                      }); <br>
+                      <br>
+                      <br>
+                      stopBtn.addEventListener("click", () => { <br>
+                        clearInterval(timerId); <br>
+                        console.log(`Interval with id ${timerId} has stopped!`); <br>
+                      }); <br>
+                    </p>
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Дата і час  -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Дата і час</h3>
+          <h3>Модуль 9_1</h3>
+          <h4>1 січня 1970 00:00 ЮНІКС ЧАС (від цього часу розпочався відлік часу в ПК)</h4>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name">Створення дати</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">const date = new Date() / const date = Date.now()</h5>
+                  
+                  <p>Екземпляр об'єкта Date - це об'єкт, що відображає певний момент часу. </p>
+                  <h3>Якщо потрібно отримати теперішню дату то краще використати Date.now() щоб не створювати об'єкт</h3>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+             <li>
+              <h4 class="section-title__name">повертає числове значення дати (timestamp) - кількість мілісекунд, що минула з півночі 1 січня 1970 року.</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">getTime()</h5>
+                  <p>
+                    const date = new Date(); <br>
+                    console.log(date.getTime()); // 1624021654154
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+             <li>
+              <h4 class="section-title__name">перетворює рядок у число - кількість мілісекунд</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Date.parse()</h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+             <li>
+              <h4 class="section-title__name">Методи</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Геттери</h5>
+                  <p>Геттери використовуються для читання усієї дати або окремої складової. Значення, що повертається, залежить від поточного часового поясу, встановленого на вашому комп'ютері.</p>
+                  <ul>
+                    const date = new Date(); 
+                    console.log("Date: ", date); 
+                                       
+                    // Повертає день місяця від 1 до 31 
+                    <h3>console.log("getDate(): ", date.getDate());</h3> 
+                                       
+                    // Повертає день тижня від 0 до 6 
+                    <h3>console.log("getDay(): ", date.getDay());</h3> 
+                                       
+                    // Повертає місяць від 0 до 11 
+                    <h3>console.log("getMonth(): ", date.getMonth());</h3> 
+                                       
+                    // Повертає рік з 4 цифр 
+                    <h3>console.log("getFullYear(): ", date.getFullYear());</h3> 
+                                       
+                    // Повертає години 
+                    <h3>console.log("getHours(): ", date.getHours());</h3> 
+                                       
+                    // Повертає хвилини 
+                    <h3>console.log("getMinutes(): ", date.getMinutes());</h3> 
+                                       
+                    // Повертає секунди 
+                    <h3>console.log("getSeconds(): ", date.getSeconds());</h3> 
+                                       
+                    // Повертає мілісекунди 
+                    <h3>console.log("getMilliseconds(): ", date.getMilliseconds());</h3> 
+                  </ul>
+                  <p>Існують еквівалентні версії цих методів, які повертають значення у форматі UTC (Coordinated Universal Time), а не адаптовані до поточного часового поясу користувача.</p>
+                  <ul>
+                    const date = new Date();
+                    console.log("Date: ", date);
+
+                    // Повертає день місяця від 1 до 31
+                    <h3>console.log("getUTCDate(): ", date.getUTCDate());</h3>
+
+                    // Повертає день тижня від 0 до 6
+                    <h3>console.log("getUTCDay(): ", date.getUTCDay());</h3>
+
+                    // Повертає місяць від 0 до 11
+                    <h3>console.log("getUTCMonth(): ", date.getUTCMonth());</h3>
+
+                    // Повертає рік з 4 цифр
+                    <h3>console.log("getUTCFullYear(): ", date.getUTCFullYear());</h3>
+
+                    // Повертає години
+                    <h3>console.log("getUTCHours(): ", date.getUTCHours());</h3>
+
+                    // Повертає хвилини
+                    <h3>console.log("getUTCMinutes(): ", date.getUTCMinutes());</h3>
+
+                    // Повертає секунди
+                    <h3>console.log("getUTCSeconds(): ", date.getUTCSeconds());</h3>
+
+                    // Повертає мілісекунди
+                    <h3>console.log("getUTCMilliseconds(): ", date.getUTCMilliseconds());</h3>
+                  </ul>
+                  <h5 class="section-title__value">Сеттери</h5>
+                  <p>
+                    Все, що можна прочитати - можна записати, методи для запису називаються також геттери, але починаються з префіксу set. <br> Також для всіх методів існують їх UTC еквіваленти.
+
+                  </p>
+                  <ul>
+                    const date = new Date("March 16, 2030 14:25:00");
+
+                    <h3>date.setMinutes(50);</h3>
+                    // "Sat Mar 16 2030 14:50:00 GMT+0200"
+
+                    <h3>date.setFullYear(2040, 4, 8);</h3>
+                    // "Tue May 08 2040 14:50:00 GMT+0300"
+                  </ul>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+             <li>
+              <h4 class="section-title__name">Форматування дати</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Об'єкт дати може бути представлений у різних рядкових і числових форматах.
+                  </p>
+                  <ul>
+                    const date = new Date("March 16, 2030 14:25:00");
+
+                    <h3>date.toString();</h3>
+                    // "Sat Mar 16 2030 14:25:00 GMT+0200 (Eastern European Standard Time)"
+
+                    <h3>date.toTimeString();</h3>
+                    // "14:25:00 GMT+0200 (Eastern European Standard Time)"
+
+                    <h3>date.toLocaleTimeString();</h3>
+                    // "2:25:00 PM"
+
+                    <h3>date.toUTCString();</h3>
+                    // "Sat, 16 Mar 2030 12:25:00 GMT"
+
+                    <h3>date.toDateString();</h3>
+                    // "Sat Mar 16 2030"
+
+                    <h3>date.toISOString();</h3>
+                    // "2030-03-16T12:25:00.000Z"
+
+                    <h3>date.toLocaleString();</h3>
+                    // "3/16/2030, 2:25:00 PM"
+
+                    <h3>date.getTime();</h3>
+                    // 1899894300000
+                  </ul>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">title</h3>
+          <h3> </h3>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">title</h3>
+          <h3> </h3>
           <ul>
             <li><a href="" target="_blank"></a></li>
           </ul>

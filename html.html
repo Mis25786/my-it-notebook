@@ -181,6 +181,77 @@
          </div>
         </div>
       </div>
+      
+        <!-- Корисні штуки -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Корисні штуки</h3>
+          <ul>
+            <li>
+              <h4 class="section-title__name">Швидке написання тегів/класів/атрибутів/значень</h4>
+              <p>li.menu__list-item*5>a.menu__list-link[href=#]{text}</p>
+              <p>ul.footer__social>li.footer__social-item*4>a.footer__social-link[href=#]>img.footer__social-img[src=img/facebook.svg]</p>
+            </li>
+                    <li>
+                      <h4 class="section-title__name">Селектор дитини (Вибираємо всі елементи першої вкладеності)</h4>
+                      <div>
+                        <h5 class="section-title__value">.main-block__body > *:not(:last-child) {  margin: 0 0 35px 0}</h5>
+                        <p>Маємо ul/li/ul/li*3 потрібно звернутись до першої вкладеності до li</p>
+                        <p>НЕ ПРАВИЛЬНО .menu li {}</p>
+                        <p>ПРАВИЛЬНО .menu > li {}</p>
+                      </div>
+                     
+                    </li>
+                    <li>
+                      <h4 class="section-title__name">Селектор атрибута (Дозволяє застосувати стилі до елементів з певним атрибутом або його значенням. в css)</h4>
+                      <div>
+                        <h5 class="section-title__value">a[title]</h5>
+                        <p>Вибере всі посилання з атрибутом title.</p>
+                        <p class="exemplar">a[title] {color: teal}</p>
+                        <h5 class="section-title__value">a[href="https://www.youtube.com"]</h5>
+                        <p>Вибере всі посилання з атрибутом href і відповідним значенням.</p>
+                        <p class="exemplar">a[href="https://www.youtube.com"] {color: teal}</p>
+                      </div>
+                     
+                    </li>
+                    <li>
+                                          <h4 class="section-title__name">перенесення рядка.</h4>
+                      <div>
+                        <h5 class="section-title__value">< br ></h5>
+                        <a href="https://html-css.co.ua/html/tag-br/">Опис</a>
+                      </div>
+                      <h4 class="section-title__name">малює горизонтальну лінію.</h4>
+                      <div>
+                        <h5 class="section-title__value">< hr ></h5>
+                        <a href="https://html-css.co.ua/html/tag-hr/">Опис</a>
+                      </div>
+                      <h4 class="section-title__name">створює рядок, що біжить на сторінці.</h4>
+                      <div>
+                        <h5 class="section-title__value">< marquee ></h5>
+                        <a href="https://html-css.co.ua/html/tag-marquee/">Опис</a>
+                      </div>
+                      <h4 class="section-title__name">змінити вигляд курсора при наведенны на елемент</h4>
+                      <div>
+                        <h5 class="section-title__value">cursor: pointer;</h5>
+                        <a href="https://html-css.co.ua/css/cursor/">Опис</a>
+                      </div>
+                      <h4 class="section-title__name">Робить кнопку не активну</h4>
+                      <div>
+                        <h5 class="section-title__value">disabled</h5>
+                        <p>додавши до тега як атрибут зробить кнопку не активну</p>
+                        <p class="exemplar">
+                          < button type="button" disabled >кнопка не активна< /button>
+                        </p>
+                        <p>більш детально в - "Псевдокласи стану"</p>
+                        <a href="#"></a>
+                      </div>
+                    
+                    </li>
+                  </ul>
+
+         
+        </div>
+      </div>
 
       <!-- БЕМ -->
       <div class="section">
@@ -823,67 +894,6 @@
             </li>
       
           </ul>
-        </div>
-      </div>
-
-        <!-- Корисні штуки -->
-      <div class="section">
-        <div class="container">
-          <h3 class="section-title">Корисні штуки</h3>
-          <ul>
-            <li>
-              <h4 class="section-title__name">Швидке написання тегів/класів/атрибутів/значень</h4>
-              <p>li.menu__list-item*5>a.menu__list-link[href=#]{text}</p>
-              <p>ul.footer__social>li.footer__social-item*4>a.footer__social-link[href=#]>img.footer__social-img[src=img/facebook.svg]</p>
-            </li>
-                    <li>
-                      <h4 class="section-title__name">Селектор дитини (Вибираємо всі елементи першої вкладеності)</h4>
-                      <div>
-                        <h5 class="section-title__value">.main-block__body > *:not(:last-child) {  margin: 0 0 35px 0}</h5>
-                        <p>Маємо ul/li/ul/li*3 потрібно звернутись до першої вкладеності до li</p>
-                        <p>НЕ ПРАВИЛЬНО .menu li {}</p>
-                        <p>ПРАВИЛЬНО .menu > li {}</p>
-                      </div>
-                     
-                    </li>
-                    <li>
-                      <h4 class="section-title__name">Селектор атрибута (Дозволяє застосувати стилі до елементів з певним атрибутом або його значенням. в css)</h4>
-                      <div>
-                        <h5 class="section-title__value">a[title]</h5>
-                        <p>Вибере всі посилання з атрибутом title.</p>
-                        <p>a[title] {color: teal}</p>
-                        <h5 class="section-title__value">a[href="https://www.youtube.com"]</h5>
-                        <p>Вибере всі посилання з атрибутом href і відповідним значенням.</p>
-                        <p>a[href="https://www.youtube.com"] {color: teal}</p>
-                      </div>
-                     
-                    </li>
-                    <li>
-                                          <h4 class="section-title__name">перенесення рядка.</h4>
-                      <div>
-                        <h5 class="section-title__value">< br ></h5>
-                        <a href="https://html-css.co.ua/html/tag-br/">Опис</a>
-                      </div>
-                      <h4 class="section-title__name">малює горизонтальну лінію.</h4>
-                      <div>
-                        <h5 class="section-title__value">< hr ></h5>
-                        <a href="https://html-css.co.ua/html/tag-hr/">Опис</a>
-                      </div>
-                      <h4 class="section-title__name">створює рядок, що біжить на сторінці.</h4>
-                      <div>
-                        <h5 class="section-title__value">< marquee ></h5>
-                        <a href="https://html-css.co.ua/html/tag-marquee/">Опис</a>
-                      </div>
-                      <h4 class="section-title__name">змінити вигляд курсора при наведенны на елемент</h4>
-                      <div>
-                        <h5 class="section-title__value">cursor: pointer;</h5>
-                        <a href="https://html-css.co.ua/css/cursor/">Опис</a>
-                      </div>
-                    
-                    </li>
-                  </ul>
-
-         
         </div>
       </div>
 

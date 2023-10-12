@@ -45,6 +45,7 @@
         </div>
       </header>
     </div>
+
     <main class="main">
       <!-- Підключення JS до проекту -->
       <div class="section">
@@ -701,6 +702,22 @@
                     form.addEventListener('input', e =>
                     {formData[e.target.value] = e.target.value})
                   </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Рандомно викидує true або false</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">let random = Math.random() > 0.5</h5>
+                  <p></p>
                   <div class="section-box">
                     <img src="" width="0" alt="" />
                   </div>
@@ -4676,9 +4693,10 @@
           <h3>Модуль 9_1</h3>
           <p>JavaScript є однопоточною синхронною мовою програмування, і тому всі процеси виконуються послідовно один за одним в одному потоку і тому поки не виконяється одна дія всі інші будуть чекати в черзі на виконання. Асинхроність виконання дій реалізується за допомогою відкладення виклику дії, який здійсниться через вказаний проміжок часу. </p>
           <h4>(запуск відкладених функцій - повідомлення)</h4>
-          <!-- <ul>
-            <li><a href="" target="_blank"></a></li>
-          </ul> -->
+          <ul>
+            <li><a href="http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D" target="_blank">event loop</a></li>
+            <li><a href="https://www.jscamp.app/ru/docs/javascript25" target="_blank">event loop text</a></li>
+          </ul>
           <ul>
             <li>
               <h4 class="section-title__name">дозволяє запланувати запуск одноразово функції через певний час</h4>
@@ -4809,6 +4827,13 @@
             </li>
 
           </ul>
+          <div class="section-box">
+                    <img src="./img/js/event-loop.jpg" width="400" alt="" />
+                    <img src="./img/js/event-loop1.jpg" width="400" alt="" />
+                    <img src="./img/js/event-loop2.jpg" width="400" alt="" />
+                    <img src="./img/js/event-loop3.jpg" width="400" alt="" />
+                    
+                  </div>
         </div>
       </div>
 
@@ -5010,21 +5035,292 @@
         </div>
       </div>
 
-      <!--  -->
+      <!-- Проміси -->
       <div class="section">
         <div class="container">
-          <h3 class="section-title">title</h3>
-          <h3> </h3>
+          <h3 class="section-title">Проміси</h3>
+          <h3>Модуль 9_2</h3>
+          <h3>Promise (обіцянка, проміс)</h3>
+          <p>- об'єкт, що представляє поточний стан асинхронної операції. Це обгортка для значення, невідомого на момент створення промісу. Дозволяє обробляти результати асинхронних операцій таким чином, якби вони були синхронними: замість кінцевого результату асинхронної операції, повертається своєрідна обіцянка отримати результат у майбутньому.</p>
+          <h5 class="section-title__value">promise.then(value => console.log(value)).catch(error => console.log(error)).finally(() => console.log("Promise settled"));</h5>
+          <h3>Проміс може бути у трьох станах: </h3>
+          <ul>
+            <li><h3>Очікування (pending)</h3> - початковий стан під час створення промісу.</li>
+            <li><h3>Виконано (fulfilled)</h3> - операція виконана успішно з будь-яким результатом.</li>
+            <li><h3>Відхилено (rejected)</h3> - операція відхилена з помилкою.</li>
+          </ul>
+          <img src="./img/js/promis.jpg" width="400" alt="">
+          
           <ul>
             <li><a href="" target="_blank"></a></li>
           </ul>
           <ul>
             <li>
-              <h4 class="section-title__name"></h4>
+              <h4 class="section-title__name">Створення</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">const promise = new Promise((resolve, reject) => {  // Asynchronous operation })</h5>
+                  <ul>
+                    <li><h3>resolve(value)</h3> - функція для виклику у разі успішної операції. Переданий їй аргумент буде значенням виконаного промісу.</li>
+                    <li><h3>reject(error)</h3> - функція для виклику у разі помилки. Переданий їй аргумент буде значенням відхиленого промісу.</li>
+                  </ul>
+                  <p class="exemplar">
+                    // Change value of isSuccess variable to call resolve or reject <br>
+                    const isSuccess = true; <br>
+                                       <br>
+                    const promise = new Promise((resolve, reject) => { <br>
+                      setTimeout(() => { <br>
+                        if (isSuccess) { <br>
+                          resolve("Success! Value passed to resolve function"); <br>
+                        } else { <br>
+                          reject("Error! Error passed to reject function"); <br>
+                        } <br>
+                      }, 2000); <br>
+                    }); <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+             <li>
+              <h4 class="section-title__name">Метод then()</h4>
+              <p>
+                Метод then() приймає два аргументи - callback-функції, які будуть викликані, коли проміс змінить свій стан. Результат промісу, значення або помилку, вони отримають як аргументи.
+              </p>
+              <ul>
+                <li><h3>onResolve(value)</h3> - буде викликана у разі успішного виконання промісу і отримає його результат як аргумент.</li>
+                <li><h3>onReject(error)</h3> - буде викликана у разі виконання промісу з помилкою і отримає її як аргумент.</li>
+              </ul>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">promise.then(onResolve, onReject)</h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+             <li>
+              <h4 class="section-title__name">Метод catch()</h4>
+              <p>
+                На практиці в методі then() обробляють тільки успішне виконання промісу, а помилку його виконання у спеціальному методі catch() для «відловлювання» помилок. <br>
+                Колбек-функція буде викликана у разі виконання промісу з помилкою, і отримає її як аргумент.
+              </p>
               <div class="section-box">
                 <div>
                   <h5 class="section-title__value"></h5>
                   <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+              <li>
+              <h4 class="section-title__name">Метод finally()</h4>
+              <p>
+                Тут буде виконуватися код, який необхідно запустити в будь-якому разі.
+              </p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    // Change value of isSuccess variable to call resolve or reject <br>
+                    const isSuccess = true; <br>
+                                       <br>
+                    const promise = new Promise((resolve, reject) => { <br>
+                      setTimeout(() => { <br>
+                        if (isSuccess) { <br>
+                          resolve("Success! Value passed to resolve function"); <br>
+                        } else { <br>
+                          reject("Error! Error passed to reject function"); <br>
+                        } <br>
+                      }, 2000); <br>
+                    }); <br>
+                     <br>
+                    promise <br>
+                      .then(value => console.log(value)) // "Success! Value passed to resolve function" <br>
+                      .catch(error => console.log(error)) // "Error! Error passed to reject function" <br>
+                      .finally(() => console.log("Promise settled")); // "Promise settled" <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+              <li>
+              <h4 class="section-title__name">Ланцюжки промісів</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Метод then() результатом свого виконання повертає ще один проміс, значенням якого буде те, що поверне його callback-функція onResolve. Це дозволяє будувати асинхронні ланцюжки з промісів. <br>
+                    Оскільки метод then() повертає проміс, перед його виконанням може минути деякий час, тому частина ланцюжка, що залишилася, буде чекати. У разі виникнення помилки в будь-якому місці ланцюжка, виконання всіх наступних then() скасовується, а управління передається методу catch().
+                  </p>
+                  <p class="exemplar">
+                    const promise = new Promise((resolve, reject) => { <br>
+                      setTimeout(() => { <br>
+                        resolve(5); <br>
+                      }, 2000); <br>
+                    }); <br>
+                     <br>
+                    promise <br>
+                      .then(value => { <br>
+                        console.log(value); // 5 <br>
+                        return value * 2; <br>
+                      }) <br>
+                      .then(value => { <br>
+                        console.log(value); // 10 <br>
+                        return value * 3; <br>
+                      }) <br>
+                      .then(value => { <br>
+                        console.log(value); // 30 <br>
+                      }) <br>
+                      .catch(error => { <br>
+                        console.log(error); <br>
+                      }) <br>
+                      .finally(() => { <br>
+                        console.log("Final task"); <br>
+                      }); <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+             <li>
+              <h4 class="section-title__name">Промісифікація функцій</h4>
+
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Промісифікація - це перетворення функції з колбеками таким чином, щоб вона не приймала колбеки, а повертала проміс.
+                  </p>
+                  <p class="exemplar">
+                    const fetchUserFromServer = username => { <br>
+                      return new Promise((resolve, reject) => { <br>
+                        console.log(`Fetching data for ${username}`); <br>
+                       <br>
+                        setTimeout(() => { <br>
+                          // Change value of isSuccess variable to simulate request status <br>
+                          const isSuccess = true; <br>
+                         <br>
+                          if (isSuccess) {resolve("success value"); <br>
+                          } else { reject("error"); } <br>
+                        }, 2000); <br>
+                      }); <br>
+                    }; <br>
+                     <br>
+                    fetchUserFromServer("Mango") .then(user => console.log(user)).catch(error => console.error(error)); <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <h3 class="section-title">Методи класу Promise</h3>
+            <li>
+              <h4 class="section-title__name">Promise.all() Приймає масив промісів, очікує виконання всіх і повертає проміс.</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Promise.all([promiseA, promiseB]).then(value => console.log(value)).catch(error => console.log(error));
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <h4 class="section-title__name">Promise.race() Повертає перший виконаний або відхилений проміс</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Promise.race([promiseA, promiseB]).then(value => console.log(value)).catch(error => console.log(error));
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <h4 class="section-title__name">Promise.resolve() і Promise.reject()</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <h3>Статичні методи для створення промісів, що миттєво успішно виконуються або відхиляються.</h3>
+                  <p>
+                     Працюють аналогічно new Promise() за винятком можливості вказати затримку, але мають коротший синтаксис. <br>
+                     <br>
+                  </p>
+                  <p>
+                    
+                      // Fulfilled promise <br>
+                      new Promise(resolve => resolve("success value")).then(value => console.log(value));
+                    </p>
+                    <h3>
+                      Promise.resolve("success value").then(value => console.log(value));
+                    </h3>
+                    <p>
+                      // Rejected promise <br>
+                      new Promise((resolve, reject) => reject("error")).catch(error =>  console.error(error));
+                    </p>
+                    <h3>
+                      Promise.reject("error").catch(error => console.error(error)); <br>
+                      <br>
+                    </h3>
+                    <p class="exemplar">
+                      const makeGreeting = guestName => { <br>
+                        if (guestName === "" || guestName === undefined) { <br>
+                          return Promise.reject("Guest name must not be empty"); <br>
+                        } <br>
+                       <br>
+                        return Promise.resolve(`Welcome ${guestName}`); <br>
+                      }; <br>
+                       <br>
+                      makeGreeting("Mango").then(greeting => console.log(greeting)).catch(error => console.error(error)); <br>
+                    </p>
+                  </div>
                   <div class="section-box">
                     <img src="" width="0" alt="" />
                   </div>

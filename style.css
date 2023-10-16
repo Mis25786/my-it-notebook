@@ -67,6 +67,11 @@ body {
   color: #049408;
 }
 
+.selection {
+  color: red;
+  font-weight: 700;
+}
+
 /* .allocation {
 
 } */

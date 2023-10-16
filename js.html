@@ -5354,6 +5354,296 @@
         </div>
       </div>
 
+      <!-- Взаємодія з бекендом (Запити на сервер) -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Взаємодія з бекендом (Запити на сервер)</h3>
+          <h3>Модуль 10_1</h3>
+          <p>Перед тим як користувач побачить вміст сайту на екрані, браузер робить запит на сервер, щоб отримати цей вміст.</p>
+          <h3>fetch(url, option).then(response => response.json()).then(data => data).catch(error => error).finally()</h3>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name">Протокол HTTP</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <h3>HyperText Transfer Protocol (протокол передачі гіпертексту)</h3>
+                  <p> - широко розповсюджений протокол для передачі веб-ресурсів різних типів: html, css, javascript, зображень, аудіо та відео тощо.</p>
+                  <p>Під час обміну через звичайне HTTP-з'єднання всі дані передаються у вигляді тексту і можуть бути прочитані усіма, хто отримав доступ до з'єднання між клієнтом і сервером.</p>
+                  <div class="section-box">
+                    <img src="./img/js/HTTP.jpg" width="400" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Протокол HTTPS</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <h3>HyperText Transfer Protocol Secure</h3>
+                  <p>- це налаштування над протоколом HTTP, в якій всі повідомлення між клієнтом і сервером шифруються з метою підвищення безпеки.</p>
+                  <p>З HTTPS дані будуть зашифровані і хакер не зможе їх розшифрувати, тому що для розшифрування необхідний доступ до закритого ключа, який зберігається на сервері.</p>
+                  <div class="section-box">
+                    <img src="./img/js/HTTPS.jpg" width="400" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">REST API</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <div class="section-box">
+                    <img src="./img/js/rest-api.jpg" width="400" alt="" />
+                  </div>
+                  <h3>API (інтерфейс прикладного програмування)</h3>
+                  <p>- набір чітко визначених правил зв'язку між різними програмними компонентами. Інтерфейс описує, що можна попросити програму зробити і що буде в результаті.</p>
+                  <h3>REST (representational state transfer)</h3>
+                  <p>- стиль бекенд-архітектури, ґрунтується на наборі принципів, які описують, яким чином визначаються і адресуються мережеві ресурси.</p>
+                  <h3>REST API</h3>
+                  <p>- бекенд побудований за принципом REST. Слугує прошарком між веб-застосунком і базою даних. Має стандартний інтерфейс для звернення до ресурсів. Працює як веб-сайт, ми посилаємо HTTP-запит з клієнта на сервер, а у відповідь, замість HTML-сторінки, отримуємо дані в JSON-форматі.</p>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">HTTP-методи</h4>
+              <div class="section-box">
+                <div>
+                  <div class="section-box">
+                    <img src="./img/js/http-metods.jpg" width="500" alt="" />
+                  </div>
+                  <h5 class="section-title__value">Коди відповідей</h5>
+                  <a href="https://uk.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BA%D0%BE%D0%B4%D1%96%D0%B2_%D1%81%D1%82%D0%B0%D0%BD%D1%83_HTTP" target="_blank" rel="noopener noreferrer"></a>
+                  <p></p>                  
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">AJAX</h4>
+              <h3>AJAX (Asynchronous JavaScript and XML)</h3>
+              <p> - метод отримання або відправлення даних з подальшим оновленням інтерфейсу за цими даними, без потреби перезавантаження сторінки.</p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Fetch API (fetch(url, options))</h5>
+                  <p>Інтерфейс, вбудований в браузер, доступний на об'єкті window, який містить набір властивостей і методів для відправлення, отримання та обробки ресурсів від сервера. Метод fetch() надає сучасний інтерфейс для формування запитів до сервера і побудований на промісах.</p>
+                  <ul>
+                    <li>
+                      <h3>url</h3>
+                      <p>- шлях до даних на бекенді, які необхідно отримати, створити або змінити. Обов'язковий аргумент.</p>
+                    </li>
+                    <li>
+                      <h3>options</h3>
+                      <p>- об'єкт налаштувань запиту: метод (за замовчуванням GET), заголовки, тіло тощо. Необов'язковий аргумент.</p>
+                    </li>
+                  </ul>
+                  <p>Значення промісу, який повертає метод fetch(), - це об'єкт зі службовою інформацією про стан відповіді сервера. Екземпляр класу Response містить різні методи і властивості. Залежно від типу отримуваного контенту, використовуються різні методи для перетворення тіла відповіді у дані.</p>
+                  <ul>
+                    <li>
+                      <h3>json()</h3>
+                      <p>- парсить дані в JSON-форматі.</p>
+                    </li>
+                    <li>
+                      <h3>text()</h3>
+                      <p>- парсить дані в простому текстовому форматі, наприклад .csv (табличні дані).</p>
+                    </li>
+                    <li>
+                      <h3>blob()</h3>
+                      <p>- парсить дані, що описують файл, наприклад, зображення, аудіо або відео.</p>
+                    </li>
+                  </ul>
+                  <p>
+                    fetch("https://jsonplaceholder.typicode.com/users") <br>
+                      .then(response => { <br>
+                        if (!response.ok) { <br>
+                          throw new Error(response.status); <br>
+                        } <br>
+                        return response.json(); <br>
+                      }) <br>
+                      .then(data => { <br>
+                        // Data handling <br>
+                      }) <br>
+                      .catch(error => { <br>
+                        // Error handling <br>
+                      }); <br>
+                  </p>
+                  <h3>В інструментах розробника на вкладці Network відображаються всі HTTP-запити, що виконуються на сторінці.</h3>
+                  <p>Вибравши фільтр XHR, залишаться тільки запити до бекенду.</p>
+                  <div class="section-box exemplar">
+                    <p>
+                      HTML <br>
+                      < button type="button" class="btn">Fetch users< /button> <br>
+                      < ul class="user-list">< /ul> <br>
+                    </p>
+                    <p>
+                      CSS <br>
+                      body { <br>
+                        margin: 16px; <br>
+                        line-height: 1.5; <br>
+                        color: #212121; <br>
+                        font-family: sans-serif; <br>
+                      } <br>
+                       <br>
+                      p { <br>
+                        margin: 0; <br>
+                      } <br>
+                       <br>
+                      .user-list { <br>
+                        margin: 0; <br>
+                        list-style: none; <br>
+                        padding: 24px; <br>
+                      } <br>
+                       <br>
+                      .user-list li:not(:last-child) { <br>
+                        margin-bottom: 16px; <br>
+                      } <br>
+                    </p>
+                    <p>
+                      JS <br>
+                      const fetchUsersBtn = document.querySelector(".btn"); <br>
+                      const userList = document.querySelector(".user-list"); <br>
+                      <br>
+                      fetchUsersBtn.addEventListener("click", () => { <br>
+                        fetchUsers() <br>
+                          .then((users) => renderUsers(users)) <br>
+                          .catch((error) => console.log(error)); <br>
+                      }); <br>
+                      <br>
+                      function fetchUsers() { <br>
+                        return fetch("https://jsonplaceholder.typicode.com/users").then( <br>
+                          (response) => { <br>
+                            if (!response.ok) { <br>
+                              throw new Error(response.status); <br>
+                            } <br>
+                            return response.json(); <br>
+                          } <br>
+                        ); <br>
+                      } <br>
+                      <br>
+                      function renderUsers(users) { <br>
+                        const markup = users <br>
+                          .map((user) => { <br>
+                            return `< li> <br>
+                                < p><b>Name</b>: ${user.name}< /p> <br>
+                                < p><b>Email</b>: ${user.email}< /p> <br>
+                                < p><b>Company</b>: ${user.company.name}< /p> <br>
+                              < /li>`; <br>
+                          }) <br>
+                          .join(""); <br>
+                        userList.insertAdjacentHTML("beforeend", markup); <br>
+                      } <br>
+                      <br>
+                    </p>
+                  </div>
+                  <h5 class="section-title__value">Параметри рядка запиту</h5>
+                  <h3>const url = "https://jsonplaceholder.typicode.com/users?_limit=7&_sort=name";</h3>
+                  <p>Параметри запиту дозволяють вказати бекенду додаткові критерії. Наприклад, скільки елементів колекції ми хочемо отримати в запиті, можливо, необхідно додати сортування за якоюсь властивістю об'єкта, обмежити вибірку тощо. Список параметрів запиту, їх назви і можливі значення залежать від бекенду і описані в документації.</p>
+                  <p>Символ <span class="selection">?</span> вказує на старт параметрів запиту. Кожен параметр - це пара ім'я=значення. Символ <span class="selection">&</span> використовується для зазначення смислового «І», розділяючи параметри в рядку запиту.</p>
+                  <h5 class="section-title__value">Клас URLSearchParams (запис параметрів)</h5>
+                  <p>Параметрів може бути багато, і незручно складати з них один довгий рядок як для читабельності, так і для його подальшого редагування. Під час складання рядків параметрів, створюється екземпляр класу URLSearchParams та ініціалізується об'єктом. Результатом буде спеціальний об'єкт (ітератор) з методами, який у рядковому перетворенні повертає результат виклику методу toString() - своє рядкове відображення.</p>
+                  <p>
+                    const searchParams = new URLSearchParams({ <br>
+                      _limit: 5, <br>
+                      _sort: "name", <br>
+                    }); <br>
+                     <br>
+                    console.log(searchParams.toString()); // "_limit=5&_sort=name" <br>
+                     <br>
+                    const url = `https://jsonplaceholder.typicode.com/users?${searchParams}`; <br>
+                    console.log(url); // "https://jsonplaceholder.typicode.com/users?_limit=5&_sort=name" <br>
+                  </p>
+                  <p>
+                    На практиці для складання параметрів запиту, як правило, використовують просто літерал об'єкта з властивостями. <br>
+                    const option = { <br>
+                        _limit: 5, <br>
+                        _sort: "name", <br>
+                    } <br>
+                  </p>
+                  <h5 class="section-title__value">HTTP-заголовки Клас new Headers()</h5>
+                  <p>Клас Headers дозволяє виконувати різні дії в заголовках HTTP-запиту і відповіді. До цих дій належать діставання, налаштування, додавання і видалення заголовків.</p>
+                  <p>
+                    const headers = new Headers({ <br>
+                      "Content-Type": "application/json", <br>
+                      "X-Custom-Header": "custom value", <br>
+                    }); <br>
+                     <br>
+                    headers.append("Content-Type", "text/bash"); <br>
+                    headers.append("X-Custom-Header", "custom value"); <br>
+                    headers.has("Content-Type"); // true <br>
+                    headers.get("Content-Type"); // "text/bash" <br>
+                    headers.set("Content-Type", "application/json"); <br>
+                    headers.delete("X-Custom-Header"); <br>
+                  </p>
+                  <p>На практиці для складання заголовків запиту, як правило, використовують просто літерал об'єкта з властивостями. </p>
+                  <p>
+                    const headers = { <br>
+                      "Content-Type": "application/json", <br>
+                      "X-Custom-Header": "custom value", <br>
+                    }; <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Крос-доменні запити</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    За замовчуванням HTTP-запит можна робити тільки в рамках поточного сайту. При спробі запиту на інший домен, порт або протокол, тобто виконати крос-доменний запит - браузер видає помилку. Це зроблено з міркувань безпеки і права доступу налаштовуються на бекенді. Якщо бекенд не підтримує крос-доменні запити, фронтенд-розробник нічого не зможе з цим зробити у своєму коді. <br>
+                    <br>
+                    Ця політика браузерів називається CORS і розшифровується як Cross-Origin Resource Sharing, де Origin - це і є домен, порт або протокол. Дослівний переклад звучить як «спільне використання ресурсів між різними джерелами». <br>
+                    <br>
+                    На кожному запиті браузер сам додає HTTP-заголовок Origin, де вказує адресу веб-сторінки, яка хоче зробити HTTP-запит. <br>
+                    <br>
+                    Сервер перевіряє заголовок Origin і, якщо він підтримує крос-доменні запити, додає у відповідь спеціальний HTTP-заголовок Access-Control-Allow-Origin. <br>
+                    Значенням цього заголовка буде дозволене джерело (Origin). У нашому випадку це повинен бути один сайт https://my-site.com, якщо бекенд приватний, або спецсимвол *, якщо бекенд публічний - дозволяє робити запити кому завгодно. <br>
+                    <br>
+                    Тобто браузер - це певний посередник між JavaScript-кодом і бекендом. Він додає кожному запиту заголовок Origin з правильним значенням і перевіряє наявність заголовка Access-Control-Allow-Origin у відповіді. Якщо заголовок є і його значення підходить, виконається оригінальний запит і JavaScript-код отримає його результат, в іншому випадку буде помилка CORS.
+                  </p>
+                  <P>
+                    Тобто з клієнта не можна робити запит на будь який бекенд в мірах безпеки.
+                  </P>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!--  -->
       <div class="section">
         <div class="container">

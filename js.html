@@ -749,6 +749,43 @@
             </li>
 
             <li>
+              <h4 class="section-title__name">Очищати пробіли в інпуті по краям</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">.trim()</h5>
+                  <p>
+                    const str = "   foo  "; <br>
+                    console.log(str.trim()); // 'foo'
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">Надпис в інпуті до введення тексту</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">placeholder=""</h5>
+                  <p>
+                    < input type="tel" id="phone" name="phone" placeholder="123-45-678" >
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
               <h4 class="section-title__name"></h4>
               <div class="section-box">
                 <div>
@@ -5631,6 +5668,236 @@
                   <P>
                     Тобто з клієнта не можна робити запит на будь який бекенд в мірах безпеки.
                   </P>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Пагінація -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Пагінація</h3>
+          <h3>Модуль 10_2 </h3>
+          <p>База даних може зберігати колекції, що містять сотні мільйонів записів. Тому повертати всю колекцію на кожен GET-запит - занадто ресурсозатратно. Розмір тіла відповіді буде занадто великий, і час запиту затягнеться на десятки секунд, або навіть хвилини - чим більше даних у відповіді від бекенду, тим довше вона передається мережею.</p>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <div class="section-box">
+                    <img src="./img/js/pagination.jpg" width="500" alt="" />
+                  </div>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div>
+                <!-- Кількість елементів відповіді -->
+                <div>
+                  <h5 class="section-title__value">Кількість елементів відповіді</h5>
+                  <p>Перший параметр визначає кількість елементів у відповіді від бекенду. (він називається per_page) <br>
+                  У такому GET-запиті бекенд поверне не всю колекцію з дванадцяти елементів, а тільки перші чотири. </p>
+                  <div class="section-box">
+                    <img src="./img/js/pagination1.jpg" width="500" alt="" />
+                  </div>
+                </div>
+                <!-- Номер групи елементів -->
+                <div>
+                  <h5 class="section-title__value">Номер групи елементів</h5>
+                  <p>
+                    Вказавши бажану кількість елементів у відповіді, ми завжди отримаємо однаковий результат - перші per_page елементів колекції, так звану першу групу або «сторінку». Другий параметр пагінації контролює зміщення всередині колекції - номер групи елементів, яку ми хочемо отримати. Нехай у нашому випадку він називається page.
+                    <br>
+                    Змінюючи значення параметра page, ми уточнюємо бекенду, яку наступну групу елементів хочемо отримати, і так, доки в колекції не закінчаться елементи.
+                  </p>
+                  <div class="exemplar section-box">
+                    <p>
+                      HTML <br>
+                      < button type="button" class="btn">Fetch posts< /button> <br>
+                      < ul class="posts">< /ul> <br>
+                    </p>
+                    <p>
+                      CSS <br>
+                      body { <br>
+                        margin: 16px; <br>
+                        line-height: 1.5; <br>
+                        color: #212121; <br>
+                        font-family: sans-serif; <br>
+                      } <br>
+                       <br>
+                      p { <br>
+                        margin: 0; <br>
+                      } <br>
+                       <br>
+                      .posts { <br>
+                        margin: 0; <br>
+                        list-style: none; <br>
+                        padding: 24px; <br>
+                      } <br>
+                       <br>
+                      .posts li:not(:last-child) { <br>
+                        margin-bottom: 16px; <br>
+                      } <br>
+                       <br>
+                      .post-title { <br>
+                        margin-top: 0; <br>
+                        margin-bottom: 8px; <br>
+                        font-size: 20px; <br>
+                        font-weight: 700; <br>
+                      } <br>
+                       <br>
+                      .post-title:first-letter { <br>
+                        text-transform: uppercase; <br>
+                      } <br>
+                       <br>
+                      .post-body { <br>
+                        margin: 0; <br>
+                      } <br>
+                    </p>
+                    <p>
+                      JS <br>
+                      const fetchPostsBtn = document.querySelector(".btn"); <br>
+                      const postList = document.querySelector(".posts"); <br>
+                                           <br>
+                      fetchPostsBtn.addEventListener("click", () => { <br>
+                        fetchPosts() <br>
+                          .then((posts) => renderPosts(posts)) <br>
+                          .catch((error) => console.log(error)); <br>
+                      }); <br>
+                       <br>
+                      function fetchPosts() { <br>
+                        const params = new URLSearchParams({ <br>
+                          _limit: 5, <br>
+                          // Change the group number here <br>
+                          _page: 3 <br>
+                        }); <br>
+                    </p>
+                  </div>
+                  <div class="section-box">
+                    <img src="./img/js/pagination2.jpg" width="500" alt="" />
+                  </div>
+                </div>
+                <!-- Прийом «Завантажити ще» -->
+                <div>
+                  <h5 class="section-title__value">Прийом «Завантажити ще»</h5>
+                  <p>
+                    Щоб динамічно змінювати номер групи на кожний наступний запит, достатньо оголосити ще одну глобальну змінну, назвемо її page і встановимо початкове значення 1 - перша група елементів. Після кожного успішного запиту, в колбек методу then() будемо збільшувати значення page на одиницю. Складаючи параметри запиту, використовуємо її значення.
+                  </p>
+                  <div class="exemplar section-box">
+                    <p>
+                      HTML <br>
+                      < button type="button" class="btn">Fetch posts< /button> <br>
+                      < ul class="posts">< /ul> <br>
+                    </p>
+                    <p>
+                      CSS <br>
+                      body { <br>
+                        margin: 16px; <br>
+                        line-height: 1.5; <br>
+                        color: #212121; <br>
+                        font-family: sans-serif; <br>
+                      } <br>
+                      <br>
+                      p { <br>
+                        margin: 0; <br>
+                      } <br>
+                      <br>
+                      .posts { <br>
+                        margin: 0; <br>
+                        list-style: none; <br>
+                        margin-bottom: 16px; <br>
+                      } <br>
+                      <br>
+                      .posts li:not(:last-child) { <br>
+                        margin-bottom: 16px; <br>
+                      } <br>
+                      <br>
+                      .post-title { <br>
+                        margin-top: 0; <br>
+                        margin-bottom: 8px; <br>
+                        font-size: 20px; <br>
+                        font-weight: 700; <br>
+                      } <br>
+                      <br>
+                      .post-title:first-letter { <br>
+                        text-transform: uppercase; <br>
+                      } <br>
+                      <br>
+                      .post-body { <br>
+                        margin: 0; <br>
+                      } <br>
+                    </p>
+                    <p>
+                      JS <br>
+                      const fetchPostsBtn = document.querySelector(".btn"); <br>
+                      const postList = document.querySelector(".posts"); <br>
+                      <br>
+                      // Controls the group number <br>
+                      let page = 1; <br>
+                      // Controls the number of items in the group <br>
+                      let perPage = 10; <br>
+                                           <br>
+                      fetchPostsBtn.addEventListener("click", () => { <br>
+                        fetchPosts() <br>
+                          .then((posts) => { <br>
+                            renderPosts(posts); <br>
+                            // Increase the group number <br>
+                            page += 1; <br>
+                           <br>
+                            // Replace button text after first request <br>
+                            if (page > 1) { <br>
+                              fetchPostsBtn.textContent = "Fetch more posts"; <br>
+                            } <br>
+                          }) <br>
+                          .catch((error) => console.log(error)); <br>
+                      }); <br>
+                       <br>
+                      function fetchPosts() { <br>
+                        const params = new URLSearchParams({ <br>
+                          _limit: perPage, <br>
+                          _page: page <br>
+                        }); <br>
+                       <br>
+                        return fetch(`https://jsonplaceholder.typicode.com/posts?${params}`).then( <br>
+                          (response) => { <br>
+                            if (!response.ok) { <br>
+                              throw new Error(response.status); <br>
+                            } <br>
+                            return response.json(); <br>
+                          } <br>
+                        ); <br>
+                      } <br>
+                       <br>
+                      function renderPosts(posts) { <br>
+                        const markup = posts <br>
+                          .map(({ id, title, body, userId }) => { <br>
+                            return `< li> <br>
+                                < h2 class="post-title">${title.slice(0, 30)}< /h2> <br>
+                                < p><b>Post id</b>: ${id}< /p> <br>
+                                < p><b>Author id</b>: ${userId}< /p> <br>
+                               < p class="post-body">${body}< /p> <br>
+                              < /li>`; <br>
+                          }) <br>
+                          .join(""); <br>
+                        postList.insertAdjacentHTML("beforeend", markup); <br>
+                      } <br>
+                    </p>
+                  </div>
+                  <p>
+                    Щоб знати, коли закінчаться елементи в колекції і вивести про це повідомлення користувачу, бекенд у кожній відповіді повертає не тільки масив елементів, але й метадані про доступну кількість груп («сторінок»), що залежить від значення параметра per_page, або просто загальну кількість елементів в колекції, у такому разі, обчислення кількості груп лягає на плечі фронтенд розробника. <br>
+                    У нашому випадку достатньо розділити загальну кількість елементів в колекції на кількість елементів в одній групі. Це схоже на випадок, коли бекенд повертає не кількість доступних сторінок, а загальну кількість елементів в колекції.
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
                   <div class="section-box">
                     <img src="" width="0" alt="" />
                   </div>

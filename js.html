@@ -59,6 +59,9 @@
                 >JAVASCRIPT Frilancer</a
               >
             </li>
+            <li>
+              <a href="https://youtu.be/CxgOKJh4zWE" target="_blank" rel="noopener noreferrer">JavaScript - Полный Курс JavaScript Для Начинающих [11 ЧАСОВ]</a>
+            </li>
           </ul>
           <ul>
             <li>
@@ -4363,9 +4366,14 @@
           <ul>
             <li>
               <a href="https://youtu.be/jU88mLuLWlk" target="_blank">Зборщик проектів GULP video settings</a>
-            <div>
+          
+            </li>
+            <li>
               <a href="https://gulpjs.com/" target="_blank">GULP</a>
-            </div>
+            </li>
+            <li>
+              <a href="https://youtu.be/Hh1aDoWMJXA" target="_blank" rel="noopener noreferrer">Gulp 4, полное руководство, современный синтаксис</a>
+              <a href="https://youtu.be/ODl2iCkIPpg" target="_blank" rel="noopener noreferrer">Gulp 4 сборка 2023, include файлов, конвертация шрифтов, работа с графикой, avif, webp, svg sprite</a>
             </li>
           </ul>
           <ul>
@@ -5898,6 +5906,152 @@
                 <div>
                   <h5 class="section-title__value"></h5>
                   <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CRUD -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">CRUD</h3>
+          <h3>Модуль 11_1</h3>
+          <div class="section-box">
+            <img src="./img/js/crud.jpg" width="400" alt="" />
+          </div>
+          <p>
+            Для взаємодії з ресурсами бекенду використовується чотири операції: створення (create), читання (read), оновлення (update) і видалення (delete). Для кожної з них визначений стандартний HTTP-метод.
+          </p>
+          <div class="section-box">
+            <img src="./img/js/crud-method.jpg" width="400" alt="" />
+          </div>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Читання</h5>
+                  <p>HTTP-метод GET використовується для отримання існуючих даних. Метод fetch() повинен відправити на сервер GET-запит без тіла. Бекенд, після отримання запиту, обробить його і у відповіді поверне необхідні ресурси.</p>
+                  <h3>Отримати весь масив</h3>
+                  <p>
+                    fetch("https://jsonplaceholder.typicode.com/posts") <br>
+                    .then(response => response.json()) <br>
+                    .then(posts => console.log(posts)) <br>
+                    .catch(error => console.log(error)); <br>
+                  </p>
+                  <h3>Отримати один елемент по id</h3>
+                  <p>
+                    // Change this number to fetch different post <br>
+                    const postId = 1; <br>
+                    <br>
+                    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`) <br>
+                      .then(response => response.json()) <br>
+                      .then(post => console.log(post)) <br>
+                      .catch(error => console.log(error)); <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Створення</h5>
+                  <p>Метод POST використовується для додавання нового ресурсу. </p>
+                  <p>
+                    const postToAdd = { <br>
+                      author: "Mango", <br>
+                      body: "CRUD is awesome", <br>
+                    }; <br>
+                    <br>
+                    const options = { <br>
+                      method: "POST", <br>
+                      body: JSON.stringify(postToAdd), <br>
+                      headers: { <br>
+                        "Content-Type": "application/json; charset=UTF-8", <br>
+                      }, <br>
+                    }; <br>
+                    <br>
+                    fetch("https://jsonplaceholder.typicode.com/posts", options) <br>
+                      .then(response => response.json()) <br>
+                      .then(post => console.log(post)) <br>
+                      .catch(error => console.log(error)); <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Оновлення</h5>
+                  <p>
+                    Методи PUT і PATCH використовуються для оновлення існуючих даних. <br>
+                    <span class="selection">PUT</span> видаляє елемент і замінює його новим, тому можуть втратитись деякі пункти <br>
+                    <span class="selection">PATCH</span> шукає в елементі зміни і змінює тільки ті які ми передали в тілі запиту
+                  </p>
+                  <p>
+                    // Change value of id property to update different post <br>
+                    const postToUpdate = { <br>
+                      id: 1, <br>
+                      body: "CRUD is really awesome", <br>
+                    }; <br>
+                    <br>
+                    const options = { <br>
+                      method: "PATCH", <br>
+                      body: JSON.stringify(postToUpdate), <br>
+                      headers: { <br>
+                        "Content-Type": "application/json; charset=UTF-8", <br>
+                      }, <br>
+                    }; <br>
+                    <br>
+                    fetch(`https://jsonplaceholder.typicode.com/posts/${postToUpdate.id}`, options) <br>
+                      .then(response => response.json()) <br>
+                      .then(post => console.log(post)) <br>
+                      .catch(error => console.log("ERROR" + error)); <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Видалення</h5>
+                  <p>
+                    Метод DELETE використовується для видалення існуючих даних.
+                  </p>
+                  <p>
+                    const postIdToDelete = 1; <br>
+                    <br>
+                    const options = { <br>
+                      method: "DELETE", <br>                     
+                    }; <br>
+                    <br>
+                    fetch(`https://jsonplaceholder.typicode.com/posts/${postIdToDelete}`, options) <br>
+                      .then(() => console.log("Post deleted")) <br>
+                      .catch(error => console.log("Error:", error)); <br>
+                  </p>
                   <div class="section-box">
                     <img src="" width="0" alt="" />
                   </div>

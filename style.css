@@ -218,11 +218,13 @@ body {
 } */
 
 .section-title__name {
+  margin-top: 20px;
   font-size: 25px;
   color: var(--text-akcent-primary-color);
 }
 
 .section-title__value {
+  margin-top: 20px;
   font-size: 20px;
   color: var(--text-akcent-secondary-color);
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,20 +19,22 @@
     <link rel="stylesheet" href="./style.css" />
     <title>Конспект-ІТ</title>
   </head>
+
   <body>
     <div class="wrapper">
       <header class="header">
         <a class="logo" href="/index.html">Конспект-ІТ</a>
-        <div class="header-nav">
+        <nav class="header-nav">
           <a class="header-page" href="./html.html">html/css</a>
           <a class="header-page" href="./image.html">Зображення</a>
-          <a class="header-page" href="./animations.html">Анімації</a>
+          <a class="header-page" href="./animations.html">Анімації/Ефекти</a>
           <a class="header-page" href="./js.html">JavaScript</a>
           <a class="header-page" href="./react.html">React</a>
           <a class="header-page" href="./node.html">Node</a>
           <a class="header-page" href="./commponents.html">Компоненти</a>
           <a class="header-page" href="./resources.html">Ресурси/Бібліотеки</a>
-        </div>
+          <a class="header-page" href="./terminal.html">Термінал</a>
+        </nav>
         <div class="header-search">
           <i class="fa-solid fa-magnifying-glass"></i>
           <input
@@ -44,19 +46,627 @@
         </div>
       </header>
     </div>
+
     <main class="main">
       <!-- React -->
       <div class="section">
         <div class="container">
           <h3 class="section-title">React</h3>
+          <h3>Модуль 1_1</h3>
           <ul>
             <li>
               <a
-                href="https://www.youtube.com/watch?v=3o7mzH2QKMw&list=PL6DxKON1uLOHTgN679Es1vkCS911i9HJX"
+                href="https://create-react-app.dev/"
                 target="_blank"
-                >React Redux Webpack - практический курс</a
+                rel="noopener noreferrer"
+                >Create React App</a
               >
             </li>
+          </ul>
+          <div>
+            <h3>React</h3>
+            <p>
+              – це бібліотека для створення елементів інтерфейсу користувача. У
+              React немає вбудованої маршрутизації, HTTP-модуля тощо. Проте є
+              багата екосистема, яка дозволить вирішити будь-яке завдання.
+              <br />
+              <br />
+              При створенні застосунку з використанням React розробник не
+              взаємодіє безпосередньо з DOM-деревом. Його завдання – описати
+              інтерфейс за допомогою компонентів (шаблон) та керувати зміною
+              даних (модель). React, при зміні даних моделі, сам оновить
+              інтерфейс за шаблоном.
+            </p>
+            <br />
+            <div>
+              <h3>React – мультиплатформний</h3>
+              розмітку можна рендерити на сервері (
+              <a
+                href="https://nextjs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Next.js</a
+              >
+              ), писати нативні (
+              <a
+                href="https://reactnative.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >React Native</a
+              >
+              ) або десктопні (
+              <a
+                href="https://www.electronjs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Electron</a
+              >
+              ) застосунки.
+            </div>
+            <p>
+              Для створення React-застосунку необхідні Node.js, Webpack, Babel,
+              React і DevTools. Можна написати свою Webpack-збірку або взяти
+              будь-яку хорошу з GitHub.
+            </p>
+          </div>
+
+          <ul>
+            <!-- створення React-застосунку -->
+            <li>
+              <h4 class="section-title__name">створення React-застосунку</h4>
+              <p>
+                Для навчання та маленьких/середніх проектів рекомендується
+                використовувати утиліту від авторів React.
+              </p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    npx create-react-app ім'я_папки_проекту
+                  </h5>
+                  <p>
+                    Щоб створити застосунок у поточній папці, замість імені
+                    проекту ставиться крапка. Наприклад npx create-react-app .
+                  </p>
+
+                  <h5 class="section-title__value">React DevTools</h5>
+                  <p>
+                    В інструментах розробника можна подивитися на дерево
+                    компонентів, їх стан та пропси. Профайлер корисний під час
+                    оптимізації застосунку.
+                  </p>
+                  <ul>
+                    <li>
+                      <a
+                        href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Devtools в Chrome Web Store</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://legacy.reactjs.org/blog/2019/08/15/new-react-devtools.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Introducing the New React DevTools</a
+                      >
+                    </li>
+                  </ul>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!-- JSX (JavaScript Syntax Extension) -->
+            <li>
+              <h4 class="section-title__name">
+                JSX (JavaScript Syntax Extension)
+              </h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    JSX створює елементи – найменші будівельні блоки React.
+                    Елементи Virtual DOM це звичайні JavaScript об'єкти, тому
+                    створювати їх дуже швидко. <br />
+                    <br />
+                    Використовуючи JSX, розмітка стає схожою на звичні
+                    HTML-шаблони. <br />
+                  </p>
+                  <ul>
+                    <li>
+                      <p>
+                        Усередині JSX можна використовувати будь-який валідний
+                        вираз, обертаючи його в фігурні дужки.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Значення атрибутів вказуються в подвійних лапках, якщо
+                        це звичайний рядок, та у фігурних дужках, якщо значення
+                        обчислюється, або тип відрізняється від рядка.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Всі атрибути React-елементів іменуються в camelCase
+                        нотації.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        JSX-теги можуть бути батьками інших JSX-тегів. Якщо тег
+                        порожній або самозакривається, його обов'язково
+                        необхідно закрити використовуючи />.
+                      </p>
+                    </li>
+                  </ul>
+                  <p class="exemplar">
+                    const imageUrl = <br />
+                    "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640";
+                    <br />
+                    const productPrice = 10.99; <br />
+                    <br />
+                    const product = ( <br />
+                    < div> <br />
+                    < img src={imageUrl} alt="Tacos With Lime" width="640" />
+                    <br />
+                    < h2>Tacos With Lime< /h2> <br />
+                    < p>Price: {productPrice}$< /p> <br />
+                    < button type="button">Add to cart< /button> <br />
+                    < /div> <br />
+                    ); <br />
+                  </p>
+
+                  <h5 class="section-title__value">
+                    Рендер елементів у DOM-дерево
+                  </h5>
+                  <p>
+                    Для того, щоб відрендерувати елемент у DOM-дерево, у пакеті
+                    react-dom є методи createRoot(container) та render(element),
+                    які працюють разом.
+                  </p>
+                  <p>
+                    Перший приймає посилання на існуючий DOM-елемент, наприклад
+                    div#root з index.html і створює корінь, в який буде
+                    рендеруватись вся програма. <br />
+                    Другий чекає на посилання на React-елемент або компонент (що
+                    рендерити). <br />
+                  </p>
+                  <h4>
+                    ReactDOM.createRoot(document.getElementById("root")).render(product);
+                  </h4>
+
+                  <h5 class="section-title__value">Правило спільного батька</h5>
+                  <p>
+                    Якщо в розмітці зайвий тег-обгортка не потрібний,
+                    використовуються фрагменти, схожі на DocumentFragment. Цей
+                    вбудований компонент при рендері розчиняється, підставляючи
+                    свій вміст.
+                  </p>
+                  <p class="exemplar">
+                    import { Fragment } from "react"; <br />
+                    <br />
+                    const post = ( <br />
+                    < Fragment> <br />
+                    < h2>Post Header< /h2> <br />
+                    < p>Post text< /p> <br />
+                    < /Fragment> <br />
+                    ); <br />
+                  </p>
+                  <p>
+                    Синтаксис фрагментів можна скоротити та не додавати імпорт
+                    Fragment. Babel зробить всі необхідні трансформації,
+                    замінивши порожні JSX-теги на React.Fragment.
+                  </p>
+                  <p class="exemplar">
+                    const post = ( <br />
+                    < > <br />
+                    < h2>Post Header< /h2> <br />
+                    < p>Post text< /p> <br />
+                    < /> <br />
+                    ); <br />
+                  </p>
+
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!-- Компоненти -->
+            <li>
+              <h4 class="section-title__name">Компоненти</h4>
+              <p>
+                – основні будівельні блоки React-застосунків, за допомогою яких
+                інтерфейс розділяється на незалежні частини. <br />
+                <br />
+                Розробник створює невеликі компоненти, які можна поєднувати, щоб
+                сформувати більші, або використовувати їх як самостійні елементи
+                інтерфейсу. Найголовніше в цій концепції те, що і великі, і
+                маленькі компоненти можна використовувати повторно і в
+                поточному, і в новому проекті. <br />
+              </p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Компонент це окремо створений файл, в якому створена
+                    розмітка будьякого елемента (картки товару, лоадер, модалка
+                    і т д) який ми потім можемо підключити в будь-якому іншому
+                    компоненті (файлі) і перевикористовувати. <br />
+                    Також можна вставляти один компонент в інший при рендері.
+                    <br />
+                    В компонент не імпортуеться масив з елементами, всі данні
+                    передаються пропсами з основного файлу (App.js) де буде
+                    рендиритись компонент. <br />
+                    Пропси мають ключ="значення", зазвичай пропси називають так
+                    само як в ключі в об'єктах які передаємо. Пропси значення в
+                    пропсах передаємо в фігурних дужках price={product.price},
+                    рядок (текст) в лапках.
+                  </p>
+                  <div class="exemplar">
+                    <h4>КОМПОНЕНТ</h4>
+                    <p>
+                      const Product = ({ imgUrl, name, price }) => ( <br />
+                      < div> <br />
+                      < img src={imgUrl} alt={name} width="640" /> <br />
+                      < h2>{name}< /h2> <br />
+                      < p>Price: {price}$< /p> <br />
+                      < button type="button" >Add to cart< /button> <br />
+                      < /div> <br />
+                      ); <br />
+                    </p>
+                  </div>
+                  <p>
+                    Тут ми імпортуемо компонент ProductList і в ньому рендиремо
+                    компонент Product
+                  </p>
+                  <div class="exemplar">
+                    <h4>ФАЙЛ ОСНОВНИЙ З ЯКОГО РЕНДЕРИТЬСЯ ВЕСЬ ПРОЕКТ</h4>
+                    <p>
+                      import ProductList from "productList.js"; <br />
+                      import Product from "product.js"; <br />
+                      <br />
+                      import products from "products.json"; // файл з масивом
+                      об'єктів продуктів <br />
+                      <br />
+                      <br />
+                      const App = () => ( <br />
+                      < div> <br />
+                      < h1>Best selling products< /h1> <br />
+                      < ProductList > <br />
+                      < Product <br />
+                      imgUrl={products.imgUrl} <br />
+                      name="Tacos With Lime" <br />
+                      price={products.price} <br />
+                      /> <br />
+                      < /ProductList> <br />
+                      < /div> <br />
+                      ); <br />
+                    </p>
+                  </div>
+
+                  <h5 class="section-title__value">
+                    Значення пропсів за замовчуванням
+                  </h5>
+                  <p>
+                    Що якщо компонент очікує якесь значення, а його не передали?
+                    - під час звернення до властивості об'єкта props отримаємо
+                    undefined. <br />
+                    <br />
+                    Для того щоб вказати значення властивостей за замовчуванням,
+                    використовується синтаксис значень за замовчуванням під час
+                    деструктуризації пропсів. <br />
+                  </p>
+                  <p class="exemplar">
+                    import imageDefault from "../images/image.jpg"; <br />
+                    <br />
+                    const Product = ({ <br />
+                    imgUrl = imageDefault, <br />
+                    name = "no name", <br />
+                    price = "please call at", <br />
+                    }) => ( <br />
+                    - || - <br />
+                    ); <br />
+                  </p>
+
+                  <h5 class="section-title__value">
+                    Властивість props.children
+                  </h5>
+                  <p>
+                    Концепція дочірніх елементів дозволяє дуже просто робити
+                    композицію компонентів. У вигляді дітей можна передавати
+                    компоненти як вбудовані, так і кастомні. Це дуже зручно під
+                    час роботи зі складними складеними компонентами. <br />
+                    <br />
+                    Властивість children автоматично доступна в кожному
+                    компоненті, її вмістом є те, що знаходиться між відкриваючим
+                    та закриваючим JSX-тегом. <br />
+                    У функціональних компонентах звертаємось як props.children.
+                    <br />
+                    Значенням props.children може бути практично все, що
+                    завгодно. <br />
+                  </p>
+                  <div class="section-box exemplar">
+                    <p>
+                      const Profile = ({ name, email }) => ( <br />
+                      < div> <br />
+                      < p>Name: {name}< /p> <br />
+                      < p>Email: {email}< /p> <br />
+                      < /div> <br />
+                      ); <br />
+                    </p>
+                    <p>
+                      const Panel = ({ title, children }) => ( <br />
+                      < section> <br />
+                      < h2>{title}< /h2> <br />
+                      {children} <br />
+                      < /section> <br />
+                      ); <br />
+                    </p>
+                    <p>
+                      const App = () => ( <br />
+                      < div> <br />
+                      < Panel title="User profile"> <br />
+                      < Profile name="Mango" email="mango@mail.com" /> <br />
+                      < /Panel> <br />
+                      < /div> <br />
+                      ); <br />
+                    </p>
+                  </div>
+
+                  <h5 class="section-title__value">
+                    Перевірка типів одержуваних пропсів Властивість propTypes
+                  </h5>
+                  <div>
+                    Пакет
+                    <a
+                      href="https://www.npmjs.com/package/prop-types"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >prop-types</a
+                    >
+                    надає ряд валідаторів для перевірки коректності отриманих
+                    типів даних під час виконання коду, повідомляючи про
+                    невідповідності в консолі.
+                  </div>
+                  <h3>npm install --save-dev prop-types</h3>
+                  <p class="exemplar">
+                    import PropTypes from "prop-types"; <br />
+                    <br />
+                    const Product = ({ <br />
+                    imgUrl =
+                    "https://dummyimage.com/640x480/2a2a2a/ffffff&text=Product+image+placeholder",
+                    <br />
+                    name, <br />
+                    price, <br />
+                    }) => ( <br />
+                    < div> <br />
+                    < img src={imgUrl} alt={name} width="640" /> <br />
+                    < h2>{name}< /h2> <br />
+                    < p>Price: {price}$< /p> <br />
+                    < button type="button">Add to cart< /button> <br />
+                    < /div> <br />
+                    ); <br />
+                    <br />
+                    Product.propTypes = { <br />
+                    imgUrl: PropTypes.string, <br />
+                    name: PropTypes.string.isRequired, <br />
+                    price: PropTypes.number.isRequired, <br />
+                    }; <br />
+                  </p>
+
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!-- Рендер за умовою -->
+            <li>
+              <h4 class="section-title__name">Рендер за умовою</h4>
+              <ul>
+                <li>
+                  <a
+                    href="https://react.dev/learn/conditional-rendering"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Умовний рендеринг</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.robinwieruch.de/conditional-rendering-react/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >All the Conditional Renderings in React</a
+                  >
+                </li>
+              </ul>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">
+                    if за допомогою логічного оператора &&
+                  </h5>
+                  <p class="exemplar">
+                    Читається як: якщо умова приводиться до true, то рендерим
+                    розмітку. <br />
+                    <br />
+                    const Mailbox = ({ unreadMessages }) => { <br />
+                    return ( <br />
+                    < div> <br />
+                    < h1>Hello!< /h1> <br />
+                    {unreadMessages.length > 0 && ( <br />
+                    < p>You have {unreadMessages.length} unread messages.< /p>
+                    <br />
+                    )} <br />
+                    < /div> <br />
+                    ); <br />
+                    }; <br />
+                  </p>
+
+                  <h5 class="section-title__value">
+                    if...else за допомогою тернарного оператора
+                  </h5>
+                  <p class="exemplar">
+                    const Mailbox = ({ name, unreadMessages }) => { <br />
+                    return ( <br />
+                    < div> <br />
+                    < h1>Hello {name}< /h1> <br />
+                    < p> <br />
+                    {unreadMessages.length > 0 <br />
+                    ? `You have ${unreadMessages.length} unread messages.`
+                    <br />
+                    : "No unread messages."} <br />
+                    < /p> <br />
+                    < /div> <br />
+                    ); <br />
+                    }; <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name">
+                Рендер колекції однотипних елементів
+              </h4>
+              <a
+                href="https://react.dev/learn/rendering-lists"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Списки і ключі</a
+              >
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Для того щоб відрендерити колекцію однотипних елементів,
+                    використовується метод Array.prototype.map(),
+                    callback-функція якого, для кожного елемента колекції
+                    повертає JSX-розмітку. Отже, отримуємо масив
+                    React-елементів, який можна рендерити. <br />
+                    <br />
+                    Під час виконання коду з прикладу вище спливе попередження
+                    про те, що для елементів списку потрібен ключ. React не може
+                    відрізнити елементи в колекції, таким чином, перемальовуючи
+                    всю колекцію повністю у разі будь-яких змін. <br />
+                    <br />
+                    <span class="selection">Ключ (key)</span> — це спеціальний
+                    рядковий проп, який потрібно задати під час створення
+                    елементів колекції. <br />
+                    <br />
+                    Елементи всередині колекції повинні бути забезпечені
+                    ключами, щоб мати стабільну ідентичність. React використовує
+                    ключі, щоб визначити, які з елементів в колекції необхідно
+                    створити і відрендерити знову, а не використовувати елементи
+                    з попереднього рендеру. Таким чином ми уникаємо
+                    перестворення всіх елементів колекції щоразу, коли щось
+                    змінюється. <br />
+                    <br />
+                  </p>
+                  <p class="exemplar">
+                    const favouriteBooks = [ <br />
+                    { id: "id-1", name: "JS for beginners" }, <br />
+                    { id: "id-2", name: "React basics" }, <br />
+                    { id: "id-3", name: "React Router overview" }, <br />
+                    { id: "id-4", name: "Redux in depth" }, <br />
+                    ]; <br />
+                    <br />
+                    const BookList = ({ books }) => ( <br />
+                    < ul> <br />
+                    {books.map(book => ( <br />
+                    < li key={book.id}>{book.name}< /li> <br />
+                    ))} <br />
+                    < /ul> <br />
+                    ); <br />
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">title</h3>
+          <h3></h3>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">title</h3>
+          <h3></h3>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
           </ul>
           <ul>
             <li>

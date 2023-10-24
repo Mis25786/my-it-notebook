@@ -632,15 +632,551 @@
         </div>
       </div>
 
-      <!--  -->
+      <!-- Стилізація (SCSS, CSS) -->
       <div class="section">
         <div class="container">
-          <h3 class="section-title">title</h3>
+          <h3 class="section-title">Стилізація (SCSS, CSS)</h3>
           <h3></h3>
           <ul>
             <li><a href="" target="_blank"></a></li>
           </ul>
           <ul>
+            <!-- CSS-модулі (основний метод для стилізації) -->
+            <li>
+              <h4 class="section-title__name">CSS-модулі (основний метод для стилізації)</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Create React App за замовчуванням підтримує CSS-модулі, все, що необхідно зробити це створювати файли стилів з розширенням .module.css, наприклад Alert.module.css. Всередині модуля CSS можна використовувати будь-який валідний CSS.
+                  </p>
+                  <p class="exemplar">
+                    src/components/Alert.module.css <br>
+                    .alert { <br>
+                      margin: 8px; <br>
+                      padding: 12px 16px; <br>
+                      border-radius: 4px; <br>
+                      background-color: gray; <br>
+                      color: white; <br>
+                    } <br>
+                  </p>
+                  <p>
+                    Синтаксис імпорту CSS-модуля нагадує імпорт файлу JavaScript модуля. У CSS-модулі є експорт за замовчуванням - об'єкт відповідності оригінального та згенерованих імен класів. У фінальному файлі стилів буде унікальне ім'я класу у форматі [filename]_[classname]__[hash].
+                  </p>
+                  <p class="exemplar">
+                    src/components/Alert.js <br>
+                    // Синтаксис імпорту CSS-модуля <br>
+                    import css from "./Alert.module.css"; <br>
+                    // Отримуємо об'єкт відповідності імен класів <br>
+                    console.log(css); // { alert: "Alert_alert_ax7yz" } <br>
+                    const Alert = ({ children }) => { <br>
+                      // Звертаємось до властивості об'єкта на ім'я класу з файлу модуля <br>
+                      return < p className={css.alert}>{children}< /p>; <br>
+                    }; <br>
+                  </p>
+                  <h5 class="section-title__value">Властивість composes</h5>
+                  <p>
+                    Композиція селекторів це одна з ключових можливостей CSS-модулів, яка дозволяє створювати клас, наслідуючи стилі іншого класу, але не дублюючи їх.
+                    Наслідуємо стилі базового класу .alert у всіх класах варіантів. Властивість composes має передувати іншим правилам, щоб можна було перевизначити стилі, якщо це необхідно.
+                  </p>
+                  <p class="exemplar">
+                    src/components/Alert.module.css <br>
+                    .alert { <br>
+                      margin: 8px; <br>
+                      padding: 12px 16px; <br>
+                      border-radius: 4px; <br>
+                      background-color: gray; <br>
+                      color: white; <br>
+                    } <br>
+                    .info { <br>
+                      composes: alert; <br>
+                      background-color: blue; <br>
+                    } <br>
+                    .success { <br>
+                      composes: alert; <br>
+                      background-color: green; <br>
+                    } <br>
+                    .error { <br>
+                      composes: alert; <br>
+                      background-color: red; <br>
+                    } <br>
+                    .warning { <br>
+                      composes: alert; <br>
+                      background-color: orange; <br>
+                    } <br>
+                  </p>
+                  <p>
+                    При композиції у простих випадках можна обійтися без бібліотеки clsx. Не задаємо базовий клас alert, тому що від нього виконано композицію класів варіантів. В результаті на елементі <p> будуть два класи, базовий alert і клас варіанта, у якому перевизначається значення кольору фону.
+                  </p>
+                  <p class="exemplar">
+                    src/components/Alert.js <br>
+                    import css from "./Alert.module.css"; <br>
+                    const Alert = ({ variant, children }) => { <br>
+                      return < p className={css[variant]}>{children}< /p>; <br>
+                    }; <br>
+                  </p>
+                  <h3>До властивостей об'єкта зазвичай звертаються як css.alert, але можна використовувати квадратні дужки, наприклад css["alert"]. Це корисно у випадку коли ім'я властивості зберігається у змінній, як у нас у пропсі variant.</h3>
+                  
+                  <h5 class="section-title__value">Бібліотека <a href="https://www.npmjs.com/package/clsx" target="_blank" rel="noopener noreferrer">clsx</a></h5>
+                  <p>
+                    Додамо CSS класи для вже знайомих нам пропсів outlined та elevated. Імена класи, що складаються з декількох слів записують у верблюжій нотації. В протилежному випадку, оскільки вони стають властивостями об'єкта, звертатися до них доведеться через квадратні дужки, наприклад css["is-outlined"], що менш зручно.
+                  </p>
+                  <div class="section-box exemplar">
+                    <p>
+                      src/components/Alert.module.css <br>
+                      .alert { <br>
+                        margin: 8px; <br>
+                        padding: 12px 16px; <br>
+                        border-radius: 4px; <br>
+                        background-color: gray; <br>
+                        color: white; <br>
+                      } <br>
+                        <br>
+                      .info { <br>
+                        composes: alert; <br>
+                        background-color: blue; <br>
+                      } <br>
+                        <br>
+                      .success { <br>
+                        composes: alert; <br>
+                        background-color: green; <br>
+                      } <br>
+                        <br>
+                      .error { <br>
+                        composes: alert; <br>
+                        background-color: red; <br>
+                      } <br>
+                        <br>
+                      .warning { <br>
+                        composes: alert; <br>
+                        background-color: orange; <br>
+                      } <br>
+                        <br>
+                      .alert.isOutlined { <br>
+                        outline: 1px solid black; <br>
+                      } <br>
+                        <br>
+                      .alert.isElevated { <br>
+                        box-shadow: rgb(0 0 0 / 20%) 0px 3px 3px -2px, <br>
+                          rgb(0 0 0 / 14%) 0px 3px 4px 0px, rgb(0 0 0 / 12%) 0px 1px 8px 0px; <br>
+                      } <br>
+                    </p>
+                    <p>
+                      src/components/Alert.js <br>
+                      import clsx from "clsx"; <br>
+                      import css from "./Alert.module.css"; <br>
+                      const Alert = ({ variant, outlined, elevated, children }) => { <br>
+                        return ( <br>
+                          < p <br>
+                            className={clsx(css[variant], { <br>
+                              [css.isOutlined]: outlined, <br>
+                              [css.isElevated]: elevated, <br>
+                            })} <br>
+                          > <br>
+                            {children} <br>
+                          < /p> <br>
+                        ); <br>
+                      }; <br>
+                    </p>
+                  </div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!-- Вбудовані стилі -->
+            <li>
+              <h4 class="section-title__name">Вбудовані стилі</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <h3>
+                    Існує кілька способів стилізації компонентів, найпростіший,
+                    але в той же час найбільш обмежений – це вбудовані стилі.
+                    Для цього використовується атрибут style, який у React
+                    приймає не рядок, а об'єкт стилів.
+                  </h3>
+                  <p></p>
+                  <div class="section-box">
+                    <p class="exemplar">
+                      Створимо компонент Alert який буде рендерувати абзац
+                      тексту та приховає у собі майбутню логіку вибору кольору
+                      фону. <br />
+                      <br />
+                      src/components/Alert.js <br />
+                      const alertStyles = { <br />
+                      margin: 8, <br />
+                      padding: "12px 16px", <br />
+                      borderRadius: 4, <br />
+                      backgroundColor: "gray", <br />
+                      color: "white", <br />
+                      }; <br />
+                      export const Alert = ({ children }) => { <br />
+                      return < p style={alertStyles}>{children}< /p>; <br />
+                      }; <br />
+                    </p>
+                    <p class="exemplar">
+                      Зробимо так, щоб залежно від типу оповіщення, у компоненті Alert змінювався колір фону абзацу. Для цього додамо йому обов'язковий пропс variant з кількома можливими значеннями. <br>
+                      <br>
+                      src/components/App.js <br>
+                      import { Alert } from "./Alert"; <br>
+                      const App = () => { <br>
+                        return ( <br>
+                          <> <br>
+                            < Alert variant="info"> <br>
+                              Would you like to browse our recommended products? <br>
+                            < /Alert> <br>
+                            < Alert variant="error"> <br>
+                              There was an error during your last transaction <br>
+                            < /Alert> <br>
+                            < Alert variant="success"> <br>
+                              Payment received, thank you for your purchase <br>
+                            < /Alert> <br>
+                            < Alert variant="warning"> <br>
+                              Please update your profile contact information <br>
+                            < /Alert> <br>
+                          </> <br>
+                        ); <br>
+                      }; <br>
+                    </p>
+                    <p class="exemplar">
+                      Логіку вибору кольору винесемо у функцію getBgColor(variant), яка буде повертати рядок із назвою кольору залежно від значення параметра variant. <br>
+                                           <br>
+                      src/components/Alert.js <br>
+                      const alertStyles = { <br>
+                        margin: 8, <br>
+                        padding: "12px 16px", <br>
+                        borderRadius: 4, <br>
+                        color: "white", <br>
+                      }; <br>
+                      const getBgColor = variant => { <br>
+                        switch (variant) { <br>
+                          case "info": <br>
+                            return "blue"; <br>
+                          case "success": <br>
+                            return "green"; <br>
+                          case "error": <br>
+                            return "red"; <br>
+                          case "warning": <br>
+                            return "orange"; <br>
+                          default: <br>
+                            throw new Error(`Unsupported variant prop value - ${variant}`); <br>
+                        } <br>
+                      }; <br>
+                      export const Alert = ({ variant, children }) => { <br>
+                        return ( <br>
+                          < p style={{ ...alertStyles, backgroundColor: getBgColor(variant) }}> <br>
+                            {children} <br>
+                          < /p> <br>
+                        ); <br>
+                      }; <br>
+                    </p>
+                  </div>
+                  <h3 class="selection">На практиці вбудовані стилі використовуються тільки для динамічно обчислюваних значень властивостей, у парі із зовнішніми таблицями стилів. В якості основного способу стилізації компонентів вбудовані стилі не використовуються в проектах та тому не рекомендуються.</h3>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!-- Ванільний CSS -->
+            <li>
+              <h4 class="section-title__name">Ванільний CSS</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Оформлення компонента можна винести до таблиці стилів. У цьому випадку стилі кожного компонента оголошуються в окремому CSS-файлі з розширенням .css. Ім'я файлу складається з імені компонента та розширення. Наприклад, для компонента Alert, файл стилів буде називатися Alert.css.
+                  </p>
+                  <div class="section-box exemplar">
+                    <p>
+                      src/components/Alert.css <br>
+                      .alert { <br>
+                        margin: 8px; <br>
+                        padding: 12px 16px; <br>
+                        border-radius: 4px; <br>
+                        background-color: gray; <br>
+                        color: white; <br>
+                      } <br>
+                    </p>
+                    <p>
+                      src/components/Alert.js <br>
+                      import "./Alert.css"; <br>
+                      const Alert = ({ children }) => { <br>
+                        return < p className="alert">{children}< /p>; <br>
+                      }; <br>
+                    </p>
+                  </div>
+                  <h5 class="section-title__value">Бібліотека <a href="https://www.npmjs.com/package/clsx" target="_blank" rel="noopener noreferrer">clsx</a> </h5>
+                  <p>
+                    Для вирішення більшості завдань, пов'язаних з безліччю класів, що задаються згідно з певними умовами, використовують бібліотеку clsx. Звичайно, JavaScript надає багатий синтаксис, але здебільшого пишуться непродуктивні рішення або код, що погано читається. Бібліотека стандартизує цей процес і робить його більш зручним за рахунок продуманого синтаксису.
+                  </p>
+                  <h3>npm install clsx</h3>
+                  <p>
+                    Функції clsx можна передати список виразів як набір аргументів. Вирази що приводяться до true, результат яких це рядок або число, буде додано у фінальний рядок класів.
+                  </p>
+                  <p class="exemplar">
+                    import clsx from "clsx"; <br>
+                    <br>
+                    const className = clsx( <br>
+                      "first", <br>
+                      10, <br>
+                      undefined && "second", <br>
+                      true && "third", <br>
+                      false ? "fourth" : "fifth" <br>
+                    ); <br>
+                    console.log(className); // "first 10 third fifth" <br>
+                  </p>
+                  <p>Ось як виглядатиме код компонента Alert використовуючи бібліотеку clsx.</p>
+                  <p class="exemplar">
+                    src/components/Alert.js <br>
+                    import clsx from "clsx"; <br>
+                    import "./Alert.css"; <br>
+                    const Alert = ({ variant, outlined, elevated, children }) => { <br>
+                      return ( <br>
+                        < p <br>
+                          className={clsx( <br>
+                            "alert", <br>
+                            variant, <br>
+                            outlined && "is-outlined", <br>
+                            elevated && "is-elevated" <br>
+                          )} <br>
+                        > <br>
+                          {children} <br>
+                        < /p> <br>
+                      ); <br>
+                    }; <br>
+                  </p>
+                  <h5 class="section-title__value">Препроцесори</h5>
+                  <h3>npm install sass</h3>
+                  <p>
+                    Використовувати препроцесори можна, але можливість композиції компонентів робить їх менш корисними, оскільки замінює такі концепції як домішки, функції, вкладеність та інші. Не рекомендується використовувати одні й ті самі CSS-класи в різних компонентах, для цього є композиція компонентів. <br>
+                     <br>
+                    Наприклад, замість використання базового CSS-класу .button у компонентах < LoginButton> та < FollowButton>, краще створити компонент < Button> зі своїми власними стилями, які можуть відображатись у кількох варіантах. Тоді компоненти < LoginButton> та < FollowButton> можуть використовувати компонент < Button>, а не просто CSS-клас. <br>
+                  </p>
+                  <p class="exemplar">
+                    // Button.js <br>
+                    const Button = ({ variant, children }) => { <br>
+                      // Базові стилі кнопки з кількома варіантами відображення <br>
+                      return < button className={clsx("button", variant)}>{children}< /button>; <br>
+                    }; <br>
+                     <br>
+                    // LoginButton.js <br>
+                    const LoginButton = () => { <br>
+                      // Унікальна логіка кнопки логіна <br>
+                      return < Button variant="primary">Login< /Button>; <br>
+                    }; <br>
+                     <br>
+                    // FollowButton.js <br>
+                    const FollowButton = () => { <br>
+                      // Унікальна логіка кнопки підписки <br>
+                      return < Button variant="secondary">Follow< /Button>; <br>
+                    }; <br>
+                  </p>
+                  <p>Правила іменування файлів такі ж, як і для ванільного CSS, відрізняється тільки розширення, наприклад .scss для SASS. В іншому у препроцесорів ті ж можливості, концепції та недоліки, що і у ванільного CSS. Для того щоб додати можливість використання SASS, встановіть його компілятор у проект.</p>
+                  <h3>
+                    Використання ванільного CSS теж не найкращий підхід і має ряд недоліків, особливо у великих проектах. <br>
+                                       <br>
+                    Слабка масштабованість <br>
+                    Обмежене повторне використання стилів <br>
+                    Для динамічних значень необхідно використовувати вбудовані стилі <br>
+                    Проблема глобального простору імен <br>
+                    Необхідність використовувати якусь конвенцію іменування селекторів класу <br>
+                    Відсутність автоматичного видалення коду, що не використовується. <br>
+                  </h3>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            
+            <!-- Нормалізація стилів -->
+            <li>
+              <h4 class="section-title__name">Нормалізація стилів</h4>
+              <ul>
+                <li><a href="https://github.com/csstools/normalize.css" target="_blank" rel="noopener noreferrer">normalize.css</a></li>
+                <li><a href="https://github.com/csstools/sanitize.css" target="_blank" rel="noopener noreferrer"> sanitize.css</a></li>
+              </ul>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Стилі елементів можуть відрізнятись між браузерами. Для того, щоб привести їх до стандартного вигляду, необхідно додати набір правил, що виправляє відмінності у стилях елементів між браузерами, наскільки це можливо. <br>
+                                       <br>
+                    У Create React App вбудована можливість використовувати PostCSS Normalize - суміш кількох популярних таблиць стилів (normalize.css та sanitize.css) з найкращими практиками нормалізації. Все, що необхідно зробити - це додати директиву @import-normalize; у будь-якому місці файлу стилів або CSS-модуля. Повторюючі імпорти будуть автоматично видалені, тому достатньо додати директиву до одного файлу стилів, наприклад index.css. <br>
+                  </p>
+                  <p class="exemplar">
+                    src/index.css <br>
+                    @import-normalize; <br>
+                    body { <br>
+                      font-family: sans-serif; <br>
+                      line-height: 1.5; <br>
+                    } <br>
+                    h1, <br>
+                    h2, <br>
+                    h3, <br>
+                    h4, <br>
+                    h5, <br>
+                    h6, <br>
+                    p { <br>
+                      margin: 0; <br>
+                    } <br>
+                    ul, <br>
+                    ol { <br>
+                      margin: 0; <br>
+                      padding: 0; <br>
+                    } <br>
+                    img { <br>
+                      display: block; <br>
+                      max-width: 100%; <br>
+                      height: auto; <br>
+                    } <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            
+
+            <!--  -->
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Компоненти-класи -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Компоненти-класи</h3>
+          <h3></h3>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <!-- Компоненти-класи -->
+            <li>
+              <h4 class="section-title__name">Компоненти-класи</h4>
+              <img src="./img/js/component-class.jpg" width="400" alt="" />
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Якщо необхідно додати динаміки, компоненти створюються як класи, тому що компоненти-функції (до хуків) обмежені можливістю створення розмітки за отриманими пропсами.
+                  </p>
+                  <ul>
+                    <li>
+                      <p>Звичайний ES6 клас, тому застосовуються правила: конструктор, методи, контекст (this).</p>
+                    </li>
+                    <li>
+                      <p>Обов'язково розширює базовий клас React.Component.</p>
+                    </li>
+                    <li>
+                      <p>Діє як функція, яка отримує props, але також реалізує приватний внутрішній стан.</p>
+                    </li>
+                    <li>
+                      <p>Необхідно оголосити обов'язковий метод render(), який викликається за замовчуванням і повертає JSX-розмітку.</p>
+                    </li>
+                    <li>
+                      <p>Щоразу під час використання компонента-класу, React буде створювати екземпляр компонента (класу), тому доступ до пропсів відбувається через this.props.</p>
+                    </li>
+                    <li>
+                      <p>Можна визначити кастомні методи класу і використовувати їх в будь-якому місці, зокрема всередині JSX, викликати або передавати дітям як пропси.</p>
+                    </li>
+                    <li>
+                      <p>Коли змінюється стан або пропcи компонента, відбувається його ререндер.</p>
+                    </li>
+                  </ul>
+                  <p class="exemplar">
+                    // Відокремлюйте іменовані імпорти, це підвищує читабельність коду <br>
+                    import React, { Component } from "react"; <br>
+                    <br>
+                    class MyClassComponent extends Component { <br>
+                      static defaultProps = {}; <br>
+                    <br>
+                      static propTypes = {}; <br>
+                    <br>
+                      render() { <br>
+                        return < div>Class Component< /div>; <br>
+                      } <br>
+                    } <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
             <li>
               <h4 class="section-title__name"></h4>
               <div class="section-box">

@@ -62,6 +62,7 @@
                 >Create React App</a
               >
             </li>
+            <li><a href="https://uk.legacy.reactjs.org/docs/getting-started.html" target="_blank" rel="noopener noreferrer">React документація на українській</a></li>
           </ul>
           <div>
             <h3>React</h3>
@@ -1144,13 +1145,87 @@
               </div>
             </li>
 
-
+            <!-- Події -->
             <li>
-              <h4 class="section-title__name"></h4>
+              <h4 class="section-title__name">Події</h4>
+              <a href="https://uk.legacy.reactjs.org/docs/handling-events.html" target="_blank" rel="noopener noreferrer">Обробка подій</a>
               <div class="section-box">
                 <div>
-                  <h5 class="section-title__value"></h5>
-                  <p></p>
+                  <h5 class="section-title__value">< button onClick={event => console.log(event)}>Click me!< /button></h5>
+                  <p>
+                    Для нативної події браузера в React створюється об'єкт-обгортка SyntheticEvent Object з ідентичним інтерфейсом. Це необхідно, щоб забезпечити крос-браузерність та оптимізувати продуктивність.
+                  </p>
+                  <ul>
+                    <li>
+                      <p>Додавання обробника подій з EventTarget.addEventListener() майже не використовується, за рідкісним винятком.</p>
+                    </li>
+                    <li>
+                      <p>Пропси подій – не виняток та іменуються за допомогою camelCase. Наприклад onClick, onChange, onSubmit, onMouseEnter.</p>
+                    </li>
+                    <li>
+                      <p>У проп події передається посилання на callback-функцію, яка буде викликана під час настання події.</p>
+                    </li>
+                    <li>
+                      <p>Обробники подій отримують екземпляр SyntheticEvent Object.</p>
+                    </li>
+                  </ul>
+                  <p>В React "під капотом" реалізовано делегування подій. Слухачі не додаються безпосередньо до DOM-елементів. Передача колбека – це просто реєстрація функції, яка буде викликана внутрішніми механізмами реакта під час настання події.</p>
+                  <p class="exemplar">
+                    return (
+                    < div> <br>
+                      < span>0< /span> <br>
+                      < button type="button" onClick={this.handleIncrement.bind(this)}> <br>
+                        Increment by {step} <br>
+                      < /button> <br>
+                      < button type="button" onClick={this.handleDecrement.bind(this)}> <br>
+                        Decrement by {step} <br>
+                      < /button> <br>
+                    < /div> <br>
+                  ); <br>
+                  </p>
+                  <h5 class="section-title__value">Прив'язка контексту (використовуємо такий спосіб)</h5>
+                  <p>
+                    Потрібно завжди пам'ятати про значення this у методах, що використовуються як callback-функції. В JavaScript контекст у методах класу не прив'язується за замовчуванням. Якщо забути прив'язати контекст, і передати метод як callback-функцію обробнику події, під час виклику функції this буде невизначений (undefined).
+                  </p>
+                  <p>
+                    Тобто, коли передаємо колбек функції для обробки подій то потрібно передавати не як звичайний метод класу <br>
+                    <br>
+                    // ❌ Погано <br>
+                    class Counter extends Component { <br>
+                      /* ... */ <br>
+                     <br>
+                      handleIncrement(evt) { <br>
+                        // ... <br>
+                      } <br>
+                      <br>
+                      а передаємо як стрілочну функцію щоб привязало контекст <br>
+                      <br>
+                      // ✅ Добре <br>
+                      class Counter extends Component { <br>
+                        /* ... */ <br>
+                       <br>
+                        handleIncrement = evt => { <br>
+                          /* ... */<br>
+                        }; <br>
+                  </p>
+                  <h5 class="section-title__value">Прив'язка в конструкторі</h5>
+                  <p>
+                    Ще один спосіб прив'язати контекст – зробити це у конструкторі класу. Якщо callback-функцій багато, можете уявити, наскільки великий може вийти конструктор. <br>
+                                       <br>
+                    Конструктор виконується один раз, тому bind викликається один раз <br>
+                    Методи класу записуються у властивість prototype функції-конструктора <br>
+                    <br>
+                    // ✅ Непогано <br>
+                    class Counter extends Component { <br>
+                      /* ... */ <br>
+                     <br>
+                      constructor() { <br>
+                        super(); <br>
+                        this.handleIncrement = this.handleIncrement.bind(this); <br>
+                        this.handleDecrement = this.handleDecrement.bind(this); <br>
+                      } <br>
+                  </p>
+
                   <div class="section-box">
                     <img src="" width="0" alt="" />
                   </div>
@@ -1162,11 +1237,255 @@
             </li>
 
             <li>
-              <h4 class="section-title__name"></h4>
+              <h4 class="section-title__name">Внутрішній стан компонента</h4>
               <div class="section-box">
                 <div>
                   <h5 class="section-title__value"></h5>
+                  <p>
+                    Об'єкт-стану state – це властивість класу, яка не повинна безпосередньо змінюватися розробником.
+                  </p>
+                  <ul>
+                    <li>
+                      <p>Дані в state контролюють те, що відображається в інтерфейсі.</p>
+                    </li>
+                    <li>
+                      <p>Дані, що зберігаються у стані, повинні бути інформацією, яка буде оновлюватися методами компонента.</p>
+                    </li>
+                    <li>
+                      <p>Не потрібно дублювати дані з props у стані.</p>
+                    </li>
+                    <li>
+                      <p>Щоразу, коли змінюється стан компонента (або пропси), викликається метод render().</p>
+                    </li>
+                    <li>
+                      <p>Інтерфейс залежить від стану компонента.</p>
+                    </li>
+                    <li>
+                      <p>Стан може змінитися як реакція на дії користувача.</p>
+                    </li>
+                    <li>
+                      <p>Під час зміни стану дані передаються вниз по дереву компонентів.</p>
+                    </li>
+                    <li>
+                      <p>Компоненти повертають оновлену розмітку і змінюється інтерфейс.</p>
+                    </li>
+                  </ul>
+                  <p>
+                    Стан належить компоненту і змінюється тільки його методами. <br>
+                    Стан оголошується в конструкторі, оскільки це перше, що відбувається, коли створюється екземпляр класу.
+                  </p>
+                  <p class="exemplar">
+                    class Counter extends Component { <br>
+                      constructor() { <br>
+                        super(); <br>
+                       <br>
+                        this.state = { <br>
+                          value: 0, <br>
+                        }; <br>
+                      } <br>
+                     <br>
+                      render() { <br>
+                        return ( <br>
+                          < div> <br>
+                            < span>{this.state.value}< /span> <br>
+                            {/* ... */} <br>
+                          < /div> <br>
+                        ); <br>
+                      } <br>
+                    } <br>
+                  </p>
+
+                    <h5 class="section-title__value">Початковий стан від props (як задати дефолтні значення в класах)</h5>
+                  <p class="exemplar">
+                    class Counter extends Component { <br>
+                    static defaultProps = { <br>
+                      step: 1, <br>
+                      initialValue: 0, <br>
+                    }; <br>
+                   <br>
+                    constructor(props) { <br>
+                      super(props); <br>
+                     <br>
+                      this.state = { <br>
+                        value: this.props.initialValue, <br>
+                      }; <br>
+                    } <br>
+                  </p>
+                  <h3>В реакті не потрібно створювати конструктор а вказуємо стан як публічну властивість, все інше за нас зробить Babel</h3>
+                 <div class="exemplar section-box">
+                   <p >
+                    В МІСТО ЦЬОГО constructor() <br>
+                    class Counter extends Component {                     <br>
+                      constructor(props) { <br>
+                        super(props); <br>
+                        <br>
+                        this.state = {value: this.props.initialValue, }} <br>
+                    } <br>
+                  </p>
+                  <p class="selection">
+                     СТВОРЮЄМО state = {} <br>
+                    class Counter extends Component {                      <br>
+                      state = {value: this.props.initialValue,};                     <br>
+                    // ... // <br>
+                    } <br>
+                  </p>
+                 </div>
+
+                    <h5 class="section-title__value">Зміна стану компонента</h5>
+                    <h3>Для оновлення стану використовується вбудований метод setState().</h3>
+                    <p class="selection">setState(updater, callback)</p>
+                    <ul>
+                      <li><p>Першим, обов'язковим аргументом, передається об'єкт з полями, які вказують, яку частину стану необхідно змінити.</p></li>
+                      <li><p>Другим, необов'язковим аргументом, можна передати callback-функцію, яка виконається після зміни стану.</p></li>
+                    </ul>
+                    <p>
+                      class Toggle extends Component { <br>
+                        state = { isOpen: false }; <br>
+                                             <br>
+                        show = () => this.setState({ isOpen: true }); <br>
+                                             <br>
+                        hide = () => this.setState({ isOpen: false }); <br>
+                                             <br>
+                        render() { <br>
+                          const { isOpen } = this.state; <br>
+                          const { children } = this.props; <br>
+                         <br>
+                          return ( <br>
+                            <> <br>
+                              < button onClick={this.show}>Show< /button> <br>
+                              < button onClick={this.hide}>Hide< /button> <br>
+                              {isOpen && children} <br>
+                            </> <br>
+                          ); <br>
+                        } <br>
+                      } <br>
+                    </p>
+                    <p>
+                      Під час виклику setState() не потрібно передавати всі властивості, що зберігаються у стані. Достатньо вказати лише ту частину (зріз) стану, яку ми хочемо змінити у цій операції.
+                    </p>
+                    <p>
+                      Актуальний стан і пропси на момент асинхронного виконання функції, переданої в setState(), будуть передані в неї аргументами state і props. Таким чином, можна бути впевненими у коректному значенні попереднього стану під час створення наступного.
+                    </p>
+                    
+
+                    <h5 class="section-title__value">setState з функцією нове значення обчислюється на підставі попереднього стану (prevState -попередній стан)</h5>
                   <p></p>
+                  <div class="section-box exemplar">
+
+                      <p >
+                        // Припустимо, що є такий стан <br>
+                        state = { value: 0 }; <br>
+                        <br>
+                        // Запустимо цикл і створимо 3 операції оновлення <br>
+                        for (let i = 0; i < 3; i += 1) { <br>
+                          // Якщо переглянути стан, на всіх ітераціях буде 0 <br>
+                          // Тому що це синхронний код та оновлення стану ще не відбулося <br>
+                          console.log(this.state.value); // 0 <br>
+                        <br>
+                          this.setState(prevState => { <br>
+                            // Якщо переглянути стан, переданий callback-функції під час її виклику, <br>
+                            // отримаємо актуальний стан на момент оновлення. <br>
+                            console.log(prevState.value); // буде різний на кожній ітерації <br>
+                          <br>
+                            return { value: prevState.value + 1 }; <br>
+                          }); <br>
+                        } <br>
+                      </p>
+                      <p>
+                        Тепер можемо замінити функціонал відкрити/закрити у компоненті <Toggle>. <br>
+                        <br>
+                        class Toggle extends Component { <br>
+                          state = { isOpen: false }; <br>
+                          <br>
+                          toggle = () => { <br>
+                            this.setState(state => ({ isOpen: !state.isOpen })); <br>
+                          }; <br>
+                          <br>
+                          render() { <br>
+                            const { isOpen } = this.state; <br>
+                            const { children } = this.props; <br>
+                          <br>
+                            return ( <br>
+                              < div> <br>
+                                < button onClick={this.toggle}>{isOpen ? "Hide" : "Show"}< /button> <br>
+                                {isOpen && children} <br>
+                              < /div> <br>
+                            ); <br>
+                          } <br>
+                        } <br>
+                      </p>
+                    </div>
+
+                    <h5 class="section-title__value">Підіймання стану (зміна стану батька під час події в дитині)</h5>
+                  <p>
+                    Оскільки React використовує односпрямований потік даних зверху вниз, для того щоб змінити стан батька під час події в дитині, використовується наступний патерн з callback-функцією.
+                  </p>
+                  <ul>
+                    <li>
+                      <p>У батька є стан і метод, який його змінює.</p>
+                    </li>
+                    <li>
+
+                      <p>Дочірньому елементу у формі пропу передається метод батька, що змінює стан батька.</p>
+                    </li>
+                    <li>
+
+                      <p>У дочірньому елементі відбувається виклик переданого йому методу. – Під час виклику цього методу змінюється стан батька.</p>
+                    </li>
+                    <li>
+
+                      <p>Відбувається рендер піддерева компонентів батька.</p>
+                    </li>
+                  </ul>
+                  <p class="exemplar">
+                    // Button отримує функцію changeMessage (ім'я пропа), <br>
+                    // яка викликається під час події onClick <br>
+                    const Button = ({ changeMessage, label }) => ( <br>
+                      < button type="button" onClick={changeMessage}> <br>
+                        {label} <br>
+                      < /button> <br>
+                    ); <br>
+                     <br>
+                    class App extends Component { <br>
+                      state = { <br>
+                        message: new Date().toLocaleTimeString(), <br>
+                      }; <br>
+                     <br>
+                      // Метод, який будемо передавати в Button для виклику під час кліку <br>
+                      updateMessage = evt => { <br>
+                        console.log(evt); // Доступний об'єкт події <br>
+                        this.setState({ <br>
+                          message: new Date().toLocaleTimeString(), <br>
+                        }); <br>
+                      }; <br>
+                     <br>
+                      render() { <br>
+                        return ( <br>
+                          <> <br>
+                            < span>{this.state.message}< /span> <br>
+                            < Button label="Change message" changeMessage={this.updateMessage} /> <br>
+                          </> <br>
+                        ); <br>
+                      } <br>
+                    } <br>
+                  </p>
+
+                  <h5 class="section-title__value">Типи внутрішніх даних компонента-класу</h5>
+                  <ul>
+                    <li>
+                      <h3>static data</h3> – статичні властивості і методи, до яких необхідно отримувати доступ без екземпляра.
+                    </li>
+                    <li>
+                      <h3>this.state.data</h3> – динамічні дані, що змінюються методами компонента, стан.
+                    </li>
+                    <li>
+                      <h3>this.data</h3> – дані, які будуть різні для кожного екземпляра.
+                    </li>
+                    <li>
+                      <h3>const DATA</h3> – константи, дані, які не змінюються, та однакові для всіх екземплярів.
+                    </li>
+                  </ul>
+
                   <div class="section-box">
                     <img src="" width="0" alt="" />
                   </div>

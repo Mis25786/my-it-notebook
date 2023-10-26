@@ -1083,7 +1083,7 @@
       <div class="section">
         <div class="container">
           <h3 class="section-title">Компоненти-класи</h3>
-          <h3></h3>
+          <h3>Модуль 2_1</h3>
           <ul>
             <li><a href="" target="_blank"></a></li>
           </ul>
@@ -1502,6 +1502,473 @@
                 <div>
                   <h5 class="section-title__value"></h5>
                   <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Форми -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Форми</h3>
+          <h3>Модуль 2_2</h3>
+          <h3>Модуль 2_3 Formik</h3>
+          <a href="https://formik.org/" target="_blank" rel="noopener noreferrer">Formik Створюйте форми в React</a>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <!-- Неконтрольовані елементи -->
+            <li>
+              <h4 class="section-title__name">Неконтрольовані елементи</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Такий прийом доречно використовувати, коли дані полів форми потрібні тільки під час її сабміту.</h5>
+                  <p>отримати дані користувача</p>
+                  <p class="exemplar">
+                    class LoginForm extends Component { <br>
+                      handleSubmit = evt => { <br>
+                        evt.preventDefault(); <br>
+                        const form = evt.currentTarget; <br>
+                        const login = form.elements.login.value; <br>
+                        const password = form.elements.password.value; <br>
+                        console.log(login, password); <br>
+                        this.props.onSubmit({ login, password }); <br>
+                        form.reset(); <br>
+                      }; <br>
+                      <br>
+                      render() { <br>
+                        return ( <br>
+                          < form onSubmit={this.handleSubmit}> <br>
+                            < input type="text" name="login" /> <br>
+                            < input type="password" name="password" /> <br>
+                            < button type="submit">Login< /button> <br>
+                          < /form> <br>
+                        ); <br>
+                      } <br>
+                    } <br>
+                    <br>
+                    ReactDOM.render( <br>
+                      < LoginForm onSubmit={values => console.log(values)} />, <br>
+                      document.getElementById("root") <br>
+                    ); <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!-- Контрольовані елементи -->
+            <li>
+              <h4 class="section-title__name">Контрольовані елементи</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Якщо значення елементів форм необхідно отримати в момент зміни поля і зробити щось динамічно</h5>
+                  <p>Якщо значення елементів форм необхідно отримати в момент зміни поля і зробити щось динамічно, вони повинні бути контрольовані. Тобто значення всіх полів повинні бути в state. Цей прийом роботи з елементами форм – досить простий.</p>
+                  <p>
+                    Поле в state визначає значення атрибуту value поля <br>
+                    Події onChange передається метод, що змінює поле в стані <br>
+                    Отримуємо замкнене коло. <br>
+                                       <br>
+                    Під час події onChange метод класу оновлює поле в стані <br>
+                    Під час зміни стану відбувається ререндер <br>
+                    Інпут відображається з оновленими даними <br>
+                    Недолік у тому, що вся форма буде повторно рендеритися під час кожної зміни будь-якого поля, але для невеликих форм – це не проблема. <br>
+                  </p>
+                  <p class="exemplar">
+                    class App extends Component { <br>
+                      state = { <br>
+                        inputValue: "", <br>
+                      }; <br>
+                     <br>
+                      handleChange = evt => { <br>
+                        this.setState({ inputValue: evt.target.value }); <br>
+                      }; <br>
+                     <br>
+                      render() { <br>
+                        const { inputValue } = this.state; <br>
+                        return ( <br>
+                          < input type="text" value={inputValue} onChange={this.handleChange} /> <br>
+                        ); <br>
+                      } <br>
+                    } <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!-- Складні форми -->
+            <li>
+              <h4 class="section-title__name">Складні форми</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Створимо форму реєстрації.</h5>
+                  <p class="exemplar">
+                    // Виносимо об'єкт із примітивами в константу, щоб було зручно скидати. <br>
+                    // Не можна використовувати, якщо в якійсь властивості стану зберігається складний тип. <br>
+                    const INITIAL_STATE = { <br>
+                      login: "", <br>
+                      email: "", <br>
+                      password: "", <br>
+                    }; <br>
+                     <br>
+                    class SignUpForm extends React.Component { <br>
+                      state = { ...INITIAL_STATE }; <br>
+                     <br>
+                      // Для всіх інпутів створюємо один обробник <br>
+                      // Розрізняти інпути будемо за атрибутом name <br>
+                      handleChange = evt => { <br>
+                        const { name, value } = evt.target; <br>
+                        this.setState({ [name]: value }); <br>
+                      }; <br>
+                     <br>
+                      handleSubmit = evt => { <br>
+                        evt.preventDefault(); <br>
+                        const { login, email, password } = this.state; <br>
+                        console.log(`Login: ${login}, Email: ${email}, Password: ${password}`); <br>
+                        this.props.onSubmit({ ...this.state }); <br>
+                        this.reset(); <br>
+                      }; <br>
+                     <br>
+                      reset = () => { <br>
+                        this.setState({ ...INITIAL_STATE }); <br>
+                      }; <br>
+                     <br>
+                      render() { <br>
+                        const { login, email, password } = this.state; <br>
+                       <br>
+                        return ( <br>
+                          < form onSubmit={this.handleSubmit}> <br>
+                            < label> <br>
+                              Name <br>
+                              < input <br>
+                                type="text" <br>
+                                placeholder="Enter login" <br>
+                                name="login" <br>
+                                value={login} <br>
+                                onChange={this.handleChange} <br>
+                              /> <br>
+                            < /label> <br>
+                            < label> <br>
+                              Email <br>
+                              < input <br>
+                                type="email" <br>
+                                placeholder="Enter email" <br>
+                                name="email" <br>
+                                value={email} <br>
+                                onChange={this.handleChange} <br>
+                              /> <br>
+                            < /label> <br>
+                            < label> <br>
+                              Password <br>
+                              < input <br>
+                                type="password" <br>
+                                placeholder="Enter password" <br>
+                                name="password" <br>
+                                value={password} <br>
+                                onChange={this.handleChange} <br>
+                              /> <br>
+                            < /label> <br>
+                              <br>
+                            < button type="submit">Sign up as {login}< /button> <br>
+                          < /form> <br>
+                        ); <br>
+                      } <br>
+                    } <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!-- Генерація Id елементів форми -->
+            <li>
+              <h4 class="section-title__name">Генерація Id елементів форми</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">label  та input кожної форми повинні мати одинаковий ІД</h5>
+                  <p>
+                    Доступність (accessibility, a11y) – дуже важлива тема в сучасному вебі. HTML-атрибут for тегу label допомагає асистивним технологіям та іншим допоміжним інструментам. В React він представлений jsx-атрибутом htmlFor. <br>
+                                       <br>
+                    Для генерації унікальних ідентифікаторів елементів форм використовується наступний підхід: для кожного екземпляра компонента, під час його ініціалізації, створюється набір унікальних ідентифікаторів, що зберігаються на екземплярі. Таким чином, між різними формами одержуємо унікальні id. <br>
+                  </p>
+                  <p class="exemplar">
+                    // Можна використовувати будь-який пакет для генерації унікальних рядків <br>
+                    import { nanoid } from "nanoid"; <br>
+                    <br>
+                    class Form extends React.Component { <br>
+                      loginInputId = nanoid(); <br>
+                      <br>
+                      render() { <br>
+                        return ( <br>
+                          < form> <br>
+                            < label htmlFor={this.loginInputId}>Login< /label> <br>
+                            < input type="text" name="login" id={this.loginInputId} /> <br>
+                          < /form> <br>
+                        ); <br>
+                      } <br>
+                    } <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!-- Чекбокси -->
+            <li>
+              <h4 class="section-title__name">Чекбокси</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Робота з чекбоксами – проста та зрозуміла. Чекбокс може бути всього у 2-х станах: true або false. <br>
+                                       <br>
+                    Особливості чекбоксів: <br>
+                                       <br>
+                    Ім'я атрибута, якому передається поточне значення зі state. Для чекбоксів – це checked, і передаємо туди буль <br>
+                    Під час обробки події onChange, для отримання значення, в об'єкті події звертаємось до властивості event.target.checked <br>
+                    Якщо чекбокс повинен зберігати значення, його можна повісити на атрибут value і прочитати з об'єкта події <br>
+
+                  </p>
+                  <p class="exemplar">
+                    Додамо до нашої форми реєстрації чекбокс для підтвердження згоди користувача, і зробимо кнопку сабміту неактивною, доки неактивний чекбокс. <br>
+                                      <br>
+                    const INITIAL_STATE = { <br>
+                      login: "", <br>
+                      email: "", <br>
+                      password: "", <br>
+                      agreed: false, <br>
+                    }; <br>
+                    <br>
+                    class SignUpForm extends React.Component { <br>
+                      state = { <br>
+                        ...INITIAL_STATE, <br>
+                      }; <br>
+                    <br>
+                      handleChange = evt => { <br>
+                        const { name, value, type, checked } = evt.target; <br>
+                        // Якщо тип елемента – checkbox, беремо значення checked, <br>
+                        // в іншому випадку – value <br>
+                        this.setState({ [name]: type === "checkbox" ? checked : value }); <br>
+                      }; <br>
+                    <br>
+                      handleSubmit = e => { <br>
+                        e.preventDefault(); <br>
+                        const { login, email, password, agreed } = this.state; <br>
+                        console.log( <br>
+                          `Login: ${login}, Email: ${email}, Password: ${password}, Agreed: ${agreed}` <br>
+                        ); <br>
+                      <br>
+                        /* ... */ <br>
+                      }; <br>
+                    <br>
+                      render() { <br>
+                        const { login, email, password, agreed } = this.state; <br>
+                        <br>
+                        return ( <br>
+                          < form onSubmit={this.handleSubmit}> <br>
+                            {/* ... */} <br>
+                            < label> <br>
+                              Agree to terms <br>
+                              < input <br>
+                                type="checkbox" <br>
+                                checked={agreed} <br>
+                                onChange={this.handleChange} <br>
+                              /> <br>
+                            < /label> <br>
+                              <br>
+                            < button type="submit" disabled={!agreed}> <br>
+                              Sign up as {login} <br>
+                            < /button> <br>
+                          < /form> <br>
+                        ); <br>
+                      } <br>
+                    } <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!-- Радіокнопки -->
+            <li>
+              <h4 class="section-title__name">Радіокнопки</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    На відміну від звичного групування за значенням атрибуту name, в React радіокнопка – це лише елемент інтерфейсу, який: <br>
+                                       <br>
+                    Знає, чи він вибраний <br>
+                    Може попросити форму змінити виділення <br>
+                    Зазвичай у радіокнопок є і атрибут checked і value. Наприклад, радіокнопка, що відповідає за вибір статі користувача. <br>
+                                       <br>
+                    < input <br>
+                      type="radio" <br>
+                      checked={this.state.gender === "male"} <br>
+                      value="male" <br>
+                      onChage={this.handleGenderChage} <br>
+                    /> <br>
+                  </p>
+                  <p class="exemplar">
+                    Додамо групу радіокнопок у нашу форму. <br>
+                    <br>
+                    // Використовуємо Enumerable, щоб не створювати антипатерн "магічні рядки" <br>
+                                      <br>
+                    const Gender = { <br>
+                      MALE: "male", <br>
+                      FEMALE: "female", <br>
+                    }; <br>
+                    <br>
+                    const INITIAL_STATE = { <br>
+                      login: "", <br>
+                      email: "", <br>
+                      password: "", <br>
+                      agreed: false, <br>
+                      gender: null, <br>
+                    }; <br>
+                    <br>
+                    class SignUpForm extends React.Component { <br>
+                      state = { <br>
+                        ...INITIAL_STATE, <br>
+                      }; <br>
+                    <br>
+                      /*... */ <br>
+                    <br>
+                      render() { <br>
+                        const { login, email, password, agreed, gender } = this.state; <br>
+                      <br>
+                        return ( <br>
+                          < form onSubmit={this.handleSubmit}> <br>
+                            {/* ... */} <br>
+                      <br>
+                            < section> <br>
+                              < h2>Choose your gender< /h2> <br>
+                              < label> <br>
+                                Male <br>
+                                < input <br>
+                                  type="radio" <br>
+                                  checked={gender === Gender.MALE} <br>
+                                  name="gender" <br>
+                                  value={Gender.MALE} <br>
+                                  onChange={this.handleChange} <br>
+                                /> <br>
+                              < /label> <br>
+                              < label> <br>
+                                Female <br>
+                                < input <br>
+                                  type="radio" <br>
+                                  checked={gender === Gender.FEMALE} <br>
+                                  name="gender" <br>
+                                  value={Gender.FEMALE} <br>
+                                  onChange={this.handleChange} <br>
+                                /> <br>
+                              < /label> <br>
+                            < /section> <br>
+                      <br>
+                            < button type="submit" disabled={!agreed}> <br>
+                              Sign up as {login} <br>
+                            < /button> <br>
+                          < /form> <br>
+                        ); <br>
+                      } <br>
+                    } <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!-- Селект -->
+            <li>
+              <h4 class="section-title__name">Селект</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>Все просто – є селект, є опції, у селекта є value та onChange. Додаємо вибір вікової категорії.</p>
+                  <p class="exemplar">
+                    const INITIAL_STATE = { <br>
+                      login: "", <br>
+                      email: "", <br>
+                      password: "", <br>
+                      agreed: false, <br>
+                      gender: null, <br>
+                      age: "", <br>
+                    }; <br>
+                      <br>
+                    class SignUpForm extends React.Component { <br>
+                      state = { <br>
+                        ...INITIAL_STATE, <br>
+                      }; <br>
+                      <br>
+                      /* ... */ <br>
+                      <br>
+                      render() { <br>
+                        const { login, email, password, agreed, gender, age } = this.state; <br>
+                          <br>
+                        return ( <br>
+                          < form onSubmit={this.handleSubmit}> <br>
+                            {/* ... */} <br>
+                              <br>
+                            < label> <br>
+                              Choose your age <br>
+                              < select name="age" value={age} onChange={this.handleChange}> <br>
+                                < option value="" disabled> <br>
+                                  ... <br>
+                                < /option> <br>
+                                < option value="18-25">18-25< /option> <br>
+                                < option value="26-35">26-35< /option> <br>
+                                < option value="36+">36+< /option> <br>
+                              < /select> <br>
+                            < /label> <br>
+                              <br>
+                            < button type="submit" disabled={!agreed}> <br>
+                              Sign up as {login} <br>
+                            < /button> <br>
+                          < /form> <br>
+                        ); <br>
+                      } <br>
+                    } <br>
+                  </p>
                   <div class="section-box">
                     <img src="" width="0" alt="" />
                   </div>

@@ -53,6 +53,7 @@
         <div class="container">
           <h3 class="section-title">React</h3>
           <h3>Модуль 1_1</h3>
+          <h4>файли мають закінчення jsx вмісто js</h4>
           <ul>
             <li>
               <a
@@ -1084,6 +1085,7 @@
         <div class="container">
           <h3 class="section-title">Компоненти-класи</h3>
           <h3>Модуль 2_1</h3>
+          <h4>Назви компонентів пишуться з великої букви</h4>
           <ul>
             <li><a href="" target="_blank"></a></li>
           </ul>
@@ -1982,6 +1984,173 @@
         </div>
       </div>
 
+      <!-- Життєвий цикл -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">Життєвий цикл</h3>
+          <h3>Модуль 3_1 (+модалка)</h3>
+          <p>
+            Всього є сім методів життєвого циклу, якщо не рахувати render і constructor. На практиці, в більшості повсякденних завдань використовують три: componentDidMount, componentDidUpdate і componentWillUnmount.
+            <br>
+            Існує кілька стадій життєвого циклу – монтування, оновлення та розмонтування. Під час кожної з них у компонента-класу викликаються методи, що наслідуються від React.Component. Ми можемо перевизначити їхню поведінку, додавши необхідний функціонал в рамках встановлених правил.
+          </p>
+          <img src="./img/react/react-life-cycle.jpg" width="600" alt="" />
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <!-- Стадія монтування -->
+            <li>
+              <h4 class="section-title__name">Стадія монтування</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">componentDidMount() {}</h5>
+                  <ul>
+                    <li>
+                      <p>Викликається відразу після монтування компонента в DOM</p>
+                    </li>
+                    <li>
+                      <p>Робимо HTTP-запити, вішаємо кастомні слухачі подій та виконуємо операції з DOM деревом</p>
+                    </li>
+                    <li>
+                      <p>Виклик setState() у цьому методі викличе повторний рендер – це нормально</p>
+                    </li>
+                  </ul>
+                  <p class="exemplar">
+                    async componentDidMount() { <br>
+                      const response = await axios.get("/search?query=react"); <br>
+                      this.setState({ articles: response.data.hits }); <br>
+                    } <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <!-- Стадія оновлення -->
+            <li>
+              <h4 class="section-title__name">Стадія оновлення</h4>
+              <p>Оновлення може бути викликано зміною state самого компонента або props, що йому передаються. Під час оновлення необхідно перерендерити компонент</p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">componentDidUpdate(prevProps, prevState, snapshot) {}</h5>
+                  <ul>
+                    <li>
+                      <p>Викликається відразу після оновлення компонента в DOM</p>
+                    </li>
+                    <li>
+                      <p>Не викликається при початковому рендері компонента</p>
+                    </li>
+                    <li>
+                      <p>Можна викликати setState(), обов'язково обгорнувши його в умову перевірки зміни попередніх і наступних props або state, щоб не виник нескінченний цикл ререндера (вкладка зависне або впаде).</p>
+                    </li>
+                    <li>
+                      <p>Можна робити HTTP-запити</p>
+                    </li>
+                    <li>
+                      <p>Якщо в компоненті є getSnapshotBeforeUpdate(), то значення, що повертається їм, буде передане третім аргументом snapshot, в іншому випадку його значенням буде undefined</p>
+                    </li>
+                  </ul>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <!-- Стадія розмонтування -->
+            <li>
+              <h4 class="section-title__name">Стадія розмонтування</h4>
+              <p>У якийсь момент компонент буде видалений з DOM. При цьому викликається наступний метод.</p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">componentWillUnmount() {}</h5>
+                  <ul>
+                    <li>
+                      <p>Викликається перед розмонтуванням та видаленням елемента з DOM</p>
+                    </li>
+                    <li>
+                      <p>Добре підходить для прибирання за собою: слухачі, таймери, HTTP-запити. В іншому випадку будуть витоки пам'яті</p>
+                    </li>
+                    <li>
+                      <p>Викликати setState() немає сенсу, компонент ніколи не перерендериться</p>
+                    </li>
+                  </ul>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <!-- Обробка помилок рендеру -->
+             <li>
+              <h4 class="section-title__name">Обробка помилок рендеру</h4>
+              <p>React дуже любить класти весь застосунок за будь-якої помилки. Метод componentDidCatch спрацьовує у разі помилки у дочірньому компоненті та дозволяє батьківським компонентам відловлювати помилки у дітей, відображаючи запасний інтерфейс. В результаті, у разі помилки, інтерфейс не падає.</p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">componentDidCatch(error, info) {}</h5>
+                  <ul>
+                    <li>
+                      <p>Використовується для контролю помилок</p>
+                    </li>
+                    <li>
+                      <p>Ловить помилки лише у дітей, але не в самому батьку</p>
+                    </li>
+                    <li>
+                      <p>error – результат toString() об'єкта помилки</p>
+                    </li>
+                    <li>
+                      <p>info – об'єкт, що описує stack trace</p>
+                    </li>
+                  </ul>
+                  <p class="exemplar">
+                    class ErrorBoundary extends React.Component { <br>
+                      state = { hasError: false }; <br>
+                                         <br>
+                      componentDidCatch(error, info) { <br>
+                        // Якщо метод був викликаний, отже, є помилка! <br>
+                        // Встановлюємо стан <br>
+                        this.setState({ hasError: true }); <br>
+                        // Також можна надіслати звіт про помилку вашому аналітичному сервісу <br>
+                        // logErrorToMyService(error, info); <br>
+                      } <br>
+                     <br>
+                      render() { <br>
+                        // Якщо є помилка... <br>
+                        if (this.state.hasError) { <br>
+                          // Рендеримо fallback UI <br>
+                          return < h1>Something went wrong, please try again later :(< /h1>; <br>
+                        } <br>
+                       <br>
+                        // Якщо все ок, рендеримо дітей <br>
+                        return this.props.children; <br>
+                      } <br>
+                    } <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!--  -->
       <div class="section">
         <div class="container">
@@ -2009,7 +2178,38 @@
           </ul>
         </div>
       </div>
+
+      <!--  -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">title</h3>
+          <h3></h3>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </main>
+
     <footer class="footer"></footer>
+
   </body>
 </html>

@@ -2151,6 +2151,251 @@
         </div>
       </div>
 
+      <!-- HTTP-запити -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">HTTP-запити</h3>
+          <h3>Модуль 3_2</h3>
+       
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <!--  -->
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                     <p>
+            Який саме компонент в ієрархії повинен відповідати за HTTP-запити і зберігання результату відповіді? Якщо не використовуємо бібліотеку управління станом, то це залежить від трьох критеріїв. <br>
+                       <br>
+            Яким компонентам будуть необхідні отримані дані? <br>
+            Де буде рендеритися індикатор завантаження, доки виконується HTTP-запит? <br>
+            Де буде рендеритися повідомлення у разі помилки HTTP-запиту? <br>
+            Методи життєвого циклу componentDidMount та componentDidUpdate ідеально підходять для HTTP-запитів. Коли викликається componentDidMount(), компонент вже був відрендерений у DOM і готовий до подальшого оновлення стану. Коли викликається componentDidUpdate(), пропи або стан компонента змінилися, і, можливо, необхідно зробити новий запит, попередньо порівнявши їх, щоб не зациклити рендер компонента. <br>
+                       <br>
+            Для HTTP-запиту можна використовувати будь-що: XMLHTTPRequest, fetch, axios, superagent тощо. Ми будемо використовувати бібліотеку axios. <br>
+          </p>
+                  <p>
+                    import React, { Component } from "react"; <br>
+                    mport axios from "axios"; <br>
+                                       <br>
+                    xios.defaults.baseURL = "https://hn.algolia.com/api/v1"; <br>
+                                       <br>
+                    onst ArticleList = ({ articles }) => ( <br>
+                     < ul> <br>
+                       {articles.map(({ objectID, url, title }) => ( <br>
+                         < li key={objectID}> <br>
+                           < a href={url} target="_blank" rel="noreferrer noopener"> <br>
+                             {title} <br>
+                           < /a> <br>
+                         < /li> <br>
+                       ))} <br>
+                     < /ul> <br>
+                    ; <br>
+                                       <br>
+                    lass App extends Component { <br>
+                     state = { <br>
+                       articles: [], <br>
+                     }; <br>
+                   <br>
+                     async componentDidMount() { <br>
+                       const response = await axios.get("/search?query=react"); <br>
+                       this.setState({ articles: response.data.hits }); <br>
+                     } <br>
+                   <br>
+                     render() { <br>
+                       const { articles } = this.state; <br>
+                       return ( <br>
+                         < div> <br>
+                           articles.length > 0 ? < ArticleList articles={articles} /> : null <br>
+                         < /div> <br>
+                       ); <br>
+                     } <br>
+                    } <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!-- Індикатор завантаження (Спінер, Лоадер) -->
+            <li>
+              <h4 class="section-title__name">Індикатор завантаження (Спінер, Лоадер)</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Доки чекаємо на відповідь на HTTP-запит, показуємо індикатор завантаження. Щойно надійшла відповідь, ховаємо індикатор. Для цього, на старті запиту ставимо isLoading – true, а у разі успішної відповіді або помилки – false.
+                  </p>
+                  <p class="exemplar">
+                    /* ... */ <br>
+                                       <br>
+                    class App extends Component { <br>
+                      state = { <br>
+                        articles: [], <br>
+                        isLoading: false, <br>
+                      }; <br>
+                     <br>
+                      async componentDidMount() { <br>
+                        this.setState({ isLoading: true }); <br>
+                        const response = await axios.get("/search?query=react"); <br>
+                        this.setState({ <br>
+                          articles: response.data.hits, <br>
+                          isLoading: false, <br>
+                        }); <br>
+                      } <br>                   
+                    <br>
+                    В методі render за умовою повертаємо розмітку. Якщо дані завантажуються, показуємо лоадер, в іншому випадку – список з результатами. <br>
+                    <br>
+                    render() { <br>
+                      const { articles, isLoading } = this.state; <br>
+                      return ( <br>
+                        < div> <br>
+                          isLoading ? < p>Loading...< /p> : < ArticleList articles={articles} /> <br>
+                        < /div> <br>
+                      ); <br>
+                    } <br>
+                  </p>
+                  <p>
+                    Індикатор завантаження може бути будь-чим: від простого тексту або спінера до кастомного компонента, наприклад react-content-loader.
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <!-- Обробка помилки -->
+            <li>
+              <h4 class="section-title__name">Обробка помилки</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    HTTP-запит не завжди виконується без помилок, тому користувачеві обов'язково потрібно дати зрозуміти, якщо щось пішло не так. Для цього у стан додаємо властивість зберігання помилки. <br>
+                                       <br>
+                    При використанні промісів для обробки помилок використовується блок catch, якщо він виконається, значить, сталася помилка. Встановлення індикатора завантаження переносимо в блок finally, щоб не дублювати код, який буде виконаний в будь-якому випадку. <br>
+                  </p>
+                  <p class="exemplar">
+                    /* ... */ <br>
+                                       <br>
+                    class App extends Component { <br>
+                      state = { <br>
+                        articles: [], <br>
+                        isLoading: false, <br>
+                        error: null, <br>
+                      }; <br>
+                     <br>
+                      async componentDidMount() { <br>
+                        this.setState({ isLoading: true }); <br>
+                       <br>
+                        try { <br>
+                          const response = await axios.get("/search?query=react"); <br>
+                          this.setState({ articles: response.data.hits }); <br>
+                        } catch (error) { <br>
+                          this.setState({ error }); <br>
+                        } finally { <br>
+                          this.setState({ isLoading: false }); <br>
+                        } <br>
+                      } <br>
+                     <br>
+                      render() { <br>
+                        const { articles, isLoading, error } = this.state; <br>
+                       <br>
+                        return ( <br>
+                          < div> <br>
+                            {error && < p>Whoops, something went wrong: {error.message}< /p>} <br>
+                            {isLoading && < p>Loading...< /p>} <br>
+                            {articles.length > 0 && < ArticleList articles={articles} />} <br>
+                          < /div> <br>
+                        ); <br>
+                      } <br>
+                    } <br>
+                    } <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <!-- Поділ відповідальності -->
+              <li>
+              <h4 class="section-title__name">Поділ відповідальності</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Зберігати код, пов'язаний з HTTP-запитом, безпосередньо в компоненті – не найкраща практика. У застосунку буде багато різних запитів до API і вони будуть використовуватися у різних компонентах. До того ж код HTTP-запитів може бути складним та громіздким. Для зручності рефакторингу будемо все зберігати в одному місці. <br>
+                                       <br>
+                    Створимо додаткову папку всередині src. Назва папки довільна, але логічна, наприклад helpers, api, services тощо. У цій папці будемо зберігати файл з функціями для HTTP-запитів. <br>
+                  </p>
+                  <div class="section-box exemplar">
+                    <p>
+                      // services/api.js <br>
+                      import axios from "axios"; <br>
+                                           <br>
+                      export const fetchArticlesWithQuery = async searchQuery => { <br>
+                        const response = axios.get(`/search?query=${searchQuery}`); <br>
+                        return response.data.hits; <br>
+                      }; <br>
+                       <br>
+                      export default { <br>
+                        fetchArticlesWithQuery, <br>
+                      }; <br>
+                    </p>
+                    <p>
+                      /* ... */ <br>
+                      import api from "./path/to/services/api"; <br>
+                                           <br>
+                      class App extends Component { <br>
+                        state = { <br>
+                          articles: [], <br>
+                          isLoading: false, <br>
+                          error: null, <br>
+                        }; <br>
+                       <br>
+                        async componentDidMount() { <br>
+                          this.setState({ isLoading: true }); <br>
+                         <br>
+                          try { <br>
+                            const articles = api.fetchArticlesWithQuery("react"); <br>
+                            this.setState({ articles }); <br>
+                          } catch (error) { <br>
+                            this.setState({ error }); <br>
+                          } finally { <br>
+                            this.setState({ isLoading: false }); <br>
+                          } <br>
+                        } <br>
+                       <br>
+                        /* ... */ <br>
+                      } <br>
+                    </p>
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!--  -->
       <div class="section">
         <div class="container">
@@ -2178,7 +2423,33 @@
           </ul>
         </div>
       </div>
-
+      <!--  -->
+      <div class="section">
+        <div class="container">
+          <h3 class="section-title">title</h3>
+          <h3></h3>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
       <!--  -->
       <div class="section">
         <div class="container">

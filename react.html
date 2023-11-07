@@ -2396,21 +2396,490 @@
         </div>
       </div>
 
-      <!--  -->
+      <!-- Хуки -->
       <div class="section">
         <div class="container">
-          <h3 class="section-title">title</h3>
-          <h3></h3>
+          <h3 class="section-title">Хуки</h3>
+          <h3>Модуль 4_1</h3>
           <ul>
             <li><a href="" target="_blank"></a></li>
           </ul>
           <ul>
+            <!-- Хук useState -->
             <li>
-              <h4 class="section-title__name"></h4>
+              <h4 class="section-title__name">Хук useState</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">const [value, setValue] = useState(defaultne значення наприклад null);</h5>
+                  <p>Перший, простий і найважливіший хук. З назви зрозуміло, що він пов'язаний з станом компонента. Саме завдяки йому у функціональних компонентів з'явився внутрішній стан.</p>
+                  <h3>value</h3>
+                  <p>записується значення в стейт</p>
+                  <h3>setValue</h3>
+                  <p>функція яка записує значення value</p>
+                  <p class="exemplar">
+                    import { useState } from "react"; <br>
+                                       <br>
+                    const App = () => { <br>
+                      const [value, setValue] = useState(0); <br>
+                     <br>
+                      return ( <br>
+                        < div> <br>
+                          {value} <br>
+                          < button type="button" onClick={() => setValue(value + 1)}> <br>
+                            Increment value by 1 <br>
+                          < /button> <br>
+                        < /div> <br>
+                      ); <br>
+                    }; <br>
+ </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <!-- Хук useEffect -->
+            <li>
+              <h4 class="section-title__name">Хук useEffect</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"> useEffect(() => { ... }, []);</h5>
+                  <h3>useEffect(callback, deps) приймає два аргументи:</h3>
+                  <div>
+                    <h3>callback</h3>
+                    <p>- функція, усередині якої виконується вся логіка ефекту.</p>
+                    <h3>deps</h3>
+                    <p>- масив змінних, при зміні будь-якого з яких, буде запускатися ефект і виконуватися callback.</p>
+                  </div>
+                  <p>За допомогою хука useEffect можна змоделювавши роботу трьох методів життєвого циклу - componentDidMount, componentDidUpdate, componentWillUnmount, об'єднавши їх в один API.</p>
+                  <p class="exemplar">
+                    import { useState, useEffect } from "react"; <br>
+                                       <br>
+                    const App = () => { <br>
+                      const [value, setValue] = useState(0); <br>
+                     <br>
+                      useEffect(() => { <br>
+                        document.title = `You clicked ${value} times`; <br>
+                      }); <br>
+                     <br>
+                      return ( <br>
+                        < div> <br>
+                          < p>You clicked {value} times< /p> <br>
+                          < button onClick={() => setValue(value + 1)}>Click me< /button> <br>
+                        < /div> <br>
+                      ); <br>
+                    }; <br>
+                  </p>
+                  <h5 class="section-title__value">Запускатиметься кожен рас при зміні стейта або пропсів</h5>
+                  <h3>  useEffect(() => { ... });</h3>
+                  <h5 class="section-title__value">Аналог componentDidMount (запуститься тільки раз)</h5>
+                  <h3>  useEffect(() => { ... }, []);</h3>
+                  <p></p>
+                  <h5 class="section-title__value">Аналог componentDidUpdate (запускатиметься кожен рас при зміні стейту - value)</h5>
+                  <h3>  useEffect(() => { ... }, [value]);</h3>
+                  <p>У масиві потрібно перерахувати всі залежності ефекту. Так отримуємо більш гнучкий аналог методу componentDidUpdate, який запускається тільки за зміні певних значень. При цьому важливо враховувати, що такий ефект запускається і на стадії монтування, що абсолютно нормально у більшості випадків.</p>
+                  <h5 class="section-title__value">Аналог componentWillUnmount </h5>
+                  <h3>return () => { ... }</h3>
+                  <p>
+                    Для того, щоб виконати код при розмонтуванні компонента, або взагалі перед кожним викликом ефекту, повертаємо з useEffect функцію очищення з необхідним кодом. Це і є аналог componentWillUnmount. Так можна знімати обробники подій, зупиняти таймери та скасовувати HTTP-запити.
+                  </p>
+                  <p class="exemplar">
+                    const App = () => { <br>
+                      useEffect(() => { <br>
+                        console.log("Mounting phase: same when componentDidMount runs"); <br>
+                       <br>
+                        return () => { <br>
+                          console.log("Unmounting phase: same when componentWillUnmount runs"); <br>
+                        }; <br>
+                      }, []); <br>
+                     <br>
+                      return null; <br>
+                    }; <br>
+                  </p>
+                  <h4>Хуки дозволяють розділити та згрупувати логіку, створивши useEffect(() => {...}, [value]) під кожну незалежну операцію. Тобто useEffect можна створювати скільки завгодно в компоненті, хоч і під кожен стейт.</h4>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <!-- Власні хуки -->
+            <li>
+              <h4 class="section-title__name">Власні хуки</h4>
+              <p>
+                Першочергове завдання хуків - спростити повторне використання коду (логіки) для розробників. Створення власних хуків це процес отримання логіки компонентів у повторно використовувані функції. Це зробить код проекту чистішим і легше у підтримці. <br>
+                               <br>
+                Хук це просто функція, ім'я якої обов'язково починається з приставки use. Саме по ній React визначатиме це звичайна функція чи хук. Наприклад: useState, useEffect, useToggle, useDevice, useImages і так далі. Власні хуки створюються поза тілом компонента, часто навіть в окремих файлах, та можуть викликати інші хуки, так досягається просте повторне використання коду. <br>
+              </p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Хук useToggle</h5>
+                  <p>Розглянемо приклад де у двох компонентах необхідна логіка відкриття, закриття та перемикання елемента інтерфейсу, наприклад модального вікна.</p>
+                  <div class="section-box">
+                    <p class="exemplar">
+                    // ComponentA.jsx <br>
+                    const ComponentA = () => { <br>
+                      const [isModalOpen, setIsModalOpen] = useState(false); <br>
+                      const openModal = () => setIsModalOpen(true); <br>
+                      const closeModal = () => setIsModalOpen(false); <br>
+                     <br>
+                      return ( <br>
+                        <> <br>
+                          < button onClick={openModal}>Open modal< /button> <br>
+                          < ModalA isOpen={isModalOpen} onClose={closeModal} /> <br>
+                        </> <br>
+                      ); <br>
+                    }; <br>
+                    </p>
+                    <p class="exemplar">
+                    // ComponentB.jsx <br>
+                    const ComponentB = () => { <br>
+                      const [isModalOpen, setIsModalOpen] = useState(false); <br>
+                      const openModal = () => setIsModalOpen(true); <br>
+                      const closeModal = () => setIsModalOpen(false); <br>
+                     <br>
+                      return ( <br>
+                        <> <br>
+                          < button onClick={openModal}>Open modal</> <br>
+                          < ModalB isOpen={isModalOpen} onClose={closeModal} /> <br>
+                        </> <br>
+                      ); <br>
+                    }; <br>
+                  </p>
+                  </div>
+                  <p>
+                    Створення стану та методів для відкриття/закриття модального вікна ідентично в кожному компоненті, тобто відбувається дублювання коду. Уявіть, що буде в проекті, де модальні вікна відкриваються десятки чи сотні разів. Створимо власний хук useToggle в якому приховаємо створення стану та методів роботи з ним.
+                  </p>
+                  <p class="exemplar">
+                    src/hooks/useToggle.js <br>
+                                       <br>
+                    export const useToggle = () => { <br>
+                      const [isOpen, setIsOpen] = useState(false); <br>
+                      const open = () => setIsOpen(true); <br>
+                      const close = () => setIsOpen(false); <br>
+                      const toggle = () => setIsOpen(isOpen => !isOpen); <br>
+                     <br>
+                      return { isOpen, open, close, toggle }; <br>
+                    }; <br>
+                  </p>
+                  <p>Тоді код із попереднього прикладу буде виглядати наступним чином.</p>
+                 
+                  <div class="section-box">
+                     <p class="exemplar">
+                    // ComponentA.jsx <br>
+                    import { useToggle } from "path/to/hooks/useToggle.js"; <br>
+                                       <br>
+                    const ComponentA = () => { <br>
+                      const { isOpen, open, close } = useToggle(); <br>
+                     <br>
+                      return ( <br>
+                        <> <br>
+                          < button onClick={open}>Open modal< /button> <br>
+                          < ModalA isOpen={isOpen} onClose={close} /> <br>
+                        </> <br>
+                      ); <br>
+                    }; <br>
+                  </p>
+                    <p class="exemplar">
+                    // ComponentB.jsx <br>
+                    import { useToggle } from "path/to/hooks/useToggle.js"; <br>
+                     <br>
+                    const ComponentB = () => { <br>
+                      const { isOpen, open, close } = useToggle(); <br>
+                     <br>
+                      return ( <br>
+                        <> <br>
+                          < button onClick={open}>Open modal< /button> <br>
+                          < ModalB isOpen={isOpen} onClose={close} /> <br>
+                        </> <br>
+                      ); <br>
+                    }; <br>
+                  </p>
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <!-- Хук useRef -->
+            <li>
+              <h4 class="section-title__name">Хук useRef</h4>
+              <p>
+                Рефи дозволяють отримати прямий доступ до DOM-вузлів або React-елементів із шаблону компонента. Вони використовуються якщо необхідно звернутися до імперативних методів та властивостям елемента.
+              </p>
+              <ul>
+                <li>
+                  <p>Фокус елемент під час події, виділення тексту</p>
+                </li>
+                <li>
+                  <p>Контроль програвання медіаконтенту</p>
+                </li>
+                <li>
+                  <p>Інтеграція з DOM-бібліотеками</p>
+                </li>
+                <li>
+                  <p>Доступ до DOM-властивостей, значення яких неможливо отримати по-іншому - розміри елемента, значення скрола тощо.</p>
+                </li>
+              </ul>
+              <h4>Тобто якщо нам потрібна якась змінна яка буде зберігати значення яке створене при монтуванні компонента і не буде змінюватися при подальших монтуваннях, плюс якщо буде декілька елементів яким потрібні також фіксоіані стартові значення і щоб в результаті їх можна використати для зупинки якоїсь дії (таймер, відеоплеєр і т д) то ми використовуємо Хук useRef</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Створення</h5>
+                  <p>Рефи створюються хуком useRef() та прив'язані до React-елементів за допомогою атрибуту ref (скорочення від reference), який зберігатиме посилання на DOM-елемент.</p>
+                  <p class="exemplar">
+                    import { useRef } from "react"; <br>
+                    <br>
+                    const App = () => { <br>
+                      const btnRef = useRef(); <br>
+                    <br>
+                      return < button ref={btnRef}>Button with ref< /button>; <br>
+                    }; <br>
+                  </p>
+                  <h5 class="section-title__value">Життєвий цикл рефа</h5>
+                  <p>
+                    React надає властивості current посилання на DOM-елемент коли компонент монтується та null при розмонтуванні, тому значення рефа доступне тільки після монтування.
+                  </p>
+                  <p class="exemplar">
+                    import { useState, useRef } from "react"; <br>
+                                       <br>
+                    const App = () => { <br>
+                      const [value, setValue] = useState(0); <br>
+                      const btnRef = useRef(); <br>
+                     <br>
+                      // Буде null на першому рендері <br>
+                      // і посиланням на DOM-елемент всі наступні <br>
+                      console.log(btnRef.current); <br>
+                     <br>
+                      useEffect(() => { <br>
+                        // Ефект виконується після монтування, <br>
+                        // тому завжди буде посиланням на DOM-елемент <br>
+                        console.log(btnRef.current); <br>
+                      }); <br>
+                     <br>
+                      const handleClick = () => { <br>
+                        // Кліки будуть після монтування, <br>
+                        // тому завжди буде посиланням на DOM-елемент <br>
+                        console.log(btnRef.current); <br>
+                      }; <br>
+                     <br>
+                      return ( <br>
+                        <> <br>
+                          < button onClick={() => setValue(value + 1)}> <br>
+                            Update value to trigger re-render <br>
+                          < /button> <br>
+                          < button ref={btnRef} onClick={handleClick}> <br>
+                            Button with ref <br>
+                          < /button> <br>
+                        </> <br>
+                      ); <br>
+                    }; <br>
+                  </p>
+                  <h5 class="section-title__value">Відсутність реактивності</h5>
+                  <p>Рефи це не стан, тобто вони не реактивні, тому зміна значення рефа не впливає на оновлення компонента і не викликає ре-рендер.</p>
+                  <p class="exemplar">
+                    import { useEffect, useRef } from "react"; <br>
+                                       <br>
+                    const App = () => { <br>
+                      const valueRef = useRef(0); <br>
+                     <br>
+                      useEffect(() => { <br>
+                        // Виконається лише один раз під час монтування. <br>
+                        // Наступні оновлення значення рефа не <br>
+                        // викличуть оновлення компонента <br>
+                        console.log(valueRef.current); <br>
+                      }); <br>
+                     <br>
+                      const handleClick = () => { <br>
+                        valueRef.current += 1; <br>
+                      }; <br>
+                     <br>
+                      return < button onClick={handleClick}>Click to update ref value< /button>; <br>
+                    }; <br>
+                  </p>
+                  <h5 class="section-title__value">Перенаправлення рефів</h5>
+                  <p>
+                    При використанні рефів на компоненті, проп ref не передається автоматично. Це створює проблеми у випадку коли ми хочемо отримати ref на елемент усередині самого компонента, а не на сам компонент. Функція forwardRef автоматично передає пропси, отримані батьківським компонентом його дочірнім елементам.
+                  </p>
+                  <p>
+                    Такий підхід дозволяє отримати посилання у батьківському компоненті на DOM-елемент усередині іншого компонента. Наприклад, ви створюєте галерею, так можна отримати посилання на DOM-елементи поза них і працювати з їх властивостями, наприклад використовувати метод Element.getBoundingClientRect() і тому подібне.
+                  </p>
+                  <p class="exemplar">
+                    import { forwardRef, useRef, useEffect } from "react"; <br>
+                                       <br>
+                    const CustomButton = forwardRef((props, ref) => ( <br>
+                      < button ref={ref}>{props.children}< /button> <br>
+                    )); <br>
+                                       <br>
+                    const App = () => { <br>
+                      const btnRef = useRef(); <br>
+                     <br>
+                      useEffect(() => btnRef.current.focus(), []); <br>
+                     <br>
+                      return < CustomButton ref={btnRef}>Button with forwarded ref< /CustomButton>; <br>
+                    }; <br>
+                  </p>
+                  <h5 class="section-title__value">Простий відеоплеєр</h5>
+                  <p>
+                    Створимо компонент Player для програвання відео, використовуючи нативний тег < video>. Щоб запустити та зупинити програвання необхідно викликати методи HTMLMediaElement.play() та HTMLMediaElement.pause(), де HTMLMediaElement це елемент < video>. Використовуємо реф для отримання доступу до DOM-елементу та його методам.
+                  </p>
+                  <p class="exemplar">
+                    import { useRef } from "react"; <br>
+                                       <br>
+                    const Player = ({ source }) => { <br>
+                      const playerRef = useRef(); <br>
+                      const play = () => playerRef.current.play(); <br>
+                      const pause = () => playerRef.current.pause(); <br>
+                     <br>
+                      return ( <br>
+                        < div> <br>
+                          < video ref={playerRef} src={source}> <br>
+                            Sorry, your browser does not support embedded videos. <br>
+                          < /video> <br>
+                          < div> <br>
+                            < button onClick={play}>Play< /button> <br>
+                            < button onClick={pause}>Pause< /button> <br>
+                          < /div> <br>
+                        < /div> <br>
+                      ); <br>
+                    }; <br>
+                     <br>
+                    const App = () => { <br>
+                      return < Player source="http://media.w3.org/2010/05/sintel/trailer.mp4" />; <br>
+                    }; <br>
+                  </p>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <!-- Хук useMemo -->
+            <li>
+              <h4 class="section-title__name">Хук useMemo</h4>
+              <p>Використовується для обчислення. Наприклад, при роботі з великим списком співробітників компанії та пошуковим запитом, компонент повинен фільтрувати імена співробітників на запит. У таких випадках можна спробувати покращити продуктивність компонента за допомогою мемоізації.</p>
+              <h4>Мемоізація</h4>
+              <p>
+                Метод оптимізації, який використовується для прискорення комп'ютерних програм шляхом збереження результатів викликів функції та повернення кешованого результату при повторенні тих самих вхідних даних. Мемоізована функція «запам'ятовує» результат обчислень відповідний набору аргументів. Наступні виклики з такими самими значеннями аргументів повертають запам'ятаний результат, а не перераховують його. <br>
+                Хук useMemo() використовує концепцію мемоізації, тобто повертає пам'ятний (кешований) результат обчислень. Це може покращити продуктивність програми, якщо використовується для запобігання дорогим обчисленням на кожному рендері. <br>
+              </p>
+              <h4>Тобто, useMemo(compute, deps) робить якісь обчислення (пошук в списку і т п), він запускається перший раз при монтуванні робить обчислення і записує данні в змінну, потім якщо не змінюються данні в переданих йому залежностях то він при слідуючих монтуваннях передає запам'ятаний в цій змінній результат. І обчислення він заново робить тільки тоді коли зміняться данні в переданих йому залежностях [name, value]</h4>
+              <p>Хук приймає два аругменти:</p>
+              <h3>compute</h3>
+              <p>- анонімну функцію, яка має повернути значення (compute), саме вона буде мемоізована</p>
+              <h3>deps</h3>
+              <p>- масив залежностей</p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">const filteredPlanets = useMemo(() => {...}, [planets, query] );</h5>
+                  <p>
+                    При першому рендері компонента викликається функція (compute), запам'ятовується її результат та повертається як результат роботи хука. Якщо за наступних рендерів залежності не змінюються, то хук не викликає функції, а просто повертає збережений результат роботи. Якщо будь-яка залежність змінилася, то хук викликає функцію заново, запам'ятовує нове значення та повертає його.
+                  </p>
+                  <p class="exemplar">
+                    Щоразу коли зміниться стан clicks або проп someProp, компонент буде відрендерен повторно, що не призведе до обчислення filteredPlanets, тому, що значення planets та query не змінилися, і тому воно підставить значення яке було обчислено при першому монтуванні! <br>
+                    import { useMemo } from "react"; <br>
+                                       <br>
+                    const App = ({ someProp }) => { <br>
+                      const [planets, setPlanets] = useState(["Earth", "Mars", "Jupiter", "Venus"]); <br>
+                      const [query, setQuery] = useState(""); <br>
+                      const [clicks, setClicks] = useState(0); <br>
+                     <br>
+                      const filteredPlanets = useMemo( <br>
+                        () => planets.filter(planet => planet.includes(query)), <br>
+                        [planets, query] <br>
+                      ); <br>
+                     <br>
+                      return ( <br>
+                        < div> <br>
+                          < div>Some prop: {someProp}< /div> <br>
+                          < button onClick={() => setClicks(clicks + 1)}> <br>
+                            Number of clicks: {clicks} <br>
+                          < /button> <br>
+                          < div> <br>
+                            {filteredPlanets.map(planet => ( <br>
+                              < div key={planet}>{planet}< /div> <br>
+                            ))} <br>
+                          < /div> <br>
+                        < /div> <br>
+                      ); <br>
+                    }; <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <!-- Контекст та useContext -->
+            <li>
+              <h4 class="section-title__name">Контекст та useContext</h4>
+              <p>
+                Дані передаються зверху вниз через пропси, але це може бути незручно для певних глобальних даних, які потрібні багатьом компонентам на різних рівнях у додатку (локалізація, тема оформлення, стан авторизації та ін.). <br>
+                Контекст забезпечує спосіб передачі даних глибоко по дереву компонентів без необхідності явно передавати пропси в проміжні компоненти вручну на кожному рівні. <br>
+                Не використовуйте контекст, щоб уникнути передачі пропсів на кілька рівнів вниз. Цей механізм призначений для вузького спектра завдань. <br>
+              </p>
+              <div class="section-icon">
+                  <img src="./img/react/use-context.jpg" width="400" alt="context" />
+                </div>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Функція createContext()</h5>
+                  <p></p>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <!-- Обмеження хуків -->
+            <li>
+              <h4 class="section-title__name">Обмеження хуків</h4>
               <div class="section-box">
                 <div>
                   <h5 class="section-title__value"></h5>
-                  <p></p>
+                  <p>Будь-які хуки можна викликати лише на верхньому рівні компонента функції. Тобто, поза циклами, умовами, вкладеними функціями і т.п. Це означає, що хук або є в компоненті, або його немає. Такі, можливо, дивні обмеження стандартизують написання логіки компонента та роблять код менш заплутаним.</p>
+                  <p class="exemplar">
+                    // ❌ Буде помилка <br>
+                    const App = () => { <br>
+                      if (isLoggedIn) { <br>
+                        const [username, setUsername] = useState(""); <br>
+                      } <br>
+                     <br>
+                      // ... <br>
+                    }; <br>
+                     <br>
+                    // ✅ Так правильно використовувати хуки <br>
+                    const App = () => { <br>
+                      const [username, setUsername] = useState(""); <br>
+                    }; <br>
+                  </p>
                   <div class="section-box">
                     <img src="" width="0" alt="" />
                   </div>

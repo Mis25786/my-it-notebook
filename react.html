@@ -2824,27 +2824,165 @@
                 </div>
               </div>
             </li>
+            <!-- Хук useReducer -->
+              <li>
+              <h4 class="section-title__name">Хук useReducer()</h4>
+              <h3>Модуль 4_Урок-2/0:50:00</h3>
+              <p>Цей хук ми використовуємо коли в нас багато стейтів (від 15)</p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">const [total, setTotal] = useReducer(reducer(функція), default(дефаултне значення), fc(функція практично ніколи не використовується))</h5>
+                  <p>Хук useReducer() приймає 3 значення</p>
+                  <ul>
+                    <li>
+                      <p>перше ФУНКЦІЯ яку за звичай називають "reducer", і зазвичай виносять в інший файл</p>
+                    </li>
+                    <li>
+                      <p>друге default ДЕФАУЛТНЕ значення </p>
+                    </li>
+                    <li>
+                      <p>третье ДОДАТКОВА ФУНКЦІЯ Практично ніколи не використовується</p>
+                    </li>
+                  </ul>
+                  <p>Функція reducer приймає два параметри function reducer(prevState, nextState) {}, де prevState це попередній стан а nextState актуальний стан. Також nextState за звичай називають action і це є об'єкт в якому є {type: "", payload: 1} </p>
+                  
+                  <div class="section-box">
+                    <p class="exemplar">
+                    Приклад простого лічильника, де збільшуємо і зменшуємо значення <br>
+                    <br>
+                    const Counter = () => { <br>
+                      const [total, setTotal] = useReducer(reducer, 0) <br>
+                      <br>
+                      const handleClickIncrement = () =>  <br>
+                      setTotal({type: 'increment', payload: 1}) <br>
+                      <br>
+                      const handleClickDecrement = () =>  <br>
+                      setTotal({type: 'decrement', payload: 1}) <br>
+                      <br>
+                      // ... /// <br>                    
+                    }<br>    
+                    <br>    
+                    В окремому файлі функція reducer де реалізована логіка<br>    
+                    <br>    
+                    function reducer(prevState, action) { <br>
+                    if (action.type === "increment") {return prevState + action.payload} <br>
+                    else if (action.type === "decrement") {return prevState - action.payload} <br>
+                    } <br>
+                  </p>
+                  <p class="exemplar">
+                    Коли на потрібно в початковому стані передати великий об'єкт, то передаємо і змінюємо слідуючим методом. <br>
+                    <br>
+                    const Counter = () => { <br>
+                      const [total, dispatch(зазвичай називають функцію)] = useReducer(reducer, {name: user, items: [], age: 18,}) <br>
+                      <br>
+                      dispatch({ type: 'editUser', payload: 'Alex'}) <br>
+                      <br>
+                      dispatch({ type: 'pushItems', payload: [1, 2, 3]}) <br>
+                      <br>
+                      // ... /// <br>                    
+                    }<br>
+                    <br>
+                      В іншому файлі логіка <br>
+                      <br>
+                        function reducer(prevState, action) { <br>
+                    if (action.type === "ediUser") {return ...prevState, name: action.payload} <br>
+                    else if (action.type === "pushItems") {return ...prevState, items: [...action.payload]} <br>
+                    } <br>
+                  </p>
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
             <!-- Контекст та useContext -->
             <li>
               <h4 class="section-title__name">Контекст та useContext</h4>
+              <h3>Модуль 4_Урок-2/1:34:00</h3>
+              <h4>Контекст дає можливість зв'язати компоненти різної вкладеності без того щоб прокидувати пропси в глибину від їх спільного батька</h4>
+
               <p>
                 Дані передаються зверху вниз через пропси, але це може бути незручно для певних глобальних даних, які потрібні багатьом компонентам на різних рівнях у додатку (локалізація, тема оформлення, стан авторизації та ін.). <br>
                 Контекст забезпечує спосіб передачі даних глибоко по дереву компонентів без необхідності явно передавати пропси в проміжні компоненти вручну на кожному рівні. <br>
                 Не використовуйте контекст, щоб уникнути передачі пропсів на кілька рівнів вниз. Цей механізм призначений для вузького спектра завдань. <br>
               </p>
-              <div class="section-icon">
+              <div class="section-icon section-box">
                   <img src="./img/react/use-context.jpg" width="400" alt="context" />
+                  <img src="./img/react/context.jpg" width="400" alt="context" />
                 </div>
               <div class="section-box">
                 <div>
                   <h5 class="section-title__value">Функція createContext()</h5>
-                  <p></p>
-                  <h5 class="section-title__value"></h5>
-                  <p></p>
-                  <h5 class="section-title__value"></h5>
-                  <p></p>
-                  <h5 class="section-title__value"></h5>
-                  <p></p>
+                  <p>Створює об'єкт контексту</p>
+                  <p>
+                    import { createContext } from "react"; <br>
+                     <br>
+                    const MyContext = createContext(); <br>
+                  </p>
+                  <h5 class="section-title__value">Компонент < Provider></h5>
+                  <p>За допомогою раніше створеного нами контексту MyContext та < Provider> огортаємо наші компоненти або одразу App</p>
+                  <p>
+                    Дозволяє споживачам підписуватись на зміни контексту. Використовується для створення та передачі контексту.
+                  </p>
+                  <p>
+                    import { createContext } from "react"; <br>
+                    import ReactDOM from "react-dom/client"; <br>
+                                       <br>
+                    const MyContext = createContext(defaultValue); <br>
+                                       <br>
+                    ReactDOM.createRoot(document.getElementById("root")).render( <br>
+                      < MyContext.Provider value={/* context value */}> <br>
+                        < App /> <br>
+                      < /MyContext.Provider> <br>
+                    ); <br>
+                  </p>
+                  <ul>
+                    <li>
+                      <p>Приймає проп value - значення контексту, яке буде передано нащадкам-споживачам цього контексту.</p>
+                    </li>
+                    <li>
+                      <p>Дозволяє споживачам підписуватись на зміни контексту незалежно від глибини вкладеності.</p>
+                    </li>
+                    <li>
+                      <p>Один провайдер може бути пов'язаний із багатьма споживачами.</p>
+                    </li>
+                    <li>
+                      <p>Провайдери можуть бути вкладені один в одного.</p>
+                    </li>
+                  </ul>
+                  <h5 class="section-title__value">Хук useContext()</h5>
+                  <p>Цей хук ми використовуємо в компоненті в якому нам потрібно достукатись до value=(значення стейта) (< MyContext.Provider value={/* state */}>) і зв'язуємо його з раніше нами створеним контекстом MyContext який з провайдером огортає наші компоненти. Таким чином ми отримаємо доступ до стейта в нашому контексті.</p>
+                  <p>Дозволяє отримати доступ до поточного значення контексту. Отримує поточний контекст із найближчого порівнянного < Provider> вище у дереві.</p>
+                  <p class="exemplar">
+                    import { createContext, useContext } from "react"; <br>
+                    <br>
+                    const MyContext = createContext(); <br>
+                    <br>
+                    const contextValue = useContext(MyContext); <br>
+                  </p>
+                  <ul>
+                    <li>
+                      <p>Очікує єдиний аргумент – посилання на створений контекст.</p>
+                    </li>
+                    <li>
+                      <p>Поверне значення контексту найближчого провайдера для цього контексту вище дереві.</p>
+                    </li>
+                    <li>
+                      <p>Щоразу, коли оновиться значення контексту, залежний компонент ре-рендерується з новим значенням.</p>
+                    </li>
+                  </ul>
+                  <h5 class="section-title__value">Кастомний хук контексту</h5>
+                  <h4>Щоб не імпортувати в кожен компонент MyContext  та useContext ми можемо в окремому файлі створити кастомний хук і там їх зв'язати та в подальшому імпотрувати тільки його</h4>
+                  <p>Щоразу імпортувати посилання на об'єкт контексту не зручно. Тому робиться кастомний хук для доступу до контексту.</p>
+                  <p class="exemplar">
+                    import { createContext, useContext } from "react"; <br>
+                                       <br>
+                    const MyContext = createContext(); <br>
+                                       <br>
+                    // Імпортуємо та використовуємо цей хук у компонентах <br>
+                    export const useMyContext = () => useContext(MyContext); <br>
+                  </p>
                   <h5 class="section-title__value"></h5>
                   <p></p>
                   <h5 class="section-title__value"></h5>
@@ -2892,10 +3030,11 @@
           </ul>
         </div>
       </div>
-      <!--  -->
+
+      <!-- Маршрутизація -->
       <div class="section">
         <div class="container">
-          <h3 class="section-title">title</h3>
+          <h3 class="section-title">Маршрутизація</h3>
           <h3></h3>
           <ul>
             <li><a href="" target="_blank"></a></li>
@@ -2919,6 +3058,7 @@
           </ul>
         </div>
       </div>
+
       <!--  -->
       <div class="section">
         <div class="container">

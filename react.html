@@ -821,7 +821,7 @@
                       color: "white", <br />
                       }; <br />
                       export const Alert = ({ children }) => { <br />
-                      return < p style={alertStyles}>{children}< /p>; <br />
+                      return < p style={alertStyles}> {children} < /p>; <br> 
                       }; <br />
                     </p>
                     <p class="exemplar">
@@ -3735,6 +3735,379 @@
             <!-- Рядок запиту -->
              <li>
               <h4 class="section-title__name">Рядок запиту</h4>
+              <p>
+                Рядок запиту та його параметри це фундаментальний аспект Інтернету, оскільки він дозволяє передавати стан програми через URL-адресу. Рядок запиту додається до основного URL, починається символом ? і містить один або більше параметрів у форматі «ключ-значення» розділених символом &.
+              </p>
+              <div class="exemplar">
+                <h3>< https://gomerch.it/products?name=hoodie&color=orange&maxPrice=500 ></h3>
+                <p>Такий рядок запиту містить три параметри та їх значення: назва продукту, колір та максимальну ціну. При переході на цю URL, користувач побачить відповідний, фільтрований список продуктів.</p>
+              </div>
+              <p>
+                Використання локального стану через хук useState добре для одного користувача, але погано для спільної роботи з іншими користувачами. Якщо стан програми знаходиться в URL, ним можна поділитися з іншими користувачами. Наприклад, коли користувач шукає продукти, значення пошуку додається до URL як параметр рядка запиту (/products?name=hoodie). Інший користувач, який отримав це посилання, побачить той же фільтрований список продуктів на своїй сторінці, тому що всі дані, необхідні додатку для правильного відображення інтерфейсу, що знаходяться прямо в URL.
+              </p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">читання та зміна рядка запиту у React Router (хук useSearchParams)</h5>
+                  <p>Для читання та зміни рядка запиту у React Router є хук useSearchParams, який є невеликою обгорткою над вбудованим у браузер класом [URLSearchParams]</p>
+                  <h3>const [searchParams, setSearchParams] = useSearchParams();</h3>
+                  <p>
+                    Він зберігає та змінює рядок запиту (перезаписує) <br>
+                    Він повертає масив із двох значень: об'єкт параметрів рядка запиту для поточного URL та функцію оновлення рядка запиту.  <br>
+                    Для отримання значень параметрів є метод URLSearchParams.get(key), який чекає на ім'я параметра і повертає його значення або null якщо у рядку запиту немає такого параметра.
+                  </p>
+                  <p class="exemplar">
+                    src/pages/Products.jsx <br>
+                                       <br>
+                    import { useSearchParams } from "react-router-dom"; <br>
+                                       <br>
+                    const Products = () => { <br>
+                      const [searchParams] = useSearchParams(); <br>
+                      const name = searchParams.get("name"); <br>
+                      const color = searchParams.get("color"); <br>
+                      const maxPrice = searchParams.get("maxPrice"); <br>
+                     <br>
+                      return ( <br>
+                        < div> <br>
+                          < p>Name: {name}< /p> <br>
+                          < p>Color: {color}< /p> <br>
+                          < p>Maximum price: {maxPrice}< /p> <br>
+                        < /div> <br>
+                      ); <br>
+                    }; <br>
+                  </p>
+                  <p>
+                    <span class="selection">Метод get()</span> завжди поверне рядок незалежно від значення параметра, яке вказано у рядку запиту. <br>
+                    Якщо параметри це числа чи були, для отримання значення правильного типу потрібно виконати приведення типів. Це можна зробити вбудованими класами Number(value) та Boolean(value). <br>
+                  </p>
+                  <p></p>
+                  <h5 class="section-title__value">Параметри як об'єкт</h5>
+                  <p>
+                    Якщо рядок запиту містить кілька параметрів, постійно використовувати метод get() може бути незручно. Ось простий спосіб перетворити екземпляр класу URLSearchParams у звичайний об'єкт із властивостями.
+                  </p>
+                  <p class="exemplar">
+                    const [searchParams] = useSearchParams(); <br>
+                    const params = useMemo( <br>
+                      () => Object.fromEntries([...searchParams]), <br>
+                      [searchParams] <br>
+                    ); <br>
+                    const { name, maxPrice, inStock } = params; <br>
+                  </p>
+                  <p>
+                    Мемоізуємо операцію перетворення об'єкта параметрів, щоб отримувати посилання на новий об'єкт лише якщо зміняться параметри рядка запиту, а не при кожному рендері компоненту.
+                  </p>
+                  <h5 class="section-title__value">Зміна рядка запиту</h5>
+                  <p>
+                    Для зміни параметрів використовуємо функцію, яку useSearchParams повертає другим елементом масиву. Їй необхідно передати об'єкт нових параметрів, який повністю замінить поточний рядок запиту.
+                  </p>
+                  <p class="exemplar">
+                    import { useSearchParams } from "react-router-dom"; <br>
+                                       <br>
+                    export const Products = () => { <br>
+                      const [searchParams, setSearchParams] = useSearchParams(); <br>
+                      const name = searchParams.get("name"); <br>
+                     <br>
+                      return ( <br>
+                        < div> <br>
+                          < h1>Products< /h1> <br>
+                          < input <br>
+                            type="text" <br>
+                            value={name} <br>
+                            onChange={e => setSearchParams({ name: e.target.value })} <br>
+                          /> <br>
+                        < /div> <br>
+                      ); <br>
+                    }; <br>
+                  </p>
+                  <h5 class="section-title__value">Відстеження змін</h5>
+                  <p>
+                    Якщо змінюється рядок запиту, хук useSearchParams повертає нове значення параметрів і компонентів оновлюється, тому можна зреагувати на це і запустити ефект.
+                  </p>
+                  <p class="exemplar">
+                    const App = () => { <br>
+                      const [user, setUser] = useState(null); <br>
+                      const [searchParams, setSearchParams] = useSearchParams(); <br>
+                      const username = searchParams.get("username"); <br>
+                                         <br>
+                      useEffect(() => { <br>
+                        // Тут виконуємо асинхронну операцію, <br>
+                        // наприклад HTTP-запит за інформацією про користувача <br>
+                        if (username === "") return; <br>
+                       <br>
+                        async function fetchUser() { <br>
+                          const user = await FakeAPI.getUser(username); <br>
+                          setUser(user); <br>
+                        } <br>
+                       <br>
+                        fetchUser(); <br>
+                      }, [username]); <br>
+                     <br>
+                      const handleSubmit = e => { <br>
+                        e.preventDefault(); <br>
+                        const form = e.currentTarget; <br>
+                        setSearchParams({ username: form.elements.username.value }); <br>
+                        form.reset(); <br>
+                      }; <br>
+                     <br>
+                      return ( <br>
+                        <> <br>
+                          < form onSubmit={handleSubmit}> <br>
+                            < input type="text" name="username" /> <br>
+                            < button type="submit">Search< /button> <br>
+                          < /form> <br>
+                          {user && < UserInfo user={user} />} <br>
+                        </> <br>
+                      ); <br>
+                    }; <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <!-- Об'єкт місцезнаходження (Хук useLocation()) -->
+            <li>
+              <h4 class="section-title__name">Об'єкт місцезнаходження (Хук useLocation())</h4>
+              <p>
+                Кожен запис у стеку історії навігації описаний об'єктом розташування (location) зі стандартним набором властивостей, які зберігають повну інформацію про URL. Коли користувач натискає на посилання та переміщається за програмою, поточне місце розташування змінюється і додається новий запис історії.
+              </p>
+              <p>
+                Наприклад, для такого URL об'єкт розташування буде виглядати наступним чином. <br>
+                               <br>
+                // < https://gomerch.it/products?name=hoodie&color=orange&maxPrice=500#agreement > <br>
+                               <br>
+                { <br>
+                  "pathname": "/products", <br>
+                  "search": "?name=hoodie&color=orange&maxPrice=500", <br>
+                  "hash": "#agreement", <br>
+                  "state": null, <br>
+                  "key": "random-browser-generated-id" <br>
+                } <br>
+              </p>
+              <ul>
+                    <li>
+                      <h3>pathname</h3> - рядок, що містить частину URL від початкового / і до символу ?.
+                    </li>
+                    <li>
+                      <h3>search</h3> - містить весь рядок запиту. Якщо параметри відсутні, значенням буде порожній рядок.
+                    </li>
+                    <li>
+                      <h3>hash</h3> - рядок, що містить частину URL від кінця рядка запиту та символу #, за яким слідує ідентифікатор фрагмента URL-адреси. Якщо ідентифікатор фрагмента відсутній, значенням буде порожній рядок.
+                    </li>
+                    <li>
+                      <h3>state</h3> - довільне значення, яке містить додаткову інформацію, пов'язану з розташуванням, але не відображається в URL-адресі. Задається розробником. Використовується для передачі між маршрутами.
+                    </li>
+                    <li>
+                      <h3>key</h3> - унікальний рядок ідентифікатор, пов'язаний із цим місцезнаходженням. Службова властивість, значення якої задається автоматично для кожного нового запису в історії навігації.
+                    </li>
+              </ul>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Хук useLocation </h5>
+                  <h4>Він використовується для навігації, коли ми переходимо по сторінкам щоб могли повернутися назад (зберігає і передає адреси сторінок з яких ми прийшли)</h4>
+                  <p>
+                    Повертає об'єкт розташування, що представляє поточний URL, щоразу коли ми переходимо новим маршрутом або оновлюємо частину поточного URL.
+                  </p>
+                  <h2>Властивість location.state</h2>
+                  <p>
+                    Уявіть наступний сценарій у нашому додатку магазину. Користувач знаходиться на сторінці списку продуктів та виконав пошук за назвою, нехай поточний URL буде /products?name=hoodie. Після цього він кликає за карткою продукту та переходить на сторінку розширеної інформації про продукт, нехай поточний URL буде /products/h-1. <br>
+                    <br>
+                    Нам поставлено завдання додати на сторінку продукту кнопку «Назад», при натисканні на яку виконається навігація на сторінку всіх продуктів, при цьому має зберегти стан рядка запиту. Тобто, при натисканні, користувача необхідно направити не на /products, а в нашому випадку на /products?name=hoodie - той URL з якого була виконана навігація на сторінку продукту. <br>
+                    <br>
+                    Властивість state об'єкта розташування дозволяє передавати довільні дані при навігації від одного маршруту до іншого. Для цього використовуємо пропс state компонента Link і передамо об'єкт із властивістю from - звідки прийшов юзер. Значення пропсу state не має зумовленої структури та може бути довільним, на розсуд розробника. <br>
+                  </p>
+                  <p class="exemplar">
+                    src/pages/Products.jsx <br>
+                    <br>
+                    const Products = () => { <br>
+                      return ( <br>
+                        < Link to="/products/h-1" state={{ from: "/dashboard?name=hoodie" }}> <br>
+                          Navigate to product h-1 <br>
+                        < /Link> <br>
+                      ); <br>
+                    }; <br>
+                  </p>
+                  <p>
+                    Значення пропсу state буде доступно на об'єкті розташування маршруту куди була виконана навігація. Все, що необхідно зробити, це використовувати хук useLocation, отримати об'єкт location і звернутися до його властивості state.
+                  </p>
+                  <p class="exemplar">
+                    src/pages/ProductDetails.jsx <br>
+                                       <br>
+                    const ProductDetails = () => { <br>
+                      const location = useLocation(); <br>
+                      console.log(location.state);// { from: "/dashboard?name=hoodie" } <br>
+                     <br>
+                      return < Link to={location.state.from}>Back to products< /Link>; <br>
+                    }; <br>
+                  </p>
+                  <p>
+                    Насправді не потрібно обчислювати поточний URL для формування значення власності from. Об'єкт location описує всі частини URL поточного маршруту, тому можна передати його в пропс state.
+                  </p>
+                  <p class="exemplar">
+                    src/pages/Products.jsx <br>
+                    <br>
+                    const Products = () => { <br>
+                      const location = useLocation(); <br>
+                    <br>
+                      return ( <br>
+                        < Link to="/product/h-1" state={{ from: location }}> <br>
+                          Navigate to product h-1 <br>
+                        < /Link> <br>
+                      ); <br>
+                    }; <br>
+                  </p>
+                  <p>
+                    У властивості location.state буде посилання на об'єкт location маршруту з якого відбулася навігація. Пропсу to компонента Link можна передавати не тільки рядок, що описує href майбутнього посилання, але й цілий об'єкт location.
+                  </p>
+                  <p class="exemplar">
+                    src/pages/ProductDetails.jsx <br>
+                    <br>
+                    const ProductDetails = () => { <br>
+                      const location = useLocation(); <br>
+                      console.log(location.state); <br>
+                    <br>
+                    // /products -> products/h-1 <br>
+                    // { from: { pathname: "/products", search: "" } } <br>
+                    <br>
+                    // /products?name=hoodie -> products/h-1 <br>
+                    // { from: { pathname: "/products", search: "?name=hoodie" } } <br>
+                    <br>
+                      return < Link to={location.state.from}>Back to products< /Link>; <br>
+                    }; <br>
+                  </p>
+                  <p>
+                    Останнє, що необхідно врахувати, це випадок, коли користувач перейшов по збереженому раніше посиланню одного продукту в новій вкладці браузера, а не зі сторінки всіх продуктів. У такому разі значення location.state буде null і при зверненні до властивості location.state.from програма впаде з помилкою. Тому необхідно подбати про значення за замовчуванням для пропсу to.
+                  </p>
+                  <p class="exemplar">
+                    src/pages/ProductDetails.jsx <br>
+                    <br>
+                    const ProductDetails = () => { <br>
+                      const location = useLocation(); <br>
+                      const backLinkHref = location.state?.from ?? "/products"; <br>
+                    <br>
+                      return < Link to={backLinkHref}>Back to products< /Link>; <br>
+                    }; <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <!-- Розділення коду -->
+            <li>
+              <h4 class="section-title__name">Розділення коду</h4>
+              <img src="./img/react/розділення-коду.jpg" width="400" alt="" />
+              <p>
+                За замовчуванням, всі залежності проекту об'єднуються в один файл. Чим більше коду, тим повільніше він завантажуватиметься, парситься і виконуватиметься у браузері користувача. На слабких комп'ютерах або телефонах, з поганим підключенням до Інтернет може бути десятки секунд. <br>
+                <br>
+                Вирішення проблеми очевидне - розбити проект на дрібніші файли та завантажувати їх лише за потребою. У цьому полягає концепція поділу коду. Якщо користувач заходить на сторінку логіна, не потрібно завантажувати весь код програми, буде достатньо частини, що відповідає за рендер компонентів тільки цієї сторінки. <br>
+                <br>
+                <span class="exemplar">Поділ коду на кілька файлів це завдання збирача проекту, наприклад Webpack, а не фронтенд фреймворку. Create React App внутрішньо використовує Webpack як збирач і підтримує поділ коду без додаткового налаштування.</span> <br>
+                <br>
+                <span class="selection">(route-centric)</span> Код програми необхідно розділяти за маршрутами та завантажувати за потребою. Цього достатньо для більшості програм. Переходимо на нову сторінку - завантажується необхідний код відображення її компонентів. <br>
+                <br>
+                <span class="selection">(component-centric)</span> Якщо піти далі, то можна оптимізувати завантаження окремих, дуже великих компонентів сторінки, які не потрібні до певної дії користувача. Наприклад, компонент модального вікна, в якому використовується велика бібліотека текстового редактора. <br>
+                <br>
+              </p>
+              <ul>
+                <li>
+                  <p>Розробник приймає рішення як, що і де поділяти. Проте ось кілька найкращих практик.</p>
+                </li>
+                <li>
+                  <p>Поділ коду на основі маршрутів є обов'язковим у будь-якому додатку.</p>
+                </li>
+                <li>
+                  <p>Поділ коду на основі компонентів варто робити тільки у великих, складних інтерфейсах із сотнями компонентів та великими бібліотеками.</p>
+                </li>
+                <li>
+                  <p>Надмірний поділ коду також не найкраща ідея. HTTP-запит за файлом може бути довше ніж додана вага до першого завантаження.</p>
+                </li>
+              </ul>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">React.lazy() та React.Suspense</h5>
+                  <p>
+                    Ви вже знаєте що ES модулі статичні, тобто імпорти та експорти виконуються у час компіляції, а не під час виконання коду. Імпорти повинні бути оголошені у верхній частині файлу, інакше буде помилка компіляції. Це означає, що ви не можете імпортувати залежність динамічно на основі якоїсь умови. <br>
+                    React надає API для того, щоб вказати який код необхідно виділити в окремий файл, а потім завантажувати та рендерувати лише за потреби. <span class="selection">Функція React.lazy()</span> відповідає за асинхронне завантаження компонента, а Suspense призупиняє його відображення до завершення завантаження.
+                  </p>
+                  <p class="exemplar">
+                    import { lazy, Suspense } from "react"; <br>
+                    <br>
+                    const MyComponent = lazy(() => import("path/to/MyComponent")); <br>
+                    <br>
+                    const App = () => { <br>
+                      return ( <br>
+                        < Suspense fallback={< div>Loading...< /div>}> <br>
+                          < Routes> <br>
+                            < Route path="/some-path" element={< MyComponent />} /> <br>
+                            {/* Інші маршрути */} <br>
+                          < /Routes> <br>
+                        < /Suspense> <br>
+                      ); <br>
+                    }; <br>
+                  </p>
+                  <p>
+                    Метод lazy() очікує функцію-завантажувач, яка повертає результат динамічного імпорту - проміс, значенням якого буде дефолтний експорт модуль (компонент). Якщо під час рендеру компонент MyComponent ще не завантажений, потрібно показати заглушку. Для цього використовується компонент Suspense. Проп fallback приймає будь-який React-елемент або компонент. Suspense можна помістити будь-де над асинхронним компонентом або групою компонентів.
+                  </p>
+                  <h5 class="section-title__value">Suspense та прийом «shared layout»</h5>
+                  <p>
+                    Якщо ви використовуєте прийом «shared layout», то потрібно розмістити Suspense безпосередньо всередині компонента SharedLayout. В іншому випадку, при завантаженні кожної сторінки, будуть пропадати і повторно рендерувати компоненти загальної частини сторінок, наприклад хедер та навігація.
+                  </p>
+                  <p class="exemplar">
+                    // src/components/App.jsx <br>
+                    import { lazy } from "react"; <br>
+                    <br>
+                    const MyComponent = lazy(() => import("path/to/MyComponent")); <br>
+                    <br>
+                    const App = () => { <br>
+                      return ( <br>
+                        < Routes> <br>
+                          < Route path="/" element={< SharedLayout />}> <br>
+                            < Route path="some-path" element={< MyComponent />} /> <br>
+                            {/* Інші маршрути */} <br>
+                          < /Route> <br>
+                        < /Routes> <br>
+                      ); <br>
+                    }; <br>
+                    <br>
+                    // src/components/SharedLayout.jsx <br>
+                    import { Suspense } from "react"; <br>
+                    import { Outlet } from "react-router-dom"; <br>
+                    <br>
+                    const SharedLayout = () => { <br>
+                      return ( <br>
+                        < Container> <br>
+                          < AppBar> <br>
+                            < Navigation /> <br>
+                            < UserMenu /> <br>
+                          < /AppBar> <br>
+                          <br>
+                          < Suspense fallback={< div>Loading...< /div>}> <br>
+                            < Outlet /> <br>
+                          < /Suspense> <br>
+                        < /Container> <br>
+                      ); <br>
+                    }; <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+            <!--  -->
+            <li>
+              <h4 class="section-title__name"></h4>
               <div class="section-box">
                 <div>
                   <h5 class="section-title__value"></h5>

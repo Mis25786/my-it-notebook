@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+b<!DOCTYPE html>
 <html lang="uk">
   <head>
     <meta charset="UTF-8" />
@@ -4104,7 +4104,260 @@
                   <img src="" width="0" alt="" />
                 </div>
               </div>
+            </li>         
+            <!-- Основи Redux -->
+            <div class="section">
+        <div class="container">
+          <h3 class="section-title">Основи Redux</h3>
+          <h3>Модуль 6_Урок-1</h3>
+          <p>Redax для зберігання состоянія компонента (React для створення компонентів) (React-Redax для зв'язки React та Redax)</p>
+          <div class="section-box">
+            <img src="./img/react/rdux-store.jpg" width="350" >
+            <img src="./img/react/redux-work.gif"  width="450" >
+            <img src="./img/react/redux-flow.gif" width="350" >
+          </div>
+          <p class="exemplar">
+            // 1 - зробили action creator  <br>
+            const deposit = amount => { <br>
+              // повертаємо action <br>
+              return { <br>
+                type: 'deposit', <br>
+                payload: {amount}, <br>
+              } <br>
+            } <br>
+            <br>
+            // 2 - зробили reducer щоб обробити action <br>
+            function fundsReducer(state = 0, action) { <br>
+              switch (action.type) { <br>
+                case 'deposit': <br>
+                return state + action.payload.amount; <br>
+            <br>
+                default: return state; <br>
+              } <br>
+            } <br>
+            <br>
+            // 3 - зробили store щоб все зареєструвати і ініціалізувати <br>
+            const store = createStore(fundsReducer); <br>
+            <br>
+            // 4 - прив'язали до компонента і відправляємо action <br>
+            < button onClick={REDUX.dispatch(deposit(100))}>...< /button> <br>
+             <br>
+          </p>
+          <!-- <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul> -->
+          <ul>
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <ol>
+                    <li>npm install redux  - Встановлюємо редакс</li>
+                    <li>npm install react-redux  - Встановлюємо пакет для зв'язки реакт-компоненнтів та редакс</li>
+                    <li>Створюємо в папці src папку store або redux а в ній файлик store.js</li>
+                    <li>
+                      Імпортуємо в файл index.js провайдер та стор <br>
+                      <br>
+                      import {Provider} from 'react-redux' <br>
+                      import {store} from './store/store.js' <br>
+                    </li>
+                    <li>
+                      Обгортаємо App провайдером <br>
+                      <br>
+                      < Provider store={store} > <br>
+                        < App /> <br>
+                      < /Provider> <br>
+                    </li>
+                    <li>
+                      В файлі store.js створюємо reducer (функція) щоб обробити action та store щоб все зареєструвати і ініціалізувати <br>
+                      <br>
+                      import {createStore} from 'rdux'; <br>
+                      <br>
+                      const reducer = (state, action) => {}; <br>
+                      <br>
+                      export const store = createStore(reducer, action); <br>
+                      <br>
+                      <p class="exemplar">
+                        Приклад на лічильнику <br>
+                        <br>
+                        import {createStore} from 'rdux'; <br>
+                      <br>
+                      const reducer = (state, action) => { <br>
+                      switch (action.type) { <br>
+                        case 'increment': <br>
+                          return { <br>
+                            ...state, // розпшуємо все що в стейті <br>
+                            total: state.total + action.payload, // змінюємо значення данного ключа <br>
+                            } <br>
+                        case 'decrement': <br>
+                          return { <br>
+                            ...state, // розпшуємо все що в стейті <br>
+                            total: state.total - action.payload, // змінюємо значення данного ключа <br>
+                            } <br>
+                            <br>
+                        default: <br>
+                          return state <br>
+                        } <br>
+                      }; <br>
+                      <br>
+                      export const store = createStore(reducer, {total: 0, })
+                      </p> 
+                    </li>
+                    <li>
+                      В компоненті достукуємось та змінюємо state в redux за допомогою хуків: <br>
+                      <br>
+                      (useSlctor()) - const state = useSelektor(state => state) // це як в Реакті const [state, ...] = useState() він зберігає стейт (для лічильника можемо дистрктуризувати стейт const {total} = useSelektor(state => state))<br>
+                      (useDispatch()) - const dispatch = useDispatch() // це як в Реакті const [..., setState] = useState() він змінює значення стейта <br>
+                    </li>
+                    <li>
+                      <h3>Коли функція reducer розростається то ми її розділяємо та створюємо для неї окремий файл а також значення початкового стану теж закидуємо в окремий файл</h3>
+                      В папці store створюємо ще два файли: reducer.js та initialState.js <br>
+                    </li>
+                    <li>
+                      Перекидуємо з файла store.js функцію reducer в файл reducer.js а початкові (default) значення в initialState.js
+                      <div class="section-box exemplar">
+                        <p>
+                          store.js <br>
+                          <br>
+                          import {createStore} from 'rdux'; <br>
+                          import {reducer} from './reducer.js'; <br> 
+                          <br>
+                          export const store = createStore(reducer); <br>
+                        </p>
+                        <p>
+                          reducer.js <br>
+                          <br>
+                          import {combineReducers} from 'redux'; <br>
+                          import {initialState} from './initialState.js'; <br>
+                          <br>
+                          const counterReducer = (state = initialState.counter, action) => { <br>
+                           switch (action.type) { <br>
+                        case 'increment': <br>
+                          return { <br>
+                            ...state, // розпшуємо все що в стейті <br>
+                            total: state.total + action.payload, // змінюємо значення данного ключа <br>
+                            } <br>
+                        case 'decrement': <br>
+                          return { <br>
+                            ...state, // розпшуємо все що в стейті <br>
+                            total: state.total - action.payload, // змінюємо значення данного ключа <br>
+                            } <br>
+                        case 'setStep': <br>
+                          return { <br>
+                            ...state, // розпшуємо все що в стейті <br>
+                            step: action.payload, // змінюємо значення данного ключа <br>
+                            } <br>
+                            <br>
+                        default: <br>
+                          return state <br>
+                        } <br>
+                          } <br>
+                          <br>
+                          const todoReducer = (state = initialState.counter, action) => { <br>
+                           switch (action.type) { <br>
+                        case 'createTodo': <br>
+                          return { <br>
+                            ...state, // розпшуємо все що в стейті <br>
+                            todo: [...state.todo, {action.payload}], // змінюємо значення данного ключа <br>
+                            } <br>
+                            <br>
+                        default: <br>
+                          return state <br>
+                        } <br>
+                          } <br>
+                          <br>
+                          export const reducer = combineReducers({ <br>
+                            counter: counterReducer, <br>
+                            todo: todoReducer, <br>
+                          }) <br>
+                          <br>
+                        </p>
+                        <p>
+                          initialState.js <br>
+                          <br>
+                          export const initialState = {
+                            counter: {total: 0, step: 1},
+                            todo: {todo: [], filteredTodo: []}
+                          }
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      Потім в компонентах де ми звертаємось до стейта потрібно вказати ключ який саме редюсер будемо використати <br>
+                      const state = useSelektor(state => state.counter) <br>
+                      або <br>
+                      const state = useSelektor(state => state.todo) <br>                      
+                    </li>
+                    <li>
+                      <h3>Також коли проект розростається ми в папці store створюємо папки окремо для кожного компонента в яких створюємо файли action.js, initialState.js, ...Reducer.js окремо для кожного компонента куди виносимо всі їх action, початкові значення та функції reducer, також файл type.js куди виносимо в константи всі назви типів (const INCREMENT = "increment") щоб уникнути в майбутньому помилки</h3>
+                      В корені папки store залишиться store.js та reducer.js який виглядатиме: <br>
+                      <br>
+                      import {combineReducers} from 'redux'; <br>
+                      import {counterReducer} from './counter/counterReducer.js'; <br>
+                      import {todoReducer} from './todo/todoReducer.js'; <br>
+                      <br>
+                      export const reducer = combineReducers({ <br>
+                        counter: counterReducer, <br>
+                        todo: todoReducer, <br>
+                      }) <br>
+                    </li>
+                  </ol>
+                  <br>
+                  <p>
+                    Redux це одна з найпопулярніших бібліотек керування станом програми.
+                  </p>
+                  <ul>
+                    <li>
+                      <h3>Передбачуваність результату</h3> - існує завжди одне джерело правди, стор (сховище, store), що приховує у собі стан програми та методи для роботи з ним.
+                    </li>
+                    <li>
+                      <h3>Підтримуваність</h3> - є набір правил та кращих практик про те, як повинен бути структурований код, що робить його більш одноманітним та зрозумілим.
+                    </li>
+                    <li>
+                      <h3>Інструменти розробника</h3> - зручне розширення браузера в якому надається максимум інформації про стан програми в режимі реального часу.
+                    </li>
+                  </ul>
+                  <p>
+                    Redux створенням стора (сховища, store), який відповідає за централізоване зберігання всього стану та надає набір правил та методів для його зміни. Компонентам залишається викликати методи для оновлення даних та підписатися на оновлення. <br>
+                    <br>
+                    Потік даних у Redux завжди односпрямований, від компонентів до стору, та від стора до компонентів без посередників. Це робить логіку програми більш передбачуваною та легкою для розуміння. <br>
+                    <br>                    
+                  </p>
+                  <ul>
+                    <li>
+                      Користувач, працюючи з інтерфейсом, ініціалізує відправку екшенів (дій, actions).
+                    </li>
+                    <li>
+                      Стор (store) викликає всі оголошені редюсери (reducers), функції для зміни стану, передаючи їм поточний стан (state) та екшен (дія, action).
+                    </li>
+                    <li>
+                      Стор (store) зберігає оновлений стан (state) повернутий з редюсерів (reducers).
+                    </li>
+                    <li>
+                      При оновленні стану (state) повторно рендеруються залежні від нього компоненти.
+                    </li>
+                  </ul>
+                  <h5 class="section-title__value">Плюси і мінуси</h5>
+                  <p>
+                    Redux це лише інструмент для управління станом програми, який призначений для того, щоб допомогти відповісти на запитання – «Коли і як змінилася певна частина стану». Якщо у вас немає проблем із керуванням станом використовуючи можливості React, вам може бути важче зрозуміти переваги Redux. Можливо стан React це все, що вам потрібно для створення програми. <br>
+                    <br>
+                    Необхідність використовувати бібліотеку управління станом не слід сприймати як належне. Якщо додаток стає настільки складним, що ви не розумієте, де зберігається стан, як воно змінюється, і ви виявите, що зберігання даних у стані компонента React вже недостатньо, тоді саме час використовувати Redux. <br>
+                    <br>
+                    Тим не менш, використання Redux потребує компромісів. Він не створений щоб бути найкоротшим або найшвидшим способом написання коду. Redux накладає певні вимоги: зберігати стан програми у вигляді простої структури даних (стор), описувати зміни об'єктами (екшени) та обробляти ці зміни за допомогою чистих функцій (редюсери). <br>
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
             </li>
+          </ul>
+        </div>
+            </div>
             <!--  -->
             <li>
               <h4 class="section-title__name"></h4>
@@ -4125,33 +4378,6 @@
         </div>
       </div>
 
-      <!--  -->
-      <div class="section">
-        <div class="container">
-          <h3 class="section-title">title</h3>
-          <h3></h3>
-          <ul>
-            <li><a href="" target="_blank"></a></li>
-          </ul>
-          <ul>
-            <li>
-              <h4 class="section-title__name"></h4>
-              <div class="section-box">
-                <div>
-                  <h5 class="section-title__value"></h5>
-                  <p></p>
-                  <div class="section-box">
-                    <img src="" width="0" alt="" />
-                  </div>
-                </div>
-                <div class="section-icon">
-                  <img src="" width="0" alt="" />
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
 
     </main>
 

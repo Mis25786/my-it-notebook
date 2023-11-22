@@ -4104,9 +4104,30 @@ b<!DOCTYPE html>
                   <img src="" width="0" alt="" />
                 </div>
               </div>
-            </li>         
-            <!-- Основи Redux -->
-            <div class="section">
+            </li>        
+            
+            <!--  -->
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Основи Redux -->
+      <div class="section">
         <div class="container">
           <h3 class="section-title">Основи Redux</h3>
           <h3>Модуль 6_Урок-1</h3>
@@ -4232,7 +4253,7 @@ b<!DOCTYPE html>
                           import {initialState} from './initialState.js'; <br>
                           <br>
                           const counterReducer = (state = initialState.counter, action) => { <br>
-                           switch (action.type) { <br>
+                          switch (action.type) { <br>
                         case 'increment': <br>
                           return { <br>
                             ...state, // розпшуємо все що в стейті <br>
@@ -4255,7 +4276,7 @@ b<!DOCTYPE html>
                           } <br>
                           <br>
                           const todoReducer = (state = initialState.counter, action) => { <br>
-                           switch (action.type) { <br>
+                          switch (action.type) { <br>
                         case 'createTodo': <br>
                           return { <br>
                             ...state, // розпшуємо все що в стейті <br>
@@ -4293,14 +4314,139 @@ b<!DOCTYPE html>
                       <h3>Також коли проект розростається ми в папці store створюємо папки окремо для кожного компонента в яких створюємо файли action.js, initialState.js, ...Reducer.js окремо для кожного компонента куди виносимо всі їх action, початкові значення та функції reducer, також файл type.js куди виносимо в константи всі назви типів (const INCREMENT = "increment") щоб уникнути в майбутньому помилки</h3>
                       В корені папки store залишиться store.js та reducer.js який виглядатиме: <br>
                       <br>
-                      import {combineReducers} from 'redux'; <br>
-                      import {counterReducer} from './counter/counterReducer.js'; <br>
-                      import {todoReducer} from './todo/todoReducer.js'; <br>
-                      <br>
-                      export const reducer = combineReducers({ <br>
-                        counter: counterReducer, <br>
-                        todo: todoReducer, <br>
-                      }) <br>
+                      <p>
+                        Структура папок виглядатиме ось так: <br>
+                        <br>
+                        store // папка store або redux в якій: <br>
+                        <br>
+                        > counter // папка в якій: <br>
+                        >> counterReducer.js <br>
+                        >> initialState.js <br>
+                        >> action.js <br>
+                        >> types.js <br>
+                        <br>
+                        > todo // папка в якій: <br>
+                        >> todoReducer.js <br>
+                        >> initialState.js <br>
+                        >> action.js <br>
+                        >> types.js <br>
+                        <br>
+                        > store.js // файл <br>
+                        > reducer.js // файл <br>
+                        > initialState.js <br>
+                        <br>
+                      </p>
+                      <h3>Тоді файли виглядатимуть ось так:</h3>
+                      <h4>Приклад з компонентом counter (без todo)</h4>
+                      <div class="section-box exemplar" style="display: flex; flex-wrap: wrap; gap: 20;">
+                        <p class="exemplar">
+                          store.js <br>
+                          <br>
+                          import {createStore} from 'rdux'; <br>
+                          import {reducer} from './reducer.js'; <br> 
+                          <br>
+                          export const store = createStore(reducer); <br>
+                        </p>
+                        <p class="exemplar">
+                          reducer.js <br>
+                          <br>
+                          import {combineReducers} from 'redux'; <br>
+                          import {counterReducer} from './counter/counterReducer.js'; <br>
+                          import {todoReducer} from './todo/todoReducer.js'; <br>
+                          <br>
+                          export const reducer = combineReducers({ <br>
+                            counter: counterReducer, <br>
+                            todo: todoReducer, <br>
+                          }) <br>
+                        </p>
+                        <p class="exemplar">
+                          initialState.js <br>
+                          <br>
+                          import {counterInitialState} from './counter/initialState.js'; <br>
+                          import {todoInitialState} from './todo/initialState.js'; <br>
+                          <br>
+                          export const initialState = { <br>
+                            counter: counterInitialState, <br>
+                            todo: todoInitialState,  <br>
+                          } <br>
+                        </p>
+
+
+                        <p class="exemplar">
+                          counterReducer.js <br>
+                          <br>
+                          import {counterInitialState} from "./initialState.js" <br>
+                          import {INCREMENT, DECREMENT, SETSTEP} from "./types.js" <br>
+                          <br>
+                          export const counterReducer = (state = counterInitialState, action) => { <br>
+                          switch (action.type) { <br>
+                        case INCREMENT: <br>
+                          return { <br>
+                            ...state, <br>
+                            total: state.total + action.payload, <br>
+                            } <br>
+                        case DECREMENT: <br>
+                          return { <br>
+                            ...state, <br>
+                            total: state.total - action.payload, <br>
+                            } <br>
+                        case SETSTEP: <br>
+                          return { <br>
+                            ...state, <br>
+                            step: action.payload, <br>
+                            } <br>
+                            <br>
+                        default: <br>
+                          return state <br>
+                        } <br>
+                          } <br>
+                          <br>
+                        </p>
+                        <p class="exemplar">
+                          initialState.js <br>
+                          <br>
+                          export const counterInitialState = { <br>
+                            counter: {total: 0, step: 1}, <br>
+                          } <br>
+                        </p>
+                        <p class="exemplar">
+                          action.js <br>
+                          <br>
+                          import {INCREMENT, DECREMENT, SETSTEP} from "./types.js" <br>
+                          <br>
+                          export const increment = (step) => ({type: INCREMENT, payload: step}) <br>
+                          export const decrement = (step) => ({type: DECREMENT, payload: step}) <br>
+                          export const setStep = (value) => ({type: SETSTEP, payload: value}) <br>
+                        </p>
+                        <p class="exemplar">
+                          types.js <br>
+                          <br>
+                          export const INCREMENT = "INCREMENT" <br>
+                          export const DECREMENT = "DECREMENT" <br>
+                          export const SETSTEP = "SETSTEP" <br>
+                          <br>
+                          цей файл для того щоб ми не робили синтаксичні помилки, тому робимо глобальні константи <br>
+                        </p>
+                        <p class="exemplar">
+                          component.js // де це все використовуємо<br>
+                          <br>
+                          import {useSelector, useDispatch} from "react-redux" <br>
+                          import {increment, decrement} from "../../store/counter/actions.js" <br>
+                          <br>
+                          const Counter = () => { <br>
+                            const {total, step} = useSelector(state => state.counter) <br>
+                            const dispatch = useDispatch() <br>
+                            <br>
+                            const handleClickPlus = () => dispatch(increment(step)) <br>
+                            const handleClickMinus = () => dispatch(decrement(step)) <br>
+                            <br>
+                            return { <br>
+                              // ... // <br>
+                            } <br>
+                          }
+                        </p>
+                      </div>
+                      
                     </li>
                   </ol>
                   <br>
@@ -4355,9 +4501,266 @@ b<!DOCTYPE html>
                 </div>
               </div>
             </li>
+
+            <!--  -->
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
           </ul>
         </div>
+      </div>
+
+      <!-- Redux Toolkit -->
+      <div class="section">
+        <div class="container">
+            <h3 class="section-title">Redux Toolkit</h3>
+          <h3>Модуль 6_Урок-2</h3>
+          <ul>
+            <li><a href="https://redux-toolkit.js.org/" target="_blank">Redux Toolkit</a></li>
+          </ul>
+          <div class="section-box">           
+            <img src="" width="" >
+          </div>
+          <div>
+            <p>
+              Під час використання бібліотеки Redux є три основні проблеми: <br>
+              <br>
+              Надмірно складний процес налаштування стора <br>
+              Необхідність встановлення стандартного набору додаткових бібліотек для розширення можливостей Redux <br>
+              Великий обсяг шаблонного коду створення екшенів, редюсерів тощо. <br>
+            </p>
+            <div>
+              <h3>Redux Toolkit</h3> - це офіційна бібліотека для ефективної розробки з використанням Redux, яка призначена для стандартизації та спрощення написання логіки Redux. <br>
+              <br>
+              Дозволяє зосередитися на написанні основної логіки програми, не витрачаючи час на налаштування. <br>
+              Містить утиліти для спрощення основних завдань. Таких як налаштування стора, створення екшенів та редюсерів, іммутабельне оновлення даних та багато чого іншого. <br>
+              Надає стандартний набір налаштувань для стора і включає в себе бібліотеки, що часто використовуються з екосистеми Redux. <br>
             </div>
+          </div>
+
+          <ul>
+            <!--  -->
+            <li>
+              <h4 class="section-title__name">Встановлення</h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">npm install @reduxjs/toolkit</h5>
+                  <h5 class="section-title__value">npm install react-redux</h5>
+                  <h3>або</h3>
+                  <h5 class="section-title__value">npx create-react-app my-app --template redux</h5>
+                  <p>
+                    якщо піднімаємо проект разом з реактом <br>
+                    <br>
+                  </p>
+                  <h4>Приклад коли все в одному файлі (якщо потрібно розбити по компонентам то робимо як в redux зверху)</h4>
+                  <ol>
+                    <li>
+                      В папці src створюємо папку redux або store а в ній файл store.js в якому створюємо:
+                      <p class="exemplar">
+                        store.js <br>
+                        <br>
+                        import { configureStore } from '@reduxjs/toolkit' <br>
+                        <br>
+                        export const store = configureStore({ <br>
+                          reducer: {}, <br>
+                        }) <br>
+                      </p>
+                    </li>
+                    <li>
+                      Далі йдемо в файл index.js і огортаємо App в < Provider> і додаємо store={store}
+                      <p class="exemplar">
+                        index.js <br>
+                        <br>
+                        import React from 'react' <br>
+                        import ReactDOM from 'react-dom' <br>
+                        import './index.css' <br>
+                        import App from './App' <br>
+                        <br>
+                        import { store } from './app/store' <br>
+                        import { Provider } from 'react-redux' <br>
+                        <br>
+                        ReactDOM.render( <br>
+                          < Provider store={store}> <br>
+                            < App /> <br>
+                          < /Provider>, <br>
+                          document.getElementById('root') <br>
+                        ) <br>
+                      </p>
+                    </li>
+                    <li>
+                      // створюємо initialState, Actions, reducer
+                      <p class="exemplar">
+                        store.js <br>
+                        <br>
+                        import { configureStore } from '@reduxjs/toolkit' <br>
+                        import { createAction, createReducer } from '@reduxjs/toolkit' <br>
+                        <br>
+                        // initialState <br>
+                        const initialState = 0; <br>
+                        <br>
+                        // Actions <br>
+                        export const increment = createAction('myValue/increment') <br>
+                        export const increment = createAction('myValue/decrement') <br>
+                        <br>
+                        // reducer <br>
+                        const myReducer = createReducer(initialState, { <br>
+                          [increment]: (state, action) =>state + action.payload, <br>
+                          [decrement]: (state, action) =>state - action.payload, <br>
+                        }); <br>
+                        <br>
+                        export const store = configureStore({ <br>
+                          reducer: { <br>
+                            myValue: myReducer, <br>
+                          }, <br>
+                        }) <br>
+                      </p>
+                    </li>
+                    <li>
+                      // як використовується в компоненті 
+                      <p class="exemplar">
+                        component.js <br>
+                      <br>
+                      import {useSelector, useDispatch} fro "react-redux"; <br>
+                      import {increment, decrement} from "../redux/store.js"; <br>
+                      <br>
+                      export const Layout = () => { <br>
+                        const dispatch = useDispatch();  <br>
+                        const value = useSelector(state => state.myValue); <br>
+                        <br>
+                        rturn ( <br>
+                          < div> <br>
+                            {value} <br>
+                            < button onClick={() => dispatch(increment(100))}>Increment< /button> <br>
+                            < button onClick={() => dispatch(Decrement(100))}>Decrement< /button> <br>
+                          < /div> <br>
+                        ) <br>
+                      } <br>
+                      </p>
+                    </li>
+                  </ol>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!--  -->
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="section">
+        <div class="container">
+            <h3 class="section-title">title</h3>
+          <h3></h3>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <div class="section-box">           
+            <img src="" width="" >
+          </div>
+
+          <ul>
+            <!--  -->
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!--  -->
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="section">
+        <div class="container">
+            <h3 class="section-title">title</h3>
+          <h3></h3>
+          <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul>
+          <div class="section-box">           
+            <img src="" width="" >
+          </div>
+
+          <ul>
+            <!--  -->
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
             <!--  -->
             <li>
               <h4 class="section-title__name"></h4>

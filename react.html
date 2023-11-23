@@ -4551,7 +4551,7 @@ b<!DOCTYPE html>
           </div>
 
           <ul>
-            <!--  -->
+            <!-- Встановлення -->
             <li>
               <h4 class="section-title__name">Встановлення</h4>
               <div class="section-box">
@@ -4660,11 +4660,194 @@ b<!DOCTYPE html>
               </div>
             </li>
 
-            <!--  -->
+            <!-- createSlice -->
             <li>
-              <h4 class="section-title__name"></h4>
+              <h4 class="section-title__name">createSlice</h4>
+              <h3>Модуль 6_Урок-2 (друга половина)</h3>
+              <h4>Для чого createSlice? За допомогою нього ми зменшуємо кількість написаного коду і групємо все, та в папці компонента (напр. counter) замість двох файлів action.js та reducer.js пишемо весь код в одному counterSlice.js</h4>
               <div class="section-box">
                 <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Функція [createSlice()](< https://redux-toolkit.js.org/api/createSlice>) це надбудова над createAction() та createReducer(), яка стандартизує та ще більше спрощує оголошення слайсу. Вона приймає параметри налаштувань, створює і повертає типи екшенів, генератори екшенів та редюсер. Розберемо створення слайсу на прикладі списку задач.
+                  </p>
+                  <p>
+                    import { createSlice } from "@reduxjs/toolkit"; <br>
+                    <br>
+                    const tasksSlice = createSlice({ <br>
+                      // Ім'я слайсу <br>
+                      name: "tasks", <br>
+                      // Початковий стан редюсера слайсу <br>
+                      initialState: tasksInitialState, <br>
+                      // Об'єкт редюсерів <br>
+                      reducers: { <br>
+                        addTask(state, action) {}, <br>
+                        deleteTask(state, action) {}, <br>
+                        toggleCompleted(state, action) {}, <br>
+                      }, <br>
+                    }); <br>
+                    <br>
+                    // Генератори екшенів <br>
+                    const { addTask, deleteTask, toggleCompleted } = tasksSlice.actions; <br>
+                    // Редюсер слайсу <br>
+                    const tasksReducer = tasksSlice.reducer; <br>
+                    <br>
+                  </p>
+                  <h3>
+                    Отже тепер в нас структура файлів виглядатиме ось так (з прикладу в redux): <br>
+                    <br>
+                  </h3>
+                  <p>                    
+                    store // папка store або redux в якій: <br>
+                    <br>
+                    > counter // папка в якій: <br>
+                    >> counterSlice.js <br>
+                    >> initialState.js <br>
+                    >> types.js <br>
+                    <br>
+                    > todo // папка в якій: <br>
+                    >> todoSlice.js <br>
+                    >> initialState.js <br>
+                    >> types.js <br>
+                    <br>
+                    > store.js // файл <br>
+                    > reducer.js // файл <br>
+                    > initialState.js // файл <br>
+                    <br>
+                  </p>
+                  <h3>Всі файли залишаються без змін тільки в папках компонентів видаляємо файли counterReducer.js/todoReducer.js та action.js а вмісто них створюємо counterSlice.js/todoSlice.js (по назві компонента), та в файлі reducer.js а також в самих компонентах змінюємо шлях імпорту файлів (import {increment, decrement} from "../../store/counter/counterSlice.js) </h3>
+                  <div class="section-box exemplar">
+                    <p>
+                      Приклад з компонентом counter <br>
+                      <br>
+                      counterSlice.js <br>
+                      <br>
+                      import { createSlice } from "@reduxjs/toolkit"; <br>
+                      import {counterInitialState} from "./initialState" <br>
+                      <br>
+                      export const counterSlise = createSlice({ <br>
+                      name: "counter", <br>
+                      initialState: counterInitialState, <br>
+                      reducer: { <br>
+                        increment: (state, action) => { state.total += action.payload } <br>
+                        decrement: (state, action) => { state.total -= action.payload } <br>
+                        setStep: (state, action) => { state.step = action.payload } <br>
+                      } <br>
+                      }) <br>
+                      <br>
+                      export const counterReducer = counterSlice.reducer <br>                      
+                      export const {increment, decrement, setStep} = counterSlice.actions <br>                      
+                    </p>
+                    <p></p>
+                  </div>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!-- redux persist -->
+            <li>
+              <h4 class="section-title__name">redux-persist Для роботи з localStorage</h4>
+              <h3>Модуль 6_Урок-2 (друга половина)</h3>
+              <a href="https://www.npmjs.com/package/redux-persist" target="_blank" rel="noopener noreferrer">Redux Persist</a>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value">Встановлення та ініціалізація</h5>
+                  <ol>
+                    <li>npm i redux-persist</li>
+                    <li>
+                      Йдемо в папку store або redux в файл store.js та імпортууємо функції з redux-persist та ініціалізуємо його для роботи з localStorage
+                      <p class="exemplar">
+                        store.js <br>
+                        <br>
+                        import {createStore} from 'rdux'; <br>
+                        import { persistStore, persistReducer } from 'redux-persist'; <br>
+                        import storage from 'redux-persist/lib/storage'; <br>
+                        import {reducer} from './reducer.js'; <br>
+                        <br>
+                        const persistConfig = { <br>
+                          key: 'root', <br>
+                          storage, <br>
+                        } <br>
+                        <br>
+                        const persistedReducer = persistReducer(persistConfig, reducer) <br>
+                        export const store = createStore(reducer); <br>
+                        export const persistor = persistStore(store); <br>
+                      </p>
+                    </li>
+                    <li>
+                      Йдемо в файл index.js і огортаємо App в PersistGate 
+                      <p class="exemplar">
+                        index.js <br>
+                        <br>
+                        // ... // <br>
+                        import { PersistGate } from 'redux-persist/integration/react'; <br>
+                        import { persistor, store } from './store/store.js'; <br>
+                        <br>
+                        ReactDOM.createRoot(document.getElementById('root')).render( <br>
+                          < BrowserRouter> <br>
+                            < Provider store={store}> <br>
+                              < PersistGate loading={null} persistor={persistor}> <br>
+                                < App /> <br>
+                              < /PersistGate> <br>
+                            < /Provider> <br>
+                          < /BrowserRouter> <br>
+                        ) <br>
+                      </p>
+                    </li>
+                  </ol>
+                  <p>
+                    При такій побудові в нас будуте залітати вся інформація з компонентів (редюсерів reducer) в localStorage. Але інколи нам цього не потрібно, і тому є чорний та білий листи (Blacklist & Whitelist), де ми показуємо дані з яких саме редюсерів повинні записуватися в localStorage<br>
+                    <br>
+                        const persistConfig = { <br>
+                          key: 'root', <br>
+                          storage, <br>
+                        } <br>
+                        <br>
+                    Це зроблено для того, щоб наприклад якщо в нас є п'ять редюсерів(компонентів) але данні записувати або не записвати в localStorage потрібно тільки одного то ми його ключ передаємо в Blacklist або Whitelist <br>
+                    <br>                    
+                  </p>
+                  <div class="section-box exemplar">
+                    <p>
+                      // BLACKLIST <br>
+                    const persistConfig = { <br>
+                      key: 'root', <br>
+                      storage: storage, <br>
+                      blacklist: ['counter'] // не запише данні тільки з редюсера (компонента) з ключом counter <br>
+                    }; <br>
+                    <br>                    
+                    </p>
+                    <p>
+                      // WHITELIST <br>
+                    const persistConfig = { <br>
+                      key: 'root', <br>
+                      storage: storage, <br>
+                      whitelist: ['counter'] // запише данні тільки з редюсера (компонента) з ключом counter <br>
+                    }; <br>
+                    <br>                    
+                    </p>
+                    <p>
+                      Ключі редюсерів показємо з файлу <br>
+                    <br>
+                    reducer.js  <br>
+                    <br>
+                    // ... // 
+                    <br>
+                    // combineReducers в reduxjs-toolkit не використовується //<br>
+                    export const reducer = ({  <br>
+                    counter: counterReducer, <br>
+                    todo: todoReducer, <br>
+                    })  <br>
+                    </p>
+                  </div>
+                  <p class="exmplar"></p>
+                  <h3></h3>
+                  <p></p>
                   <h5 class="section-title__value"></h5>
                   <p></p>
                   <div class="section-box">

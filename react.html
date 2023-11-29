@@ -2418,10 +2418,10 @@ b<!DOCTYPE html>
                   <p>функція яка записує значення value</p>
                   <p class="exemplar">
                     import { useState } from "react"; <br>
-                                       <br>
+                    <br>
                     const App = () => { <br>
                       const [value, setValue] = useState(0); <br>
-                     <br>
+                      <br>
                       return ( <br>
                         < div> <br>
                           {value} <br>
@@ -2431,7 +2431,7 @@ b<!DOCTYPE html>
                         < /div> <br>
                       ); <br>
                     }; <br>
- </p>
+                  </p>
                   <div class="section-box">
                     <img src="" width="0" alt="" />
                   </div>
@@ -4502,6 +4502,40 @@ b<!DOCTYPE html>
               </div>
             </li>
 
+            <!-- Redux DevTools -->
+            <li>
+              <h4 class="section-title__name">Redux DevTools</h4>
+              <div class="section-icon">
+                  <img src="./img/react/redux-devtools.jpg" width="400" alt="" />
+                </div>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Інструменти розробника це розширення браузера, яке додає зручний візуальний інтерфейс для налагодження змін стану програми та стеження за потоком даних у Redux, від відправлення дій до зміни стану. <br>
+                                       <br>
+                    Для початку необхідно додати розширення інструментів розробника у ваш браузер: <br>
+                  </p>
+                  <ul>
+                    <li><a href="https://chromewebstore.google.com/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?pli=1" target="_blank" rel="noopener noreferrer">Chrome Web Store</a></li>
+                    <li><a href="https://addons.mozilla.org/en-US/firefox/addon/reduxdevtools/" target="_blank" rel="noopener noreferrer"></a>Firefox Add-ons</li>
+                    <li><a href="Edge Add-ons" target="_blank" rel="noopener noreferrer">Edge Add-ons</a></li>
+                  </ul>
+                  <h5 class="section-title__value">Встановлення</h5>
+                  <h3>npm install @redux-devtools/extension</h3>
+                  <p>
+                    Після запуску проекту командою npm start, у стандартних інструментах розробника з'явиться нова вкладка Redux, при переході на яку відкриються Redux DevTools зі списком відправлених екшенів зліва та детальною інформацією про стан та екшени праворуч.
+                  </p>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
             <!--  -->
             <li>
               <h4 class="section-title__name"></h4>
@@ -4864,14 +4898,22 @@ b<!DOCTYPE html>
         </div>
       </div>
 
-      <!--  -->
+      <!-- Асинхронні операції (HTTP-запити) -->
       <div class="section">
         <div class="container">
-            <h3 class="section-title">title</h3>
-          <h3></h3>
+            <h3 class="section-title">Асинхронні операції Redux (HTTP-запити)</h3>
+          <h3>Модль 7</h3>
           <ul>
-            <li><a href="" target="_blank"></a></li>
+            <li><a href="https://codesandbox.io/p/sandbox/goit-react-textbook-lesson-13-redux-toolkit-createasyncthunk-ol6wh5?file=%2Fsrc%2Fredux%2Foperations.js%3A13%2C15" target="_blank">ПРИКЛАД </a></li>
           </ul>
+          <p>
+            HTTP-запити це асинхронні операції, які представлені промісами, тому їх можна розбити на три складові: процес запиту (pending), успішне завершення запиту (fulfilled) та завершення запиту з помилкою (rejected). Цей шаблон застосуємо до будь-яких запитів читання, створення, видалення та оновлення.
+          </p>
+          <div class="section-box">
+            <img src="./img/react/asinchrone-operation-1.png" width="400" alt="" />
+            <img src="./img/react/asinchrone-operation-2.png" width="400" alt="" />
+            <img src="" width="0" alt="" />
+          </div>
           <div class="section-box">           
             <img src="" width="" >
           </div>
@@ -4882,8 +4924,456 @@ b<!DOCTYPE html>
               <h4 class="section-title__name"></h4>
               <div class="section-box">
                 <div>
-                  <h5 class="section-title__value"></h5>
-                  <p></p>
+                  <h5 class="section-title__value">createAsyncThunk</h5>
+                  <p>
+                    Redux Toolkit спрощує процес оголошення асинхронного генератора екшену за допомогою функції [<a href="https://redux-toolkit.js.org/api/createAsyncThunk" target="_blank">createAsyncThunk()</a>]. <br>
+                    Першим аргументом вона приймає тип екшену, а другим функцію, яка повинна виконати HTTP-запит і повернути проміс із даними, які стануть значенням payload. <br>
+                    Вона повертає асинхронний генератор екшену (операцію) при запуску якого виконається функція з кодом запиту.
+                  </p>
+                  <p class="exemplar">
+                    src/redux/operations.js <br>
+                                       <br>
+                    import axios from "axios"; <br>
+                    import { createAsyncThunk } from "@reduxjs/toolkit"; <br>
+                                       <br>
+                    axios.defaults.baseURL = "< https://62584f320c918296a49543e7.mockapi.io >"; <br>
+                                       <br>
+                    export const fetchTasks = createAsyncThunk("tasks/fetchAll", async () => { <br>
+                      const response = await axios.get("/tasks"); <br>
+                      return response.data; <br>
+                    }); <br>
+                     <br>
+                  </p>
+                  <p>
+                    Функція createAsyncThunk() автоматично створює екшени, що представляють життєвий цикл HTTP-запиту, і відправляє їх у правильному порядку, залежно від статусу запиту. Тип створених екшенів складається з рядка, зазначеного першим аргументом ("tasks/fetchAll"), до якого додається постфікси "pending", "fulfilled" або "rejected", залежно від того, який стан запиту описує екшен. <br>
+                     <br>
+                    "tasks/fetchAll/pending" - початок запиту <br>
+                    "tasks/fetchAll/fulfilled" - успішне завершення запиту <br>
+                    "tasks/fetchAll/rejected" - завершення запиту з помилкою <br>
+                  </p>
+                  <img src="./img/react/dvtools-create-async-thunk.png" width="400" alt="">
+                  <p>
+                    Колбек функція, в якій виконується запит, називається payloadCreator і відповідає за складання значення властивості payload. <br>
+                    Вона буде викликана з двома аргументами: arg та thunkAPI. <br>
+                    <br>
+                      arg - значення, яке було передано операції під час виклику. Використовується, наприклад, для передачі ідентифікаторів об'єктів при видаленні, тексту нотаток при створенні, тощо. <br>
+                      thunkAPI - об'єкт, який передається в асинхронний генератор екшену в redux-thunk. Містить властивості та методи доступу до стору, відправки екшенів, а також деякі додаткові.
+                  </p>                  
+                  <h3>payloadCreator(arg, thunkAPI)</h3>
+                  <p class="exemplar">
+                    src/redux/operations.js <br>
+                    <br>
+                    import { createAsyncThunk } from "@reduxjs/toolkit"; <br>
+                    import axios from "axios"; <br>
+                    <br>
+                    axios.defaults.baseURL = "< https://62584f320c918296a49543e7.mockapi.io >"; <br>
+                    <br>
+                    export const fetchTasks = createAsyncThunk( <br>
+                      "tasks/fetchAll", <br>
+                      // Використовуємо символ підкреслення як ім'я першого параметра, <br>
+                      // тому що в цій операції він нам не потрібен <br>
+                      async (_, thunkAPI) => { <br>
+                        try { <br>
+                          const response = await axios.get("/tasks"); <br>
+                          // При успішному запиті повертаємо проміс із даними <br>
+                          return response.data; <br>
+                        } catch (e) { <br>
+                          // При помилці запиту повертаємо проміс <br>
+                          // який буде відхилений з текстом помилки <br>
+                          return thunkAPI.rejectWithValue(e.message); <br>
+                        } <br>
+                      } <br>
+                    ); <br>
+                  </p>
+                  <p>
+                    Функція createAsyncThunk не створює редюсер, тому що не може знати, як ми хочемо відстежувати стан завантаження, з якими даними завершиться запит та як їх правильно обробити. Тому наступним кроком буде зміна коду слайсу tasksSlice так, щоб він обробляв нові екшени. <br>
+                    Властивість extraReducers використовується щоб оголосити редюсери для «зовнішніх» типів екшенів, тобто тих, які не згенеровані з властивості reducers. Оскільки ці редюсери обробляють «зовнішні» екшени, для них не буде створено генератори екшенів в slice.actions, в цьому немає необхідності.
+                  </p>
+                  <p class="exemplar">
+                    src/redux/tasksSlice.js <br>
+                    <br>
+                    import { createSlice } from "@reduxjs/toolkit"; <br>
+                    // Імпортуємо операцію <br>
+                    import { fetchTasks } from "./operations"; <br>
+                    <br>
+                    const tasksSlice = createSlice({ <br>
+                      name: "tasks", <br>
+                      initialState: { <br>
+                        items: [], <br>
+                        isLoading: false, <br>
+                        error: null, <br>
+                      }, <br>
+                      // Додаємо обробку зовнішніх екшенів <br>
+                      extraReducers: { <br>
+                        [fetchTasks.pending](state) { <br>
+                          state.isLoading = true; <br>
+                        }, <br>
+                        [fetchTasks.fulfilled](state, action) { <br>
+                          state.isLoading = false; <br>
+                          state.error = null; <br>
+                          state.items = action.payload; <br>
+                        }, <br>
+                        [fetchTasks.rejected](state, action) { <br>
+                          state.isLoading = false; <br>
+                          state.error = action.payload; <br>
+                        }, <br>
+                      }, <br>
+                    }); <br>
+                    <br>
+                    export const tasksReducer = tasksSlice.reducer; <br>
+                  </p>
+                  <h4>
+                    Але все це написано в extraReducers для однієї дії, а якщо їх буде декілька то це дуже багато коду, тому це можна все оптимізувати. <br>
+                    Тепер напишемо новий реальний приклад з оптимізацією все в одному файлі, що звісно можна (потрібно) буде розкидати по різним файлам
+                  </h4>
+                  <div class="section-box">
+                    <p class="exemplar">
+                    reducer.js <br>
+                    <br>
+                    import {combineReducers} from 'redux'; <br>
+                    import {counterReducer} from './counter/counterReducer.js'; <br>
+                    import {todoReducer} from './todo/todoReducer.js'; <br>
+                    import {newsReducer} from './news/newsReducer.js'; <br>
+                    <br>
+                    export const reducer = ({ <br>
+                    counter: counterReducer, <br>
+                    todo: todoReducer, <br>
+                    news: newsReducer, <br>
+                    })  <br>
+                    <br>
+                  </p>
+                  <p class="exemplar">
+                    src/services/getNews.js <br>
+                    // функція яка відправляє запит на бекенд за топ новинами // <br>
+                    const BASE_URL = "https://newsapi.org/v2" <br>
+                    const API_KEY = "feef20bb6ec8430ab253f1d0367f9ccf" <br>
+                    <br>
+                    export const getTopNews = async () => { <br>
+                      const data = await fetch(`${BASE_URL}/top-headLines?country=us`, { <br>
+                      headers: { 'X-Api-Key': API_KEY, } <br>
+                    }) <br>
+                    return await data.json() <br>
+                    } <br>
+                  </p>
+                  </div>
+                  <ol>
+                    <li>
+                      <p class="exemplar">
+                        src/news/newsSlice.js <br>
+                        <br>
+                        import { createSlice } from "@reduxjs/toolkit"; <br>
+                        import { getTopNews } from "services/getNews.js"; <br>
+                        <br>
+                        // createAsyncThunk сам створює екшени //<br>
+                        export const getNewsThunk = createAsyncThunk('news/getTopNews', async () => { <br>
+                          return await getTopNews() <br> 
+                        }) <br>
+                        <br>
+                        const initialState = {
+                          news: [],
+                          isLoading: false,
+                          error: "",
+                        } <br>
+                        <br>
+                        const newsSlice = createSlice({ <br>
+                          name: "tasks", <br>
+                          initialState, <br>
+                          extraReducers: { <br>
+                            [getNewsThunk.pending](state) { <br>
+                              state.isLoading = true; <br>
+                            }, <br>
+                            [getNewsThunk.fulfilled](state, {payload}) {  //(action.payload) з action одразу диструктуризуємо payload //<br>
+                              state.isLoading = false; <br>
+                              state.error = ""; <br>
+                              state.items = payload.articles; <br>
+                            }, <br>
+                            [getNewsThunk.rejected](state, {payload}) {  // (action.payload) з action одразу диструктуризуємо payload //<br>
+                              state.isLoading = false; <br>
+                              state.error = payload; <br>
+                            }, <br>
+                          }, <br>
+                        }); <br>
+                         <br>
+                        export const newsReducer = newsSlice.reducer; <br>
+                        <br>
+                      </p>
+                      <p>Це весь код для однієї дії, якщо їх буде 5 то це 45 рядків. Тому йдемо оптимізовуувати</p>
+                    </li>
+                    <li>
+                      <div class="section-box">
+                        <p class="exemplar">
+                        src/news/newsSlice.js <br>
+                        <br>
+                        // весь попередній код // <br>
+                        <br>
+                        const newsSlice = createSlice({ <br>
+                          name: "tasks", <br>
+                          initialState, <br>
+                          extraReducers: (builder) => { <br>
+                            builder.addCase(getNewsThunk.pending, (state) => { <br>
+                              state.isLoading = true; <br>
+                            }) <br>
+                            .addCase(getNewsThunk.fulfilled, (state, {payload}) => { <br>
+                              state.isLoading = false; <br>
+                              state.error = ""; <br>
+                              state.items = payload.articles; <br>
+                            }) <br>
+                            .addCase(getNewsThunk.rejected, (state, {payload}) => {  <br>
+                              state.isLoading = false; <br>
+                              state.error = payload; <br>
+                            }) <br>
+                          }, <br>
+                        }); <br>
+                        <br>
+                        export const newsReducer = newsSlice.reducer; <br>
+                      </p>
+                      <p class="exemplar">
+                        // тепер всі колбек функції виносимо окремо (в майбутньому можна в окремі файли) // <br>
+                        <br>
+                        src/news/newsSlice.js <br>
+                        <br>
+                        // весь попередній код // <br>
+                        <br>
+                        const handlePending = (state) => { <br>
+                              state.isLoading = true; <br>
+                            } <br>
+                        <br>
+                        const handleFulfilled = (state, {payload}) => { <br>
+                              state.isLoading = false; <br>
+                              state.error = ""; <br>
+                              state.items = payload.articles; <br>
+                            } <br>
+                        <br>
+                        const handleRejected = (state, {payload}) => {  <br>
+                              state.isLoading = false; <br>
+                              state.error = payload; <br>
+                            } <br>
+                        <br>
+                        const newsSlice = createSlice({ <br>
+                          name: "tasks", <br>
+                          initialState, <br>
+                          extraReducers: (builder) => { <br>
+                            builder <br> 
+                            .addCase(getNewsThunk.pending, handlePending) <br>
+                            .addCase(getNewsThunk.fulfilled, handleFulfilled) <br>
+                            .addCase(getNewsThunk.rejected, handleRejected) <br>
+                          }, <br>
+                        }); <br>
+                        <br>
+                        export const newsReducer = newsSlice.reducer; <br>
+                      </p>
+                      </div>
+                      <div>
+                        <h4>Тепер додамо ще одну функцію для пошуку новин за запитом </h4>
+                        <p class="exemplar">
+                    src/services/getNews.js <br>
+                    const BASE_URL = "https://newsapi.org/v2" <br>
+                    const API_KEY = "feef20bb6ec8430ab253f1d0367f9ccf" <br>
+                    <br>
+                    // функція яка відправляє запит на бекенд за топ новинами // <br>
+                    export const getTopNews = async () => { <br>
+                      const data = await fetch(`${BASE_URL}/top-headLines?country=us`, { <br>
+                      headers: { 'X-Api-Key': API_KEY, } <br>
+                    }) <br>
+                    return await data.json() <br>
+                    } <br>
+                    <br>
+                    // функція яка відправляє запит на бекенд за новинами по запиту // <br>
+                    export const getNews = async () => { <br>
+                      const data = await fetch(`${BASE_URL}/everyfing?q=${searchText}`, { <br>
+                      headers: { 'X-Api-Key': API_KEY, } <br>
+                    }) <br>
+                    return await data.json() <br>
+                    } <br>
+                    <br>
+                  </p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="section-box">
+                        <p class="exemplar">
+                        src/news/newsSlice.js <br>
+                        <br>
+                        import { createSlice } from "@reduxjs/toolkit"; <br>
+                        import { getTopNews } from "services/getNews.js"; <br>
+                        <br>
+                        export const getNewsThunk = createAsyncThunk('news/getTopNews', async () => { <br>
+                          return await getTopNews() <br> 
+                        }) <br>
+                        <br>
+                        export const getNewsSearchThunk = createAsyncThunk('news/getSearch', async (searchText) => { <br>
+                          return await getNews(searchText) <br> 
+                        }) <br>
+                        <br>
+                        const initialState = {
+                          news: [],
+                          isLoading: false,
+                          error: "",
+                        } <br>
+                        <br>
+                        const handlePending = (state) => { <br>
+                              state.isLoading = true; <br>
+                            } <br>
+                        <br>
+                        const handleFulfilled = (state, {payload}) => { <br>
+                              state.isLoading = false; <br>
+                              state.error = ""; <br>
+                              state.items = payload.articles; <br>
+                            } <br>
+                        <br>
+                        const handleRejected = (state, {payload}) => {  <br>
+                              state.isLoading = false; <br>
+                              state.error = payload; <br>
+                            } <br>
+                        <br>
+                        const newsSlice = createSlice({ <br>
+                          name: "tasks", <br>
+                          initialState, <br>
+                          extraReducers: (builder) => { <br>
+                            builder <br> 
+                            .addCase(getNewsThunk.pending, handlePending) <br>
+                            .addCase(getNewsThunk.fulfilled, handleFulfilled) <br>
+                            .addCase(getNewsThunk.rejected, handleRejected) <br>
+                            .addCase(getNewsSearchThunk.pending, handlePending) <br>
+                            .addCase(getNewsSearchThunk.fulfilled, handleFulfilled) <br>
+                            .addCase(getNewsSearchThunk.rejected, handleRejected) <br>
+                          }, <br>
+                        }); <br>
+                        <br>
+                        export const newsReducer = newsSlice.reducer; <br>
+                        <br>
+                          Але тут також як бачимо у нас буде по 3 рядочки на кожну функцію <br>
+                          Це можна також покращити <br>
+                          <br>
+                      </p>
+                        <p class="exemplar">
+                          // використовуємо методи .addMatcher() та isAnyOf() // <br>
+                          <br>
+                        src/news/newsSlice.js <br>
+                        <br>
+                        import { createSlice, isAnyOf } from "@reduxjs/toolkit"; <br>
+                        import { getTopNews } from "services/getNews.js"; <br>
+                        <br>
+                        export const getNewsThunk = createAsyncThunk('news/getTopNews', async () => { <br>
+                          return await getTopNews() <br> 
+                        }) <br>
+                        <br>
+                        export const getNewsSearchThunk = createAsyncThunk('news/getSearch', async (searchText) => { <br>
+                          return await getNews(searchText) <br> 
+                        }) <br>
+                        <br>
+                        const initialState = {
+                          news: [],
+                          isLoading: false,
+                          error: "",
+                        } <br>
+                        <br>
+                        const handlePending = (state) => { <br>
+                              state.isLoading = true; <br>
+                            } <br>
+                        <br>
+                        const handleFulfilled = (state, {payload}) => { <br>
+                              state.isLoading = false; <br>
+                              state.error = ""; <br>
+                              state.items = payload.articles; <br>
+                            } <br>
+                        <br>
+                        const handleRejected = (state, {payload}) => {  <br>
+                              state.isLoading = false; <br>
+                              state.error = payload; <br>
+                            } <br>
+                        <br>
+                        const newsSlice = createSlice({ <br>
+                          name: "tasks", <br>
+                          initialState, <br>
+                          extraReducers: (builder) => { <br>
+                            builder <br> 
+                            .addMatcher(isAnyOf(...fn()), handlePending) <br>
+                            .addMatcher(isAnyOf([getNewsSearchThunk.fulfilled, getNewsThunk.fulfilled]), handleFulfilled) <br>
+                            .addMatcher(isAnyOf([getNewsSearchThunk.rejected, getNewsThunk.rejected]), handleRejected) <br>                            
+                          }, <br>
+                        }); <br>
+                        <br>
+                        export const newsReducer = newsSlice.reducer; <br>
+                        <br>
+                          Але тут також проблема, як бачимо всі фнкції передаємо в масив, якщо їх буде багато то масив буде довгий<br>
+                          <br>
+                      </p>
+                      </div>                       
+                    </li>
+                    <li>
+                       <p class="exemplar">
+                          // Кінцевий результат нашої оптимізації може виглядати ось так // <br>
+                          <br>
+                        src/news/newsSlice.js <br>
+                        <br>
+                        import { createSlice, isAnyOf } from "@reduxjs/toolkit"; <br>
+                        import { getTopNews } from "services/getNews.js"; <br>
+                        <br>
+                        // Тут змінюємо isLoading на status //<br>
+                        const initialState = {
+                          news: [],
+                          status: 'idle',
+                          error: "",
+                        } <br>
+                        <br>
+                        // Створюємо об'єкт з дефолтними значеннями статуса щоб потім десь не помилитись при введенні<br>
+                        const defaultStatus = { <br>
+                        pending: 'pending', <br>
+                        fulfilled: 'fulfilled', <br>
+                        rejected: 'rejected', <br>
+                        } <br>
+                        <br>
+                        // Створюємо масив в який будемо закидувати методи (функції)<br>
+                        const arrFunction = [getNewsThunk, getNewsSearchThunk] <br>
+                        <br>
+                        // Створюємо функцію яка буде переберати цей масив функцій та додавати до них статус <br>
+                        const fn = (status) => arrFunction.map(l => el[status]) <br>
+                        <br>
+                        export const getNewsThunk = createAsyncThunk('news/getTopNews', async () => { <br>
+                          return await getTopNews() <br> 
+                        }) <br>
+                        <br>
+                        export const getNewsSearchThunk = createAsyncThunk('news/getSearch', async (searchText) => { <br>
+                          return await getNews(searchText) <br> 
+                        }) <br>                        
+                        <br>
+                        // Тут змінюємо isLoading на status та додаємо значення статусу //<br>
+                        const handlePending = (state) => { <br>
+                              state.status = defaultStatus.pending; <br>
+                            } <br>
+                        <br>
+                        // Тут змінюємо isLoading на status та додаємо значення статусу //<br>
+                        const handleFulfilled = (state, {payload}) => { <br>
+                              state.status = defaultStatus.fulfilled; <br>
+                              state.error = ""; <br>
+                              state.items = payload.articles; <br>
+                            } <br>
+                        <br>
+                        // Тут змінюємо isLoading на status та додаємо значення статусу //<br>
+                        const handleRejected = (state, {payload}) => {  <br>
+                              state.status = defaultStatus.rejected; <br>
+                              state.error = payload; <br>
+                            } <br>
+                        <br>
+                        const newsSlice = createSlice({ <br>
+                          name: "tasks", <br>
+                          initialState, <br>
+                          extraReducers: (builder) => { <br>
+                            builder <br> 
+                            .addMatcher(isAnyOf(...fn(defaultStatus.pending)), handlePending) <br>
+                            .addMatcher(isAnyOf(...fn(defaultStatus.fulfilled)), handleFulfilled) <br>
+                            .addMatcher(isAnyOf(...fn(defaultStatus.rejected)), handleRejected) <br>                            
+                          }, <br>
+                        }); <br>
+                        <br>
+                        export const newsReducer = newsSlice.reducer; <br>
+                        <br>
+                          При додаванні нових функцій ми просто докидуватимо їх до масиву arrFunction <br>
+                          <br>
+                      </p>
+                    </li>
+                  </ol>
                   <div class="section-box">
                     <img src="" width="0" alt="" />
                   </div>
@@ -4922,6 +5412,9 @@ b<!DOCTYPE html>
           <ul>
             <li><a href="" target="_blank"></a></li>
           </ul>
+          <div class="section-icon">
+            <img src="" width="0" alt="" />
+          </div>
           <div class="section-box">           
             <img src="" width="" >
           </div>

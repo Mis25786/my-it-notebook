@@ -4919,7 +4919,7 @@ b<!DOCTYPE html>
           </div>
 
           <ul>
-            <!--  -->
+            <!-- createAsyncThunk -->
             <li>
               <h4 class="section-title__name"></h4>
               <div class="section-box">
@@ -5022,6 +5022,7 @@ b<!DOCTYPE html>
                     <br>
                     export const tasksReducer = tasksSlice.reducer; <br>
                   </p>
+                  <!-- ПРИКЛАД -->
                   <h4>
                     Але все це написано в extraReducers для однієї дії, а якщо їх буде декілька то це дуже багато коду, тому це можна все оптимізувати. <br>
                     Тепер напишемо новий реальний приклад з оптимізацією все в одному файлі, що звісно можна (потрібно) буде розкидати по різним файлам
@@ -5099,6 +5100,7 @@ b<!DOCTYPE html>
                       </p>
                       <p>Це весь код для однієї дії, якщо їх буде 5 то це 45 рядків. Тому йдемо оптимізовуувати</p>
                     </li>
+                    <!-- оптимізація №1 -->
                     <li>
                       <div class="section-box">
                         <p class="exemplar">
@@ -5189,6 +5191,7 @@ b<!DOCTYPE html>
                   </p>
                       </div>
                     </li>
+                    <!-- оптимізація №2 -->
                     <li>
                       <div class="section-box">
                         <p class="exemplar">
@@ -5301,8 +5304,9 @@ b<!DOCTYPE html>
                       </p>
                       </div>                       
                     </li>
+                    <!-- Кінцевий результат нашої оптимізації може виглядати ось так -->
                     <li>
-                       <p class="exemplar">
+                      <p class="exemplar">
                           // Кінцевий результат нашої оптимізації може виглядати ось так // <br>
                           <br>
                         src/news/newsSlice.js <br>
@@ -5374,6 +5378,230 @@ b<!DOCTYPE html>
                       </p>
                     </li>
                   </ol>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+
+            <!-- <!-- RTK Query -->
+            <li>
+              <h4 class="section-title__name">RTK Query</h4>
+              <h3>Модуль 7_Урок-2 (в другій половині)</h3>
+              <p>RTK Query - Спрощує та полегшує роботу з HTTP-запитами в Redux</p>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p>
+                    Структура файлів: <br>
+                    src/redux або store: <br>
+                    products // папка <br>
+                    - productsApi.js <br>
+                    reducer.js <br>
+                    store.js <br>
+                  </p>
+                  <div>
+                    <h3>1) Перше - створюємо файл productsApi.js в src/redux/products і в ньому функцію яка буде робити запит:</h3>
+                    <p class="exemplar">
+                      import {createApi} from "@reduxjs/toolkit/query/react" <br>
+                      <br>
+                      export const productsApi = createApi({ <br>
+                      // створюємо ключі // <br>
+                      reducerPath: 'products', // це те саме що в productsSlice - name: 'products' <br>
+                      baseQuery: fetchBaseQuery({ baseUrl: 'https://api/escuelajs.co/api/v1' }), // функція яка реалізовує запит на бекенд // <br>
+                      endpoints: (builder) => ({
+                        getProducts: builder.query({ // builder.query коли робимо гет запит пишемо query коли робимо PUT, DELETE, PACH то пишемо mutation//
+                          query: () => `products`, // тут передаємо рядочок запиту який додасться до url -> "featch(`${BASE_URL}?/products`)" //
+                        }), <br>
+                      }), <br>
+                      }) <br>
+                      <br>
+                      Далі створюємо та експортуємо хук для роботи в компоненті <br>
+                      1) на початок додаємо "use" <br>
+                      2) беремо назву ключа getProducts, і це все зєднуємо в камел кейс "useGetProducts" <br>
+                      3) далі показуємо яка дія це: запит (query) або мутація - зміна/видалення (mutation) "useGetProductsQuery" <br>
+                      <br>
+                      export const {useGetProductsQuery} = productsApi <br>
+                      <br>
+                      Все що буде створено query поверне ОБ'ЄКТ <br>
+                      Все що буде створено mutation поверне МАСИВ <br>
+                      <br>
+                      І це все, тобто ціє однією фінкцією ми замінили 5 файлів: <br>
+                      getProducts.js // файл з функцією запиту // <br>
+                      initialState.js <br>
+                      productsSlice.js <br>
+                      productsSelectors.js <br>
+                      thunk.js <br>
+                    </p>
+                    <h3>2) По друге в src/redux/reducer.js </h3>
+                    <p class="exemplar">
+                      import { productsApi } from './products/productsAPI' <br>
+                      <br>
+                      export const reducer = { <br>
+                      [productsApi.reducerPath]: productsApi.reducer <br>
+                      } <br>
+                    </p>
+                    <h3>3) По третье в src/redux/store.js потрібно додати ще один мідлвер </h3>
+                    <p class="exemplar">
+                      import { configureStore } from '@reduxjs/toolkit' <br>
+                      import { reducer as rootReducer } from './reducer' <br>
+                      import { <br>
+                      	persistStore, <br>
+                      	persistReducer, <br>
+                      	FLUSH, <br>
+                      	REHYDRATE, <br>
+                      	PAUSE, <br>
+                      	PERSIST, <br>
+                      	PURGE, <br>
+                      	REGISTER, <br>
+                      } from 'redux-persist' <br>
+                      import storage from 'redux-persist/lib/storage' // defaults to localStorage for web <br>
+                      import { productsApi } from './products/productsAPI' <br>
+                      <br>
+                      const persistConfig = { <br>
+                      	key: 'items', <br>
+                      	storage, <br>
+                      	blacklist: ['todo'], <br>
+                      } <br>
+                      const persistedReducer = persistedReducer(persistConfig, reducer) <br>
+                      <br>
+                      // Без персіста // <br>
+                      export const store = configureStore({ <br>
+                      reducer: persistedReducer, <br>
+                      middleware: (getDefaultMiddleware) => <br>
+                        getDefaultMiddleware().concat(productsApi.middleware), <br>
+                        <br>
+                      // З персістом // <br>
+                      export const store = configureStore({ <br>
+                      reducer: persistedReducer, <br>
+                      middleware: [customMiddle], <br>
+                      middleware: (getDefaultMiddleware) => <br>
+                        getDefaultMiddleware({ <br>
+                        serializableCheck: { <br>
+                        ignoredActions: [<br>
+                          FLUSH, <br>
+                          REHYDRATE, <br>
+                          PAUSE, <br>
+                          PERSIST, <br>
+                          PURGE, <br>
+                          REGISTER, <br>
+                        }, <br>
+                        }).concat(productsApi.middleware), <br>
+                        <br>
+                      }) <br>
+                      <br>
+                      export const persistor = persistStore(store) <br>
+                    </p>
+                    <!-- Додаємо видалення -->
+                    <h5 class="section-title__value">Додаємо ще один запит на видалення</h5>
+                  <p></p>
+                  <p class="exemplar">                    
+                    export const productsApi = createApi({ <br>
+                    	reducerPath: 'products', <br>
+                    	tagTypes: ['Products'], // 1) щоб дії виконувались треба зробити підписку, назву даємо логічну по назві компонента // <br>
+                    	baseQuery: fetchBaseQuery({ baseUrl: 'https://dummyjson.com' }), <br>
+                    	endpoints: (builder) => ({ <br>
+                    		getProducts: builder.query({ <br>
+                    			query: () => '/products', <br>
+                    			providesTags: ['Products'], // 2) Підписуємо наш запит до цих продуктів (компонента) (підписався на всі продукти) // <br>
+                    		}), <br>
+                    		deleteProducts: builder.mutation({ // builder.mutation коли робимо PUT, DELETE, PACH то пишемо mutation // <br>
+                    			query: (id) => ({ method: 'delete', url: `/products/${id}`, }), // 3) Створюємо метод для видалення // <br>
+                    			invalidatesTags: ['Products'], // 4) Підписка яка сигналізує що продукти оновилися // <br>
+                    		}), <br>
+                    	}), <br>
+                    }) <br>
+                     <br>
+                    export const { useGetProductsQuery, useDeleteProductsMutation } = productsApi <br>
+                  </p>
+                  <!-- Використовуємо в компоненті -->
+                    <h5 class="section-title__value">Використовуємо в компоненті</h5>
+                  <p class="exemplar">
+                    import {useDeleteProductsMutation,useGetProductsQuery,} from '../../store/products/productsAPI' <br>
+                    <br>
+                    const productsPage = () => { <br>
+                      Все що буде створено query поверне ОБ'ЄКТ <br>
+                      Все що буде створено mutation поверне МАСИВ <br>
+                      <br>
+                      const {isLoading, data:products, isError} = useGetProductsQuery(); <br>
+                      // У всі методи mutation передаються перше функція (видалити, додати, змінити) друге всі данні що і в query {isLoading, data:products, isError і.т.д.} // <br>
+                      // Зарас другим аргум. передамо змінну наприклад data в якому будуть міститись ці всі данні <br>
+                      const [func, data] = useDeleteProductsMutation() <br>
+                      <br>
+                      return ( <br>
+                      		<> <br>
+                      			{isLoading && ( < div className='spinner-border' role='status'> < span className='visually-hidden'>Loading...< /span> < /div> )} <br>
+                      			{products && ( <br>
+                      				< div className='container text-center'> <br>
+                      					< div className='row'> <br>
+                      						{products.products.map( <br>
+                      							({ id, title, description, images, price }) => ( <br>
+                      								< div className='col' key={id}> <br>
+                      									< div className='card' style={{ width: '18rem' }} > <br>
+                      										< img src={images[0]} className='card-img-top' alt={title} /> <br>
+                      										< div className='card-body'> <br>
+                      											< h5 className='card-title'> {title} < /h5> <br>
+                      											< p className='card-text'> {price} $ < /p> <br>
+                      											< p className='card-text'> {description} < /p> <br>
+                      											< button className='btn btn-danger' onClick={() => func(id)} > Delete < /button> <br>
+                      										< /div> <br>
+                      									< /div> <br>
+                      								< /div> <br>
+                      							) <br>
+                      						)} <br>
+                      					< /div> <br>
+                      				< /div> <br>
+                      			)} <br>
+                            <br>
+                      			{isError && < h2>error< /h2>} <br>
+                      		</> <br>
+                      	) <br>
+                      } <br>
+                      <br>
+                      export default ProductsPage <br>
+                  </p>
+                  </div>
+                  <div class="section-box">
+                    <img src="" width="0" alt="" />
+                  </div>
+                </div>   
+                <div class="section-icon">
+                  <img src="" width="0" alt="" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="section">
+        <div class="container">
+            <h3 class="section-title">title</h3>
+          <h3></h3>
+          
+          <!-- <ul>
+            <li><a href="" target="_blank"></a></li>
+          </ul> -->
+          <!-- <div class="section-icon">
+            <img src="" width="0" alt="" />
+          </div> -->
+          <!-- <div class="section-box">           
+            <img src="" width="" >
+          </div> -->
+
+          <ul>
+            <!--  -->
+            <li>
+              <h4 class="section-title__name"></h4>
+              <div class="section-box">
+                <div>
+                  <h5 class="section-title__value"></h5>
+                  <p></p>
                   <div class="section-box">
                     <img src="" width="0" alt="" />
                   </div>

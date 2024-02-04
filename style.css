@@ -153,7 +153,7 @@ body {
 	background: linear-gradient(right, red, lime);
 	color: linear-gradient(right, red, lime);
 	color: var(--text-akcent-color);
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 }
 
 .section-box {
